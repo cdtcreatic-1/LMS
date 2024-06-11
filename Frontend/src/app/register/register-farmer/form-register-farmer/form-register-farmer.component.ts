@@ -144,7 +144,7 @@ export class FormRegisterFarmerComponent implements OnInit, OnDestroy {
   }
 
   onChangeLoadImage(event: any) {
-    if (event.target.files[0].size < 1000000) {
+    if (event.target.files[0].size < 3000000) {
       if (
         event.target.files[0].type === 'image/png' ||
         event.target.files[0].type === 'image/jpeg'
@@ -171,7 +171,7 @@ export class FormRegisterFarmerComponent implements OnInit, OnDestroy {
       }
     } else {
       this.store.dispatch(
-        setIsErrorMessage({ message: 'La imagen cargada pesa más de 1Mb' })
+        setIsErrorMessage({ message: 'La imagen cargada pesa más de 3Mb' })
       );
     }
   }

@@ -12,14 +12,14 @@
                   formControlName="allName"
                   class="fcdt-input-p2"
                   [ngClass]="{ 'input-disable': dataUser }"
-                  minlength="10"
-                  maxlength="90"
+                  minlength="6"
+                  maxlength="50"
                   required
                   placeholder="Ej: Pepe Gomez Muñoz"
-                  pattern="^[a-zA-ZáéíóúñÑÁÉÍÓÚüÜ\s]+$"
+                  pattern="^[a-zA-ZáéíóúñÁÉÍÓÚ\s]{6,50}$"
                   [matTooltip]="
                     validatorFields('allName')
-                      ? 'Usar únicamente letras con un mínimo 10 y máximo de 90 caracteres'
+                      ? 'Usar únicamente letras con un mínimo 6 y máximo de 50 caracteres'
                       : ''
                   "
                   [matTooltipClass]="'myTooltip'"
@@ -42,13 +42,13 @@
                   formControlName="phone"
                   class="fcdt-input-p2"
                   [ngClass]="{ 'input-disable': dataUser }"
-                  minlength="6"
-                  maxlength="10"
+                  minlength="8"
+                  maxlength="15"
                   required
                   pattern="[0-9]*"
                   [matTooltip]="
                     validatorFields('phone')
-                      ? 'Usar únicamente números con una longitud mínima de 6 y máxima de 10 dígitos'
+                      ? 'Usar únicamente números con una longitud mínima de 8 y máxima de 15 dígitos'
                       : ''
                   "
                   [matTooltipClass]="'myTooltip'"
@@ -74,11 +74,13 @@
                   class="fcdt-input-p2"
                   [ngClass]="{ 'input-disable': dataUser }"
                   maxlength="50"
+                  minlength="6"
                   required
+                  pattern="^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$"
                   placeholder="Ej: sorvo@mail.com"
                   [matTooltip]="
                     validatorFields('mail')
-                      ? 'Digite un correo electrónico válido'
+                      ? 'Digite una dirección de correo válida. Ej: email@ejemplo.com'
                       : ''
                   "
                   [matTooltipClass]="'myTooltip'"
@@ -105,16 +107,16 @@
                   class="fcdt-input-p2"
                   [ngClass]="{ 'input-disable': dataUser }"
                   minlength="6"
-                  maxlength="90"
+                  maxlength="50"
+                  placeholder="Ej: pepemunoz"
                   required
-                  pattern="^(?=.*[a-zñÑ])[A-Za-zñÑ0-9]{6,90}$"
+                  pattern="^(?=.*[a-zñÑ])[A-Za-zñÑ0-9]{6,50}$"
                   [matTooltip]="
                     validatorFields('userName')
-                      ? 'El nombre de usuario no debe tener espacios, tíldes o símbolos. Además, debe contener entre 6 y 90 caracteres'
+                      ? 'El nombre de usuario no debe tener espacios, tíldes o símbolos. Además, debe contener entre 6 y 50 caracteres'
                       : ''
                   "
                   [matTooltipClass]="'myTooltip'"
-                  placeholder="Ej: pepemunoz"
                 />
               </div>
               <div class="container-placeholder">
@@ -134,13 +136,13 @@
                   formControlName="identification"
                   class="fcdt-input-p2"
                   [ngClass]="{ 'input-disable': dataUser }"
-                  minlength="6"
-                  maxlength="10"
+                  minlength="8"
+                  maxlength="11"
                   pattern="[0-9]*"
                   required
                   [matTooltip]="
                     validatorFields('identification')
-                      ? 'Usar únicamente números con una longitud mínima de 6 y máxima de 10 dígitos'
+                      ? 'Usar únicamente números con una longitud mínima de 8 y máxima de 11 dígitos'
                       : ''
                   "
                   [matTooltipClass]="'myTooltip'"
@@ -165,7 +167,7 @@
                   formControlName="postalCode"
                   class="fcdt-input-p2"
                   minlength="6"
-                  maxlength="8"
+                  maxlength="10"
                   pattern="[0-9]*"
                   required
                   [matTooltip]="
@@ -259,11 +261,14 @@
                     formControlName="password"
                     class="input-password"
                     placeholder="Contraseña"
-                    matTooltip="La contraseña debe tener entre 8 y 16 caracteres, debe contener minúscula(s), mayúscula(s), número(s) y al menos un caracter especial (@+.*-_/%#$,)."
+                    [required]="dataUser ? false : true"
+                    minlength="8"
+                    maxlength="18"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@+.*\-_/%#$,])[A-Za-z\d@+.*\-_/%#$,]{8,16}$"
+                    matTooltip="La contraseña debe tener entre 8 y 18 caracteres, debe contener minúscula(s), mayúscula(s), número(s) y al menos un caracter especial (@+.*-_/%#$,)."
                     matTooltipPosition="above"
                     [matTooltipClass]="'myTooltip'"
                     style="border: none"
-                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@+.*\-_/%#$,])[A-Za-z\d@+.*\-_/%#$,]{8,16}$"
                   />
                   <ion-icon
                     *ngIf="!isShowPassword()"
@@ -279,18 +284,27 @@
                 </div>
               </div>
               <div class="container-input-form">
-                <div class="fcdt-input-password-all-boder">
+                <div
+                  [ngClass]="{
+                    'fcdt-input-error-password-all-boder':
+                      validatorFields('confirmPassword'),
+                    'fcdt-input-password-all-boder':
+                      !validatorFields('confirmPassword')
+                  }"
+                >
                   <input
                     [type]="isShowRepeatPassword ? 'text' : 'password'"
                     formControlName="confirmPassword"
-                    class="input-password"
+                    class="fcdt-input-box-p2"
                     placeholder="Confirmar contraseña"
+                    [required]="dataUser ? false : true"
+                    matTooltip="La contraseña debe tener entre 8 y 18 caracteres, debe contener minúscula(s), mayúscula(s), número(s) y al menos un caracter especial (@+.*-_/%#$,)."
+                    [matTooltipClass]="'myTooltip'"
+                    minlength="8"
                     maxlength="18"
-                    [ngClass]="{
-                      'fcdt-field-error-form-all-border-p2':
-                        validatorFields('confirmPassword')
-                    }"
+                    autocomplete="off"
                     style="border: none"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@+.*\-_/%#$,])[A-Za-z\d@+.*\-_/%#$,]{8,16}$"
                   />
                   <ion-icon
                     *ngIf="!isShowRepeatPassword"

@@ -107,7 +107,7 @@ export class GlobalRegisterService {
         this.store.dispatch(setIsLoading({ value: false }));
         this.store.dispatch(
           setIsErrorMessage({
-            message: `${error.error.code}`,
+            message: `${error.error.message}`,
           })
         );
       },
@@ -131,6 +131,11 @@ export class GlobalRegisterService {
         error: (error) => {
           this._isErrorEditRegister$.next(false);
           this.store.dispatch(setIsLoading({ value: false }));
+          this.store.dispatch(
+            setIsErrorMessage({
+              message: `${error.error.message}`,
+            })
+          );
         },
       });
 

@@ -150,7 +150,7 @@ export class FormRegisterApprenticeComponent implements OnDestroy {
   }
 
   onChangeLoadImage(event: any) {
-    if (event.target.files[0].size < 1000000) {
+    if (event.target.files[0].size < 3000000) {
       if (
         event.target.files[0].type === 'image/png' ||
         event.target.files[0].type === 'image/jpeg'
@@ -177,7 +177,7 @@ export class FormRegisterApprenticeComponent implements OnDestroy {
       }
     } else {
       this.store.dispatch(
-        setIsErrorMessage({ message: 'La imagen cargada pesa más de 1Mb' })
+        setIsErrorMessage({ message: 'La imagen cargada pesa más de 3Mb' })
       );
     }
   }
@@ -298,9 +298,6 @@ export class FormRegisterApprenticeComponent implements OnDestroy {
 
   submitRegisterPUT() {
     console.log({ form: this.form1A.value });
-
-    this.form1A.get('');
-
     if (this.form1A.invalid) {
       this.form1A.markAllAsTouched();
       this.store.dispatch(

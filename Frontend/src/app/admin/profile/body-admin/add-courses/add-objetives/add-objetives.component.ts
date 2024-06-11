@@ -48,6 +48,9 @@ export class AddObjetivesComponent implements OnInit, OnDestroy {
     addSkill: [''],
   });
 
+  messageError: string =
+    'Se puede usar número y letras, tildes, signos de puntuación básicos como la coma (,), el punto (.), el guion (-), el guion bajo (_), la barra (/), el punto y coma (;), el dos puntos (:), con un mínimo de 20 y máximo de 500 caracteres';
+
   suscription: Subscription[] = [];
 
   constructor(
@@ -114,8 +117,7 @@ export class AddObjetivesComponent implements OnInit, OnDestroy {
     if (this.formAdd.get('addObjetive')?.invalid) {
       this.store.dispatch(
         setIsErrorMessage({
-          message:
-            'Usar letras, puntos, comas o números, con un mínimo de 10 y máximo de 500 caracteres. Los caracteres especiales no están permitidos.',
+          message: this.messageError,
         })
       );
       return;
@@ -163,8 +165,7 @@ export class AddObjetivesComponent implements OnInit, OnDestroy {
     if (this.formAdd.get('addSkill')?.invalid) {
       this.store.dispatch(
         setIsErrorMessage({
-          message:
-            'Usar letras, puntos, comas o números, con un mínimo de 10 y máximo de 500 caracteres. Los caracteres especiales no están permitidos.',
+          message: this.messageError,
         })
       );
       return;

@@ -74,9 +74,25 @@ exports.handler = async (req, res) => {
 
     let { user_enabled } = req.body;
 
+    // let user_profile_photo = null;
+    // if (req.files && req.files.user_profile_photo) {
+    //     user_profile_photo = req.files.user_profile_photo[0].path;
+    // }
+    const allowedFormats = ['image/jpeg', 'image/png']; // Formatos permitidos
+    const maxFileSize = 3 * 1024 * 1024; // Tamaño máximo permitido (3MB en bytes)
+
     let user_profile_photo = null;
     if (req.files && req.files.user_profile_photo) {
-        user_profile_photo = req.files.user_profile_photo[0].path;
+        const uploadedFile = req.files.user_profile_photo[0];
+        // Validar el formato del archivo
+        if (!allowedFormats.includes(uploadedFile.mimetype)) {
+            return res.status(400).json({ error: 'Formato de archivo no permitido.' });
+        }
+        // Validar el tamaño del archivo
+        if (uploadedFile.size > maxFileSize) {
+            return res.status(400).json({ error: 'El tamaño del archivo excede el límite permitido.' });
+        }
+        user_profile_photo = uploadedFile.path;
     }
 
     const valErrs = [];
@@ -95,39 +111,45 @@ exports.handler = async (req, res) => {
         appErr.send(req, res, 'validation_error', appErr.mergeValErrLists(valErrs));
         return;
     }
+
+    const maxImageSize = 3 * 1024 * 1024;
+    if (req.files && req.files.user_profile_photo && req.files.user_profile_photo[0].size > maxImageSize) {
+        valErrs.push({ user_profile_photo: 'image size should not exceed 3 MB' });
+    }
+    
     //user_name only letters and spaces  and minimun 3 characters and max 50 characters and avoid spaces at the beginning and end
-    const nameRegex = /^[^\s][a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s]{10,40}[^\s]$/;
+    const nameRegex = /^[\p{L}\sáéíóúüñÁÉÍÓÚÜÑ]{6,50}$/u;
     if (!nameRegex.test(user_name)) {
-        valErrs.push({ user_name: 'Nombre inválido. Debe contener solo letras, espacios y caracteres especiales (como "ñ" o tíldes), tener entre 10 y 40 caracteres, y no debe comenzar ni terminar con espacios.' });
-    }    
+        valErrs.push({ user_name: 'Nombre inválido. Debe contener solo letras, espacios y caracteres especiales (como "ñ" o tíldes), tener entre 6 y 50 caracteres, y no debe comenzar ni terminar con espacios.' });
+    }
 
     // user_phone: only numbers and maximum 10 digits
-    const phoneRegex = /^[0-9]{6,10}$/;
+    const phoneRegex = /^\d{8,15}$/;
     if (!phoneRegex.test(user_phone)) {
-        valErrs.push({ user_phone: 'Invalid phone number. It should contain only numbers and have between 6 and 10 digits.' });
+        valErrs.push({ user_phone: 'Invalid phone number. It should contain only numbers and have between 8 and 15 digits.' });
     }
 
     // user_email: should have an email format and a maximum of 50 characters
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    const emailRegex = /^[a-zA-Z0-9._@-]{6,50}$/;
     if (!emailRegex.test(user_email)) {
         valErrs.push({ user_email: 'Invalid email. It should have a valid email format and a maximum of 50 characters.' });
     }
 
     // user_username: only letters and numbers and spaces and minimun 6 characters and max 90 characters
-    const usernameRegex = /^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚüÜ]{6,90}$/;
+    const usernameRegex = /^[a-zA-Z0-9]{6,50}$/;
     if (!usernameRegex.test(user_username)) {
-        valErrs.push({ user_username: 'Nombre de usuario inválido. Debe contener solo letras, números y debe tener entre 6 y 90 caracteres.' });
-    }    
+        valErrs.push({ user_username: 'Nombre de usuario inválido. Debe contener solo letras, números y debe tener entre 6 y 50 caracteres.' });
+    }
 
-    // number_document: only numbers and between 6 and 10 digits
-    const numberDocumentRegex = /^[0-9]{6,10}$/;
+    // number_document: only numbers and between 8 and 11 digits
+    const numberDocumentRegex = /^\d{8,11}$/;
     if (!numberDocumentRegex.test(number_document)) {
-        valErrs.push({ number_document: 'Invalid document number. It should contain only numbers and have between 6 and 10 digits.' });
+        valErrs.push({ number_document: 'Invalid document number. It should contain only numbers and have between 8 and 11 digits.' });
     }
 
     if (id_role == 2) {
         // postal_code: only numbers and length between 3 and 10 digits
-        const postalCodeRegex = /^[0-9]{2,10}$/;
+        const postalCodeRegex = /^\d{6,10}$/;
         if (!postalCodeRegex.test(postal_code)) {
             valErrs.push({ postal_code: 'Invalid postal code. It should contain only numbers.' });
         }
@@ -137,10 +159,10 @@ exports.handler = async (req, res) => {
         }
     }
     // user_password: maximum 16 characters and minimum 8 characters
-    const passwordRegex = /^(?=.*[a-zñ])(?=.*[A-ZÑ])(?=.*\d)(?=.*[@+.*\-_/%#$,])[A-Za-zñÑ\d@+.*\-_/%#$,]{8,16}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d^&])[^\s^&]{8,18}$/;
     if (!passwordRegex.test(user_password)) {
         valErrs.push({ user_password: 'Contraseña inválida. Debe tener entre 8 y 16 caracteres, contener al menos una letra mayúscula, un número y un carácter especial.' });
-    }    
+    }
 
     if (valErrs.length) {
         appErr.send(req, res, 'validation_error', appErr.mergeValErrLists(valErrs));
@@ -187,7 +209,7 @@ exports.handler = async (req, res) => {
         user = await userDal.createUser({ user_name, user_phone, user_email, id_user_gender, user_username, user_password, user_profile_photo, id_type_document, number_document, postal_code, id_state, user_enabled: userRole?.dataValues.id_role == 4 ? user_enabled : false, id_role });
 
         if (!id_user_created_by && !register_from_google) {
-           
+
             await sendMailAsync('Verificación de correo', registerMail({ name: user.user_name, token: user.user_token }), user_email);
 
         }

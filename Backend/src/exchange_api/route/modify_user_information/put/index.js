@@ -46,6 +46,11 @@ exports.handler = async (req, res) => {
   if (!user_personal_description_text) {
     valErrs.push({ user_personal_description_text: "missing" });
   }
+  
+  const userDescriptionRegex = /^[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.,\-_\/;: ]{20,500}$/;
+  if (!userDescriptionRegex.test(user_personal_description_text)) {
+      valErrs.push({ user_personal_description_text: 'Nombre inválido. Debe contener letras, tildes,Signos de puntuación básicos como la coma (,), el punto (.), el guion (-), el guion bajo (_), la barra (/), el punto y coma (;), el dos puntos (:)' });
+  }
 
   if (valErrs.length) {
     appErr.send(req, res, "validation_error", appErr.mergeValErrLists(valErrs));

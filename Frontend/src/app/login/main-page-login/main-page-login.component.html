@@ -39,9 +39,14 @@
               type="email"
               formControlName="email"
               maxlength="50"
+              minlength="6"
               required
               class="fcdt-input-p2"
               placeholder="Correo"
+              [matTooltip]="
+                validatorFields('email') ? 'Correo electrónico inválido' : ''
+              "
+              [matTooltipClass]="'myTooltip'"
             />
           </div>
 
@@ -50,10 +55,17 @@
               <input
                 [type]="isShowPassword ? 'text' : 'password'"
                 formControlName="password"
-                maxlength="40"
+                maxlength="50"
+                minlength="8"
                 required
                 class="fcdt-input-p2"
                 placeholder="Contraseña"
+                [matTooltip]="
+                  validatorFields('password')
+                    ? 'La contraseña debe tener como mínimo 8 caracteres'
+                    : ''
+                "
+                [matTooltipClass]="'myTooltip'"
                 style="border: none"
               />
 

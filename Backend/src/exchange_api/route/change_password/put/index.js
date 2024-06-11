@@ -18,7 +18,7 @@ exports.handler = async (req, res) => {
         }
     });
 
-    const passwordRegex = /^(?=.*[a-zñ])(?=.*[A-ZÑ])(?=.*\d)(?=.*[@+.*\-_/%#$,])[A-Za-zñÑ\d@+.*\-_/%#$,]{8,16}$/;
+    const passwordRegex =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%*()-+_=?{}[\];':"\\|,.<>\/])(?!.*[&^]).{8,18}$/;
     if (!passwordRegex.test(new_password)) {
       const errorMsg =
         "Criterios de contraseña inválidos. " +

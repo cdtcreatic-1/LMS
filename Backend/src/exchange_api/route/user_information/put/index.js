@@ -21,6 +21,11 @@ exports.handler = async (req, res) => {
     if (!id_user) {
         valErrs.push({ id_user: 'missing' });
     }
+
+    const usersDescriptionRegex = /^[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.,\-_\/;: ]{20,500}$/;
+    if (!usersDescriptionRegex.test(user_personal_description_text)) {
+        valErrs.push({ user_personal_description_text: 'Nombre inválido. Debe contener letras, tildes,Signos de puntuación básicos como la coma (,), el punto (.), el guion (-), el guion bajo (_), la barra (/), el punto y coma (;), el dos puntos (:)' });
+    }
     // Get user by id to check if it exists
     try {
         const userExists = await userDal.getUserByIdUser(id_user);

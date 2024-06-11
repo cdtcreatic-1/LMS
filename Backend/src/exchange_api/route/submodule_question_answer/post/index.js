@@ -27,26 +27,29 @@ exports.handler = async (req, res) => {
             }
         });
 
-        const maxLengths = { question_content: 250 };
-        const minLengths = { question_content: 5 };
-        const specialCharsRegex = /[!@#$%^&*()_+\-=\[\]{};'"\\|<>\/]+/;
-        const onlyDigitsRegex = /^\d+$/;
+        // const maxLengths = { question_content: 500 };
+        // const minLengths = { question_content: 20 };
+        // const specialCharsRegex = /^[A-Za-z0-9áéíóúÁÉÍÓÚüÜñÑ.,\/\-;:_?!¡\s]*$/;
+        // const onlyDigitsRegex = /^\d+$/;
 
         data.forEach(row => {
             const { question_content } = row;
-
-            if (question_content.length > maxLengths.question_content) {
-                valErrs.push({ question_content: `should not exceed ${maxLengths.question_content} characters` });
+            const subSummaryRegex = /^[0-9a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\s,.\-_\/;:?!]{10,500}$/;
+            if (!subSummaryRegex.test(question_content)) {
+                valErrs.push({ question_content: 'contains some special characters not allowed' });
             }
-            if (question_content.length < minLengths.question_content) {
-                valErrs.push({ question_content: `should have at least ${minLengths.question_content} characters` });
-            }
-            if (specialCharsRegex.test(question_content)) {
-                valErrs.push({ question_content: 'contains special characters' });
-            }
-            if (onlyDigitsRegex.test(question_content)) {
-                valErrs.push({ question_content: 'should not be only numeric values' });
-            }
+            // if (question_content.length > maxLengths.question_content) {
+            //     valErrs.push({ question_content: `should not exceed ${maxLengths.question_content} characters` });
+            // }
+            // if (question_content.length < minLengths.question_content) {
+            //     valErrs.push({ question_content: `should have at least ${minLengths.question_content} characters` });
+            // }
+            // if (specialCharsRegex.test(question_content)) {
+            //     valErrs.push({ question_content: 'contains special characters' });
+            // }
+            // if (onlyDigitsRegex.test(question_content)) {
+            //     valErrs.push({ question_content: 'should not be only numeric values' });
+            // }
         });
 
         if (valErrs.length) {
@@ -80,7 +83,6 @@ exports.handler = async (req, res) => {
                     if (answerExists) {
                         return res.status(400).json({ ok: false, msg: "answer_exist - Answer already exists" });
                     }
-
                     await answerDal.createAnswer({
                         answers_content,
                         answers_validity,

@@ -42,51 +42,61 @@ exports.handler = async (req, res) => {
         }
     });
 
+    const moduleTitleRegex = /^[\wáéíóúÁÉÍÓÚüÜñÑ.,\/\-:;'"¡¿\s]{20,200}$/;
+    if (!moduleTitleRegex.test(module_title)) {
+        valErrs.push({ module_title: 'contains some special characters not allowed' });
+    }
+
+    const moduleStatusRegex = /^[\wáéíóúÁÉÍÓÚüÜñÑ.,\/\-;:_\s]{20,500}$/;
+    if (!moduleStatusRegex.test(module_description)) {
+        valErrs.push({ module_description: 'contains some special characters not allowed' });
+    }
+
     // Validation for character limits
-    const maxLengths = {
-        module_title: 100,
-        module_description: 500
-    };
-    const minLengths = {
-        module_title: 10,
-        module_description: 20
-    };
+    // const maxLengths = {
+    //     module_title: 100,
+    //     module_description: 500
+    // };
+    // const minLengths = {
+    //     module_title: 10,
+    //     module_description: 20
+    // };
 
-    for (const field in maxLengths) {
-        if (req.body[field] && req.body[field].length > maxLengths[field]) {
-            valErrs.push({ [field]: `should not exceed ${maxLengths[field]} characters` });
-        }
-    }
+    // for (const field in maxLengths) {
+    //     if (req.body[field] && req.body[field].length > maxLengths[field]) {
+    //         valErrs.push({ [field]: `should not exceed ${maxLengths[field]} characters` });
+    //     }
+    // }
 
-    for (const field in minLengths) {
-        if (req.body[field] && req.body[field].length < minLengths[field]) {
-            valErrs.push({ [field]: `should have at least ${minLengths[field]} characters` });
-        }
-    }
+    // for (const field in minLengths) {
+    //     if (req.body[field] && req.body[field].length < minLengths[field]) {
+    //         valErrs.push({ [field]: `should have at least ${minLengths[field]} characters` });
+    //     }
+    // }
 
-    const specialCharsRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
-    const fieldsToCheckForSpecialChars = [
-        'id_module',
-        'module_status',
-        'id_course'
-    ];
+    // const specialCharsRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+    // const fieldsToCheckForSpecialChars = [
+    //     'id_module',
+    //     'module_status',
+    //     'id_course'
+    // ];
       
-    const specialCharsRegexDescription = /[!@#$%^&()_\=\[\]{}'"\\|<>\/]+/;
-    const fieldsToCheckForSpecialCharsDescription = [
-        'module_title',
-        'module_description'
-    ];
-    fieldsToCheckForSpecialCharsDescription.forEach(field => {
-        if (req.body[field] && specialCharsRegexDescription.test(req.body[field])) {
-            valErrs.push({ [field]: 'contains some special characters not allowed' });
-        }
-    });
+    // const specialCharsRegexDescription = /[!@#$%^&()_\=\[\]{}'"\\|<>\/]+/;
+    // const fieldsToCheckForSpecialCharsDescription = [
+    //     'module_title',
+    //     'module_description'
+    // ];
+    // fieldsToCheckForSpecialCharsDescription.forEach(field => {
+    //     if (req.body[field] && specialCharsRegexDescription.test(req.body[field])) {
+    //         valErrs.push({ [field]: 'contains some special characters not allowed' });
+    //     }
+    // });
 
-    fieldsToCheckForSpecialChars.forEach(field => {
-        if (req.body[field] && specialCharsRegex.test(req.body[field])) {
-            valErrs.push({ [field]: 'contains special characters' });
-        }
-    });
+    // fieldsToCheckForSpecialChars.forEach(field => {
+    //     if (req.body[field] && specialCharsRegex.test(req.body[field])) {
+    //         valErrs.push({ [field]: 'contains special characters' });
+    //     }
+    // });
 
     const leadingSpaceRegex = /^\s+/;
     requiredFields.forEach(field => {

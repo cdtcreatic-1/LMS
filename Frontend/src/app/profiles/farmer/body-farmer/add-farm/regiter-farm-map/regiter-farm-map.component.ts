@@ -29,6 +29,7 @@ import { ModalClimateInformationComponent } from 'src/app/register/register-farm
 import { ModalAddVillageComponent } from 'src/app/register/register-farmer/form-map-farmer/modal-add-village/modal-add-village.component';
 import { setIsLoading } from 'src/app/store/actions/loading.actions';
 import { selectDataUser } from 'src/app/store/selectors/global.selector';
+import { handleKeyDown } from 'src/app/shared/helpers';
 
 @Component({
   selector: 'app-regiter-farm-map',
@@ -180,6 +181,10 @@ export class RegiterFarmMapComponent implements OnInit {
     this.markers[1] = L.marker([latmax, lonmax]);
 
     this.centerMap();
+  }
+
+  handleKeyDown(e: any) {
+    handleKeyDown(e);
   }
 
   private clikMap() {

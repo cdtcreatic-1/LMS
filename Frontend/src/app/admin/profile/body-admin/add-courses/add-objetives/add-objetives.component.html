@@ -22,10 +22,10 @@
                 required="false"
                 placeholder="Agregar objetivo"
                 class="fcdt-input-password-all-boder input-add-objetive"
-                minlength="10"
                 maxlength="500"
+                minlength="20"
                 required
-                pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.:%!¡¿'?ñÑ,\s]*$"
+                pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ.,;:_-/\s]*$"
               />
               <button
                 class="fcdt-btn-p2 btn-add-objetive"
@@ -87,10 +87,10 @@
                 formControlName="addSkill"
                 placeholder="Agregar habilidad"
                 class="fcdt-input-password-all-boder input-add-objetive"
-                minlength="10"
                 maxlength="500"
+                minlength="20"
                 required
-                pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.:%!¡¿'?ñÑ,\s]*$"
+                pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ.,;:_-/\s]*$"
               />
               <button class="fcdt-btn-p2 btn-add-objetive" (click)="AddSkill()">
                 Agregar

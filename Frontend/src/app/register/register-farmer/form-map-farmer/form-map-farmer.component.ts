@@ -28,6 +28,7 @@ import { ModalAddVillageComponent } from './modal-add-village/modal-add-village.
 import { ModalWithoutVillageComponent } from './modal-without-village/modal-without-village.component';
 import { ModalClimateInformationComponent } from './modal-climate-information/modal-climate-information.component';
 import { selectDataUser } from 'src/app/store/selectors/global.selector';
+import { handleKeyDown } from 'src/app/shared/helpers';
 
 @Component({
   selector: 'app-form-map-farmer',
@@ -163,6 +164,10 @@ export class FormMapFarmerComponent implements OnInit, OnDestroy {
       duration: 1,
       padding: [-18, -20],
     });
+  }
+
+  handleKeyDown(e: any) {
+    handleKeyDown(e);
   }
 
   private zoomMap(

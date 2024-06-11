@@ -25,6 +25,7 @@ import { FlotingAlertComponent } from '../../shared/floting-alert/floting-alert.
 import { NgClass, NgIf } from '@angular/common';
 import { LoadingComponent } from 'src/app/shared/loading/loading.component';
 import { ProtectedRouteAdminLogin } from 'src/app/shared/helpers';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-main-page-login',
@@ -33,6 +34,7 @@ import { ProtectedRouteAdminLogin } from 'src/app/shared/helpers';
   standalone: true,
   imports: [
     NgIf,
+    NgClass,
     ReactiveFormsModule,
     IonicModule,
     RecaptchaModule,
@@ -40,6 +42,7 @@ import { ProtectedRouteAdminLogin } from 'src/app/shared/helpers';
     FlotingAlertComponent,
     LoadingComponent,
     NgClass,
+    MatTooltipModule,
   ],
 })
 export class MainPageLoginComponent implements OnDestroy {
@@ -53,7 +56,7 @@ export class MainPageLoginComponent implements OnDestroy {
   };
 
   formLogin: FormGroup = this.fb.group({
-    email: [''],
+    email: ['', [Validators.email]],
     password: [''],
   });
 

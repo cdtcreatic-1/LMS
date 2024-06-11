@@ -7,8 +7,8 @@ const { frontend_host, app_url } = require('cccommon/config');
 const validateImage = (file) => {
   const errors = [];
   if (file) {
-    const maxFileSize = 1 * 1024 * 1024;
-    const allowedFileTypes = ['.jpg', '.jpeg', '.png'];
+    const maxFileSize = 3 * 1024 * 1024;
+    const allowedFileTypes = ['.pdf', '.jpg'];
 
     if (file.size > maxFileSize) {
       errors.push({ lot_photo: 'Image size exceeds 1 MB limit' });

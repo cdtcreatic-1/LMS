@@ -12,6 +12,10 @@ exports.handler = async (req, res) => {
   try {
     const userExists = await userDal.getUserByEmail(email);
 
+    const emailRegex = /^[a-zA-Z0-9._@-]{6,50}$/;
+    if (!emailRegex.test(email)) {
+        valErrs.push({ email: 'Invalid email. It should have a valid email format and a maximum of 50 characters.' });
+    }
     if (!userExists) {
       appErr.send(req, res, 'user_not_found');
       return;

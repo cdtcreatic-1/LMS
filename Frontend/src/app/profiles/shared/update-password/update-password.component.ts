@@ -25,16 +25,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 })
 export class UpdatePasswordComponent {
   isValidation: boolean = false;
-  formUpdatePassword: FormGroup = this.fb.group(
-    {
-      oldPassword: [''],
-      newPassword: [''],
-      repeatPassword: [''],
-    },
-    {
-      validators: [this.vs.iqualsPassword('newPassword', 'repeatPassword')],
-    }
-  );
+  formUpdatePassword: FormGroup = this.fb.group({
+    oldPassword: [''],
+    newPassword: [''],
+    repeatPassword: [''],
+  });
 
   @Input() rol: number;
 
@@ -69,11 +64,11 @@ export class UpdatePasswordComponent {
     }
 
     if (
-      this.formUpdatePassword.get('newPassword') !==
-      this.formUpdatePassword.get('repeatPassword')
+      this.formUpdatePassword.get('newPassword')?.value !==
+      this.formUpdatePassword.get('repeatPassword')?.value
     ) {
       this.store.dispatch(
-        setIsErrorMessage({ message: 'La nuevas contraseñas no coinciden' })
+        setIsErrorMessage({ message: 'Las nuevas contraseñas no coinciden' })
       );
       return;
     }

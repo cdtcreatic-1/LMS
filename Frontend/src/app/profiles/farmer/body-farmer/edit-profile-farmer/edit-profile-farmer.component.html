@@ -107,6 +107,7 @@
             : ''
         "
         [matTooltipClass]="'myTooltip'"
+        pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ.,;:_-/\s]*$"
         [ngClass]="{
           'container-text-message-edit-error':
             validatorFields('descriptionText')
@@ -133,14 +134,14 @@
               type="text"
               formControlName="allName"
               class="fcdt-input-p2"
-              minlength="10"
-              maxlength="90"
+              minlength="6"
+              maxlength="50"
               required
               placeholder="Ej: Pepe Gomez Muñoz"
-              pattern="^[a-zA-ZáéíóúñÑÁÉÍÓÚüÜ\s]+$"
+              pattern="^[a-zA-ZáéíóúñÁÉÍÓÚ\s]{6,50}$"
               [matTooltip]="
                 validatorFields('allName')
-                  ? 'Usar únicamente letras con un mínimo 10 y máximo de 90 caracteres'
+                  ? 'Usar únicamente letras con un mínimo 6 y máximo de 50 caracteres'
                   : ''
               "
               [matTooltipClass]="'myTooltip'"
@@ -167,13 +168,13 @@
               type="tel"
               formControlName="phone"
               class="fcdt-input-p2"
-              minlength="6"
-              maxlength="10"
+              minlength="8"
+              maxlength="15"
               required
               pattern="[0-9]*"
               [matTooltip]="
                 validatorFields('phone')
-                  ? 'Usar únicamente números con una longitud mínima de 6 y máxima de 10 dígitos'
+                  ? 'Usar únicamente números con una longitud mínima de 8 y máxima de 15 dígitos'
                   : ''
               "
               [matTooltipClass]="'myTooltip'"
@@ -220,10 +221,10 @@
             minlength="6"
             maxlength="90"
             required
-            pattern="^(?=.*[a-z])[A-Za-z0-9]{6,90}$"
+            pattern="^(?=.*[a-z])[A-Za-z0-9]{6,50}$"
             [matTooltip]="
               validatorFields('userName')
-                ? 'El nombre de usuario no debe tener espacios, tíldes o símbolos. Además, debe contener entre 6 y 90 caracteres'
+                ? 'El nombre de usuario no debe contener espacios, tildes ni símbolos especiales. Debe tener entre 6 y 50 caracteres alfanuméricos, incluyendo mayúsculas y minúsculas.'
                 : ''
             "
             [matTooltipClass]="'myTooltip'"

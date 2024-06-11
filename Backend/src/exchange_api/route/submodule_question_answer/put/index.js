@@ -78,35 +78,34 @@ exports.handler = async (req, res) => {
 
         })
 
-        const specialCharsRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/]+/;
 
         data.forEach(row => {
             const { question_content } = row;
-
-            if (question_content && specialCharsRegex.test(question_content)) {
-                valErrs.push({ question_content: 'contains special characters' });
+            const subSummaryRegex = /^[0-9a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\s,.\-_\/;:?!]{10,500}$/;
+            if (!subSummaryRegex.test(question_content)) {
+                valErrs.push({ question_content: 'contains some special characters not allowed 10' });
             }
         })
 
-        const leadingSpaceRegex = /^\s+/;
-        data.forEach(row => {
-            const { question_content } = row;
+        // const leadingSpaceRegex = /^\s+/;
+        // data.forEach(row => {
+        //     const { question_content } = row;
 
-            if (question_content && leadingSpaceRegex.test(question_content)) {
-                valErrs.push({ [question_content]: 'starts with excessive whitespace' });
-            }
+        //     if (question_content && leadingSpaceRegex.test(question_content)) {
+        //         valErrs.push({ [question_content]: 'starts with excessive whitespace' });
+        //     }
 
-        });
+        // });
 
-        const onlyDigitsRegex = /^\d+$/;
+        // const onlyDigitsRegex = /^\d+$/;
 
-        data.forEach(row => {
-            const { question_content } = row;
+        // data.forEach(row => {
+        //     const { question_content } = row;
 
-            if (onlyDigitsRegex.test(question_content)) {
-                valErrs.push({ question_content: 'should not be only numeric values' });
-            }
-        })
+        //     if (onlyDigitsRegex.test(question_content)) {
+        //         valErrs.push({ question_content: 'should not be only numeric values' });
+        //     }
+        // })
 
 
         if (valErrs.length) {

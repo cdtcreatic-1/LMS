@@ -2,11 +2,7 @@
   <app-global-titles [titleName]="'Datos esenciales'"></app-global-titles>
 
   <div class="container-form1">
-    <form
-      [formGroup]="form"
-      (ngSubmit)="next()"
-      class="container-form"
-    >
+    <form [formGroup]="form" (ngSubmit)="next()" class="container-form">
       <div class="container-inter-form-photo">
         <div class="container-exter-inputs">
           <div class="container-row-input-form">
@@ -16,14 +12,14 @@
                   type="text"
                   formControlName="allName"
                   class="fcdt-input-p2"
-                  minlength="10"
-                  maxlength="90"
+                  minlength="6"
+                  maxlength="50"
                   required
                   placeholder="Ej: Pepe Gomez Muñoz"
                   pattern="^[a-zA-ZáéíóúñÑÁÉÍÓÚüÜ\s]+$"
                   [matTooltip]="
                     validatorFields('allName')
-                      ? 'Usar únicamente letras con un mínimo 10 y máximo de 90 caracteres'
+                      ? 'Usar únicamente letras con un mínimo 6 y máximo de 50 caracteres'
                       : ''
                   "
                   [matTooltipClass]="'myTooltip'"
@@ -45,13 +41,13 @@
                   type="tel"
                   formControlName="phone"
                   class="fcdt-input-p2"
-                  minlength="6"
-                  maxlength="10"
+                  minlength="8"
+                  maxlength="15"
                   required
                   pattern="[0-9]*"
                   [matTooltip]="
                     validatorFields('phone')
-                      ? 'Usar únicamente números con una longitud mínima de 6 y máxima de 10 dígitos'
+                      ? 'Usar únicamente números con una longitud mínima de 8 y máxima de 15 dígitos'
                       : ''
                   "
                   [matTooltipClass]="'myTooltip'"
@@ -76,10 +72,12 @@
                   formControlName="mail"
                   class="fcdt-input-p2"
                   maxlength="50"
+                  minlength="6"
                   required
+                  pattern="^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$"
                   [matTooltip]="
                     validatorFields('mail')
-                      ? 'Digite un correo electrónico válido'
+                      ? 'Digite una dirección de correo válida. Ej: email@ejemplo.com'
                       : ''
                   "
                   [matTooltipClass]="'myTooltip'"
@@ -106,12 +104,12 @@
                   formControlName="userName"
                   class="fcdt-input-p2"
                   minlength="6"
-                  maxlength="90"
+                  maxlength="50"
                   required
-                  pattern="^(?=.*[a-z])[A-Za-z0-9]{6,90}$"
+                  pattern="^(?=.*[a-z])[A-Za-z0-9]{6,50}$"
                   [matTooltip]="
                     validatorFields('userName')
-                      ? 'El nombre de usuario no debe tener espacios, tíldes o símbolos. Además, debe contener entre 6 y 90 caracteres'
+                      ? 'El nombre de usuario no debe tener espacios, tíldes o símbolos. Además, debe contener entre 6 y 50 caracteres'
                       : ''
                   "
                   [matTooltipClass]="'myTooltip'"
@@ -132,13 +130,13 @@
                   type="tel"
                   formControlName="identification"
                   class="fcdt-input-p2"
-                  minlength="6"
-                  maxlength="10"
+                  minlength="8"
+                  maxlength="11"
                   pattern="[0-9]*"
                   required
                   [matTooltip]="
                     validatorFields('identification')
-                      ? 'Usar únicamente números con una longitud mínima de 6 y máxima de 10 dígitos'
+                      ? 'Usar únicamente números con una longitud mínima de 8 y máxima de 11 dígitos'
                       : ''
                   "
                   [matTooltipClass]="'myTooltip'"

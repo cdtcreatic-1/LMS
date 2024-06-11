@@ -7,13 +7,13 @@
         <input
           type="text"
           formControlName="title"
-          minlength="5"
-          maxlength="250"
+          minlength="20"
+          maxlength="200"
           required
-          pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.:%!¡¿'?ñÑ,\s]*$"
+          pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ.,;:_-/\s]*$"
           [matTooltip]="
             validatorFields('title')
-              ? 'Usar letras, puntos, comas o números, con un mínimo de 5 y máximo de 250 caracteres. Los caracteres especiales no están permitidos.'
+              ? 'Se puede usar número y letras, tildes, signos de puntuación básicos como la coma (,), el punto (.), el guion (-), el guion bajo (_), la barra (/), el punto y coma (;), el dos puntos (:), con un mínimo de 20 y máximo de 200 caracteres'
               : ''
           "
           [matTooltipClass]="'myTooltip'"
@@ -37,10 +37,10 @@
           }"
           minlength="20"
           maxlength="500"
-          pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.%!¡¿'?ñÑ,\s]*$"
+          pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ.,;:_-/\s]*$"
           [matTooltip]="
             validatorFields('description')
-              ? 'Usar letras, puntos, comas o números, con un mínimo de 20 y máximo de 500 caracteres. Los caracteres especiales no están permitidos.'
+              ? 'Se puede usar número y letras, tildes,  signos de puntuación básicos como la coma (,), el punto (.), el guion (-), el guion bajo (_), la barra (/), el punto y coma (;), el dos puntos (:), con un mínimo de 20 y máximo de 500 caracteres'
               : ''
           "
           [matTooltipClass]="'myTooltip'"
@@ -49,12 +49,12 @@
         <input
           type="text"
           formControlName="urlVideo"
-          minlength="10"
-          maxlength="100"
+          minlength="5"
+          maxlength="250"
           required
           [matTooltip]="
             validatorFields('urlVideo')
-              ? 'Completa este campo con mínimo 10 caracteres y máximo de 100'
+              ? 'Completa este campo con mínimo 5 caracteres y máximo de 250'
               : ''
           "
           [matTooltipClass]="'myTooltip'"

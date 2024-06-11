@@ -28,46 +28,67 @@ exports.handler = async (req, res) => {
         }
     });
 
-    const maxLengths = {
-        module_title: 250,
-        module_description: 500
-    };
-    const minLengths = {
-        module_title: 5,
-        module_description: 20
-    };
-
-    for (const field in maxLengths) {
-        if (req.body[field] && req.body[field].length > maxLengths[field]) {
-            valErrs.push(`${field} no debe pasar de ${maxLengths[field]} caracteres`);
-        }
+    
+    const moduleTitleRegex = /^[\wáéíóúÁÉÍÓÚüÜñÑ.,\/\-:;'"¡¿\s]{20,200}$/;
+    if (!moduleTitleRegex.test(module_title)) {
+        valErrs.push({ module_title: 'contains some special characters not allowed' });
     }
 
-    for (const field in minLengths) {
-        if (req.body[field] && req.body[field].length < minLengths[field]) {
-            valErrs.push(`${field} debe tener al menos ${minLengths[field]} caracteres`);
-        }
+    const moduleStatusRegex = /^[\wáéíóúÁÉÍÓÚüÜñÑ.,\/\-;:_\s]{20,500}$/;
+    if (!moduleStatusRegex.test(module_description)) {
+        valErrs.push({ module_description: 'contains some special characters not allowed' });
     }
 
-    const specialCharsRegex = /[!@#$%^&*()_+\-=\[\]{};"\\|<>\/?]+/;
+    // if (req.files && req.files.farm_documentation_chamber_commerce) {
+    //     req.files.farm_documentation_chamber_commerce.forEach((file, index) => {
+    //         if (file.mimetype !== 'application/pdf') {
+    //             validationErrors.push({ farm_documentation_chamber_commerce: `Only PDF files are allowed for PDF ${index + 1}` });
+    //         } else if (file.size > maxPdfSiz) {
+    //             validationErrors.push({ farm_documentation_chamber_commerce: `PDF ${index + 1} size should not exceed 3 MB` });
+    //         }
+    //     });
+    //   }
 
-    const specialCharsRegexDescription = /[^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.%!¡¿?ñÑ,\s]*$]+/;
-    const fieldsToCheckForSpecialCharsDescription = [
-        'module_title',
-        'module_description'
-    ];
-    fieldsToCheckForSpecialCharsDescription.forEach(field => {
-        if (req.body[field] && specialCharsRegexDescription.test(req.body[field])) {
-            valErrs.push(`${field} contiene algunos caracteres especiales no permitidos`);
-        }
-    });
+    // const maxLengths = {
+    //     module_title: 250,
+    //     module_description: 500
+    // };
+    // const minLengths = {
+    //     module_title: 5,
+    //     module_description: 20
+    // };
 
-    if (id_course && specialCharsRegex.test(id_course)) {
-        valErrs.push(`${id_course}: contiene algunos caracteres especiales`);
-    }
-    if (module_status && specialCharsRegex.test(module_status)) {
-        valErrs.push(`${module_status}: contiene caracteres especiales`);
-    }
+    // for (const field in maxLengths) {
+    //     if (req.body[field] && req.body[field].length > maxLengths[field]) {
+    //         valErrs.push(`${field} no debe pasar de ${maxLengths[field]} caracteres`);
+    //     }
+    // }
+
+    // for (const field in minLengths) {
+    //     if (req.body[field] && req.body[field].length < minLengths[field]) {
+    //         valErrs.push(`${field} debe tener al menos ${minLengths[field]} caracteres`);
+    //     }
+    // }
+
+    // const specialCharsRegex = /[!@#$%^&*()_+\-=\[\]{};"\\|<>\/?]+/;
+
+    // const specialCharsRegexDescription = /[^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.%!¡¿?ñÑ,\s]*$]+/;
+    // const fieldsToCheckForSpecialCharsDescription = [
+    //     'module_title',
+    //     'module_description'
+    // ];
+    // fieldsToCheckForSpecialCharsDescription.forEach(field => {
+    //     if (req.body[field] && specialCharsRegexDescription.test(req.body[field])) {
+    //         valErrs.push(`${field} contiene algunos caracteres especiales no permitidos`);
+    //     }
+    // });
+
+    // if (id_course && specialCharsRegex.test(id_course)) {
+    //     valErrs.push(`${id_course}: contiene algunos caracteres especiales`);
+    // }
+    // if (module_status && specialCharsRegex.test(module_status)) {
+    //     valErrs.push(`${module_status}: contiene caracteres especiales`);
+    // }
 
     const leadingSpaceRegex = /^\s+/;
     requiredFields.forEach(field => {
@@ -76,16 +97,16 @@ exports.handler = async (req, res) => {
         }
     });
 
-    const onlyDigitsRegex = /^\d+$/;
-    if (onlyDigitsRegex.test(module_title)) {
-        valErrs.push({ module_title: 'should not be only numeric values' });
-    }
-    if (onlyDigitsRegex.test(module_description)) {
-        valErrs.push({ module_description: 'should not be only numeric values' });
-    }
-    if (!onlyDigitsRegex.test(id_course)) {
-        valErrs.push({ id_course: 'should contain only numeric values' });
-    }
+    // const onlyDigitsRegex = /^\d+$/;
+    // if (onlyDigitsRegex.test(module_title)) {
+    //     valErrs.push({ module_title: 'should not be only numeric values' });
+    // }
+    // if (onlyDigitsRegex.test(module_description)) {
+    //     valErrs.push({ module_description: 'should not be only numeric values' });
+    // }
+    // if (!onlyDigitsRegex.test(id_course)) {
+    //     valErrs.push({ id_course: 'should contain only numeric values' });
+    // }
 
     if (valErrs.length) {
         appErr.send(req, res, 'validation_error', appErr.mergeValErrLists(valErrs));

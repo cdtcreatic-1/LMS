@@ -28,41 +28,47 @@ exports.handler = async (req, res) => {
     if (!objective_text) {
         appErr.send(req, res, 'input_validation_failed', 'Objective text missing');
         return;
-    }    
-
-    const maxLengths = {
-        objective_text: 500,
-        id_course: 10, 
-    };
-    const minLengths = {
-        objective_text: 20, 
-        id_course: 5, 
-    };
-
-    for (const field in maxLengths) {
-        if (req.body[field] && req.body[field].length > maxLengths[field]) {
-            valErrs.push({ [field]: `should not exceed ${maxLengths[field]} characters` });
-        }
+    }  
+    
+    const specialCharsRegexobjet = /^[0-9a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\s,.\-_\/;:]{20,200}$/;
+    if (!specialCharsRegexobjet.test(objective_text)) {
+        valErrs.push({ objective_text: 'contains some special characters not allowed' });
     }
 
-    for (const field in minLengths) {
-        if (req.body[field] && req.body[field].length < minLengths[field]) {
-            valErrs.push({ [field]: `should have at least ${minLengths[field]} characters` });
-        }
-    }
 
-    const specialCharsRegex = /[!@#$%^&*()_+\=\[\]{};':"\\|,.<>\/?]+/;
-    const fieldsToCheckForSpecialChars = [
-        'id_objective',
-        'objective_text',
-        'id_course'
-    ];
+    // const maxLengths = {
+    //     objective_text: 500,
+    //     id_course: 10, 
+    // };
+    // const minLengths = {
+    //     objective_text: 20, 
+    //     id_course: 5, 
+    // };
 
-    fieldsToCheckForSpecialChars.forEach(field => {
-        if (req.body[field] && specialCharsRegex.test(req.body[field])) {
-            valErrs.push({ [field]: 'contains special characters' });
-        }
-    });
+    // for (const field in maxLengths) {
+    //     if (req.body[field] && req.body[field].length > maxLengths[field]) {
+    //         valErrs.push({ [field]: `should not exceed ${maxLengths[field]} characters` });
+    //     }
+    // }
+
+    // for (const field in minLengths) {
+    //     if (req.body[field] && req.body[field].length < minLengths[field]) {
+    //         valErrs.push({ [field]: `should have at least ${minLengths[field]} characters` });
+    //     }
+    // }
+
+    // const specialCharsRegex = /[!@#$%^&*()_+\=\[\]{};':"\\|,.<>\/?]+/;
+    // const fieldsToCheckForSpecialChars = [
+    //     'id_objective',
+    //     'objective_text',
+    //     'id_course'
+    // ];
+
+    // fieldsToCheckForSpecialChars.forEach(field => {
+    //     if (req.body[field] && specialCharsRegex.test(req.body[field])) {
+    //         valErrs.push({ [field]: 'contains special characters' });
+    //     }
+    // });
 
     const leadingSpaceRegex = /^\s+/;
     const requiredFields = ['objective_text', 'id_course'];

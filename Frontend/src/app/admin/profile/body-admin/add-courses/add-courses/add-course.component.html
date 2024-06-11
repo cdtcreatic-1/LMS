@@ -8,13 +8,13 @@
         <input
           type="text"
           formControlName="title"
-          minlength="10"
-          maxlength="100"
+          minlength="20"
+          maxlength="200"
           required
-          pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.:%!¡¿'?ñÑ,\s]*$"
+          pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ.,;:_-/\s]*$"
           [matTooltip]="
             validatorFields('title')
-              ? 'Usar letras, puntos, comas o números, con un mínimo de 20 y máximo de 1500 caracteres. Los caracteres especiales no están permitidos.'
+              ? 'Se puede usar número y letras, tildes, signos de puntuación básicos como la coma (,), el punto (.), el guion (-), el guion bajo (_), la barra (/), el punto y coma (;), el dos puntos (:), Con un mínimo de 20 y máximo de 200 caracteres'
               : ''
           "
           [matTooltipClass]="'myTooltip'"
@@ -38,10 +38,10 @@
           }"
           minlength="20"
           maxlength="1500"
-          pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.:%!¡¿'?ñÑ,\s]*$"
+          pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ.,;:_-/\s]*$"
           [matTooltip]="
             validatorFields('description')
-              ? 'Usar letras, puntos, comas o números, con un mínimo de 20 y máximo de 1500 caracteres. Los caracteres especiales no están permitidos.'
+              ? 'Se puede usar número y letras, tildes,  signos de puntuación básicos como la coma (,), el punto (.), el guion (-), el guion bajo (_), la barra (/), el punto y coma (;), el dos puntos (:), con un mínimo de 20 y máximo de 1500 caracteres'
               : ''
           "
           [matTooltipClass]="'myTooltip'"
@@ -52,16 +52,17 @@
         <input
           type="text"
           formControlName="duration"
+          maxlength="20"
           minlength="3"
-          maxlength="250"
           placeholder="50 horas"
           required
-          pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ,\s]*$"
+          pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜñÑ\s]*$"
           [matTooltip]="
             validatorFields('duration')
-              ? 'Usar letras, puntos, comas o números, con un mínimo de 20 y máximo de 1500 caracteres. Los caracteres especiales no están permitidos.'
+              ? 'Usar letras y números, con un mínimo de 3 y máximo de 20 caracteres. Los caracteres especiales no están permitidos.'
               : ''
           "
+          [matTooltipClass]="'myTooltip'"
         />
         <label>
           <span
@@ -78,13 +79,13 @@
         <input
           type="text"
           formControlName="instructor_name"
-          minlength="5"
           maxlength="50"
+          minlength="6"
           required
-          pattern="^[a-zA-ZáéíóúñÁÉÍÓÚñÑ\s]{5,50}$"
+          pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜñÑ\s]*$"
           [matTooltip]="
             validatorFields('instructor_name')
-              ? 'Usar unicamente letras con mínimo 10 y máximo de 50 caracteres'
+              ? 'Usar letras y números, con un mínimo de 6 y máximo de 50 caracteres. Los caracteres especiales no están permitidos.'
               : ''
           "
           [matTooltipClass]="'myTooltip'"
@@ -127,12 +128,12 @@
           type="tel"
           formControlName="price"
           maxlength="10"
-          minlength="5"
+          minlength="4"
           pattern="[0-9]*"
           required
           [matTooltip]="
             validatorFields('price')
-              ? 'Usar únicamente números con una longitud mínima de 5 y máxima de 10 dígitos'
+              ? 'Usar únicamente números con una longitud mínima de 4 y máxima de 10 dígitos'
               : ''
           "
           [matTooltipClass]="'myTooltip'"

@@ -31,9 +31,9 @@
           formControlName="question"
           class="text-area-question"
           required
-          minlength="20"
+          minlength="10"
           maxlength="500"
-          pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.%!¡¿'?ñÑ,\s]*$"
+          pattern="^(¿?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ.,;:_-/\s]*$"
         ></textarea>
       </div>
     </section>
@@ -58,10 +58,10 @@
               class="input-answer"
               placeholder="Respuesta"
               formControlName="{{ item.key }}"
-              minlength="2"
-              maxlength="250"
+              maxlength="500"
+              minlength="10"
               required
-              pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.:%!¡¿'?ñÑ,\s]*$"
+              pattern="^[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ.,;:_!¡/\s-]*$"
             />
             <input
               id="{{ item.keyCheck }}"

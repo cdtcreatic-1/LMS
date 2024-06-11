@@ -14,6 +14,7 @@
         cols="50"
         minlength="20"
         maxlength="500"
+        pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ.,;:_-/\s]*$"
         [matTooltip]="
           validatorFields('histoyText')
             ? 'Completa este campo con mínimo 20 caracteres y máximo de 500'

@@ -58,9 +58,9 @@ export class QGraderCertificationComponent implements OnInit {
   onChangeLoadImage(event: any, id: number) {
     this.isErrorRequiredDocuments = false;
 
-    if (event.target.files[0].size > 1000000) {
+    if (event.target.files[0].size > 3000000) {
       this.store.dispatch(
-        setIsErrorMessage({ message: 'El archivo pesa más de 1Mb' })
+        setIsErrorMessage({ message: 'El archivo pesa más de 3Mb' })
       );
       return;
     }

@@ -189,6 +189,12 @@ ion-icon:active {
   border-bottom: 1px solid #bebebe;
 }
 
+.fcdt-input-password_red {
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid red;
+}
+
 .fcdt-input-password-all-boder {
   display: flex;
   align-items: center;

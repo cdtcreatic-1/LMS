@@ -4,23 +4,23 @@ const appErr = require('this_pkg/error');
 const path = require('path');
 const { frontend_host, app_url } = require('cccommon/config');
 
-const validateFile = (file, fieldName) => {
-  const errors = [];
-  if (file) {
-    const maxFileSize = 3 * 1024 * 1024;
-    const allowedFileTypes = ['.pdf', '.jpg', '.png'];
+// const validateFile = (file, fieldName) => {
+//   const errors = [];
+//   if (file) {
+//     const maxFileSize = 3 * 1024 * 1024;
+//     const allowedFileTypes = ['.pdf', '.jpg'];
 
-    if (file.size > maxFileSize) {
-      errors.push({ [fieldName]: 'File size exceeds limit' });
-    }
-    const fileExtension = path.extname(file.originalname).toLowerCase();
-    if (!allowedFileTypes.includes(fileExtension)) {
-      errors.push({ [fieldName]: 'Invalid file type' });
-    }
-  }
+//     if (file.size > maxFileSize) {
+//       errors.push({ [fieldName]: 'File size exceeds limit' });
+//     }
+//     const fileExtension = path.extname(file.originalname).toLowerCase();
+//     if (!allowedFileTypes.includes(fileExtension)) {
+//       errors.push({ [fieldName]: 'Invalid file type' });
+//     }
+//   }
 
-  return errors;
-};
+//   return errors;
+// };
 
 exports.handler = async (req, res) => {
   const successStatus = 201;
@@ -31,6 +31,28 @@ exports.handler = async (req, res) => {
 
   const validationErrors = [];
 
+  const maxFileSize = 3 * 1024 * 1024; // 3 MB
+
+if (req.files && req.files.product_sc_certificate) {
+    req.files.product_sc_certificate.forEach((file, index) => {
+        if (file.mimetype !== 'application/pdf' && file.mimetype !== 'image/jpeg') {
+            validationErrors.push({ product_sc_certificate: `Only PDF and JPEG files are allowed for file ${index + 1}` });
+        } else if (file.size > maxFileSize) {
+            validationErrors.push({ product_sc_certificate: `File ${index + 1} size should not exceed 3 MB` });
+        }
+    });
+}
+const maxFileSizes = 3 * 1024 * 1024; // 3 MB
+
+if (req.files && req.files.product_taster_certificate) {
+    req.files.product_taster_certificate.forEach((file, index) => {
+        if (file.mimetype !== 'application/pdf' && file.mimetype !== 'image/jpeg') {
+            validationErrors.push({ product_taster_certificate: `Only PDF and JPEG files are allowed for file ${index + 1}` });
+        } else if (file.size > maxFileSizes) {
+            validationErrors.push({ product_taster_certificate: `File ${index + 1} size should not exceed 3 MB` });
+        }
+    });
+}
   if (!id_lot) {
     validationErrors.push({ id_lot: 'missing' });
   } else {
@@ -40,13 +62,13 @@ exports.handler = async (req, res) => {
     }
   }
 
-  if (product_sc_certificate) {
-    validationErrors.push(...validateFile(product_sc_certificate, 'product_sc_certificate'));
-  }
+  // if (product_sc_certificate) {
+  //   validationErrors.push(...validateFile(product_sc_certificate, 'product_sc_certificate'));
+  // }
 
-  if (product_taster_certificate) {
-    validationErrors.push(...validateFile(product_taster_certificate, 'product_taster_certificate'));
-  }
+  // if (product_taster_certificate) {
+  //   validationErrors.push(...validateFile(product_taster_certificate, 'product_taster_certificate'));
+  // }
 
   if (typeof contact_qgrader === 'undefined') {
     validationErrors.push({ contact_qgrader: 'missing' });

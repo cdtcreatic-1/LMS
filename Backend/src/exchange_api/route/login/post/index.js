@@ -23,6 +23,16 @@ exports.handler = async (req, res) => {
         return;
     }
 
+    const emailRegex = /^[a-zA-Z0-9._@-]{6,50}$/;
+    if (!emailRegex.test(user_email)) {
+        valErrs.push({ user_email: 'Invalid email. It should have a valid email format and a maximum of 50 characters.' });
+    }
+    
+    const passwordRegex = /^\d{8,50}$/;
+    if (!passwordRegex.test(user_password)) {
+        valErrs.push({ user_password: 'Invalid password must contain 8 to 50 characters.' });
+    }
+
     try {
 
         user = await userDal.getUserByEmail(user_email);

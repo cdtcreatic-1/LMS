@@ -69,6 +69,9 @@ export class AddEvaluationDetailsComponent implements OnInit, OnDestroy {
 
   formSelected: FormGroup;
 
+  messageError: string =
+    'Se puede usar número y letras, tildes, signos de puntuación básicos como la coma (,), el punto (.), el guion (-), el guion bajo (_), la barra (/), el punto y coma (;), el dos puntos (:)';
+
   suscription = new Subscription();
 
   constructor(
@@ -262,6 +265,18 @@ export class AddEvaluationDetailsComponent implements OnInit, OnDestroy {
       return false;
     }
 
+    if (this.formSelected.get('question')?.invalid) {
+      this.store.dispatch(
+        setIsErrorMessage({
+          message:
+            'Error al insertar la pregunta. ' +
+            this.messageError +
+            ', signo de interrogación(?) y signo de admiración(!), con un mínimo de 10 y máximo de 500 caracteres',
+        })
+      );
+      return;
+    }
+
     if (this.questionSelected.answers.length < 2) {
       this.store.dispatch(
         setIsErrorMessage({
@@ -365,6 +380,18 @@ export class AddEvaluationDetailsComponent implements OnInit, OnDestroy {
       this.store.dispatch(
         setIsErrorMessage({
           message: 'Por favor, digite la respuesta',
+        })
+      );
+      return;
+    }
+
+    if (this.formSelected.get(`Respuesta${idAnswer}`)?.invalid) {
+      this.store.dispatch(
+        setIsErrorMessage({
+          message:
+            'Error al insertar respuesta. ' +
+            this.messageError +
+            ' y signo de admiración(!)',
         })
       );
       return;

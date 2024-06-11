@@ -21,6 +21,16 @@ exports.handler = async (req, res) => {
         return;
     }
 
+    const totalquantityRegex = /^(?:[1-9]\d{0,2}|1000)$/;
+    if (!totalquantityRegex.test(total_quantity)) {
+        valErrs.push({ total_quantity: 'Debe contener solo numeros de 1 a 1000.' });
+    }
+
+    const priceperkiloRegex = /^(?:[1-9][0-9]?|100)$/;
+    if (!priceperkiloRegex.test(samples_quantity)) {
+        valErrs.push({ samples_quantity: 'Debe contener solo numeros de 1 a 100.' });
+    }
+
     try {
         const lotExists = await lotDal.getLotByIdLot(id_lot);
 

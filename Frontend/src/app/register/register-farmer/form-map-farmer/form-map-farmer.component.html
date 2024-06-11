@@ -13,10 +13,10 @@
               minlength="3"
               maxlength="50"
               style="padding: 0px"
-              pattern="^[a-zA-ZáéíóúñÑÁÉÍÓÚüÜ\s]+$"
+              pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ,\s]*$"
               [matTooltip]="
                 validatorFields('nameFarm')
-                  ? 'Use únicamente letras con un mínimo 3 y máximo de 50 caracteres'
+                  ? 'El nombre de la finca unicamente puede tener texto, números, ñ y .'
                   : ''
               "
               [matTooltipClass]="'myTooltip'"
@@ -49,6 +49,7 @@
                   : ''
               "
               [matTooltipClass]="'myTooltip'"
+              (keydown)="handleKeyDown($event)"
             />
           </div>
           <div class="container-placeholder">

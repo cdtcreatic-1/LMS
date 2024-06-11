@@ -6,7 +6,7 @@ exports.handler = async (req, res) => {
   const { id_lot, germination_summary, sown_summary, harvest_summary, drying_summary, roasting_summary, packaging_summary } = req.body;
   const valErrs = [];
 
-  let requiredFields = ['id_lot', 'germination_summary', 'sown_summary', 'harvest_summary', 'drying_summary', 'roasting_summary', 'packaging_summary'];
+  let requiredFields = [ 'germination_summary', 'sown_summary', 'harvest_summary', 'drying_summary', 'roasting_summary', 'packaging_summary'];
 
   requiredFields.forEach(field => {
     if (!req.body[field]) {
@@ -14,11 +14,11 @@ exports.handler = async (req, res) => {
     }
   });
 
-  const regex = /[0-9,.ñáéíóúÁÉÍÓÚ\s]+/;
+  const regex = /^[A-Za-z0-9áéíóúÁÉÍÓÚüÜñÑ.,\/\-_:;"'¿?!¡\s]{20,500}$/;
 
   requiredFields.forEach(field => {
     if (!regex.test(req.body[field])) {
-      valErrs.push({ [field]: 'contiene caracteres no permitidos' });
+      valErrs.push({ [field]: 'contiene caracteres no permitidos, debe ser mas de 20 el texto' });
     }
   })
 

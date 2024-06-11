@@ -43,6 +43,16 @@ exports.handler = async (req, res) => {
         return;
     }
 
+    const farmnameRegex =  /^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ.,\s]{3,50}$/;
+    if (!farmnameRegex.test(farm_name)) {   
+        valErrs.push({ farm_name: 'Invalid property name. Must text, allows numbers, special characters and accents (.)'});
+    } 
+    
+    const lotRegex =  /^\d{1,10}$/;
+    if (!lotRegex.test(farm_number_lots)) {   
+        valErrs.push({ farm_number_lots: 'Invalid Lot Number, allows numbers'});
+    }
+
     try {
 
         const userExists = await userDal.getUserByIdUser(id_user);

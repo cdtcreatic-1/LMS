@@ -20,16 +20,16 @@ exports.handler = async (req, res) => {
     if (!user_cover_photo) {
         valErrs.push({ user_cover_photo: 'missing' });
     } else {
-        const maxImageSize = 1 * 1024 * 1024; 
-        const allowedImageTypes = ['.jpg', '.jpeg', '.png'];
+        const maxImageSize = 3 * 1024 * 1024; 
+        const allowedImageTypes = ['.jpg', '.png'];
         const imageExtension = path.extname(user_cover_photo.originalname).toLowerCase();
 
         if (!allowedImageTypes.includes(imageExtension)) {
-            valErrs.push({ user_cover_photo: 'invalid format, must be png, jpg, jpeg' });
+            valErrs.push({ user_cover_photo: 'invalid format, must be png, jpg' });
         }
 
         if (user_cover_photo.size > maxImageSize) {
-            valErrs.push({ user_cover_photo: 'exceeds size limit of 1MB' });
+            valErrs.push({ user_cover_photo: 'exceeds size limit of 3MB' });
         }
     }
 

@@ -33,7 +33,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 })
 export class ModalForgotPasswordComponent implements OnInit, OnDestroy {
   formChangePassword: FormGroup = this.fb.group({
-    email: [null, [Validators.required, Validators.email]],
+    email: [null, [Validators.email]],
   });
 
   isEmailSent: boolean = false;

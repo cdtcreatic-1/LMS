@@ -18,6 +18,15 @@ exports.handler = async (req, res) => {
     if (!id_user) {
         valErrs.push({ id_user: 'missing' });
     }
+
+    if (!user_personal_description_text) {
+        valErrs.push({ id_user: 'missing' });
+    }
+    
+    const userDescriptionRegex = /^[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.,\-_\/;: ]{20,500}$/;
+    if (!userDescriptionRegex.test(user_personal_description_text)) {
+        valErrs.push({ user_personal_description_text: 'Nombre inválido. Debe contener letras, tildes,Signos de puntuación básicos como la coma (,), el punto (.), el guion (-), el guion bajo (_), la barra (/), el punto y coma (;), el dos puntos (:)' });
+    }
     // Get user by id to check if it exists
     try {
         const userExists = await userRoleDal.getUserRole(id_user);
