@@ -1,0 +1,23 @@
+<div class="container-pincipal-modal">
+  <div class="container-modal-white" align="center">
+    <div class="container-title-modal">
+      ¿Está seguro que desea eliminar el &nbsp;<span>{{ data.nameItem }}</span
+      >?
+    </div>
+    <div class="container-buttons">
+      <app-global-buttons
+        [nameButton]="'Cancelar'"
+        (click)="closeModal()"
+        [backgroud]="'#fff'"
+        [borderColor]="'#2f0084'"
+        [width]="'100px'"
+      ></app-global-buttons>
+
+      <app-global-buttons
+        [nameButton]="'Eliminar'"
+        [width]="'100px'"
+        [callbackFunction]="data.handleSubmit"
+      ></app-global-buttons>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,148 @@
+.container-body {
+  display: flex;
+  height: 75vh;
+  width: 98%;
+  margin-left: 2%;
+  padding-block: 1.5vw;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-family: Lato;
+}
+
+.container-details {
+  margin-right: 18px;
+  padding-block: 4%;
+  padding-inline: 5%;
+  height: max-content;
+  border: 1px solid #bebebe;
+  border-radius: 8px;
+  margin-bottom: 1vw;
+}
+
+.container-photo-description {
+  width: 100%;
+  display: flex;
+  margin-bottom: 1vw;
+}
+
+.container-photo {
+  width: 7vw;
+  height: 7vw;
+}
+
+.container-description {
+  width: 100%;
+  margin-left: 3.5vw;
+}
+
+.container-text-title-name {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5vw;
+  color: #2f0084;
+}
+
+.container-text-subtitle-name {
+  margin-top: -0.3vw;
+  margin-left: 0vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  color: #686868;
+}
+
+.container-rows-details {
+  width: 100%;
+  display: flex;
+  border-radius: 9px;
+  padding-block: 2%;
+  padding-inline: 2%;
+  border: 1px solid #bebebe;
+}
+
+.container-inter-rows {
+  width: 45%;
+  margin-left: 5%;
+}
+
+.container-inter-rows-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 45%;
+  margin-left: 10%;
+  margin-top: 1%;
+}
+
+.ion-icon-notificiaction {
+  font-size: 3vw;
+  color: #a7a6a6;
+  cursor: pointer;
+}
+
+.ion-icon-notificiaction:active {
+  opacity: 0.5;
+}
+
+.input-text-details {
+  width: 100%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #2f0084;
+  border-bottom: 1px solid #bebebe;
+}
+
+.container-sub-input {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #686868;
+}
+
+.container-ver-mas {
+  font-size: 1vw;
+  color: #a1a1a1;
+}
+
+.container-buttons {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-top: 1.5vw;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  margin-right: 0.5vw;
+  height: 1.5rem;
+  background: #00de97;
+  border-radius: 4.40088px;
+  outline: none;
+  border: none;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #2f0084;
+}
+
+.btn:active {
+  background-color: rgba(0, 222, 151, 0.5);
+}
+
+.container-modal-confirmation {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  background-color: red;
+}

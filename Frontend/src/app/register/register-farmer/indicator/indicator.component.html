@@ -1,0 +1,21 @@
+<div class="multi-step-indicator">
+  <div class="container-barra-steep"
+    *ngFor="let id of data; let i = index"
+  >
+    <div
+      [ngClass]="{
+        'barra-indicator': id <= indexIndicator,
+        'barra-indicator-disable': id > indexIndicator
+      }"
+    ></div>
+    <div
+      [ngClass]="{
+        'circle-indicator-no-active': id < indexIndicator,
+        'circle-indicator': id === indexIndicator,
+        'circle-indicator-disable': id > indexIndicator
+      }"
+    >
+      {{ i + 1 }}
+    </div>
+  </div>
+</div>

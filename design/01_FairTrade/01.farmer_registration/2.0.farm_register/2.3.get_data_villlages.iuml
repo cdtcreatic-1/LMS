@@ -1,0 +1,32 @@
+@startuml
+
+    group #99FF99 2.3 Get data village
+        Farmer -> BackEnd: GET get_villages/:id_city
+
+        BackEnd -> DB: SELECT id_village, village_name \nFROM villages_table \nWHERE id_city = :id_city
+
+        hnote over BackEnd
+            Depending if the data are correct the response will be:
+            200 OK (village)
+            404 Not Found (id_state not found)
+            400 Bad Request (missing data)
+            500 Internal Server Error (server error)
+        endnote
+
+        BackEnd -> Farmer: HTTP 200 OK (village)
+
+        hnote over Farmer
+            Body{
+                    {
+                        "id_village"
+                        "village_name"
+                    },
+                    .
+                    .
+                    .
+            }
+        endnote
+
+    end group
+    
+@enduml

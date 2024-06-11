@@ -1,0 +1,16 @@
+@startuml
+
+group 2.0 Farm Register
+
+    !include ./2.0.farm_register/2.1.get_data_states.iuml
+    !include ./2.0.farm_register/2.2.get_data_cities.iuml
+    !include ./2.0.farm_register/2.3.get_data_villlages.iuml
+    !include ./2.0.farm_register/2.6.options_get_coordinates.iuml
+    !include ./2.0.farm_register/2.5.get_climate_and_temperature.iuml
+    !include ./2.0.farm_register/2.4.register_farm.iuml
+    !include ./1.0.user_register/1.3.save_updating_user_information.iuml
+    !include ./4.0.farmer_profile/4.1a.get_farmer_data.iuml
+
+end group
+
+@enduml

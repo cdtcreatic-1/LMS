@@ -1,0 +1,2147 @@
+{
+	"info": {
+		"_postman_id": "71aee7ec-52aa-4619-94a8-7a0bd4a52cf5",
+		"name": "p2_data_services",
+		"description": "Servicios de datos desarrollados para la Plataforma 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32473410"
+	},
+	"item": [
+		{
+			"name": "consume_farmer_profile_data_microservice",
+			"item": [
+				{
+					"name": "get_information_from_coordinate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"get_information_from_coordinate\",\r\n    \"longitude\": -76.5113, \r\n    \"latitude\": 2.4213\r\n}\r\n\r\n// Si para la coordenada provista, para alguno de los insumos no hay datos, se devuelve -99 en la salida correspondiente\r\n//{\r\n//    \"microservice\": \"get_information_from_coordinate\",\r\n//    \"longitude\": -20.5113, \r\n//    \"latitude\": 26.4213\r\n//}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/consume_farmer_profile_data_microservice",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"consume_farmer_profile_data_microservice"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get_information_from_coordinate-Ej1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"microservice\": \"get_information_from_coordinate\",\r\n    \"longitude\": -76.5113, \r\n    \"latitude\": 2.4213\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_DOMAIN}}/consume_farmer_profile_data_microservice",
+									"host": [
+										"{{URL_DOMAIN}}"
+									],
+									"path": [
+										"consume_farmer_profile_data_microservice"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 17 Apr 2024 02:20:23 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "114"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"altitude\": 1992,\n    \"climate\": \"Semihúmedo\",\n    \"status\": \"success\",\n    \"temperature\": \"12 a 16 °C\"\n}"
+						},
+						{
+							"name": "get_information_from_coordinate-Ej2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"microservice\": \"get_information_from_coordinate\",\r\n    \"longitude\": -76.5113, \r\n    \"latitude\": 32.4213\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_DOMAIN}}/consume_farmer_profile_data_microservice",
+									"host": [
+										"{{URL_DOMAIN}}"
+									],
+									"path": [
+										"consume_farmer_profile_data_microservice"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 17 Apr 2024 02:22:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"altitude\": -99,\n    \"climate\": -99,\n    \"status\": \"success\",\n    \"temperature\": -99\n}"
+						}
+					]
+				},
+				{
+					"name": "get_geoinformation_from_polygon",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " \r\n{\r\n    \"microservice\": \"get_geoinformation_from_polygon\",\r\n    \"id_state\": null,\r\n    \"id_city\": 19680,\r\n    \"id_village\": null\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/consume_farmer_profile_data_microservice",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"consume_farmer_profile_data_microservice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_entities_ids_from_coordinate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"get_entities_ids_from_coordinate\",\r\n    \"longitude\": -77.2705,\r\n    \"latitude\": 0.4275\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/consume_farmer_profile_data_microservice",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"consume_farmer_profile_data_microservice"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get_entities_ids_from_coordinate-Ej1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"microservice\": \"get_entities_ids_from_coordinate\",\r\n    \"longitude\": -77.2705,\r\n    \"latitude\": 0.4275\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_DOMAIN}}/consume_farmer_profile_data_microservice",
+									"host": [
+										"{{URL_DOMAIN}}"
+									],
+									"path": [
+										"consume_farmer_profile_data_microservice"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 19:39:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "94"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id_city\": \"20337\",\n    \"id_state\": \"801\",\n    \"id_village\": \"23524\",\n    \"status\": \"success\"\n}"
+						},
+						{
+							"name": "get_entities_ids_from_coordinate-Ej2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"microservice\": \"get_entities_ids_from_coordinate\",\r\n    \"longitude\": -77.28140,\r\n    \"latitude\": 1.20798\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_DOMAIN}}/consume_farmer_profile_data_microservice",
+									"host": [
+										"{{URL_DOMAIN}}"
+									],
+									"path": [
+										"consume_farmer_profile_data_microservice"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 19:47:35 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id_city\": 20352,\n    \"id_state\": 801,\n    \"id_village\": -99,\n    \"status\": \"success\"\n}"
+						},
+						{
+							"name": "get_entities_ids_from_coordinate-Ej3",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"microservice\": \"get_entities_ids_from_coordinate\",\r\n    \"longitude\": -78.365,\r\n    \"latitude\": 0.974\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_DOMAIN}}/consume_farmer_profile_data_microservice",
+									"host": [
+										"{{URL_DOMAIN}}"
+									],
+									"path": [
+										"consume_farmer_profile_data_microservice"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 19:54:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "106"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error_message\": \"ValueError: Coordenada por fuera del territorio colombiano\",\n    \"status\": \"failed\"\n}"
+						},
+						{
+							"name": "get_entities_ids_from_coordinate-Ej4",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"microservice\": \"get_entities_ids_from_coordinate\",\r\n    \"longitude\": -77.2705,\r\n    \"latitude\": 0.4275\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_DOMAIN}}/consume_farmer_profile_data_microservice",
+									"host": [
+										"{{URL_DOMAIN}}"
+									],
+									"path": [
+										"consume_farmer_profile_data_microservice"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 16 Apr 2024 19:58:28 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id_city\": 20337,\n    \"id_state\": 801,\n    \"id_village\": 23524,\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get_coffee_recommended_prices",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"get_coffee_recommended_prices\",\r\n    \"variety_name\": \"Pacamara\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/consume_farmer_profile_data_microservice",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"consume_farmer_profile_data_microservice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_lot_coding",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"get_lot_coding\",\r\n    \"id_lot\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/consume_farmer_profile_data_microservice",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"consume_farmer_profile_data_microservice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_businessmen_trends",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"get_businessmen_trends\",\r\n    \"url\": \"host/api\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/consume_farmer_profile_data_microservice",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"consume_farmer_profile_data_microservice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_sorted_lots_based_on_buyer_preferences",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"get_sorted_lots_based_on_buyer_preferences\",\r\n    \"id_seller\": 1,\r\n    \"id_buyer\": 36\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/consume_farmer_profile_data_microservice",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"consume_farmer_profile_data_microservice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_farm_info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"get_farm_info\",\r\n    \"id_farm\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/consume_farmer_profile_data_microservice",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"consume_farmer_profile_data_microservice"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get_farm_info-Ej1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"microservice\": \"get_farm_info\",\r\n    \"id_farm\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5020/consume_farmer_profile_data_microservice",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5020",
+									"path": [
+										"consume_farmer_profile_data_microservice"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Apr 2024 03:25:57 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "348"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"altitude\": 1500,\n    \"city_name\": \"GONZÁLEZ\",\n    \"climate\": \"Semihúmedo\",\n    \"farm_name\": \"Finca Luis 1\",\n    \"farm_number_lots\": 2,\n    \"id_city\": 19996,\n    \"id_farm\": 1,\n    \"id_state\": 791,\n    \"id_user\": 1,\n    \"id_village\": 13591,\n    \"name_provided_by_user\": null,\n    \"state_name\": \"CESAR\",\n    \"temperature\": 25,\n    \"village_name\": \"BUJARAVITA\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get_farms_from_user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"get_farms_from_user\",\r\n    \"id_user\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5020/consume_farmer_profile_data_microservice",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5020",
+							"path": [
+								"consume_farmer_profile_data_microservice"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get_farm_info-Ej1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"microservice\": \"get_farm_info\",\r\n    \"id_farm\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5020/consume_farmer_profile_data_microservice",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5020",
+									"path": [
+										"consume_farmer_profile_data_microservice"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Apr 2024 03:25:57 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "348"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"altitude\": 1500,\n    \"city_name\": \"GONZÁLEZ\",\n    \"climate\": \"Semihúmedo\",\n    \"farm_name\": \"Finca Luis 1\",\n    \"farm_number_lots\": 2,\n    \"id_city\": 19996,\n    \"id_farm\": 1,\n    \"id_state\": 791,\n    \"id_user\": 1,\n    \"id_village\": 13591,\n    \"name_provided_by_user\": null,\n    \"state_name\": \"CESAR\",\n    \"temperature\": 25,\n    \"village_name\": \"BUJARAVITA\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get_lot_information",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"get_lot_information\",\r\n    \"id_lot\": 5,\r\n    \"url\": \"url123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/consume_farmer_profile_data_microservice",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"consume_farmer_profile_data_microservice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_info_qgrader_courses",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"get_info_qgrader_courses\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/consume_farmer_profile_data_microservice",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"consume_farmer_profile_data_microservice"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "consume_businessman_profile_data_microservice",
+			"item": [
+				{
+					"name": "get_products_by_search_filter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"get_products_by_filtered_search\",\r\n    \"lot_properties\": {\r\n        \"id_variety\": null,\r\n        \"id_profile\": [2,3],\r\n        \"id_roast\": [1,2]\r\n    },\r\n    \"price_range\": {\r\n        \"min_price\": 0,\r\n        \"max_price\":5000\r\n    },\r\n    \"id_state\": [791, 192]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/consume_businessman_profile_data_microservice",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"consume_businessman_profile_data_microservice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_lot_information",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"get_lot_information\",\r\n    \"id_lot\": 5,\r\n    \"url\": \"host/api\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5020/consume_businessman_profile_data_microservice",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5020",
+							"path": [
+								"consume_businessman_profile_data_microservice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_available_items_for_lots",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"get_available_items_for_lots\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5020/consume_businessman_profile_data_microservice",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5020",
+							"path": [
+								"consume_businessman_profile_data_microservice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_farmer_trends",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"get_farmer_trends\",\r\n    \"url\": \"host/api\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/consume_businessman_profile_data_microservice",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"consume_businessman_profile_data_microservice"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "consume_learner_profile_data_microservice",
+			"item": [
+				{
+					"name": "make_a_chatbot_query",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"make_a_chatbot_query\",\r\n    \"question\": \"Qué es la catación de cafe\",\r\n    \"course_name\": \"catación de café\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/consume_learner_profile_data_microservice",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"consume_learner_profile_data_microservice"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "make_a_chatbot_query-Ej1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"microservice\": \"make_a_chatbot_query\",\r\n    \"question\": \"Qué es la catación de cafe\",\r\n    \"course_name\": \"catación de café\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_DOMAIN}}/consume_learner_profile_data_microservice",
+									"host": [
+										"{{URL_DOMAIN}}"
+									],
+									"path": [
+										"consume_learner_profile_data_microservice"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Apr 2024 22:52:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "488"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"answer\": \"La catación de café es un proceso de evaluación sensorial que implica probar y analizar las características organolépticas de una muestra de café. Los catadores utilizan sus sentidos del olfato, gusto y tacto para identificar atributos como aroma, sabor, acidez, cuerpo y dulzura, entre otros. Este proceso ayuda a determinar la calidad y perfil de sabor del café, así como a identificar posibles defectos.\",\n    \"status\": \"success\"\n}"
+						},
+						{
+							"name": "make_a_chatbot_query-Ej2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"microservice\": \"make_a_chatbot_query\",\r\n    \"question\": \"Qué es la tostión de cafe\",\r\n    \"course_name\": \"curso de tostador\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_DOMAIN}}/consume_learner_profile_data_microservice",
+									"host": [
+										"{{URL_DOMAIN}}"
+									],
+									"path": [
+										"consume_learner_profile_data_microservice"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Apr 2024 22:53:06 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "457"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"answer\": \"La tostión de café es el proceso mediante el cual los granos de café verde se tuestan para desarrollar su sabor, aroma y color característicos. Durante la tostión, los granos de café se exponen al calor en un proceso controlado que puede durar entre 10 y 20 minutos, dependiendo del tipo de tostado que se desee obtener. Este proceso es fundamental para la calidad final del café.\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "make_a_chatbot_query2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"make_a_chatbot_query2\",\r\n    \"question\": \"que es la catacion de cafe\",\r\n    \"course_name\": \"catación de café\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/consume_learner_profile_data_microservice",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"consume_learner_profile_data_microservice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "estimate_learning_style",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"estimate_learning_style\",\r\n    \"answers\": [\r\n        {\r\n            \"id_question\": 1,\r\n            \"id_answer\":2\r\n        },\r\n        {\r\n            \"id_question\": 2,\r\n            \"id_answer\":1\r\n        },\r\n        {\r\n            \"id_question\": 3,\r\n            \"id_answer\":3\r\n        },\r\n        {\r\n            \"id_question\": 4,\r\n            \"id_answer\":3\r\n        },\r\n        {\r\n            \"id_question\": 5,\r\n            \"id_answer\":3\r\n        },\r\n        {\r\n            \"id_question\": 6,\r\n            \"id_answer\":2\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/consume_learner_profile_data_microservice",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"consume_learner_profile_data_microservice"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "estimate_learning_style-Ej1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"microservice\": \"estimate_learning_style\",\r\n    \"answers\": [\r\n        {\r\n            \"id_question\": 1,\r\n            \"id_answer\":2\r\n        },\r\n        {\r\n            \"id_question\": 2,\r\n            \"id_answer\":1\r\n        },\r\n        {\r\n            \"id_question\": 3,\r\n            \"id_answer\":3\r\n        },\r\n        {\r\n            \"id_question\": 4,\r\n            \"id_answer\":3\r\n        },\r\n        {\r\n            \"id_question\": 5,\r\n            \"id_answer\":3\r\n        },\r\n        {\r\n            \"id_question\": 6,\r\n            \"id_answer\":2\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5020/consume_learner_profile_data_microservice",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5020",
+									"path": [
+										"consume_learner_profile_data_microservice"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Mar 2024 21:55:44 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "38"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"learning_style\": \"cinestésico\"\n}"
+						}
+					]
+				},
+				{
+					"name": "obtain_success_rate_of_evaluation_results",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"obtain_success_rate_of_evaluation_results\",\r\n    \"id_submodule\": 1,\r\n    \"id_user\": 50,\r\n    \"answers\": [\r\n        {\r\n            \"id_question\": 1,\r\n            \"id_answer\": 2\r\n        },\r\n        {\r\n            \"id_question\": 2,\r\n            \"id_answer\": [5,6]\r\n        },\r\n         {\r\n            \"id_question\": 3,\r\n            \"id_answer\": 8\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/consume_learner_profile_data_microservice",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"consume_learner_profile_data_microservice"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "obtain_success_rate_of_evaluation_results-Ej1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"microservice\": \"obtain_success_rate_of_evaluation_results\",\r\n    \"id_submodule\": 1,\r\n    \"id_user\": 50,\r\n    \"answers\": [\r\n        {\r\n            \"id_question\": 1,\r\n            \"id_answer\": 2\r\n        },\r\n        {\r\n            \"id_question\": 2,\r\n            \"id_answer\": [5,6]\r\n        },\r\n         {\r\n            \"id_question\": 3,\r\n            \"id_answer\": 8\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5020/consume_learner_profile_data_microservice",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5020",
+									"path": [
+										"consume_learner_profile_data_microservice"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Apr 2024 04:56:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "411"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"answers_validity\": {\n        \"¿Cuál es uno de los objetivos principales de prohibir el trabajo infantil en la certificación Fair Trade?\": true,\n        \"¿Qué medidas toma Fair Trade para prevenir el trabajo infantil?\": true,\n        \"¿Qué prohíbe la certificación Fair Trade en relación al trabajo infantil?\": true\n    },\n    \"data_updated\": false,\n    \"succes_rate\": 100\n}"
+						}
+					]
+				},
+				{
+					"name": "estimate_course_progress",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"estimate_course_progress\",\r\n    \"id_course\": 1,\r\n    \"id_user\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/consume_learner_profile_data_microservice",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"consume_learner_profile_data_microservice"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "estimate_course_progress-Ej1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"microservice\": \"estimate_course_progress\",\r\n    \"id_course\": 1,\r\n    \"id_user\": 50\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/consume_learner_profile_data_microservice",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"consume_learner_profile_data_microservice"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 21:56:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "21"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"progress_rate\": 23\n}"
+						}
+					]
+				},
+				{
+					"name": "get_user_answers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"get_user_answers\",\r\n    \"id_submodule\": 1,\r\n    \"id_user\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/consume_learner_profile_data_microservice",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"consume_learner_profile_data_microservice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_file_generated_from_microservice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"delete_file_generated_from_microservice\",\r\n    \"target_microservice\": \"estimate_course_progress\",\r\n    \"id_course\": 1,\r\n    \"id_user\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/consume_learner_profile_data_microservice",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"consume_learner_profile_data_microservice"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete_file_generated_from_microservice-Ej1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"microservice\": \"delete_file_generated_from_microservice\",\r\n    \"target_microservice\": \"estimate_course_progress\",\r\n    \"id_course\": 1,\r\n    \"id_user\": 50\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_DOMAIN}}/consume_learner_profile_data_microservice",
+									"host": [
+										"{{URL_DOMAIN}}"
+									],
+									"path": [
+										"consume_learner_profile_data_microservice"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.2 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Apr 2024 08:13:28 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error_message\": \"Archivo no encontrado\",\n    \"status\": \"failed\"\n}"
+						},
+						{
+							"name": "delete_file_generated_from_microservice-Ej2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"microservice\": \"delete_file_generated_from_microservice\",\r\n    \"target_microservice\": \"generate_course_certificate\",\r\n    \"id_course\": 1,\r\n    \"id_user\": 50\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_DOMAIN}}/consume_learner_profile_data_microservice",
+									"host": [
+										"{{URL_DOMAIN}}"
+									],
+									"path": [
+										"consume_learner_profile_data_microservice"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.2 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Apr 2024 08:16:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "generate_course_certificate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"generate_course_certificate\",\r\n    \"id_user\": 50,\r\n    \"id_course\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/consume_learner_profile_data_microservice",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"consume_learner_profile_data_microservice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_course_recommendations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"microservice\": \"get_course_recommendations\",\r\n    \"id_user\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/consume_learner_profile_data_microservice",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"consume_learner_profile_data_microservice"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "get_data_geoinformation_service",
+			"item": [
+				{
+					"name": "get_information_from_coordinate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"service\": \"get_information_from_coordinate\",\r\n    \"longitude\": -76.5113, \r\n    \"latitude\": 24.4213\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/get_data_geoinformation_service",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"get_data_geoinformation_service"
+							]
+						},
+						"description": "#### Descripción\n\n``` json\n{\n    \"service\": \"get_information_from_coordinate\",\n    \"longitude\": <valor_longitud>, \n    \"latitude\": <valor_latitud>\n}\n\n ```\n\nDada una coordenada (longitud, latitud), retorna el valor de temperatura, altitud y clima para la localización respectiva.\n\n##### Ejemplo 1\n\ninput_data:\n\n``` json\n{\n    \"service\": \"get_information_from_coordinate\",\n    \"longitude\": -76.5113, \n    \"latitude\": 2.4213\n}\n\n ```\n\noutput_data:\n\n``` json\n{\n    \"altitude\": 1992,\n    \"climate\": \"Semihúmedo\",\n    \"temperature\": \"12 a 16 °C\"\n}\n\n ```\n\n##### Ejemplo 2\n\nSi se devuelve una coordenada para la que no se tenga la información solicitada, es decir, fuera de los límites de Colombia, devuelve el valor -99 para las tres claves en el output_data:\n\ninput_data:\n\n``` json\n{\n    \"service\": \"get_information_from_coordinate\",\n    \"longitude\": -76.5113, \n    \"latitude\": 2.4213\n}\n\n ```\n\noutput_data:\n\n``` json\n{\n    \"altitude\": -99,\n    \"climate\": -99,\n    \"temperature\": -99\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "get_information_from_coordinate-Ej1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"service\": \"get_information_from_coordinate\",\r\n    \"longitude\": -76.5113, \r\n    \"latitude\": 2.4213\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_DOMAIN}}/get_data_geoinformation_service",
+									"host": [
+										"{{URL_DOMAIN}}"
+									],
+									"path": [
+										"get_data_geoinformation_service"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 12 Apr 2024 02:48:23 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "91"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"altitude\": 1992,\n    \"climate\": \"Semihúmedo\",\n    \"temperature\": \"12 a 16 °C\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get_geoinformation_from_polygon",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"service\": \"get_geoinformation_from_polygon\",\r\n    \"id_state\": 790,\r\n    \"id_city\": null,\r\n    \"id_village\": null\r\n}\r\n\r\n//{\r\n//    \"id_state\": null,\r\n//    \"id_city\": 19965,\r\n//    \"id_village\": null\r\n//}\r\n//\r\n//{\r\n//    \"id_state\": null,\r\n//    \"id_city\": null,\r\n//    \"id_village\": 12555\r\n//}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/get_data_geoinformation_service",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"get_data_geoinformation_service"
+							]
+						},
+						"description": "#### Descripción\n\n``` json\n{\n    \"service\": \"get_geoinformation_from_polygon\",\n    \"id_state\": <valor_id>,\n    \"id_city\": <valor_id>,\n    \"id_village\": <valor_id>\n}\n\n ```\n\nDado un id, que puede ser de de un departamento (`id_state`), municipio (`id_city`) o vereda (`id_village`), devuelve geoinformación respectiva. Esto incluye el bounding box (conjunto de coordenadas que construyen un rectángulo que encierra el polígono) y el centroide. Esta información se usa en la etapa en la que un caficultor especifica la ubicación de su finca.\n\nSólo se le puede pasar un id bien sea del departamento, municipio o vereda. Si se le pasa más de un id, el servicio toma en cuenta únicamente el último id recibido.\n\n##### • Ejemplo 1\n\ninput_data:\n\n``` json\n{\n    \"service\": \"get_geoinformation_from_polygon\",\n    \"id_state\": 790,\n    \"id_city\": null,\n    \"id_village\": null\n}\n\n ```\n\noutput_data:\n\n``` json\n{\n    \"bbox\": {\n        \"xmax\": -75.74782424722925,\n        \"xmin\": -77.9283381527739,\n        \"ymax\": 3.3289411577604913,\n        \"ymin\": 0.9580284644383605\n    },\n    \"centroid\": {\n        \"x\": -76.83068719603754,\n        \"y\": 2.3979493332932007\n    }\n}\n\n ```\n\n##### • Ejemplo 2\n\ninput_data:\n\n``` json\n{\n    \"id_state\": null,\n    \"id_city\": 19965,\n    \"id_village\": null\n}\n\n ```\n\noutput_data:\n\n``` json\n{\n    \"bbox\": {\n        \"xmax\": -75.74782424722925,\n        \"xmin\": -76.25456084307095,\n        \"ymax\": 3.046906891863681,\n        \"ymin\": 2.425065377805925\n    },\n    \"centroid\": {\n        \"x\": -75.99368263795537,\n        \"y\": 2.7338877006493765\n    }\n}\n\n ```\n\n##### • Ejemplo 3\n\ninput_data:\n\n``` json\n{\n    \"service\": \"get_geoinformation_from_polygon\",\n    \"id_state\": null,\n    \"id_city\": null,\n    \"id_village\": 12555\n}\n\n ```\n\noutput_data:\n\n``` json\n{\n    \"bbox\": {\n        \"xmax\": -75.90480778699998,\n        \"xmin\": -75.94701824299995,\n        \"ymax\": 2.7830887920000578,\n        \"ymin\": 2.667556963000038\n    },\n    \"centroid\": {\n        \"x\": -75.9251036394809,\n        \"y\": 2.7193815269619934\n    }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "get_geoinformation_from_polygon-Ej1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"service\": \"get_geoinformation_from_polygon\",\r\n    \"id_state\": 790,\r\n    \"id_city\": null,\r\n    \"id_village\": null\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/get_data_geoinformation_service",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"get_data_geoinformation_service"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Feb 2024 03:44:13 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "224"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bbox\": {\n        \"xmax\": -75.74782424722925,\n        \"xmin\": -77.9283381527739,\n        \"ymax\": 3.3289411577604913,\n        \"ymin\": 0.9580284644383605\n    },\n    \"centroid\": {\n        \"x\": -76.83068719603754,\n        \"y\": 2.3979493332932007\n    }\n}"
+						},
+						{
+							"name": "get_geoinformation_from_polygon-Ej2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"service\": \"get_geoinformation_from_polygon\",\r\n    \"id_state\": null,\r\n    \"id_city\": 19965,\r\n    \"id_village\": null\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/get_data_geoinformation_service",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"get_data_geoinformation_service"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Feb 2024 03:44:37 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "223"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bbox\": {\n        \"xmax\": -75.74782424722925,\n        \"xmin\": -76.25456084307095,\n        \"ymax\": 3.046906891863681,\n        \"ymin\": 2.425065377805925\n    },\n    \"centroid\": {\n        \"x\": -75.99368263795537,\n        \"y\": 2.7338877006493765\n    }\n}"
+						},
+						{
+							"name": "get_geoinformation_from_polygon-Ej3",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"service\": \"get_geoinformation_from_polygon\",\r\n    \"id_state\": null,\r\n    \"id_city\": null,\r\n    \"id_village\": 12555\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/get_data_geoinformation_service",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"get_data_geoinformation_service"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 Mar 2024 22:46:59 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "223"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bbox\": {\n        \"xmax\": -75.90480778699998,\n        \"xmin\": -75.94701824299995,\n        \"ymax\": 2.7830887920000578,\n        \"ymin\": 2.667556963000038\n    },\n    \"centroid\": {\n        \"x\": -75.9251036394809,\n        \"y\": 2.7193815269619934\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "get_entities_ids_from_coordinate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"service\": \"get_entities_ids_from_coordinate\",\r\n    \"longitude\": -75.9297,\r\n    \"latitude\": 2.6924\r\n}\r\n\r\n//{\r\n//    \"service\": \"get_entities_ids_from_coordinate\",\r\n//    \"longitude\": -75.97075,\r\n//    \"latitude\": 2.64149\r\n//}\r\n//\r\n//{\r\n//    \"service\": \"get_entities_ids_from_coordinate\",\r\n//    \"longitude\": -15.9297,\r\n//    \"latitude\": 82.6924\r\n//}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/get_data_geoinformation_service",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"get_data_geoinformation_service"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_coffee_recommended_prices",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"service\": \"get_coffee_recommended_prices\",\r\n    \"variety_name\": \"Pacamara\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/get_data_geoinformation_service",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"get_data_geoinformation_service"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_user_trends",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"service\": \"get_user_trends\",\r\n    \"id_role\": 1,\r\n    \"url\": \"host/api\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5020/get_data_geoinformation_service",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5020",
+							"path": [
+								"get_data_geoinformation_service"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get_user_trends-Ej1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"service\": \"get_user_trends\",\r\n    \"id_role\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5020/get_data_geoinformation_service",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5020",
+									"path": [
+										"get_data_geoinformation_service"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Apr 2024 03:24:56 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "16620"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ranking\": [\n        {\n            \"id_user\": 13,\n            \"lots\": [\n                {\n                    \"id_lot\": 51,\n                    \"lot_photo\": \"uploads/lot_photo_2.png\",\n                    \"profile_name\": \"Dulzón\",\n                    \"roasting_name\": \"Tueste claro\",\n                    \"sales_quantity\": 129,\n                    \"variety_name\": \"Blue Mountain\"\n                },\n                {\n                    \"id_lot\": 55,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Amargo moderado\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 81,\n                    \"variety_name\": \"Harrar\"\n                },\n                {\n                    \"id_lot\": 56,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Cítrico\",\n                    \"roasting_name\": \"Tueste claro\",\n                    \"sales_quantity\": 63,\n                    \"variety_name\": \"Maragogype\"\n                },\n                {\n                    \"id_lot\": 52,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Acidez Balanceada\",\n                    \"roasting_name\": \"Tueste claro\",\n                    \"sales_quantity\": 62,\n                    \"variety_name\": \"Typica\"\n                },\n                {\n                    \"id_lot\": 57,\n                    \"lot_photo\": \"uploads/lot_photo_2.png\",\n                    \"profile_name\": \"Avinados\",\n                    \"roasting_name\": \"Tueste claro\",\n                    \"sales_quantity\": 41,\n                    \"variety_name\": \"Yirgacheffe\"\n                },\n                {\n                    \"id_lot\": 53,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Cafe altura\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 37,\n                    \"variety_name\": \"Arábica\"\n                }\n            ],\n            \"total_purchase_quantity\": 413,\n            \"user_name\": \"Jose Nolby Rodriguez Quiroga\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_2.png\"\n        },\n        {\n            \"id_user\": 6,\n            \"lots\": [\n                {\n                    \"id_lot\": 26,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Cuerpo Medio\",\n                    \"roasting_name\": \"Tueste oscuro\",\n                    \"sales_quantity\": 123,\n                    \"variety_name\": \"Liberica\"\n                },\n                {\n                    \"id_lot\": 22,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Frutales\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 86,\n                    \"variety_name\": \"Robusta\"\n                },\n                {\n                    \"id_lot\": 25,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Acidez Balanceada\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 58,\n                    \"variety_name\": \"Blue Mountain\"\n                },\n                {\n                    \"id_lot\": 24,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Avinados\",\n                    \"roasting_name\": \"Tueste medio oscuro\",\n                    \"sales_quantity\": 50,\n                    \"variety_name\": \"Geisha/Panamá\"\n                },\n                {\n                    \"id_lot\": 23,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Dulzón\",\n                    \"roasting_name\": \"Tueste medio oscuro\",\n                    \"sales_quantity\": 23,\n                    \"variety_name\": \"Sidamo\"\n                },\n                {\n                    \"id_lot\": 21,\n                    \"lot_photo\": \"uploads/lot_photo_2.png\",\n                    \"profile_name\": \"Acidez Balanceada\",\n                    \"roasting_name\": \"Tueste oscuro\",\n                    \"sales_quantity\": 13,\n                    \"variety_name\": \"Maragogype\"\n                }\n            ],\n            \"total_purchase_quantity\": 353,\n            \"user_name\": \"Rosa Ebenide Abella Correa\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_2.png\"\n        },\n        {\n            \"id_user\": 8,\n            \"lots\": [\n                {\n                    \"id_lot\": 34,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Cuerpo Medio\",\n                    \"roasting_name\": \"Tueste claro\",\n                    \"sales_quantity\": 66,\n                    \"variety_name\": \"Castillo\"\n                },\n                {\n                    \"id_lot\": 39,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Acidez\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 57,\n                    \"variety_name\": \"Blue Mountain\"\n                },\n                {\n                    \"id_lot\": 36,\n                    \"lot_photo\": \"uploads/lot_photo_2.png\",\n                    \"profile_name\": \"Cuerpo Medio\",\n                    \"roasting_name\": \"Tueste medio oscuro\",\n                    \"sales_quantity\": 36,\n                    \"variety_name\": \"Herencia Etíope\"\n                },\n                {\n                    \"id_lot\": 33,\n                    \"lot_photo\": \"uploads/lot_photo_2.png\",\n                    \"profile_name\": \"Cuerpo Alto\",\n                    \"roasting_name\": \"Tueste claro\",\n                    \"sales_quantity\": 32,\n                    \"variety_name\": \"SL24\"\n                },\n                {\n                    \"id_lot\": 38,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Cuerpo Alto\",\n                    \"roasting_name\": \"Tueste claro\",\n                    \"sales_quantity\": 30,\n                    \"variety_name\": \"Moka\"\n                },\n                {\n                    \"id_lot\": 35,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Acidez Balanceada\",\n                    \"roasting_name\": \"Tueste oscuro\",\n                    \"sales_quantity\": 30,\n                    \"variety_name\": \"Geisha/Panamá\"\n                },\n                {\n                    \"id_lot\": 32,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Acidez\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 19,\n                    \"variety_name\": \"Arábica\"\n                },\n                {\n                    \"id_lot\": 37,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Florales\",\n                    \"roasting_name\": \"Tueste medio oscuro\",\n                    \"sales_quantity\": 16,\n                    \"variety_name\": \"Liberica\"\n                },\n                {\n                    \"id_lot\": 31,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Cafe orgánico\",\n                    \"roasting_name\": \"Tueste medio oscuro\",\n                    \"sales_quantity\": 2,\n                    \"variety_name\": \"Herencia Etíope\"\n                }\n            ],\n            \"total_purchase_quantity\": 288,\n            \"user_name\": \"Helio Francisco Rico R.\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_2.png\"\n        },\n        {\n            \"id_user\": 14,\n            \"lots\": [\n                {\n                    \"id_lot\": 63,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Cuerpo Medio\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 76,\n                    \"variety_name\": \"Blue Mountain\"\n                },\n                {\n                    \"id_lot\": 62,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Acidez\",\n                    \"roasting_name\": \"Tueste medio oscuro\",\n                    \"sales_quantity\": 48,\n                    \"variety_name\": \"Tekisik\"\n                },\n                {\n                    \"id_lot\": 64,\n                    \"lot_photo\": \"uploads/lot_photo_2.png\",\n                    \"profile_name\": \"Cafe orgánico\",\n                    \"roasting_name\": \"Tueste claro\",\n                    \"sales_quantity\": 46,\n                    \"variety_name\": \"Villa Sarchi\"\n                },\n                {\n                    \"id_lot\": 58,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Cuerpo Medio\",\n                    \"roasting_name\": \"Tueste claro\",\n                    \"sales_quantity\": 41,\n                    \"variety_name\": \"Robusta\"\n                },\n                {\n                    \"id_lot\": 61,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Acidez\",\n                    \"roasting_name\": \"Tueste claro\",\n                    \"sales_quantity\": 35,\n                    \"variety_name\": \"Castillo\"\n                },\n                {\n                    \"id_lot\": 60,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Ahumados\",\n                    \"roasting_name\": \"Tueste claro\",\n                    \"sales_quantity\": 20,\n                    \"variety_name\": \"Yirgacheffe\"\n                },\n                {\n                    \"id_lot\": 59,\n                    \"lot_photo\": \"uploads/lot_photo_2.png\",\n                    \"profile_name\": \"Florales\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 8,\n                    \"variety_name\": \"Catuai\"\n                }\n            ],\n            \"total_purchase_quantity\": 274,\n            \"user_name\": \"Manuel León\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_1.png\"\n        },\n        {\n            \"id_user\": 16,\n            \"lots\": [\n                {\n                    \"id_lot\": 75,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Amargo moderado\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 54,\n                    \"variety_name\": \"Ethiopian Heirloom\"\n                },\n                {\n                    \"id_lot\": 74,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Acidez media\",\n                    \"roasting_name\": \"Tueste oscuro\",\n                    \"sales_quantity\": 53,\n                    \"variety_name\": \"Catuai\"\n                },\n                {\n                    \"id_lot\": 76,\n                    \"lot_photo\": \"uploads/lot_photo_2.png\",\n                    \"profile_name\": \"Acidez\",\n                    \"roasting_name\": \"Tueste claro\",\n                    \"sales_quantity\": 50,\n                    \"variety_name\": \"Catuai\"\n                },\n                {\n                    \"id_lot\": 77,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Taza limpia\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 48,\n                    \"variety_name\": \"Robusta\"\n                },\n                {\n                    \"id_lot\": 73,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Picante similar al anis\",\n                    \"roasting_name\": \"Tueste medio oscuro\",\n                    \"sales_quantity\": 30,\n                    \"variety_name\": \"Catimor\"\n                },\n                {\n                    \"id_lot\": 72,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Amargo moderado\",\n                    \"roasting_name\": \"Tueste oscuro\",\n                    \"sales_quantity\": 29,\n                    \"variety_name\": \"Harrar\"\n                }\n            ],\n            \"total_purchase_quantity\": 264,\n            \"user_name\": \"Jairo Sandoval\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_0.png\"\n        },\n        {\n            \"id_user\": 9,\n            \"lots\": [\n                {\n                    \"id_lot\": 42,\n                    \"lot_photo\": \"uploads/lot_photo_2.png\",\n                    \"profile_name\": \"Caramelo\",\n                    \"roasting_name\": \"Tueste oscuro\",\n                    \"sales_quantity\": 68,\n                    \"variety_name\": \"Maragogype\"\n                },\n                {\n                    \"id_lot\": 40,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Cuerpo Alto\",\n                    \"roasting_name\": \"Tueste claro\",\n                    \"sales_quantity\": 63,\n                    \"variety_name\": \"Arábica\"\n                },\n                {\n                    \"id_lot\": 46,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Avinados\",\n                    \"roasting_name\": \"Tueste oscuro\",\n                    \"sales_quantity\": 42,\n                    \"variety_name\": \"Sumatra Mandheling\"\n                },\n                {\n                    \"id_lot\": 43,\n                    \"lot_photo\": \"uploads/lot_photo_2.png\",\n                    \"profile_name\": \"Acidez Buena\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 38,\n                    \"variety_name\": \"Harrar\"\n                },\n                {\n                    \"id_lot\": 45,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Cuerpo Alto\",\n                    \"roasting_name\": \"Tueste claro\",\n                    \"sales_quantity\": 13,\n                    \"variety_name\": \"Catuai\"\n                },\n                {\n                    \"id_lot\": 44,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Panela\",\n                    \"roasting_name\": \"Tueste medio oscuro\",\n                    \"sales_quantity\": 10,\n                    \"variety_name\": \"Blue Mountain\"\n                },\n                {\n                    \"id_lot\": 41,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Taza limpia\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 2,\n                    \"variety_name\": \"SL34\"\n                }\n            ],\n            \"total_purchase_quantity\": 236,\n            \"user_name\": \"Campo Elías Benitez\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_1.png\"\n        },\n        {\n            \"id_user\": 17,\n            \"lots\": [\n                {\n                    \"id_lot\": 79,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Acidez\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 58,\n                    \"variety_name\": \"Sidamo\"\n                },\n                {\n                    \"id_lot\": 82,\n                    \"lot_photo\": \"uploads/lot_photo_2.png\",\n                    \"profile_name\": \"Dulzón\",\n                    \"roasting_name\": \"Tueste oscuro\",\n                    \"sales_quantity\": 55,\n                    \"variety_name\": \"SL24\"\n                },\n                {\n                    \"id_lot\": 85,\n                    \"lot_photo\": \"uploads/lot_photo_2.png\",\n                    \"profile_name\": \"Cafe altura\",\n                    \"roasting_name\": \"Tueste claro\",\n                    \"sales_quantity\": 53,\n                    \"variety_name\": \"Robusta\"\n                },\n                {\n                    \"id_lot\": 80,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Acidez\",\n                    \"roasting_name\": \"Tueste claro\",\n                    \"sales_quantity\": 37,\n                    \"variety_name\": \"Sidamo\"\n                },\n                {\n                    \"id_lot\": 84,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Cuerpo Alto\",\n                    \"roasting_name\": \"Tueste medio oscuro\",\n                    \"sales_quantity\": 25,\n                    \"variety_name\": \"Villa Sarchi\"\n                },\n                {\n                    \"id_lot\": 83,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Cítrico\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 8,\n                    \"variety_name\": \"Arábica\"\n                }\n            ],\n            \"total_purchase_quantity\": 236,\n            \"user_name\": \"Miguel Antonio Quinayas\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_0.png\"\n        },\n        {\n            \"id_user\": 15,\n            \"lots\": [\n                {\n                    \"id_lot\": 71,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Florales\",\n                    \"roasting_name\": \"Tueste oscuro\",\n                    \"sales_quantity\": 94,\n                    \"variety_name\": \"Geisha/Panamá\"\n                },\n                {\n                    \"id_lot\": 69,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Taza limpia\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 59,\n                    \"variety_name\": \"Ethiopian Heirloom\"\n                },\n                {\n                    \"id_lot\": 68,\n                    \"lot_photo\": \"uploads/lot_photo_2.png\",\n                    \"profile_name\": \"Panela\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 26,\n                    \"variety_name\": \"Robusta\"\n                },\n                {\n                    \"id_lot\": 65,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Caramelo\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 25,\n                    \"variety_name\": \"Geisha/Panamá\"\n                },\n                {\n                    \"id_lot\": 66,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Avinados\",\n                    \"roasting_name\": \"Tueste medio oscuro\",\n                    \"sales_quantity\": 21,\n                    \"variety_name\": \"Pacamara\"\n                }\n            ],\n            \"total_purchase_quantity\": 225,\n            \"user_name\": \"Omar Cárdenas\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_2.png\"\n        },\n        {\n            \"id_user\": 7,\n            \"lots\": [\n                {\n                    \"id_lot\": 29,\n                    \"lot_photo\": \"uploads/lot_photo_2.png\",\n                    \"profile_name\": \"Frutales\",\n                    \"roasting_name\": \"Tueste medio oscuro\",\n                    \"sales_quantity\": 74,\n                    \"variety_name\": \"Robusta\"\n                },\n                {\n                    \"id_lot\": 30,\n                    \"lot_photo\": \"uploads/lot_photo_2.png\",\n                    \"profile_name\": \"Acidez Balanceada\",\n                    \"roasting_name\": \"Tueste medio oscuro\",\n                    \"sales_quantity\": 66,\n                    \"variety_name\": \"Castillo\"\n                },\n                {\n                    \"id_lot\": 28,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Taza limpia\",\n                    \"roasting_name\": \"Tueste oscuro\",\n                    \"sales_quantity\": 61,\n                    \"variety_name\": \"Sidamo\"\n                }\n            ],\n            \"total_purchase_quantity\": 201,\n            \"user_name\": \"German Caviedes Cruz\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_1.png\"\n        },\n        {\n            \"id_user\": 2,\n            \"lots\": [\n                {\n                    \"id_lot\": 7,\n                    \"lot_photo\": \"uploads/lot_photo_1.png\",\n                    \"profile_name\": \"Dulzón\",\n                    \"roasting_name\": \"Tueste medio\",\n                    \"sales_quantity\": 52,\n                    \"variety_name\": \"Villa Sarchi\"\n                },\n                {\n                    \"id_lot\": 6,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Acidez media\",\n                    \"roasting_name\": \"Tueste oscuro\",\n                    \"sales_quantity\": 25,\n                    \"variety_name\": \"Jember\"\n                },\n                {\n                    \"id_lot\": 8,\n                    \"lot_photo\": \"uploads/lot_photo_3.png\",\n                    \"profile_name\": \"Caramelo\",\n                    \"roasting_name\": \"Tueste oscuro\",\n                    \"sales_quantity\": 13,\n                    \"variety_name\": \"Catimor\"\n                }\n            ],\n            \"total_purchase_quantity\": 90,\n            \"user_name\": \"Neovan Manrique\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_1.png\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "get_user_trends-Ej2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"service\": \"get_user_trends\",\r\n    \"id_role\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5020/get_data_geoinformation_service",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5020",
+									"path": [
+										"get_data_geoinformation_service"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.0.1 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Apr 2024 03:25:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "22620"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ranking\": [\n        {\n            \"chart_paths\": {\n                \"chart_profile_path\": \"./generated_charts/stats_23_profile.png\",\n                \"chart_roast_path\": \"./generated_charts/stats_23_roast.png\",\n                \"chart_variety_path\": \"./generated_charts/stats_23_variety.png\"\n            },\n            \"id_user\": 23,\n            \"stats\": {\n                \"profile\": [\n                    {\n                        \"color\": \"#01DE98\",\n                        \"name\": \"Cuerpo Medio\",\n                        \"percent\": 29.4,\n                        \"quantity\": 58\n                    },\n                    {\n                        \"color\": \"#012EE7\",\n                        \"name\": \"Frutales\",\n                        \"percent\": 19.3,\n                        \"quantity\": 38\n                    },\n                    {\n                        \"color\": \"#0180E2\",\n                        \"name\": \"Amargo moderado\",\n                        \"percent\": 15.2,\n                        \"quantity\": 30\n                    },\n                    {\n                        \"color\": \"#01D5E2\",\n                        \"name\": \"Otros\",\n                        \"percent\": 36,\n                        \"quantity\": 71\n                    }\n                ],\n                \"roast\": [\n                    {\n                        \"color\": \"#b9935a\",\n                        \"name\": \"Tueste medio oscuro\",\n                        \"percent\": 34,\n                        \"quantity\": 67\n                    },\n                    {\n                        \"color\": \"#ddc88f\",\n                        \"name\": \"Tueste medio\",\n                        \"percent\": 27.4,\n                        \"quantity\": 54\n                    },\n                    {\n                        \"color\": \"#82612d\",\n                        \"name\": \"Tueste oscuro\",\n                        \"percent\": 22.8,\n                        \"quantity\": 45\n                    },\n                    {\n                        \"color\": \"#4e3300\",\n                        \"name\": \"Otros\",\n                        \"percent\": 15.7,\n                        \"quantity\": 31\n                    }\n                ],\n                \"total_quantity\": 197,\n                \"variety\": [\n                    {\n                        \"color\": \"#460387\",\n                        \"name\": \"Ethiopian Heirloom\",\n                        \"percent\": 15.2,\n                        \"quantity\": 30\n                    },\n                    {\n                        \"color\": \"#75088F\",\n                        \"name\": \"Herencia Etíope\",\n                        \"percent\": 14.2,\n                        \"quantity\": 28\n                    },\n                    {\n                        \"color\": \"#971088\",\n                        \"name\": \"SL24\",\n                        \"percent\": 13.7,\n                        \"quantity\": 27\n                    },\n                    {\n                        \"color\": \"#A01666\",\n                        \"name\": \"Otros\",\n                        \"percent\": 56.9,\n                        \"quantity\": 112\n                    }\n                ]\n            },\n            \"user_name\": \"Caesar Stuart\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_0.png\"\n        },\n        {\n            \"chart_paths\": {\n                \"chart_profile_path\": \"./generated_charts/stats_27_profile.png\",\n                \"chart_roast_path\": \"./generated_charts/stats_27_roast.png\",\n                \"chart_variety_path\": \"./generated_charts/stats_27_variety.png\"\n            },\n            \"id_user\": 27,\n            \"stats\": {\n                \"profile\": [\n                    {\n                        \"color\": \"#01DE98\",\n                        \"name\": \"Acidez\",\n                        \"percent\": 19.8,\n                        \"quantity\": 36\n                    },\n                    {\n                        \"color\": \"#012EE7\",\n                        \"name\": \"Avinados\",\n                        \"percent\": 16.5,\n                        \"quantity\": 30\n                    },\n                    {\n                        \"color\": \"#0180E2\",\n                        \"name\": \"Cuerpo Medio\",\n                        \"percent\": 15.4,\n                        \"quantity\": 28\n                    },\n                    {\n                        \"color\": \"#01D5E2\",\n                        \"name\": \"Otros\",\n                        \"percent\": 48.4,\n                        \"quantity\": 88\n                    }\n                ],\n                \"roast\": [\n                    {\n                        \"color\": \"#ffffc7\",\n                        \"name\": \"Tueste claro\",\n                        \"percent\": 59.3,\n                        \"quantity\": 108\n                    },\n                    {\n                        \"color\": \"#82612d\",\n                        \"name\": \"Tueste oscuro\",\n                        \"percent\": 16.5,\n                        \"quantity\": 30\n                    },\n                    {\n                        \"color\": \"#ddc88f\",\n                        \"name\": \"Tueste medio\",\n                        \"percent\": 14.8,\n                        \"quantity\": 27\n                    },\n                    {\n                        \"color\": \"#4e3300\",\n                        \"name\": \"Otros\",\n                        \"percent\": 9.3,\n                        \"quantity\": 17\n                    }\n                ],\n                \"total_quantity\": 182,\n                \"variety\": [\n                    {\n                        \"color\": \"#460387\",\n                        \"name\": \"Blue Mountain\",\n                        \"percent\": 22,\n                        \"quantity\": 40\n                    },\n                    {\n                        \"color\": \"#75088F\",\n                        \"name\": \"Sumatra Mandheling\",\n                        \"percent\": 16.5,\n                        \"quantity\": 30\n                    },\n                    {\n                        \"color\": \"#971088\",\n                        \"name\": \"Castillo\",\n                        \"percent\": 15.4,\n                        \"quantity\": 28\n                    },\n                    {\n                        \"color\": \"#A01666\",\n                        \"name\": \"Otros\",\n                        \"percent\": 46.2,\n                        \"quantity\": 84\n                    }\n                ]\n            },\n            \"user_name\": \"Rinah Best\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_1.png\"\n        },\n        {\n            \"chart_paths\": {\n                \"chart_profile_path\": \"./generated_charts/stats_47_profile.png\",\n                \"chart_roast_path\": \"./generated_charts/stats_47_roast.png\",\n                \"chart_variety_path\": \"./generated_charts/stats_47_variety.png\"\n            },\n            \"id_user\": 47,\n            \"stats\": {\n                \"profile\": [\n                    {\n                        \"color\": \"#01DE98\",\n                        \"name\": \"Cuerpo Medio\",\n                        \"percent\": 19.8,\n                        \"quantity\": 35\n                    },\n                    {\n                        \"color\": \"#012EE7\",\n                        \"name\": \"Acidez\",\n                        \"percent\": 15.8,\n                        \"quantity\": 28\n                    },\n                    {\n                        \"color\": \"#0180E2\",\n                        \"name\": \"Acidez Balanceada\",\n                        \"percent\": 13.6,\n                        \"quantity\": 24\n                    },\n                    {\n                        \"color\": \"#01D5E2\",\n                        \"name\": \"Otros\",\n                        \"percent\": 50.8,\n                        \"quantity\": 90\n                    }\n                ],\n                \"roast\": [\n                    {\n                        \"color\": \"#ddc88f\",\n                        \"name\": \"Tueste medio\",\n                        \"percent\": 35,\n                        \"quantity\": 62\n                    },\n                    {\n                        \"color\": \"#82612d\",\n                        \"name\": \"Tueste oscuro\",\n                        \"percent\": 26,\n                        \"quantity\": 46\n                    },\n                    {\n                        \"color\": \"#ffffc7\",\n                        \"name\": \"Tueste claro\",\n                        \"percent\": 24.3,\n                        \"quantity\": 43\n                    },\n                    {\n                        \"color\": \"#4e3300\",\n                        \"name\": \"Otros\",\n                        \"percent\": 14.7,\n                        \"quantity\": 26\n                    }\n                ],\n                \"total_quantity\": 177,\n                \"variety\": [\n                    {\n                        \"color\": \"#460387\",\n                        \"name\": \"Blue Mountain\",\n                        \"percent\": 23.7,\n                        \"quantity\": 42\n                    },\n                    {\n                        \"color\": \"#75088F\",\n                        \"name\": \"Harrar\",\n                        \"percent\": 13,\n                        \"quantity\": 23\n                    },\n                    {\n                        \"color\": \"#971088\",\n                        \"name\": \"Sidamo\",\n                        \"percent\": 13,\n                        \"quantity\": 23\n                    },\n                    {\n                        \"color\": \"#A01666\",\n                        \"name\": \"Otros\",\n                        \"percent\": 50.3,\n                        \"quantity\": 89\n                    }\n                ]\n            },\n            \"user_name\": \"Azalia Benjamin\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_0.png\"\n        },\n        {\n            \"chart_paths\": {\n                \"chart_profile_path\": \"./generated_charts/stats_29_profile.png\",\n                \"chart_roast_path\": \"./generated_charts/stats_29_roast.png\",\n                \"chart_variety_path\": \"./generated_charts/stats_29_variety.png\"\n            },\n            \"id_user\": 29,\n            \"stats\": {\n                \"profile\": [\n                    {\n                        \"color\": \"#01DE98\",\n                        \"name\": \"Acidez\",\n                        \"percent\": 17.8,\n                        \"quantity\": 30\n                    },\n                    {\n                        \"color\": \"#012EE7\",\n                        \"name\": \"Cuerpo Medio\",\n                        \"percent\": 17.2,\n                        \"quantity\": 29\n                    },\n                    {\n                        \"color\": \"#0180E2\",\n                        \"name\": \"Cafe altura\",\n                        \"percent\": 16.6,\n                        \"quantity\": 28\n                    },\n                    {\n                        \"color\": \"#01D5E2\",\n                        \"name\": \"Otros\",\n                        \"percent\": 48.5,\n                        \"quantity\": 82\n                    }\n                ],\n                \"roast\": [\n                    {\n                        \"color\": \"#ddc88f\",\n                        \"name\": \"Tueste medio\",\n                        \"percent\": 43.8,\n                        \"quantity\": 74\n                    },\n                    {\n                        \"color\": \"#ffffc7\",\n                        \"name\": \"Tueste claro\",\n                        \"percent\": 32,\n                        \"quantity\": 54\n                    },\n                    {\n                        \"color\": \"#82612d\",\n                        \"name\": \"Tueste oscuro\",\n                        \"percent\": 24.3,\n                        \"quantity\": 41\n                    }\n                ],\n                \"total_quantity\": 169,\n                \"variety\": [\n                    {\n                        \"color\": \"#460387\",\n                        \"name\": \"Arábica\",\n                        \"percent\": 27.8,\n                        \"quantity\": 47\n                    },\n                    {\n                        \"color\": \"#75088F\",\n                        \"name\": \"Liberica\",\n                        \"percent\": 17.2,\n                        \"quantity\": 29\n                    },\n                    {\n                        \"color\": \"#971088\",\n                        \"name\": \"Blue Mountain\",\n                        \"percent\": 13,\n                        \"quantity\": 22\n                    },\n                    {\n                        \"color\": \"#A01666\",\n                        \"name\": \"Otros\",\n                        \"percent\": 42,\n                        \"quantity\": 71\n                    }\n                ]\n            },\n            \"user_name\": \"Theodore Riggs\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_1.png\"\n        },\n        {\n            \"chart_paths\": {\n                \"chart_profile_path\": \"./generated_charts/stats_24_profile.png\",\n                \"chart_roast_path\": \"./generated_charts/stats_24_roast.png\",\n                \"chart_variety_path\": \"./generated_charts/stats_24_variety.png\"\n            },\n            \"id_user\": 24,\n            \"stats\": {\n                \"profile\": [\n                    {\n                        \"color\": \"#01DE98\",\n                        \"name\": \"Acidez\",\n                        \"percent\": 18.4,\n                        \"quantity\": 30\n                    },\n                    {\n                        \"color\": \"#012EE7\",\n                        \"name\": \"Florales\",\n                        \"percent\": 17.2,\n                        \"quantity\": 28\n                    },\n                    {\n                        \"color\": \"#0180E2\",\n                        \"name\": \"Taza limpia\",\n                        \"percent\": 14.1,\n                        \"quantity\": 23\n                    },\n                    {\n                        \"color\": \"#01D5E2\",\n                        \"name\": \"Otros\",\n                        \"percent\": 50.3,\n                        \"quantity\": 82\n                    }\n                ],\n                \"roast\": [\n                    {\n                        \"color\": \"#ddc88f\",\n                        \"name\": \"Tueste medio\",\n                        \"percent\": 41.1,\n                        \"quantity\": 67\n                    },\n                    {\n                        \"color\": \"#ffffc7\",\n                        \"name\": \"Tueste claro\",\n                        \"percent\": 24.5,\n                        \"quantity\": 40\n                    },\n                    {\n                        \"color\": \"#b9935a\",\n                        \"name\": \"Tueste medio oscuro\",\n                        \"percent\": 19.6,\n                        \"quantity\": 32\n                    },\n                    {\n                        \"color\": \"#4e3300\",\n                        \"name\": \"Otros\",\n                        \"percent\": 14.7,\n                        \"quantity\": 24\n                    }\n                ],\n                \"total_quantity\": 163,\n                \"variety\": [\n                    {\n                        \"color\": \"#460387\",\n                        \"name\": \"Blue Mountain\",\n                        \"percent\": 18.4,\n                        \"quantity\": 30\n                    },\n                    {\n                        \"color\": \"#75088F\",\n                        \"name\": \"Robusta\",\n                        \"percent\": 14.1,\n                        \"quantity\": 23\n                    },\n                    {\n                        \"color\": \"#971088\",\n                        \"name\": \"Maragogype\",\n                        \"percent\": 11.7,\n                        \"quantity\": 19\n                    },\n                    {\n                        \"color\": \"#A01666\",\n                        \"name\": \"Otros\",\n                        \"percent\": 55.8,\n                        \"quantity\": 91\n                    }\n                ]\n            },\n            \"user_name\": \"Amaya Giles\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_1.png\"\n        },\n        {\n            \"chart_paths\": {\n                \"chart_profile_path\": \"./generated_charts/stats_39_profile.png\",\n                \"chart_roast_path\": \"./generated_charts/stats_39_roast.png\",\n                \"chart_variety_path\": \"./generated_charts/stats_39_variety.png\"\n            },\n            \"id_user\": 39,\n            \"stats\": {\n                \"profile\": [\n                    {\n                        \"color\": \"#01DE98\",\n                        \"name\": \"Picante similar al anis\",\n                        \"percent\": 20.6,\n                        \"quantity\": 26\n                    },\n                    {\n                        \"color\": \"#012EE7\",\n                        \"name\": \"Cuerpo Alto\",\n                        \"percent\": 19.8,\n                        \"quantity\": 25\n                    },\n                    {\n                        \"color\": \"#0180E2\",\n                        \"name\": \"Panela\",\n                        \"percent\": 19,\n                        \"quantity\": 24\n                    },\n                    {\n                        \"color\": \"#01D5E2\",\n                        \"name\": \"Otros\",\n                        \"percent\": 40.5,\n                        \"quantity\": 51\n                    }\n                ],\n                \"roast\": [\n                    {\n                        \"color\": \"#b9935a\",\n                        \"name\": \"Tueste medio oscuro\",\n                        \"percent\": 40.5,\n                        \"quantity\": 51\n                    },\n                    {\n                        \"color\": \"#ddc88f\",\n                        \"name\": \"Tueste medio\",\n                        \"percent\": 34.9,\n                        \"quantity\": 44\n                    },\n                    {\n                        \"color\": \"#82612d\",\n                        \"name\": \"Tueste oscuro\",\n                        \"percent\": 23.8,\n                        \"quantity\": 30\n                    },\n                    {\n                        \"color\": \"#4e3300\",\n                        \"name\": \"Otros\",\n                        \"percent\": 0.8,\n                        \"quantity\": 1\n                    }\n                ],\n                \"total_quantity\": 126,\n                \"variety\": [\n                    {\n                        \"color\": \"#460387\",\n                        \"name\": \"Harrar\",\n                        \"percent\": 30.2,\n                        \"quantity\": 38\n                    },\n                    {\n                        \"color\": \"#75088F\",\n                        \"name\": \"Villa Sarchi\",\n                        \"percent\": 29.4,\n                        \"quantity\": 37\n                    },\n                    {\n                        \"color\": \"#971088\",\n                        \"name\": \"Catimor\",\n                        \"percent\": 20.6,\n                        \"quantity\": 26\n                    },\n                    {\n                        \"color\": \"#A01666\",\n                        \"name\": \"Otros\",\n                        \"percent\": 19.8,\n                        \"quantity\": 25\n                    }\n                ]\n            },\n            \"user_name\": \"Riley Alexander\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_0.png\"\n        },\n        {\n            \"chart_paths\": {\n                \"chart_profile_path\": \"./generated_charts/stats_40_profile.png\",\n                \"chart_roast_path\": \"./generated_charts/stats_40_roast.png\",\n                \"chart_variety_path\": \"./generated_charts/stats_40_variety.png\"\n            },\n            \"id_user\": 40,\n            \"stats\": {\n                \"profile\": [\n                    {\n                        \"color\": \"#01DE98\",\n                        \"name\": \"Cuerpo Medio\",\n                        \"percent\": 22.6,\n                        \"quantity\": 28\n                    },\n                    {\n                        \"color\": \"#012EE7\",\n                        \"name\": \"Acidez media\",\n                        \"percent\": 22.6,\n                        \"quantity\": 28\n                    },\n                    {\n                        \"color\": \"#0180E2\",\n                        \"name\": \"Taza limpia\",\n                        \"percent\": 20.2,\n                        \"quantity\": 25\n                    },\n                    {\n                        \"color\": \"#01D5E2\",\n                        \"name\": \"Otros\",\n                        \"percent\": 34.7,\n                        \"quantity\": 43\n                    }\n                ],\n                \"roast\": [\n                    {\n                        \"color\": \"#ddc88f\",\n                        \"name\": \"Tueste medio\",\n                        \"percent\": 49.2,\n                        \"quantity\": 61\n                    },\n                    {\n                        \"color\": \"#82612d\",\n                        \"name\": \"Tueste oscuro\",\n                        \"percent\": 47.6,\n                        \"quantity\": 59\n                    },\n                    {\n                        \"color\": \"#b9935a\",\n                        \"name\": \"Tueste medio oscuro\",\n                        \"percent\": 2.4,\n                        \"quantity\": 3\n                    },\n                    {\n                        \"color\": \"#4e3300\",\n                        \"name\": \"Otros\",\n                        \"percent\": 0.8,\n                        \"quantity\": 1\n                    }\n                ],\n                \"total_quantity\": 124,\n                \"variety\": [\n                    {\n                        \"color\": \"#460387\",\n                        \"name\": \"Robusta\",\n                        \"percent\": 27.4,\n                        \"quantity\": 34\n                    },\n                    {\n                        \"color\": \"#75088F\",\n                        \"name\": \"Blue Mountain\",\n                        \"percent\": 22.6,\n                        \"quantity\": 28\n                    },\n                    {\n                        \"color\": \"#971088\",\n                        \"name\": \"Catuai\",\n                        \"percent\": 22.6,\n                        \"quantity\": 28\n                    },\n                    {\n                        \"color\": \"#A01666\",\n                        \"name\": \"Otros\",\n                        \"percent\": 27.4,\n                        \"quantity\": 34\n                    }\n                ]\n            },\n            \"user_name\": \"Erich Tillman\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_0.png\"\n        },\n        {\n            \"chart_paths\": {\n                \"chart_profile_path\": \"./generated_charts/stats_48_profile.png\",\n                \"chart_roast_path\": \"./generated_charts/stats_48_roast.png\",\n                \"chart_variety_path\": \"./generated_charts/stats_48_variety.png\"\n            },\n            \"id_user\": 48,\n            \"stats\": {\n                \"profile\": [\n                    {\n                        \"color\": \"#01DE98\",\n                        \"name\": \"Frutales\",\n                        \"percent\": 30.3,\n                        \"quantity\": 36\n                    },\n                    {\n                        \"color\": \"#012EE7\",\n                        \"name\": \"Taza limpia\",\n                        \"percent\": 24.4,\n                        \"quantity\": 29\n                    },\n                    {\n                        \"color\": \"#0180E2\",\n                        \"name\": \"Cuerpo Medio\",\n                        \"percent\": 18.5,\n                        \"quantity\": 22\n                    },\n                    {\n                        \"color\": \"#01D5E2\",\n                        \"name\": \"Otros\",\n                        \"percent\": 26.9,\n                        \"quantity\": 32\n                    }\n                ],\n                \"roast\": [\n                    {\n                        \"color\": \"#ddc88f\",\n                        \"name\": \"Tueste medio\",\n                        \"percent\": 54.6,\n                        \"quantity\": 65\n                    },\n                    {\n                        \"color\": \"#82612d\",\n                        \"name\": \"Tueste oscuro\",\n                        \"percent\": 35.3,\n                        \"quantity\": 42\n                    },\n                    {\n                        \"color\": \"#b9935a\",\n                        \"name\": \"Tueste medio oscuro\",\n                        \"percent\": 9.2,\n                        \"quantity\": 11\n                    },\n                    {\n                        \"color\": \"#4e3300\",\n                        \"name\": \"Otros\",\n                        \"percent\": 0.8,\n                        \"quantity\": 1\n                    }\n                ],\n                \"total_quantity\": 119,\n                \"variety\": [\n                    {\n                        \"color\": \"#460387\",\n                        \"name\": \"Ethiopian Heirloom\",\n                        \"percent\": 24.4,\n                        \"quantity\": 29\n                    },\n                    {\n                        \"color\": \"#75088F\",\n                        \"name\": \"Robusta\",\n                        \"percent\": 22.7,\n                        \"quantity\": 27\n                    },\n                    {\n                        \"color\": \"#971088\",\n                        \"name\": \"Liberica\",\n                        \"percent\": 18.5,\n                        \"quantity\": 22\n                    },\n                    {\n                        \"color\": \"#A01666\",\n                        \"name\": \"Otros\",\n                        \"percent\": 34.5,\n                        \"quantity\": 41\n                    }\n                ]\n            },\n            \"user_name\": \"Patrick Roberts\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_2.png\"\n        },\n        {\n            \"chart_paths\": {\n                \"chart_profile_path\": \"./generated_charts/stats_33_profile.png\",\n                \"chart_roast_path\": \"./generated_charts/stats_33_roast.png\",\n                \"chart_variety_path\": \"./generated_charts/stats_33_variety.png\"\n            },\n            \"id_user\": 33,\n            \"stats\": {\n                \"profile\": [\n                    {\n                        \"color\": \"#01DE98\",\n                        \"name\": \"Acidez Balanceada\",\n                        \"percent\": 31.1,\n                        \"quantity\": 37\n                    },\n                    {\n                        \"color\": \"#012EE7\",\n                        \"name\": \"Acidez\",\n                        \"percent\": 21.8,\n                        \"quantity\": 26\n                    },\n                    {\n                        \"color\": \"#0180E2\",\n                        \"name\": \"Cuerpo Alto\",\n                        \"percent\": 20.2,\n                        \"quantity\": 24\n                    },\n                    {\n                        \"color\": \"#01D5E2\",\n                        \"name\": \"Otros\",\n                        \"percent\": 26.9,\n                        \"quantity\": 32\n                    }\n                ],\n                \"roast\": [\n                    {\n                        \"color\": \"#ffffc7\",\n                        \"name\": \"Tueste claro\",\n                        \"percent\": 59.7,\n                        \"quantity\": 71\n                    },\n                    {\n                        \"color\": \"#82612d\",\n                        \"name\": \"Tueste oscuro\",\n                        \"percent\": 20.2,\n                        \"quantity\": 24\n                    },\n                    {\n                        \"color\": \"#b9935a\",\n                        \"name\": \"Tueste medio oscuro\",\n                        \"percent\": 16.8,\n                        \"quantity\": 20\n                    },\n                    {\n                        \"color\": \"#4e3300\",\n                        \"name\": \"Otros\",\n                        \"percent\": 3.4,\n                        \"quantity\": 4\n                    }\n                ],\n                \"total_quantity\": 119,\n                \"variety\": [\n                    {\n                        \"color\": \"#460387\",\n                        \"name\": \"Catuai\",\n                        \"percent\": 36.1,\n                        \"quantity\": 43\n                    },\n                    {\n                        \"color\": \"#75088F\",\n                        \"name\": \"Arábica\",\n                        \"percent\": 20.2,\n                        \"quantity\": 24\n                    },\n                    {\n                        \"color\": \"#971088\",\n                        \"name\": \"Castillo\",\n                        \"percent\": 16.8,\n                        \"quantity\": 20\n                    },\n                    {\n                        \"color\": \"#A01666\",\n                        \"name\": \"Otros\",\n                        \"percent\": 26.9,\n                        \"quantity\": 32\n                    }\n                ]\n            },\n            \"user_name\": \"Libby Roth\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_0.png\"\n        },\n        {\n            \"chart_paths\": {\n                \"chart_profile_path\": \"./generated_charts/stats_41_profile.png\",\n                \"chart_roast_path\": \"./generated_charts/stats_41_roast.png\",\n                \"chart_variety_path\": \"./generated_charts/stats_41_variety.png\"\n            },\n            \"id_user\": 41,\n            \"stats\": {\n                \"profile\": [\n                    {\n                        \"color\": \"#01DE98\",\n                        \"name\": \"Amargo moderado\",\n                        \"percent\": 40,\n                        \"quantity\": 46\n                    },\n                    {\n                        \"color\": \"#012EE7\",\n                        \"name\": \"Dulzón\",\n                        \"percent\": 25.2,\n                        \"quantity\": 29\n                    },\n                    {\n                        \"color\": \"#0180E2\",\n                        \"name\": \"Cafe altura\",\n                        \"percent\": 24.3,\n                        \"quantity\": 28\n                    },\n                    {\n                        \"color\": \"#01D5E2\",\n                        \"name\": \"Otros\",\n                        \"percent\": 10.4,\n                        \"quantity\": 12\n                    }\n                ],\n                \"roast\": [\n                    {\n                        \"color\": \"#ffffc7\",\n                        \"name\": \"Tueste claro\",\n                        \"percent\": 49.6,\n                        \"quantity\": 57\n                    },\n                    {\n                        \"color\": \"#82612d\",\n                        \"name\": \"Tueste oscuro\",\n                        \"percent\": 34.8,\n                        \"quantity\": 40\n                    },\n                    {\n                        \"color\": \"#ddc88f\",\n                        \"name\": \"Tueste medio\",\n                        \"percent\": 15.7,\n                        \"quantity\": 18\n                    }\n                ],\n                \"total_quantity\": 115,\n                \"variety\": [\n                    {\n                        \"color\": \"#460387\",\n                        \"name\": \"Blue Mountain\",\n                        \"percent\": 25.2,\n                        \"quantity\": 29\n                    },\n                    {\n                        \"color\": \"#75088F\",\n                        \"name\": \"Castillo\",\n                        \"percent\": 24.3,\n                        \"quantity\": 28\n                    },\n                    {\n                        \"color\": \"#971088\",\n                        \"name\": \"Robusta\",\n                        \"percent\": 24.3,\n                        \"quantity\": 28\n                    },\n                    {\n                        \"color\": \"#A01666\",\n                        \"name\": \"Otros\",\n                        \"percent\": 26.1,\n                        \"quantity\": 30\n                    }\n                ]\n            },\n            \"user_name\": \"Elton Olson\",\n            \"user_profile_photo\": \"uploads/user_profile_photo_1.png\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get_sorted_lots_based_on_buyer_preferences",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"service\": \"get_sorted_lots_based_on_buyer_preferences\",\r\n    \"id_seller\": 1,\r\n    \"id_buyer\": 36\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/get_data_geoinformation_service",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"get_data_geoinformation_service"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_lot_coding",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"service\": \"get_lot_coding\",\r\n    \"id_lot\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/get_data_geoinformation_service",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"get_data_geoinformation_service"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "service_get_farmers_farm_info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"service\": \"service_get_farmers_farm_info\",\r\n    \"id_user\": 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/get_data_geoinformation_service",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"get_data_geoinformation_service"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "train_recommendation_engine",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"service\": \"train_recommendation_engine\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/get_data_geoinformation_service",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"get_data_geoinformation_service"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_recommended_lots_from_engine",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"service\": \"get_recommended_lots_from_engine\",\r\n    \"id_user\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/get_data_geoinformation_service",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"get_data_geoinformation_service"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Este servicio comprende, la mayoría de microservicios desarrollados.\n\n#### Estructura general\n\nPara el consumo de los microservicios que comprende esta ruta se tiene la siguiente estructura:\n\n``` json\n{\n    \"service\": \"nombre_microservicio\",\n    \"parametro1\": valor_parametro1, \n    \"parametro2\": valor_parametro2,\n    ...\n}\n\n ```\n\nNótese que si bien la primera clave es `service`, en realidad se trata de un microservicio. Posterior a la entrada comentada, se especifican los parámetros involucrados en el microservicio de interés, como se muestra en las descripciones que siguen."
+		}
+	]
+}

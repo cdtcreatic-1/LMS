@@ -1,0 +1,19 @@
+<div class="container-button">
+  <div class="container-icon">
+    <img
+      *ngIf="!ionIcon && iconItemPath"
+      src="{{ iconItemPath }}"
+      alt="Icon profile"
+      height="100%"
+    />
+    <ion-icon *ngIf="ionIcon" class="icon" name="{{ ionIcon }}"></ion-icon>
+  </div>
+  <div class="container-text" (click)="setNotifiaction()">
+    <button class="btns-menu">{{ buttonName }}</button>
+  </div>
+  <div class="container-chevron">
+    <div class="container-box-notification" *ngIf="amountNotification > 0">
+      {{ amountNotification }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+version: '3'
+services:
+  backend_test:
+    image: node:16.19.0
+    container_name: green_trade_backend_test
+    command: sh -c "./init_service.sh test" # manda 'test' como argumento
+
+    environment:
+      exchange_db_username: myuser
+      exchange_db_password: mypassword
+      exchange_db_database: database
+      exchange_db_host: db_test
+      exchange_https: disable
+      enviroment_deploy: production #development or production
+      python_service_host: python_service
+      python_service_port: 5000
+      frontend_host: http://localhost:80/
+      app_url: https://creatictrade.com/api/
+    volumes:
+      - ../Backend/src:/app
+    working_dir: /app
+    networks:
+      - platform_network_test
+    
+    depends_on:
+      - db_test
+      - python_service
+
+  db_test:
+    build: .
+    container_name: green_trade_db_test
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: database
+    volumes:
+      - p2dbdata_test:/var/lib/postgresql/data
+    
+    networks:
+      - platform_network_test
+
+
+  python_service:
+    build: ./python_service 
+    container_name: green_trade_python_service
+    networks:
+      - platform_network_test
+
+volumes:
+  p2dbdata_test:
+
+networks:
+  platform_network_test:
+    driver: bridge

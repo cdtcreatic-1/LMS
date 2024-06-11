@@ -1,0 +1,123 @@
+<div class="container-principal-modal" *ngIf="dataLot">
+  <div class="container-principal-title">
+    <div class="container-title">Lote-{{ dataLot.Lot.id_lot }}</div>
+    <div class="container-start-number">
+      <div class="container-start">
+        <img
+          src="../../../../../../assets/icons/icon_start_white.webp"
+          alt=""
+          width="100%"
+        />
+      </div>
+      <div class="container-number">4.8</div>
+    </div>
+  </div>
+
+  <div class="container-image-content">
+    <div class="container-title-lote-image">
+      <div class="container-image">
+        <img
+          *ngIf="!dataLot.Lot.LotPhoto.lot_photo"
+          src="../../../assets/lote2.webp"
+          alt="LoteImage"
+          width="100%"
+          height="100%"
+          style="object-fit: cover; border-radius: 5px"
+        />
+        <img
+          *ngIf="dataLot.Lot.LotPhoto.lot_photo"
+          src="{{ dataLot.Lot.LotPhoto.lot_photo }}"
+          alt="LoteImage"
+          width="100%"
+          height="100%"
+          style="object-fit: cover; border-radius: 5px"
+        />
+        <!-- <img
+          *ngIf="!dataTraceability.purchaseData.Lot.LotPhoto"
+          src="../../../assets/lote2.webp"
+          alt="LoteImage"
+          width="100%"
+          height="100%"
+          style="object-fit: cover; border-radius: 5px"
+        /> -->
+        <!-- <img
+          *ngIf="dataTraceability.purchaseData.Lot.LotPhoto"
+          src="{{ dataTraceability.purchaseData.Lot.LotPhoto.lot_photo }}"
+          alt="LoteImage"
+          width="100%"
+          height="100%"
+          style="object-fit: cover; border-radius: 5px"
+        /> -->
+      </div>
+      <div class="container-button-sample">
+        <app-global-buttons nameButton="Solicitar muestra"></app-global-buttons>
+      </div>
+    </div>
+    <div class="container-description-lote">
+      <div class="container-type-profile-coffee-flex">
+        <div class="container-name-profile-taza">
+          <div class="container-name-taza">
+            {{ dataLot.Lot.CoffeeProfile.profile_name }}
+          </div>
+          <div class="container-sub-title-taza">Perfil de taza</div>
+        </div>
+
+        <div class="container-name-profile-taza">
+          <div class="container-name-taza">
+            {{ dataLot.Lot.CoffeeVariation.variety_name }}
+          </div>
+          <div class="container-sub-title-taza">Variedad de café</div>
+        </div>
+      </div>
+
+      <div class="container-description-lot-text">
+        <span>{{ dataLot.Lot.LotSummary.germination_summary }}</span
+        >&nbsp;
+        <span>{{ dataLot.Lot.LotSummary.sown_summary }}</span>
+        &nbsp;
+        <span>{{ dataLot.Lot.LotSummary.harvest_summary }}</span>
+        &nbsp;
+        <span>{{ dataLot.Lot.LotSummary.drying_summary }}</span>
+        &nbsp;
+        <span>{{ dataLot.Lot.LotSummary.roasting_summary }}</span
+        >&nbsp;
+        <span>{{ dataLot.Lot.LotSummary.packaging_summary }}</span>
+      </div>
+
+      <div class="container-prices">
+        <div>
+          <strong style="font-size: 1.5rem"
+            >${{ dataLot.Lot.LotQuantity.price_per_kilo }}</strong
+          >
+        </div>
+        <div class="container-line-price" style="margin-top: 2px">
+          <div class="container-price-false">
+            ${{ dataLot.Lot.LotQuantity.price_per_kilo * 0.9 | number:'1.0-2' }}
+          </div>
+        </div>
+        <div class="container-text-red-percentage">10% Off</div>
+      </div>
+
+      <div class="container-buttons" align="center">
+        <button
+          class="btn"
+          style="
+            border: 1px solid #2f0084;
+            background-color: transparent;
+            color: #00de97;
+          "
+          (click)="acceptDecline(dataLot.Seller.id_user, dataLot.Lot.id_lot, 3)"
+        >
+          Rechazar
+        </button>
+        <button
+          class="btn"
+          style="margin-left: 1vw"
+          (click)="acceptDecline(dataLot.Seller.id_user, dataLot.Lot.id_lot, 2)"
+        >
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

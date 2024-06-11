@@ -1,0 +1,27 @@
+<div class="container-accordion">
+  <div class="container-text-items-menu" (click)="setBodyBusinessman(1)">
+    Agregar perfil
+  </div>
+  <div
+    class="container-text-items-menu"
+    (click)="setBodyBusinessman(2)"
+    [ngClass]="{ 'subrayar-item-menu': actualId === 4 }"
+  >
+    Documentos
+  </div>
+  <div
+    class="container-text-items-menu"
+    (click)="setBodyBusinessman(3)"
+    [ngClass]="{ 'subrayar-item-menu': actualId === 5 }"
+  >
+    Editar perfil
+  </div>
+  <div
+    class="container-text-items-menu"
+    (click)="setBodyBusinessman(4)"
+    [ngClass]="{ 'subrayar-item-menu': actualId === 6 }"
+    style="margin-bottom: 0px"
+  >
+    Cambiar contraseña
+  </div>
+</div>

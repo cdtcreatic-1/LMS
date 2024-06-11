@@ -1,0 +1,27 @@
+<div style="position: relative; width: 100%">
+  <div class="container-principal">
+    <div class="container-barra-logo">
+      <div style="width: 12%; margin-right: 2vw">
+        <ion-icon name="facebook"></ion-icon>
+      </div>
+    </div>
+    <div class="container-image">
+      <img
+        src="../../../assets/register_cafe.webp"
+        alt="Image_cafe"
+        width="100%"
+        height="95%"
+        style="border-radius: 30px; margin-left: 5%; object-fit: cover"
+      />
+    </div>
+    <div class="container-form">
+      <app-indicator [indexIndicator]="indexInicator"></app-indicator>
+      <app-title [text]="'Datos de la finca'"></app-title>
+      <div style="height: 67vh; overflow-y: auto">
+        <app-regiter-farm-map *ngIf="actualId === 1.11"></app-regiter-farm-map>
+        <app-review-famr *ngIf="actualId === 1.12"></app-review-famr>
+        <app-summary-add-farm *ngIf="actualId === 1.13"></app-summary-add-farm>
+      </div>
+    </div>
+  </div>
+</div>

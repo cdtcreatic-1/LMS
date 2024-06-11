@@ -1,0 +1,51 @@
+@startuml
+
+'Notas'
+group #LightGray 2.6.1 Get Coordinates
+
+    hnote over Farmer
+        Body {
+            id_state
+            id_city
+            id_village
+        }
+
+        The ids are optional but at least one must be sent
+    endnote
+
+    Farmer -> BackEnd: POST get_coordinates_by_id_village
+
+    hnote over BackEnd
+        Body {
+            service:
+            id_state
+            id_city
+            id_village
+        }
+    endnote
+
+    BackEnd -> Data_Service: POST get_data_geoinformation_service(Data_Service_Body)
+
+    hnote over BackEnd
+        Coordinates {
+    "data": {
+        "bbox": {
+            "xmax",
+            "xmin",
+            "ymax",
+            "ymin"
+        },
+        "centroid": {
+            "x",
+            "y"
+        }
+    }
+        }
+    endnote
+
+    Data_Service -> BackEnd: Return (Coordinates)
+
+    BackEnd -> Farmer: HTTP 200 OK (Coordinates)
+
+end group
+@enduml

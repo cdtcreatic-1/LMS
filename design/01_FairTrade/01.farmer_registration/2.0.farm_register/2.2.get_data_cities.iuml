@@ -1,0 +1,32 @@
+@startuml
+
+    group #99FF99 2.2 Get data cities
+        Farmer -> BackEnd: GET get_cities/:id_states
+
+        BackEnd -> DB: SELECT id_city, city_name, \nFROM cities_table \n
+
+        hnote over BackEnd
+            Depending if the data are correct the response will be:
+            200 OK (cities)
+            404 Not Found (id_state not found)
+            400 Bad Request (missing data)
+            500 Internal Server Error (server error)
+        endnote
+
+        BackEnd -> Farmer: HTTP 200 OK (cities)
+ 
+        hnote over Farmer
+            Body{
+                    {
+                        "id_city"
+                        "city_name"
+                    },
+                    .
+                    .
+                    .
+            }
+        endnote
+
+    end group
+    
+@enduml

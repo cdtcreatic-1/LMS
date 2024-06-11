@@ -1,0 +1,8 @@
+@startuml
+
+group #F4A020 4.4 add_farm_by_id_user
+    Farmer->Backend: POST, PUT add_farm
+    
+end group
+
+@enduml

@@ -1,0 +1,22 @@
+<main class="container-principal-modal-skills">
+  <section class="container-section-white">
+    <div class="container-logo">
+      <div class="container-arrow-text">
+        <ion-icon name="caret-forward-outline" class="icon"></ion-icon>
+        <p>
+          Desarrolla habilidades clave para destacar en el comercio sostenible
+          con nuestros cursos de Sorvo
+        </p>
+      </div>
+      <img
+        src="../../../../../assets/logo_color.webp"
+        alt=""
+        height="100%"
+        style="max-width: 100%; height: auto"
+      />
+    </div>
+
+    <app-instructions-skills *ngIf="actualId === 1"></app-instructions-skills>
+    <app-select-skills *ngIf="actualId === 2"></app-select-skills>
+  </section>
+</main>

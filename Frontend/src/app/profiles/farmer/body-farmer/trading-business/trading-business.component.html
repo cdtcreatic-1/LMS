@@ -1,0 +1,228 @@
+<div class="container-body">
+  <div class="container-list-products">
+    <!-- <div style="height: 10%;">
+      <app-global-buttons nameButton="Ofertar" (click)="openModal()"></app-global-buttons>
+    </div> -->
+
+    <div
+      class="container-inter-list-products"
+      *ngFor="let businessman of dataTrend"
+    >
+      <div class="container-estadisticas-profile-name">
+        <div class="container-title-estadisticas">Estadísticas</div>
+        <div class="container-icon-photo">
+          <div class="container-photo-text">
+            <div class="container-text">
+              <span>{{ businessman.user_name | titlecase }}, </span>
+              <span>&nbsp;(Colombia)</span>
+            </div>
+
+            <div class="container-photo" *ngIf="businessman.user_profile_photo">
+              <div class="mx-3" style="width: 5vw; height: 5vw">
+                <img src="{{ businessman.user_profile_photo }}" alt="" />
+              </div>
+            </div>
+
+            <div
+              class="container-photo"
+              *ngIf="!businessman.user_profile_photo"
+            >
+              <div class="mx-3" style="width: 5vw; height: 5vw">
+                <img src="../../../../assets/icons/icon_user.webp" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-clasification-images">
+        <div class="container-clasification">
+          <div class="clasification-type-inter">
+            <div class="container-type-subinter">
+              <div class="container-title-clasification">Variedad</div>
+              <div
+                class="container-box-color-name"
+                *ngFor="let variety of businessman.stats.variety"
+              >
+                <div
+                  class="container-box-color"
+                  [ngStyle]="{ background: variety.color }"
+                >
+                  {{ "" }}
+                </div>
+                <div class="container-name-color">{{ variety.name }}</div>
+                <!-- <div class="container-kiles-coffee">
+                  {{ variety.quantity }} kg
+                </div> -->
+              </div>
+            </div>
+
+            <div class="container-type-subinter2">
+              <div class="container-title-clasification">Tostión</div>
+              <div
+                class="container-box-color-name"
+                *ngFor="let roast of businessman.stats.roast; let i = index"
+              >
+                <div
+                  class="container-box-color"
+                  [ngStyle]="{ background: roast.color }"
+                >
+                  {{ "" }}
+                </div>
+                <div class="container-name-color">
+                  {{ roast.name }}
+                </div>
+
+                <!-- <div class="container-kiles-coffee">
+                  {{ roast.quantity }} kg
+                </div> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="clasification-type-inter" style="border: none">
+            <div class="container-type-subinter">
+              <div class="container-title-clasification">Perfil</div>
+              <div
+                class="container-box-color-name"
+                *ngFor="let profile of businessman.stats.profile"
+              >
+                <div
+                  class="container-box-color"
+                  [ngStyle]="{ background: profile.color }"
+                >
+                  {{ "" }}
+                </div>
+                <div class="container-name-color">{{ profile.name }}</div>
+                <!-- <div class="container-kiles-coffee">
+                  {{ profile.quantity }} kg
+                </div> -->
+              </div>
+            </div>
+
+            <div class="container-type-subinter2">
+              <div class="container-all-kilos">
+                <div class="container-title-all-kilos">
+                  <span>Toltal de kilos comprados</span>
+                </div>
+                <div class="container-total-number">
+                  <strong>{{ businessman.stats.total_quantity }} Kg</strong>
+                </div>
+              </div>
+
+              <div class="container-button">
+                <button class="btn" (click)="openModal(businessman.id_user)">
+                  Ofertar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-clasification" align="center">
+          <div class="container-card-circle-description">
+            <div class="container-title-circle">Variedad</div>
+            <div class="container-image-circle">
+              <img
+                src="{{ businessman.chart_paths.chart_variety_path }}"
+                alt=""
+                height="100%"
+                width="100%"
+                style="object-fit: cover"
+              />
+            </div>
+            <div class="container-description-percentage">
+              <div
+                class="container-box-percentage-cirlce"
+                *ngFor="let variety of businessman.stats.variety"
+              >
+                <div
+                  class="container-box-color"
+                  style="width: 40%"
+                  [ngStyle]="{ background: variety.color }"
+                >
+                  {{ "" }}
+                </div>
+
+                <div
+                  class="container-kiles-coffee"
+                  style="width: 50%; color: #666666"
+                >
+                  {{ variety.quantity }} Kg
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-card-circle-description">
+            <div class="container-title-circle">Perfil</div>
+            <div class="container-image-circle">
+              <img
+                src="{{ businessman.chart_paths.chart_profile_path }}"
+                alt=""
+                height="100%"
+                width="100%"
+                style="object-fit: cover"
+              />
+            </div>
+            <div class="container-description-percentage">
+              <div
+                class="container-box-percentage-cirlce"
+                *ngFor="let profile of businessman.stats.profile"
+              >
+                <div
+                  class="container-box-color"
+                  style="width: 40%"
+                  [ngStyle]="{ background: profile.color }"
+                >
+                  {{ "" }}
+                </div>
+
+                <div
+                  class="container-kiles-coffee"
+                  style="width: 50%; color: #666666"
+                >
+                  {{ profile.quantity }} Kg
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-card-circle-description">
+            <div class="container-title-circle">Tostión</div>
+            <div class="container-image-circle">
+              <img
+                src="{{ businessman.chart_paths.chart_roast_path }}"
+                alt=""
+                height="100%"
+                width="100%"
+                style="object-fit: cover"
+              />
+            </div>
+            <div class="container-description-percentage">
+              <div
+                class="container-box-percentage-cirlce"
+                *ngFor="let roast of businessman.stats.roast"
+              >
+                <div
+                  class="container-box-color"
+                  style="width: 40%"
+                  [ngStyle]="{ background: roast.color }"
+                >
+                  {{ "" }}
+                </div>
+
+                <div
+                  class="container-kiles-coffee"
+                  style="width: 50%; color: #666666"
+                >
+                  {{ roast.quantity }} Kg
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

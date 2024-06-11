@@ -1,0 +1,85 @@
+<main class="container-principal-main" *ngIf="dataCourse">
+  <section class="containet-title-course">
+    <div class="container-subtitle">Capacitación</div>
+    <div>{{ dataCourse.course_title | uppercase }}</div>
+  </section>
+
+  <section class="container-descrition-price-couser">
+    <section class="container-description">
+      <div class="container-description-text">
+        {{ dataCourse.course_description }}
+      </div>
+      <section class="container-number-start-quality">
+        <!-- <div class="container-number-start">5.0</div> -->
+        <!-- <app-starts [numberStart]="5" [height]="'1rem'"></app-starts> -->
+        <!-- <div class="container-number-quality">
+          248.034 estudiantes calificaron este curso
+        </div> -->
+      </section>
+      <div class="container-large-content-course">
+        {{ dataCourse.course_duration }}
+      </div>
+
+      <section>
+        <!-- <div class="container-button-accordion">
+          <app-accordion
+            [title]="'Lo que aprenderás'"
+            [data]="dataAccordion1"
+          ></app-accordion>
+        </div> -->
+
+        <div class="container-button-accordion">
+          <app-accordion
+            [title]="'Título del curso'"
+            [subtitle]="'Capacitación FAIR TRADE:'"
+          ></app-accordion>
+        </div>
+
+        <div class="container-button-accordion">
+          <app-accordion
+            [title]="'Descripción del curso'"
+            [content]="dataCourse.course_description"
+          ></app-accordion>
+        </div>
+
+        <div class="container-button-accordion">
+          <app-accordion
+            [title]="'Duración del curso'"
+            [content]="dataCourse.course_duration"
+          ></app-accordion>
+        </div>
+
+        <div class="container-button-accordion">
+          <app-accordion
+            [title]="'Objetivos del curso'"
+            [data]="objetives"
+          ></app-accordion>
+        </div>
+      </section>
+    </section>
+
+    <section class="container-price-course">
+      <div class="container-video">
+        <img src="{{ dataCourse.course_photo }}" height="100%" width="100%" alt="" />
+      </div>
+      <div class="container-price">${{ dataCourse.course_price | number }}</div>
+      <div
+        class="container-button-buy"
+        [ngClass]="{
+          'container-button-buy-disable': !dataCourse.is_purchasable
+        }"
+        (click)="handleClickBuyNow(dataCourse.id_course)"
+      >
+        <app-global-buttons
+          [nameButton]="'Comprar ahora'"
+          [backgroud]="'#2F0084'"
+          [color]="'#fff'"
+          [height]="'3rem'"
+          width="100%"
+        ></app-global-buttons>
+      </div>
+    </section>
+  </section>
+
+  <section class="container-line-text">Contenido del curso</section>
+</main>

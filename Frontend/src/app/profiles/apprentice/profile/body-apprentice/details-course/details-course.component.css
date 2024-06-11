@@ -1,0 +1,119 @@
+.container-principal-main {
+  position: relative;
+  height: max-content;
+  font-weight: 700;
+  font-size: 1.8rem;
+  padding-inline: 5%;
+  max-height: 75%;
+  overflow-y: auto;
+}
+
+/* title couser */
+
+.containet-title-course {
+  line-height: 1.6rem;
+  word-wrap: break-word;
+}
+
+.container-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* grid description price */
+
+.container-descrition-price-couser {
+  display: grid;
+  max-height: 71vh;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+}
+
+.container-description {
+  font-size: 0.9rem;
+  padding-bottom: 1.5rem;
+  /* background-color: rgb(175, 180, 175); */
+}
+
+.container-description-text {
+  color: #686868;
+  font-weight: 400;
+  margin-top: 5px;
+}
+
+.container-number-start-quality {
+  display: flex;
+  align-items: flex-start;
+  font-size: 1rem;
+}
+
+.container-number-start {
+  color: #fc0;
+  margin-right: 10px;
+}
+
+.container-number-quality {
+  color: #00de97;
+  margin-left: 10px;
+}
+
+.container-large-content-course {
+  color: #686868;
+  font-weight: 400;
+  margin-top: 2%;
+  padding-block: 2%;
+  border-top: 1px solid #bebebe;
+  border-bottom: 1px solid #bebebeed;
+}
+
+.container-button-accordion {
+  margin-top: 4%;
+}
+
+/* Price course */
+
+.container-price-course {
+  height: 100%;
+}
+
+.container-video {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  margin-inline: 15%;
+  height: 50%;
+
+  & img {
+    object-fit: cover;
+    padding: 5%;
+  }
+}
+
+.container-price {
+  text-align: center;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.container-button-buy {
+  margin-top: 2%;
+  width: 70%;
+  margin-left: 15%;
+}
+
+.container-button-buy-disable {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.container-line-text {
+  position: fixed;
+  border-top: 1px solid #2f0084;
+  text-align: center;
+  bottom: 0;
+  font-size: 1.25vw;
+  font-weight: 800;
+  padding-block: 0.1%;
+  width: 64%;
+  background-color: #fff;
+}

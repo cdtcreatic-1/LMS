@@ -1,0 +1,28 @@
+@startuml
+
+' Muestra de registro de usuario'
+    group #99FF99 1.2 Get User Data
+        Farmer -> BackEnd: GET register/:id_user
+
+        BackEnd -> DB: Select user from user_table where id_user = id_user
+
+        hnote over BackEnd
+            Depending if the data are correct the response will be:
+            200 OK (user)
+            404 Not Found (id_user not found)
+            400 Bad Request (missing data)
+            500 Internal Server Error (server error)
+
+            if the message is 200 OK the response is:
+            Body : { message,
+            user: {
+            user_name,
+            user_phone,
+            user_email,
+            user_username }
+        end note 
+
+        BackEnd -> Farmer: HTTP 200 OK (Body)
+    end group
+
+@enduml

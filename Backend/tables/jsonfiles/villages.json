@@ -1,0 +1,1 @@
+[{"Restrictions": "PK", "variable_name": "id_village", "type_data": "SMALLINT", "references": null}, {"Restrictions": "NN U", "variable_name": "village_name", "type_data": "VARCHAR(45)", "references": null}]

@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "8a6c5580-6907-47c2-a963-7ffaca637137",
+		"name": "1. Farmer_register",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29027766",
+		"_collection_link": "https://planetary-firefly-287054.postman.co/workspace/Plat-NovaPro~ef14d592-9b29-43bc-9b3e-9f16fea35acf/collection/29027766-8a6c5580-6907-47c2-a963-7ffaca637137?action=share&source=collection_link&creator=29027766"
+	},
+	"item": [
+		{
+			"name": "type_document GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_DOMAIN}}/type_document",
+					"host": [
+						"{{URL_DOMAIN}}"
+					],
+					"path": [
+						"type_document"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cover_photo PUT Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_user",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "user_cover_photo",
+							"type": "file",
+							"src": "/C:/Users/Ryzen/OneDrive/Imágenes/Hearthstone Screenshot 04-24-22 22.34.30.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL_DOMAIN}}/cover_photo",
+					"host": [
+						"{{URL_DOMAIN}}"
+					],
+					"path": [
+						"cover_photo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register_farmer POST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_name",
+							"value": "alejandra",
+							"type": "text"
+						},
+						{
+							"key": "user_phone",
+							"value": "3656565",
+							"type": "text"
+						},
+						{
+							"key": "user_email",
+							"value": "aleja2@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "user_gender",
+							"value": "femenino",
+							"type": "text"
+						},
+						{
+							"key": "user_username",
+							"value": "Aleja2",
+							"type": "text"
+						},
+						{
+							"key": "user_password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "user_confirm_password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "user_profile_photo",
+							"type": "file",
+							"src": "/C:/Users/Ryzen/OneDrive/Imágenes/Hearthstone Screenshot 04-24-22 22.34.30.png"
+						},
+						{
+							"key": "id_type_document",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "number_document",
+							"value": "457896321",
+							"type": "text"
+						},
+						{
+							"key": "postal_code",
+							"value": "520001",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "id_state",
+							"value": "790",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "id_role",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL_DOMAIN}}/register",
+					"host": [
+						"{{URL_DOMAIN}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,13 @@
+@startuml
+
+
+/'Registro de usuario'/
+group 1.0 Farmer Register
+
+    !include ./1.0.user_register/1.1.platform_registration.iuml
+    ' !include ./1.0.user_register/1.2.get_user_data.iuml
+   
+
+end group
+
+@enduml

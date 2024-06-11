@@ -1,0 +1,180 @@
+
+---------- RASTER VALUE FROM COORDINATE ----------
+
+input_data = {
+    "service": "get_information_from_coordinate",
+    "longitude": -76.5113, 
+    "latitude": 2.4213
+}
+
+output_data = {
+    "altitude": 1992,
+    "temperature": "12 a 16 °C",
+    "climate": "Semihúmedo"
+    }
+
+-- Si para la coordenada provista, para alguno de los insumos no hay datos, se devuelve -99 en la salida correspondiente:
+
+input_data = {
+    "service": "get_information_from_coordinate",
+    "longitude": -20.5113, 
+    "latitude": 26.4213
+}
+
+output_data = {
+    "altitude": -99,
+    "temperature": -99",
+    "climate": -99
+    }
+
+-------------------------------------------------
+---------- GEOINFORMATION FROM POLYGON ----------
+
+input_data = {
+    "service": "get_geoinformation_from_polygon",
+    "id_state": 790,
+    "id_city": None,
+    "id_village": None
+}
+
+input_data = {
+    "service": "get_geoinformation_from_polygon",
+    "id_state": None,
+    "id_city": 19965,
+    "id_village": None
+}
+
+input_data = {
+    "service": "get_geoinformation_from_polygon",
+    "id_state": None,
+    "id_city": None,
+    "id_village": 12555
+}
+
+output_data = {
+    "centroid": {
+        "x": -76.83068719603754,
+        "y": 2.3979493332932007
+    },
+    "bbox": {
+        "xmin": -77.9283381527739, 
+        "xmax": -75.74782424722925, 
+        "ymin": 0.9580284644383605, 
+        "ymax": 3.3289411577604913
+        }
+    }
+
+--------------------------------------------------
+---------- ENTITIES IDs FROM COORDINATE ----------
+
+input_data = {
+    "service": "get_entities_ids_from_coordinate",
+    "longitude": -75.9297,
+    "latitude": 2.6924
+    }
+
+output_data = {
+    "id_state": 790,
+    "id_city": 19965,
+    "id_village": 12555
+    }
+
+-- Si la coordenada provista cae dentro de una ciudad o cabecera municipal, la salida para id_village será -99
+
+input_data = {
+    "service": "get_entities_ids_from_coordinate",
+    "longitude": -75.97075,
+    "latitude": 2.64149
+    }
+
+output_data = {
+    "id_state": 790,
+    "id_city": 19965,
+    "id_village": -99
+    }
+
+-- Si la coordenada provista está por fuera del mapa, todos los valores de salida se establecen en -99
+
+input_data = {
+    "service": "get_entities_ids_from_coordinate",
+    "longitude": -15.9297,
+    "latitude": 82.6924
+    }
+
+output_data = {
+    "id_state": -99,
+    "id_city": -99,
+    "id_village": -99
+    }
+
+-------------------------------------------------
+---------- COFFEE PRICE RECOMMENDATION ----------
+
+input_data = {
+    "service": "get_coffee_recommended_prices",
+    "variety_name": "Pacamara"
+}
+
+output_data {
+    "lower_price": 7262.19,
+    "recommended_price": 11475.42,
+    "higher_price": 22950.84
+    }
+
+-------------------------------------------------
+---------- USER TRENDS ----------
+input_data = {
+    "service": "get_user_trends",
+    "id_role": 1
+}
+
+input_data = {
+    "service": "get_user_trends",
+    "id_role": 2
+}
+
+-------------------------------------------------
+---------- SORTED LOTS BY BUYER PREFERENCES ----------
+input_data = {
+    "service": "get_sorted_lots_based_on_buyer_preferences",
+    "id_seller": 65,
+    "id_buyer": 90,
+}
+
+-------------------------------------------------
+---------- LOT CODING ----------
+input_data = {
+    "service": "get_lot_coding",
+    "id_lot": 10
+}
+
+-------------------------------------------------
+---------- TRAIN LOT RECOMMENDATION ENGINE  ---------------------------
+-- Training
+
+input_data = {
+    "service": "train_recommendation_engine"
+}
+
+output_data = {
+    "success": "model trained"
+    }
+
+-- Use
+
+input_data = {
+    "service": "get_recommended_lots_from_engine",
+    "id_user": 10
+}
+
+output_data = {
+    "ids_recommended_lots": [21, 25, 44, 56, 75, 83, 91, 21, 23, 31]
+    }
+
+-------------------------------------------------
+
+input_data = {
+    "service": "service_get_farmers_farm_info",
+    "id_user": 8
+}
+

@@ -1,0 +1,10 @@
+@startuml
+
+'Farm documentation'
+
+    group 5.5 Farm documentation Register
+        !include 5.6.register_farm_documentation/5.6.0.register_update_farm_documentation.iuml
+        !include 5.6.register_farm_documentation/5.6.1.get_farm_documentation.iuml
+    end group 
+
+@enduml

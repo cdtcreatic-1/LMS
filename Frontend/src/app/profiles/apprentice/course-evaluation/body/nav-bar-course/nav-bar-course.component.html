@@ -1,0 +1,22 @@
+<section class="container-section-navbar-question">
+  <ion-icon
+    name="list-outline"
+    class="icon"
+    (click)="handleClickOpenMenu()"
+  ></ion-icon>
+
+  <div class="container-btns">
+    <button
+      *ngFor="let item of itemsNavBar"
+      (click)="handleSelectItem(item.id)"
+      class="btn-nav-bar-farmer"
+      [ngClass]="{
+        'border-button-btn': item.isSelected
+      }"
+      [routerLink]="[item.route, idSubmodule]"
+    >
+      {{ item.name }}
+    </button>
+  </div>
+  <div class="line-btns"></div>
+</section>

@@ -1,0 +1,324 @@
+.container-principal {
+  width: 100%;
+  height: 100vh;
+  border: solid #fff;
+}
+
+.container-barra-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 25%;
+  background: transparent;
+}
+
+.container-tipo-perfil {
+  margin-left: 8%;
+  margin-top: 1%;
+}
+
+.title-perfile-type {
+  width: 80%;
+  color: #2f0084;
+  font-family: "Lato";
+  font-size: 2vw;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border-bottom: solid 2px #bebebe;
+}
+
+.txt-select-perfile {
+  color: #686868;
+  font-family: "Lato";
+  font-size: 1.5vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.container-logo-rol-page {
+  width: 18%;
+  margin-top: 0%;
+  margin-right: 7%;
+}
+
+.container-cards-profiles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  height: 75%;
+  margin-left: 7.5%;
+}
+
+.container-card {
+  width: 30%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: transparent;
+}
+
+.container-img-roll-1 {
+  height: 28vw;
+}
+.container-img-roll-1:hover {
+  height: 32vw;
+}
+.container-card:hover {
+  width: 34%;
+  color: #ffffff;
+  text-shadow: -3.380805015563965px 4.507740020751953px 6.76161003112793px
+    rgba(0, 0, 0, 0.4);
+}
+
+.img-cards {
+  border-radius: 20px;
+}
+
+.container-text-card-1 {
+  text-align: center;
+  width: 100%;
+  margin-top: -5vw;
+  font-weight: 600;
+  text-shadow: 0px 4.507736682891846px 6.7616047859191895px rgba(0, 0, 0, 0.25);
+}
+.container-text-card-2 {
+  text-align: center;
+  width: 100%;
+  margin-top: -5vw;
+  font-weight: 600;
+}
+.container-text-card-3 {
+  text-align: center;
+  width: 100%;
+  margin-top: -5vw;
+  font-weight: 600;
+  text-shadow: 0px 4.507736682891846px 6.7616047859191895px rgba(0, 0, 0, 0.25);
+}
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .container-principal {
+    height: 100vh;
+  }
+  .container-barra-logo {
+    flex-direction: column-reverse;
+    height: 26%;
+  }
+  .container-logo-rol-page {
+    width: 45%;
+    margin: auto;
+    margin-top: 5%;
+  }
+  .container-tipo-perfil {
+    width: 100%;
+    margin-top: -5%;
+    margin-left: 0%;
+    text-align: center;
+  }
+  .title-perfile-type {
+    width: 50%;
+    font-size: 6vw;
+    margin: auto;
+  }
+  .txt-select-perfile {
+    font-size: 3.5vw;
+  }
+  .container-cards-profiles {
+    width: 70%;
+    height: 84%;
+    margin: auto;
+    margin-bottom: 5vw;
+    flex-direction: column;
+  }
+  .container-card {
+    width: 100%;
+    display: contents;
+    border-radius: 5px;
+    margin-bottom: 5vw;
+  }
+  .img-cards {
+    display: none;
+  }
+  .container-img-roll-1 {
+    all: unset;
+    width: 70%;
+    height: 25%;
+    position: absolute;
+    z-index: 0;
+    background-image: url("../../../assets/agricultor_p.webp");
+    background-size: 85%;
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+  }
+  .container-text-card-1 {
+    margin-top: 35%;
+    z-index: 1;
+    font-family: "Lato";
+    font-weight: 400;
+    color: #fff;
+    text-shadow: -3.4px 4.5px 6.8px rgba(0, 0, 0, 0.4);
+  }
+  .container-img-roll-2 {
+    all: unset;
+    width: 70%;
+    height: 25%;
+    position: absolute;
+    top: 54%;
+    z-index: 0;
+    background-image: url("../../../assets/empresario_p.webp");
+    background-size: 85%;
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+  }
+  .container-text-card-2 {
+    margin-top: -5%;
+    z-index: 1;
+    font-family: "Lato";
+    font-weight: 400;
+    color: #fff;
+    text-shadow: -3.4px 4.5px 6.8px rgba(0, 0, 0, 0.4);
+  }
+  .container-img-roll-3 {
+    all: unset;
+    width: 70%;
+    height: 25%;
+    position: absolute;
+    top: 82%;
+    z-index: 0;
+    background-image: url("../../../assets/aprendiz_p.webp");
+    background-size: 85%;
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    margin-bottom: 5%;
+  }
+  .container-text-card-3 {
+    margin-bottom: 5%;
+    z-index: 1;
+    font-family: "Lato";
+    font-weight: 400;
+    color: #fff;
+    text-shadow: -3.4px 4.5px 6.8px rgba(0, 0, 0, 0.4);
+  }
+}
+@media only screen and (max-width: 412px) and (orientation: portrait) {
+  .container-barra-logo {
+    height: 20%;
+  }
+
+  .container-logo-rol-page {
+    width: 60%;
+  }
+
+  .container-tipo-perfil {
+    width: 100%;
+    margin-top: 5%;
+  }
+
+  .txt-select-perfile {
+    font-size: 4vw;
+  }
+
+  .container-cards-profiles {
+    width: 90%;
+    height: 75%;
+    margin-top: -3%;
+  }
+
+  .container-img-roll-1 {
+    width: 100%;
+    height: 23%;
+    background-size: 75%;
+  }
+
+  .container-text-card-1 {
+    margin-top: 40%;
+    font-size: 8vw;
+  }
+
+  .container-img-roll-2 {
+    width: 100%;
+    height: 23%;
+    background-size: 75%;
+    margin-top: -22%;
+  }
+
+  .container-text-card-2 {
+    margin-top: -5%;
+    font-size: 8vw;
+  }
+
+  .container-img-roll-3 {
+    width: 100%;
+    height: 23%;
+    background-size: 75%;
+    margin-top: -30%;
+  }
+
+  .container-text-card-3 {
+    margin-bottom: 5%;
+    font-size: 8vw;
+  }
+}
+@media only screen and (max-width: 396px) and (orientation: portrait) {
+  .container-barra-logo {
+    height: 20%;
+  }
+  .container-logo-rol-page {
+    width: 60%;
+  }
+  .container-tipo-perfil {
+    width: 100%;
+    margin-top: 5%;
+  }
+  .txt-select-perfile {
+    font-size: 4vw;
+  }
+  .container-cards-profiles {
+    width: 90%;
+    height: 75%;
+    margin-top: -3%;
+  }
+  .container-img-roll-1 {
+    width: 100%;
+    height: 23%;
+    background-size: 75%;
+  }
+  .container-text-card-1 {
+    margin-top: 40%;
+    font-size: 8vw;
+  }
+  .container-img-roll-2 {
+    width: 100%;
+    height: 23%;
+    background-size: 75%;
+    margin-top: -22%;
+  }
+  .container-text-card-2 {
+    margin-top: -5%;
+    font-size: 8vw;
+  }
+  .container-img-roll-3 {
+    width: 100%;
+    height: 23%;
+    background-size: 75%;
+    margin-top: -30%;
+  }
+  .container-text-card-3 {
+    margin-bottom: 5%;
+    font-size: 8vw;
+  }
+}
+@media only screen and (max-width: 390px) and (orientation: portrait) {
+  .title-perfile-type {
+    font-size: 6vw;
+  }
+  .txt-select-perfile {
+    font-size: 4.5vw;
+  }
+}

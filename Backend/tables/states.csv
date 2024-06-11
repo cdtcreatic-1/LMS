@@ -1,0 +1,3 @@
+Restrictions,variable_name,type_data,references
+PK,id_state,SMALLINT,
+"NN U",state_name,VARCHAR(45),

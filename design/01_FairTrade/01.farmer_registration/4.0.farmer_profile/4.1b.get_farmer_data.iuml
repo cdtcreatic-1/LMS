@@ -1,0 +1,50 @@
+@startuml
+
+group #99FF99 4.1b Get Farmer data
+
+    Farmer -> BackEnd: GET farmer_profile/:id_user
+
+    BackEnd -> DB: Select the compilation data using the id_user
+
+    hnote over BackEnd
+        Depending if the data are correct the response will be:
+        200 OK (farmer_data)
+        404 Not Found (id_user not found)
+        400 Bad Request (missing data)
+        500 Internal Server Error (server error)
+
+        if the message is 200 OK the response is:
+        Body : { message,
+        farmer_data: {
+        user_name,
+        user_phone,
+        user_email,
+        user_username,  
+        id_type_of_information = 1,
+        user_personal_description,
+        user_cover_photo,
+        user_profile_photo 
+        } }
+
+    endnote
+
+
+    hnote over Farmer
+
+        if the message is 200 OK the data filtered are:
+        Body : { message,
+        farmer_data: {
+        user_name,
+        user_phone,
+        user_email,
+        user_username
+        } }
+
+    endnote
+
+
+    BackEnd -> Farmer: HTTP 200 OK (Body)
+
+end group
+
+@enduml

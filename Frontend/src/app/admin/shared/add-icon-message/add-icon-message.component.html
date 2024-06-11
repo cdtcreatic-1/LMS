@@ -1,0 +1,16 @@
+<aside class="crud-create">
+  <span class="material-symbols-outlined">
+    <ion-icon
+      *ngIf="!nameIcon"
+      name="add-circle-outline"
+      class="ion-icon-green"
+    ></ion-icon>
+
+    <ion-icon
+      *ngIf="nameIcon"
+      name="{{ nameIcon }}"
+      class="ion-icon-green"
+    ></ion-icon>
+  </span>
+  <p>{{ title }}</p>
+</aside>

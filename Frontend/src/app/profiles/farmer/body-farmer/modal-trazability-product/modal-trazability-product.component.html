@@ -1,0 +1,47 @@
+<div class="container-principal">
+  <div class="container-title-background">Trazabilidad</div>
+
+  <div class="container-titles-description" *ngIf="lotSummary">
+    <section>
+      <div class="title">Germinazión</div>
+      <div class="description">
+        {{ lotSummary.germination_summary }}
+      </div>
+    </section>
+
+    <section>
+      <div class="title">Secado</div>
+      <div class="description">
+        {{ lotSummary.drying_summary }}
+      </div>
+    </section>
+
+    <section>
+      <div class="title">Sembrado</div>
+      <div class="description">
+        {{ lotSummary.sown_summary }}
+      </div>
+    </section>
+
+    <section>
+      <div class="title">Tostado</div>
+      <div class="description">
+        {{ lotSummary.roasting_summary }}
+      </div>
+    </section>
+
+    <section>
+      <div class="title">Recolección</div>
+      <div class="description">
+        {{ lotSummary.harvest_summary }}
+      </div>
+    </section>
+
+    <section>
+      <div class="title">Empaquetado</div>
+      <div class="description">
+        {{ lotSummary.packaging_summary }}
+      </div>
+    </section>
+  </div>
+</div>

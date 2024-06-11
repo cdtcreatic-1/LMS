@@ -1,0 +1,39 @@
+<app-loading [isLoading]="isLoading"></app-loading>
+
+<div [ngClass]="{ 'fcdt-disable-screen': isLoading }">
+  <div style="position: relative; z-index: 1">
+    <app-floting-alert
+      *ngIf="isErrorAlert"
+      [message]="message"
+    ></app-floting-alert>
+    <div class="container-principal">
+      <div class="container-barra-logo">
+        <div
+          class="container-logo-register-component"
+          [routerLink]="['./colores']"
+        >
+          <img
+            src="../../../../assets/logo_color.webp"
+            alt="Logo exchange"
+            width="100%"
+          />
+        </div>
+      </div>
+      <div class="container-image">
+        <img
+          src="../../../assets/register_cafe.webp"
+          alt="Image_cafe"
+          width="100%"
+          height="95%"
+          style="border-radius: 30px; margin-left: 5%; object-fit: cover"
+        />
+      </div>
+      <div class="container-form">
+        <app-indicator [indexIndicator]="currentWindowId"></app-indicator>
+        <div style="height: max-content; overflow-y: auto">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

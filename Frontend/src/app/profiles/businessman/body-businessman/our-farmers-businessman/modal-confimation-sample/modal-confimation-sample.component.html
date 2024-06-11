@@ -1,0 +1,22 @@
+<div class="container-pincipal-modal">
+  <div class="container-modal-white" align="center">
+    <div class="container-title-modal">
+      ¿Deseas comprar la muestra de perfil de taza <span>{{ profileTaza }}</span
+      >?
+    </div>
+    <div style="display: flex; margin-top: 3%; height: 5vh" align="center">
+      <div style="width: 30%; margin-left: 19%; margin-right: 2%">
+        <app-global-buttons
+          [nameButton]="'Rechazar'"
+          (click)="closeModal()"
+        ></app-global-buttons>
+      </div>
+      <div style="width: 30%; margin-right: 2%">
+        <app-global-buttons
+          [nameButton]="'Confirmar'"
+          (click)="buySampleLot()"
+        ></app-global-buttons>
+      </div>
+    </div>
+  </div>
+</div>

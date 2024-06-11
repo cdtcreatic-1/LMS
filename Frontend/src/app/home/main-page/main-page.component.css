@@ -1,0 +1,782 @@
+/* 
+WebPortrait (min-width: 840px) and (orientation: portrait) 
+Tablet (min-width: 600px) and (max-width: 839.98px) and (orientation: portrait),
+(min-width: 960px) and (max-width: 1279.98px) and (orientation: landscape) 
+TabletPortrait (min-width: 600px) and (max-width: 839.98px) and (orientation: portrait) 
+TabletLandscape (min-width: 960px) and (max-width: 1279.98px) and (orientation: landscape) 
+Handset (max-width: 599.98px) and (orientation: portrait),
+(max-width: 959.98px) and (orientation: landscape) 
+HandsetLandscape (max-width: 959.98px) and (orientation: landscape) 
+HandsetPortrait (max-width: 599.98px) and (orientation: portrait) 
+XSmall (max-width: 599.98px) 
+Small (min-width: 600px) and (max-width: 959.98px) 
+Medium (min-width: 960px) and (max-width: 1279.98px) 
+Large (min-width: 1280px) and (max-width: 1919.98px) 
+XLarge (min-width: 1920px) 
+*/
+
+.principal-home {
+  font-family: Lato;
+}
+
+.container-navbar-responsive {
+  display: none;
+}
+
+.container-home {
+  height: 65vw;
+  width: 100%;
+}
+
+
+/* Container Home 2 */
+
+.container-home2 {
+  height: 65vw;
+  width: 100%;
+  margin-top: -10vw;
+}
+
+.container-image-home2 {
+  position: absolute;
+  height: auto;
+  width: 100%;
+}
+
+.container-text-home2 {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  height: 10rem;
+  padding-inline: 2rem;
+  background: #ffffff;
+  border-radius: 2rem;
+  text-align: center;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #686868;
+  margin-left: 25%;
+  margin-top: 40%;
+}
+
+/* Container profile */
+
+.container-box-profile {
+  position: relative;
+  margin-top: -5vw;
+  padding-block: 2vw;
+  width: 95%;
+  margin-left: 2.5%;
+  height: auto;
+  background: #ffffff;
+  box-shadow: 11px 11px 31px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+}
+
+/* como preparo */
+
+.container-como-preparo {
+  padding-inline: 5%;
+
+  width: 50%;
+  padding-top: 9vw;
+  padding-bottom: 2vw;
+}
+
+.container-text-como-preparo {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 2.5vw;
+}
+
+.container-subtitle-como-preparo {
+  width: 100%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.2rem;
+  text-align: left;
+  color: #ffffff;
+  margin-bottom: 1vw;
+}
+
+.container-cards-como-preparo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  overflow-y: auto;
+  width: 100%;
+  height: 40rem;
+}
+
+.card-perfil-como-preparo {
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding-inline: 5px;
+  width: 90%;
+  margin-bottom: 1.5vw;
+}
+
+.container-image-como-preparo {
+  width: 100%;
+  height: 84%;
+  margin-top: 1.5%;
+}
+
+.container-text-card-como-preparo {
+  display: flex;
+  justify-content: center;
+  height: max-content;
+  margin-top: 5px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #2f0084;
+}
+
+.container-dates {
+  padding-inline: 5%;
+  width: 50%;
+  padding-top: 7vw;
+  padding-bottom: 2vw;
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .principal-home {
+    all: unset;
+    padding: 0%;
+    margin: 0%;
+  }
+
+  .container-navbar-responsive {
+    width: 100%;
+    height: 15vw;
+    display: flex;
+  }
+
+  .container-buttons {
+    display: none;
+  }
+
+  .container-logo-responsive {
+    width: 50%;
+    padding: 4.5%;
+  }
+
+  .container-btn-inicioSesion {
+    width: 50%;
+    margin: auto;
+    margin-top: 6%;
+    padding-left: 5%;
+  }
+
+  .bnt-login {
+    width: 90%;
+    margin: center;
+    height: 4rem;
+    font-size: 4vw;
+  }
+
+  .container-home {
+    height: 55vw;
+    width: 100%;
+    background: #ffffff;
+    padding-block: 5vh;
+  }
+
+  .carousel-indicators {
+    margin-bottom: 1%;
+  }
+
+  .carousel-indicators button {
+    width: 2vw;
+    height: 2vw;
+  }
+
+  .logo-card {
+    display: none;
+  }
+
+  .text-bienvenidos {
+    width: 70vw;
+    margin-top: 9.8vw;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 2rem;
+  }
+
+  .text-bienvenidos2 {
+    width: 74vw;
+    margin-top: 9.8vw;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 2rem;
+  }
+
+  .text-bienvenidos3 {
+    width: 73vw;
+    margin-top: 9.8vw;
+    margin-bottom: 13%;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 2rem;
+  }
+
+  .container-box-trend {
+    width: 95%;
+    margin-top: 20vw;
+    padding-block: 0vh;
+  }
+
+  .container-nuestros-perfiles {
+    margin-top: -3vw;
+  }
+
+  .container-inter-card-trend {
+    width: 100%;
+    margin-left: 0%;
+    box-shadow: 11px 11px 31px rgba(0, 0, 0, 0.25);
+    border-top-right-radius: 25px;
+  }
+
+  .container-text-title-card {
+    height: 5vw;
+    margin-left: 22%;
+    padding: 0% 4% 5% 4%;
+  }
+
+  .container-cards-caficultor-trend {
+    flex-direction: column;
+    box-shadow: 11px 11px 31px rgba(0, 0, 0, 0.25);
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
+
+  .container-card-caficultor {
+    width: 90%;
+    height: 30vw;
+    margin-left: 5%;
+    margin-bottom: 3%;
+    display: flex;
+    padding-bottom: 3%;
+    border-bottom: solid 2px #e1e0e0;
+  }
+
+  .container-profile-trend {
+    width: 50%;
+    height: 100%;
+  }
+
+  .container-image-circle {
+    width: 50vw;
+    height: 20vw;
+  }
+
+  .container-image-circle img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+  }
+
+  .container-name-rating-caficultor {
+    width: 50%;
+  }
+
+  .container-name-caficultor {
+    width: 90%;
+    margin-top: 15%;
+    border-right: none;
+  }
+
+  .container-farm-name {
+    width: 90%;
+  }
+
+  .container-perfiles {
+    height: 100%;
+    box-shadow: 11px 11px 31px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    border: solid 1px #e1e0e0;
+  }
+
+  .container-nuestros-perfiles {
+    padding-top: 1vw;
+    margin-bottom: 3.5vw;
+    width: 80%;
+  }
+
+  .container-cards-perfiles {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .card-perfil-1 {
+    width: 100%;
+    display: flex;
+    margin-bottom: 4vw;
+  }
+
+  .container-image-profile-1 {
+    width: 40%;
+  }
+
+  .container-image-profile-1 img {
+    width: 100%;
+    height: 90%;
+    margin-top: 6%;
+    border-radius: 25px;
+  }
+
+  .text-profiles-1 {
+    padding: 3vw;
+    font-size: 2.9vw;
+    text-align: justify;
+  }
+
+  .text-profiles-1 div h4 {
+    font-size: 4.5vw;
+  }
+
+  .card-perfil {
+    width: 100%;
+    display: flex;
+    margin-bottom: 4vw;
+  }
+
+  .container-image-profile {
+    width: 40%;
+    margin-left: 60%;
+  }
+
+  .container-image-profile img {
+    width: 100%;
+    height: 80%;
+    margin-top: 10%;
+    border-radius: 25px;
+  }
+
+  .text-profiles {
+    width: 54%;
+    font-size: 2.8vw;
+    margin-left: -98%;
+    text-align: justify;
+  }
+
+  .text-profiles div h4 {
+    font-size: 4.5vw;
+  }
+
+  .container-preparation-dates {
+    width: 95%;
+    height: 310vw;
+    flex-direction: column;
+    margin-top: 0vw;
+    margin-left: 2.5vw;
+    margin-bottom: 4vw !important;
+    box-shadow: 11px 11px 31px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+  }
+
+  .container-dates {
+    width: 95%;
+    position: absolute;
+  }
+
+  .container-como-preparo {
+    width: 100%;
+    height: 165vw;
+    margin-top: 150%;
+  }
+
+  .container-text-como-preparo {
+    text-align: center;
+    margin-top: -10vw;
+    font-size: 6vw;
+  }
+
+  .container-subtitle-como-preparo {
+    font-size: 4.1vw;
+    margin-bottom: 10vw;
+    text-align: center;
+  }
+
+  .container-cards-como-preparo {
+    height: 100vw;
+    margin-left: 2.5%;
+  }
+}
+@media only screen and (max-width: 412px) and (orientation: portrait) {
+  .principal-home {
+    all: unset;
+    padding: 0%;
+    margin: 0%;
+  }
+
+  .container-navbar-responsive {
+    width: 100%;
+    height: 15vw;
+    display: flex;
+  }
+
+  .container-logo-responsive {
+    height: 15vw;
+    padding: 1.5% 4.5%;
+    margin-top: 5%;
+  }
+
+  .container-logo-responsive img {
+    width: 100%;
+  }
+
+  .container-btn-inicioSesion {
+    height: 15vw;
+    margin-top: 5%;
+  }
+
+  .bnt-login {
+    width: 90%;
+    margin: center;
+    margin-top: 3.5%;
+    height: 2.5rem;
+    font-size: 5vw;
+  }
+
+  .container-home {
+    height: 55vw;
+    width: 100%;
+    background: #ffffff;
+    padding-block: 5vh;
+  }
+
+  .carousel-indicators {
+    margin-bottom: 1%;
+  }
+
+  .carousel-indicators button {
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+
+  .logo-card {
+    display: none;
+  }
+
+  .text-bienvenidos {
+    width: 70vw;
+    margin-top: 9.8vw;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 1rem;
+  }
+
+  .text-bienvenidos2 {
+    width: 74vw;
+    margin-top: 9.8vw;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 1rem;
+  }
+
+  .text-bienvenidos3 {
+    width: 73vw;
+    margin-top: 9.8vw;
+    margin-bottom: 13%;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 1rem;
+  }
+
+  .container-box-trend {
+    width: 95%;
+    margin-top: 25vw;
+    padding-block: 0vh;
+  }
+
+  .container-nuestros-perfiles {
+    margin-top: -3vw;
+    font-size: 7vw;
+  }
+
+  .container-inter-card-trend {
+    width: 100%;
+    margin-top: -5vw;
+  }
+
+  .container-text-title-card {
+    height: 9vw;
+    margin-left: 14%;
+    font-size: 5.5vw;
+  }
+
+  .container-card-caficultor {
+    width: 90%;
+    height: 40vw;
+    padding-bottom: 3%;
+  }
+
+  .container-profile-trend {
+    width: 50%;
+    height: 100%;
+  }
+
+  .container-image-circle {
+    margin-top: 7%;
+    width: 50vw;
+    height: 20vw;
+  }
+
+  .container-inter-percentage span {
+    font-size: 5.7vw;
+  }
+
+  .text-type-coffe {
+    font-size: 4.2vw;
+  }
+
+  .container-name-caficultor {
+    font-size: 6vw;
+  }
+
+  .container-farm-name {
+    font-size: 5.7vw;
+  }
+
+  .container-image-profile-1 img {
+    height: 80%;
+    margin-top: 25%;
+  }
+
+  .text-profiles-1 {
+    font-size: 3.5vw;
+  }
+
+  .text-profiles-1 div h4 {
+    font-size: 5.5vw;
+  }
+
+  .container-image-profile img {
+    height: 85%;
+    margin-top: 20%;
+  }
+
+  .text-profiles {
+    font-size: 3.5vw;
+  }
+
+  .text-profiles div h4 {
+    font-size: 5.5vw;
+  }
+
+  .container-preparation-dates {
+    height: 350vw;
+  }
+
+  .container-como-preparo {
+    height: 190vw;
+  }
+
+  .container-text-como-preparo {
+    font-size: 7vw;
+    margin-top: 7vw;
+  }
+
+  .container-subtitle-como-preparo {
+    font-size: 5vw;
+  }
+
+  .container-cards-como-preparo {
+    height: 100vw;
+    margin-left: 2.5%;
+  }
+}
+@media only screen and (max-width: 396px) and (orientation: portrait) {
+  .principal-home {
+    all: unset;
+    padding: 0%;
+    margin: 0%;
+  }
+
+  .container-navbar-responsive {
+    width: 100%;
+    height: 15vw;
+    display: flex;
+  }
+
+  .container-logo-responsive {
+    height: 15vw;
+    padding: 1.5% 4.5%;
+    margin-top: 5%;
+  }
+
+  .container-logo-responsive img {
+    width: 100%;
+  }
+
+  .container-btn-inicioSesion {
+    height: 15vw;
+    margin-top: 5%;
+  }
+
+  .bnt-login {
+    width: 90%;
+    margin: center;
+    margin-top: 3.5%;
+    height: 2.5rem;
+    font-size: 5vw;
+  }
+
+  .container-home {
+    height: 55vw;
+    width: 100%;
+    background: #ffffff;
+    padding-block: 5vh;
+  }
+
+  .carousel-indicators {
+    margin-bottom: 1%;
+  }
+
+  .carousel-indicators button {
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+
+  .logo-card {
+    display: none;
+  }
+
+  .text-bienvenidos {
+    width: 70vw;
+    margin-top: 9.8vw;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 1rem;
+  }
+
+  .text-bienvenidos2 {
+    width: 74vw;
+    margin-top: 9.8vw;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 1rem;
+  }
+
+  .text-bienvenidos3 {
+    width: 73vw;
+    margin-top: 9.8vw;
+    margin-bottom: 13%;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 1rem;
+  }
+
+  .container-box-trend {
+    width: 95%;
+    margin-top: 25vw;
+    padding-block: 0vh;
+  }
+
+  .container-nuestros-perfiles {
+    margin-top: -3vw;
+    font-size: 7vw;
+  }
+
+  .container-inter-card-trend {
+    width: 100%;
+    margin-top: -5vw;
+  }
+
+  .container-text-title-card {
+    height: 9vw;
+    margin-left: 14%;
+    font-size: 5.5vw;
+  }
+
+  .container-card-caficultor {
+    width: 90%;
+    height: 40vw;
+    padding-bottom: 3%;
+  }
+
+  .container-profile-trend {
+    width: 50%;
+    height: 100%;
+  }
+
+  .container-image-circle {
+    margin-top: 7%;
+    width: 50vw;
+    height: 20vw;
+  }
+
+  .container-inter-percentage span {
+    font-size: 5.7vw;
+  }
+
+  .text-type-coffe {
+    font-size: 4.2vw;
+  }
+
+  .container-name-caficultor {
+    font-size: 6vw;
+  }
+
+  .container-farm-name {
+    font-size: 5.7vw;
+  }
+
+  .container-image-profile-1 img {
+    height: 80%;
+    margin-top: 25%;
+  }
+
+  .text-profiles-1 {
+    font-size: 3.5vw;
+  }
+
+  .text-profiles-1 div h4 {
+    font-size: 5.5vw;
+  }
+
+  .container-image-profile img {
+    height: 85%;
+    margin-top: 20%;
+  }
+
+  .text-profiles {
+    font-size: 3.5vw;
+  }
+
+  .text-profiles div h4 {
+    font-size: 5.5vw;
+  }
+
+  .container-preparation-dates {
+    height: 350vw;
+  }
+
+  .container-como-preparo {
+    height: 190vw;
+  }
+
+  .container-text-como-preparo {
+    font-size: 7vw;
+    margin-top: 7vw;
+  }
+
+  .container-subtitle-como-preparo {
+    font-size: 5vw;
+  }
+
+  .container-cards-como-preparo {
+    height: 100vw;
+    margin-left: 2.5%;
+  }
+}

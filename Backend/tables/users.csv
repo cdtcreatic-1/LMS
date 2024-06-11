@@ -1,0 +1,16 @@
+Restrictions,variable_name,type_data,references
+PK,id_user,SMALLINT,
+"NN U",user_name,VARCHAR(45),
+"NN U",user_phone,VARCHAR(45),
+"NN U",user_email,VARCHAR(45),
+"NN U",user_username,VARCHAR(45),
+"NN U",user_identification_number,VARCHAR(45),
+"NN U",user_password,VARCHAR(45),
+,id_role,SMALLINT,roles(id_role)
+"NN U",user_tax_identification,VARCHAR(250),
+,user_profile_photo,VARCHAR(250),
+NN,user_situation,BOOLEAN,
+NN,user_registration_date,TIMESTAMP,
+,user_identification_document,VARCHAR(250),
+,user_personal_description_text,TEXT,
+,user_personal_description_audio,VARCHAR(250),

@@ -1,0 +1,8 @@
+out/*
+__pycache__/
+#Data Team
+copia_data_base.sql
+Datos/*env
+deployment_scripts_p2/_env
+Datos/_env*
+Datos/temp

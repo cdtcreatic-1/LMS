@@ -1,0 +1,10 @@
+@startuml
+
+'Lot Photo'
+
+    group 5.5 Lot Photo Register
+        !include 5.5.register_lot_photo/5.5.0.register_update_lot_photo.iuml
+        !include 5.5.register_lot_photo/5.5.1.get_lot_photo.iuml
+    end group 
+
+@enduml

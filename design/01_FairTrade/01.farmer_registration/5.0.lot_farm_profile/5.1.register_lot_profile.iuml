@@ -1,0 +1,20 @@
+@startuml
+
+'Lot Profile'
+
+group 5.1 Lot Profile
+
+    group Get Lot Data
+        !include 5.1.register_lot_profile/5.1.3.get_num_lots.iuml
+        !include 5.1.register_lot_profile/5.1.1.get_coffee_variety.iuml
+        !include 5.1.register_lot_profile/5.1.2.get_roasting.iuml
+        !include 5.1.register_lot_profile/5.1.4.get_coffee_profile.iuml
+    end group 
+    
+    group Initial Lot Register
+        !include 5.1.register_lot_profile/5.1.0.register_update_cup_profile.iuml
+    end group 
+    
+end group
+
+@enduml

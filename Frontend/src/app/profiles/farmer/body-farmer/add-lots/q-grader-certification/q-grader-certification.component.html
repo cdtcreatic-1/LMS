@@ -1,0 +1,122 @@
+<div class="container-formc">
+  <div class="container-principal-formc">
+    <div class="container-inter-formc">
+      <div class="container-cards">
+        <div class="container-title-card" align="center">
+          <div class="container-title">Adjunta resultados de evaluación</div>
+          <div class="container-card">
+            <input
+              type="file"
+              accept="image/jpeg,image/png,application/pdf"
+              class="input-load-documents-farm"
+              (change)="onChangeLoadImage($event, 1)"
+            />
+            <div *ngIf="imageCCoffee" class="container-image-loaded">
+              <img
+                *ngIf="imageCCoffee !== 'pdf'"
+                src="{{ imageCCoffee }}"
+                alt=""
+              />
+              <img
+                *ngIf="imageCCoffee === 'pdf'"
+                src="../../../../../assets/icons/icon_pdf.webp"
+                alt=""
+              />
+            </div>
+            <div *ngIf="!imageCCoffee">
+              <div class="container-icon-load">
+                <img src="../../../../assets/icons/icon_load.webp" alt="load" />
+              </div>
+              <div class="container-text-drag">
+                arrastra y suelta o elige tu archivo
+              </div>
+              <div class="container-text-jpg-pdf">JPG o PDF</div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="container-title-card"
+          align="center"
+          style="justify-content: flex-start"
+        >
+          <div class="container-title">Adjunta el certificado de catador</div>
+          <div class="container-card">
+            <input
+              type="file"
+              accept="image/jpeg,image/png,application/pdf"
+              class="input-load-documents-farm"
+              (change)="onChangeLoadImage($event, 2)"
+            />
+            <div *ngIf="imageCCatador" class="container-image-loaded">
+              <img
+                *ngIf="imageCCatador !== 'pdf'"
+                src="{{ imageCCatador }}"
+                alt=""
+                height="90%"
+                width="100%"
+              />
+              <img
+                *ngIf="imageCCatador === 'pdf'"
+                src="../../../../../assets/icons/icon_pdf.webp"
+                alt=""
+                height="90%"
+                width="100%"
+              />
+            </div>
+            <div *ngIf="!imageCCatador">
+              <div class="container-icon-load">
+                <img src="../../../../assets/icons/icon_load.webp" alt="load" />
+              </div>
+              <div class="container-text-drag">
+                arrastra y suelta o elige tu archivo
+              </div>
+              <div class="container-text-jpg-pdf">JPG o PDF</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="container-q-grader-principal">
+        <div
+          class="container-btn-validator"
+          (click)="onClickCheckBox()"
+          [ngStyle]="{
+            background: isCheckBox ? 'rgba(0, 222, 151, 0.8)' : 'white'
+          }"
+        ></div>
+        <div class="container-btn-validated">
+          <div>
+            ¿Necesitas que tu café sea certificado por un Q Grader, permitenos
+            contactarnos?
+          </div>
+          <div class="container-qgrader-icon">
+            <img
+              src="../../../../../assets/icons/icon_q_grader.webp"
+              alt=""
+              height="100%"
+              style="margin-left: 10px"
+            />
+          </div>
+        </div>
+      </div> -->
+
+      <div style="margin-left: 1.5%; margin-top: 20px">
+        <app-errors-forms
+          *ngIf="isErrorRequiredDocuments"
+          [message]="'Por favor, cargue todos los documentos solicitados'"
+        ></app-errors-forms>
+
+        <app-errors-forms
+          *ngIf="isErrorLoadDocuments"
+          [message]="'Error al cargar los documentos'"
+        ></app-errors-forms>
+      </div>
+    </div>
+
+    <div class="container-buttons-formc" align="center">
+      <button class="btn-formc" (click)="comeBack()">Atrás</button>
+      <button class="btn-formc" (click)="next()">Siguiente</button>
+    </div>
+  </div>
+</div>

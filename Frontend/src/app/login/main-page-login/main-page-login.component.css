@@ -1,0 +1,529 @@
+.container-principal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 100%;
+}
+
+.container-image-cafe {
+  width: 50%;
+  height: 100%;
+}
+
+.image-cafe {
+  width: 80%;
+  height: 95%;
+  margin-top: 2%;
+  margin-left: -6vw;
+  background-image: url("../../../assets/coffee3.webp");
+  background-size: cover;
+  border-radius: 3vw;
+}
+
+.container-title-form-login-btns-register {
+  overflow-y: auto;
+  width: 50%;
+  padding-inline: 5%;
+  height: 95%;
+}
+
+.container-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+  margin-bottom: 3%;
+  margin-top: -2%;
+}
+
+.container-form-login-btns-register {
+  height: 70%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-login {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2.7vw;
+  color: #2f0084;
+}
+
+.form-login {
+  width: 70%;
+  margin-top: -1rem;
+}
+
+.container-login-input {
+  width: 85%;
+  margin-top: 2.5vw;
+}
+
+.input-block {
+  position: relative;
+  display: flex;
+  width: 85%;
+  margin-top: 2.8vw;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.input-block input {
+  font-weight: 400;
+  font-size: 1.3vw;
+  border: none;
+  outline: none;
+  width: 100%;
+  background-color: transparent;
+  color: black;
+}
+
+.input-block span.placeholder {
+  position: absolute;
+  display: flex;
+  font-family: "Lato";
+  font-size: 1.3vw;
+  font-weight: 400;
+  color: #686868;
+  top: 0.2vw;
+  transition: all 0.3s;
+  transform-origin: 0% 0%;
+  background: none;
+  pointer-events: none;
+}
+
+.input-block input:valid + span.error,
+.input-block input:focus + span.error {
+  transform: scale(0.8, 1) translateY(35px);
+  background: transparent;
+}
+
+.input-block input:valid + span.placeholder,
+.input-block input:focus + span.placeholder {
+  transform: scale(1, 0.8) translateY(-35px);
+  background: transparent;
+}
+
+.check-remember-password {
+  display: none;
+}
+
+.container-button-iniciar-sesion {
+  margin-block: 1.5rem;
+}
+
+.button-iniciar-sesion {
+  background: #00de97;
+  border-radius: 6px;
+  width: 68.5%;
+  border: none;
+  height: 3vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5vw;
+  color: #2f0084;
+}
+
+.button-iniciar-sesion:active {
+  background: rgba(0, 222, 151, 0.5);
+}
+
+.separator-form {
+  width: 85%;
+  padding: 0;
+  margin: 0;
+}
+
+.container-link-olvidaste-contrasena-responsive {
+  margin-block: 1vw;
+}
+
+.link-olvidaste-contrasena-responsive {
+  font-size: 1.5vw;
+  color: #00de97;
+  font-family: "Lato";
+  font-weight: 500;
+}
+
+.container-link-olvidaste-contrasena {
+  margin-block: 1vw;
+}
+
+.span-change-password {
+  color: #00de97;
+  background-color: red;
+}
+
+.link-olvidaste-contrasena {
+  font-size: 1.2vw;
+  color: #00de97;
+  font-family: "Lato";
+  font-weight: 500;
+}
+
+.text-decoration-change-password {
+  padding-bottom: 2px;
+  border-bottom: 1px solid #00de97;
+  cursor: pointer;
+}
+
+.text-decoration-change-password:active {
+  opacity: 0.5;
+}
+
+.container-icon-btn-sesion-google {
+  padding-bottom: 0rem;
+  width: 85%;
+}
+
+.container-icon-text-google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  background: #ffffff;
+  border-radius: 6px;
+  border: solid 0.5px #2f0084;
+  height: 2.7vw;
+}
+
+.container-icon-google {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1vw;
+}
+
+.container-button-sesion-google {
+  width: 100%;
+}
+
+.button-registrarse-extern {
+  border: none;
+  background: transparent;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  color: #2f0084;
+}
+
+.container-button-register {
+  margin-block: 1vw;
+  width: 85%;
+}
+
+.button-registrarse {
+  background: #ffffff;
+  border-radius: 6px;
+  width: 80%;
+  border: solid 0.5px #2f0084;
+  height: 2.7vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  color: #2f0084;
+}
+
+.container-recapcha {
+  margin-top: 6%;
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .container-image-cafe {
+    display: none;
+  }
+
+  .container-title-form-login-btns-register {
+    width: 70%;
+  }
+
+  .container-title {
+    width: 80%;
+  }
+
+  .text-login {
+    font-size: 5.5vw;
+  }
+
+  .form-login {
+    margin-top: 10vw;
+  }
+
+  .input-block {
+    width: 120%;
+    margin-left: -10%;
+    margin-bottom: 4vw;
+  }
+
+  .input-block input {
+    font-size: 4vw;
+    border-bottom: 2px solid #d9d9d9;
+  }
+
+  .input-block span.placeholder {
+    font-size: 4vw;
+  }
+
+  .input-block input:valid + span.error,
+  .input-block input:focus + span.error {
+    transform: scale(0.9, 1) translateY(40px);
+    background: transparent;
+  }
+
+  .input-block input:valid + span.placeholder,
+  .input-block input:focus + span.placeholder {
+    transform: scale(1, 0.9) translateY(-40px);
+    background: transparent;
+  }
+
+  .check-remember-password {
+    width: 120%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5vw;
+    margin-left: -10%;
+  }
+
+  .check-remember-password label {
+    margin-top: -1%;
+    font-family: "Lato";
+    font-size: 2.5vw;
+    color: #5b5757;
+  }
+
+  .check-remember-password input {
+    width: 4vw;
+    height: 4vw;
+    margin-top: 2%;
+  }
+
+  .link-olvidaste-contrasena-responsive {
+    font-size: 2.5vw;
+    margin-top: 2%;
+  }
+
+  .container-button-iniciar-sesion {
+    height: 7vw;
+  }
+
+  .button-iniciar-sesion {
+    width: 90%;
+    height: 6vw;
+    font-size: 4vw;
+  }
+
+  .container-link-olvidaste-contrasena {
+    display: none;
+  }
+
+  .separator-form {
+    display: none;
+  }
+
+  .container-icon-btn-sesion-google {
+    height: 8vw;
+  }
+
+  .container-icon-text-google {
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 5px 12px 0px #adacac;
+    height: 7vw;
+  }
+
+  .button-registrarse-extern {
+    font-size: 3.3vw;
+  }
+
+  .container-button-register {
+    height: 8vw;
+    margin-top: 3vw;
+  }
+
+  .button-registrarse {
+    border-radius: 10px;
+    width: 100%;
+    border: none;
+    box-shadow: 0px 5px 12px 0px #adacac;
+    height: 7vw;
+    font-size: 3.3vw;
+  }
+}
+@media only screen and (max-width: 412px) and (orientation: portrait) {
+  .container-title-form-login-btns-register {
+    width: 90%;
+  }
+
+  .text-login {
+    font-size: 6.5vw;
+  }
+
+  .form-login {
+    margin-top: 15vw;
+  }
+
+  .input-block input {
+    font-size: 6vw;
+  }
+
+  .input-block span.placeholder {
+    font-size: 6vw;
+  }
+
+  .input-block input:valid + span.error,
+  .input-block input:focus + span.error {
+    transform: scale(0.8, 1) translateY(30px);
+  }
+
+  .input-block input:valid + span.placeholder,
+  .input-block input:focus + span.placeholder {
+    transform: scale(1, 0.8) translateY(-30px);
+  }
+
+  .check-remember-password {
+    margin-top: 5vw;
+  }
+
+  .check-remember-password label {
+    font-size: 3.7vw;
+  }
+
+  .check-remember-password input {
+    width: 5.5vw;
+    height: 5.5vw;
+  }
+
+  .link-olvidaste-contrasena-responsive {
+    font-size: 3.5vw;
+  }
+
+  .container-button-iniciar-sesion {
+    height: 10vw;
+  }
+
+  .button-iniciar-sesion {
+    height: 9vw;
+    font-size: 5vw;
+  }
+
+  .container-icon-btn-sesion-google {
+    width: 110%;
+    height: 10vw;
+    margin-left: -5%;
+  }
+
+  .container-icon-text-google {
+    height: 9vw;
+  }
+
+  .button-registrarse-extern {
+    font-size: 4.3vw;
+  }
+
+  .container-button-register {
+    width: 110%;
+    height: 10vw;
+    margin-top: 4vw;
+    margin-left: -5%;
+  }
+
+  .button-registrarse {
+    height: 9vw;
+    font-size: 4.3vw;
+  }
+}
+@media only screen and (max-width: 396px) and (orientation: portrait) {
+  .container-title-form-login-btns-register {
+    width: 90%;
+  }
+
+  .text-login {
+    font-size: 6.5vw;
+  }
+
+  .form-login {
+    margin-top: 15vw;
+  }
+
+  .input-block input {
+    font-size: 6vw;
+  }
+
+  .input-block span.placeholder {
+    font-size: 6vw;
+  }
+
+  .input-block input:valid + span.error,
+  .input-block input:focus + span.error {
+    transform: scale(0.8, 1) translateY(30px);
+  }
+
+  .input-block input:valid + span.placeholder,
+  .input-block input:focus + span.placeholder {
+    transform: scale(1, 0.8) translateY(-30px);
+  }
+
+  .check-remember-password {
+    margin-top: 5vw;
+  }
+
+  .check-remember-password label {
+    font-size: 3.7vw;
+  }
+
+  .check-remember-password input {
+    width: 5.5vw;
+    height: 5.5vw;
+  }
+
+  .link-olvidaste-contrasena-responsive {
+    font-size: 3.5vw;
+  }
+
+  .container-button-iniciar-sesion {
+    height: 10vw;
+  }
+
+  .button-iniciar-sesion {
+    height: 9vw;
+    font-size: 5vw;
+  }
+
+  .container-icon-btn-sesion-google {
+    width: 110%;
+    height: 10vw;
+    margin-left: -5%;
+  }
+
+  .container-icon-text-google {
+    height: 9vw;
+  }
+
+  .button-registrarse-extern {
+    font-size: 4.3vw;
+  }
+
+  .container-button-register {
+    width: 110%;
+    height: 10vw;
+    margin-top: 4vw;
+    margin-left: -5%;
+  }
+
+  .button-registrarse {
+    height: 9vw;
+    font-size: 4.3vw;
+  }
+}
+
+@media only screen and (max-width: 390px) and (orientation: portrait) {
+}
+/* Put this code in your CSS file */

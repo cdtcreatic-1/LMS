@@ -1,0 +1,30 @@
+@startuml
+
+group #99FF99 5.4.1 Get Lot Certifications 
+
+    Farmer -> BackEnd: GET lot_certifications/:id_lot
+
+    BackEnd -> DB: SELECT id_farm, product_sc_certificate, \n product_taster_certificate, contact_qgrader \nFROM lot_certifications WHERE id_lot = :id_lot
+    DB -> BackEnd: Return farm_data
+
+    hnote over BackEnd
+        Depending if the data are correct the response will be:
+        200 OK (id_lot, product_sc_certificate, product_taster_certificate, contact_qgrader)
+        404 Not Found (farm data not found)
+        500 Internal Server Error (server error)
+    endnote
+
+    BackEnd -> Farmer: HTTP 200 OK (farm data)
+
+    note over Farmer
+        Response {
+            id_lot, 
+            product_sc_certificate, 
+            product_taster_certificate, 
+            contact_qgrader
+        }
+    endnote
+
+end group
+
+@enduml

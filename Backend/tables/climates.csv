@@ -1,0 +1,3 @@
+Restrictions,variable_name,type_data,references
+PK,id_climate,SMALLINT,
+"NN U",climate_name,VARCHAR(45),

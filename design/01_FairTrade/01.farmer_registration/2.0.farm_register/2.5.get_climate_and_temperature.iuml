@@ -1,0 +1,38 @@
+@startuml
+
+group  #LightGray 2.5 Get climate and temperature
+
+        Farmer -> BackEnd: POST get_climate_and_temperature (Body)
+
+        hnote over BackEnd
+            Body {
+            longitude,
+            latitude }
+
+        end note
+
+        BackEnd -> Data_Service: POST get_climate_and_temperature (Body)
+
+
+        hnote over BackEnd
+            Body : {
+            altitude,
+            temperature,
+            climate }
+        end note
+
+        Data_Service -> BackEnd: HTTP 200 OK (Body)
+
+        hnote over BackEnd
+            Body : {
+            altitude,
+            temperature,
+            climate }
+        end note
+
+
+        BackEnd -> Farmer: HTTP 200 OK (Body)
+
+    end group
+
+@enduml

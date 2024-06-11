@@ -1,0 +1,55 @@
+@startuml
+!define NOTE_OVER_N
+!define HTML_STYLES
+!define NOTE_BODY
+!define NOTE_END
+
+title Plataforma 2 Proceso de registro de usuario (caficultor) [03/07/2023]
+skinparam BackgroundColor #FFFFFF
+skinparam ParticipantFontSize 15
+skinparam messageFontSize 10
+
+skinparam participant  {
+    BackgroundColor yellow
+    BorderColor red
+}
+
+skinparam database {
+    BackgroundColor orange
+    BorderColor black
+}
+
+skinparam sequence {
+    ActorBackgroundColor orange
+    ActorBorderColor red
+    ArrowColor red
+}
+
+skinparam hnote {
+    BackgroundColor yellow
+    BorderColor black
+}
+
+actor Farmer
+
+
+'Change color of participant BackEnd to green
+
+
+
+participant HTTP_BackEnd_Service as BackEnd
+participant HTTP_Data_Service as Data_Service
+
+
+box  Backend (nodejs) y Data_Service (python)  #LightBlue
+    participant BackEnd
+    participant Data_Service
+
+end box
+
+database PostgreSQL  AS DB
+
+
+actor Businessman
+
+@enduml

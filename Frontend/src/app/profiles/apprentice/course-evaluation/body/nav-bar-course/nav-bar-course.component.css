@@ -1,0 +1,42 @@
+.container-section-navbar-question {
+  position: relative;
+  padding-inline: 15%;
+  margin-top: 2%;
+}
+
+.icon {
+  position: absolute;
+  color: #2f0084;
+  font-size: 3vw;
+  margin-left: -12%;
+}
+
+.container-btns {
+  width: 100%;
+  display: flex;
+}
+
+.btn-nav-bar-farmer {
+  width: 30%;
+  border: none;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #686868;
+  background-color: transparent;
+  margin-left: 1vw;
+}
+
+.border-button-btn {
+  border-bottom: 2px solid #2f0084;
+}
+
+.btn-nav-bar-farmer:active {
+  color: rgba(104, 104, 104, 0.5);
+}
+
+.line-btns {
+  margin-top: -2px;
+  height: 2px;
+  background-color: rgba(190, 190, 190, 0.3);
+}

@@ -1,0 +1,140 @@
+<div class="container-principal-add-objetives">
+  <div class="container-title-text-area-90">
+    <h1 class="title">Fair Trade</h1>
+    <form [formGroup]="formAdd" class="course-manager" (ngSubmit)="(false)">
+      <div class="obj-ability">
+        <div class="icon-description">
+          <div class="container-icon-description">
+            <div
+              class="container-icon-description-inter"
+              (click)="handleClickOpenCloseInputAdd(1, 1)"
+            >
+              <ion-icon
+                name="add-circle-outline"
+                class="ion-icon-green"
+              ></ion-icon>
+              <strong> Agregar objetivo </strong>
+            </div>
+            <div class="container-input-add-btn" *ngIf="isAddObjetive">
+              <input
+                type="text"
+                formControlName="addObjetive"
+                required="false"
+                placeholder="Agregar objetivo"
+                class="fcdt-input-password-all-boder input-add-objetive"
+                minlength="10"
+                maxlength="500"
+                required
+                pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.:%!¡¿'?ñÑ,\s]*$"
+              />
+              <button
+                class="fcdt-btn-p2 btn-add-objetive"
+                (click)="AddObjetive()"
+              >
+                Agregar
+              </button>
+              <button
+                class="fcdt-btn-blue-p2 btn-add-objetive"
+                (click)="handleClickOpenCloseInputAdd(1, 2)"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+
+          <div class="text-area">
+            <article class="t-areas" name="textarea">
+              <ul class="container-ul" *ngIf="dataObjetives.length > 0">
+                <li
+                  class="container-box-text"
+                  *ngFor="let objetive of dataObjetives"
+                >
+                  <div class="box"></div>
+                  <div class="text-objetive">{{ objetive.objective_text }}</div>
+                  <div (click)="deleteObjetive(objetive.id_objective)">
+                    <ion-icon
+                      name="trash-outline"
+                      class="ion-icon"
+                      matTooltip="Eliminar"
+                    ></ion-icon>
+                  </div>
+                </li>
+              </ul>
+              <span *ngIf="dataObjetives.length === 0" class="span-objetives"
+                >Listado de objetivos</span
+              >
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="obj-ability">
+        <div class="icon-description">
+          <div class="container-icon-description">
+            <div
+              class="container-icon-description-inter"
+              (click)="handleClickOpenCloseInputAdd(2, 1)"
+            >
+              <ion-icon
+                name="add-circle-outline"
+                class="ion-icon-green"
+              ></ion-icon>
+              <strong>Habilidades a fortalecer</strong>
+            </div>
+            <div class="container-input-add-btn" *ngIf="isAddSkill">
+              <input
+                type="text"
+                formControlName="addSkill"
+                placeholder="Agregar habilidad"
+                class="fcdt-input-password-all-boder input-add-objetive"
+                minlength="10"
+                maxlength="500"
+                required
+                pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.:%!¡¿'?ñÑ,\s]*$"
+              />
+              <button class="fcdt-btn-p2 btn-add-objetive" (click)="AddSkill()">
+                Agregar
+              </button>
+              <button
+                class="fcdt-btn-blue-p2 btn-add-objetive"
+                (click)="handleClickOpenCloseInputAdd(2, 2)"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+
+          <div class="text-area">
+            <article class="t-areas" name="textarea">
+              <ul class="container-ul" *ngIf="dataSkills.length > 0">
+                <li class="container-box-text" *ngFor="let skill of dataSkills">
+                  <div class="box"></div>
+                  <div class="text-objetive">{{ skill.skill_name }}</div>
+                  <div (click)="deleteSkill(skill.id_skill)">
+                    <ion-icon
+                      name="trash-outline"
+                      class="ion-icon"
+                      matTooltip="Eliminar"
+                    ></ion-icon>
+                  </div>
+                </li>
+              </ul>
+              <span *ngIf="dataSkills.length === 0" class="span-objetives"
+                >Listado de las habilidades</span
+              >
+            </article>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="container-buttons">
+      <button class="fcdt-btn-white-p2" [routerLink]="['../add-course']">
+        Atrás
+      </button>
+      <button class="fcdt-btn-p2" type="submit" (click)="handleNext()">
+        Siguiente
+      </button>
+    </div>
+  </div>
+</div>

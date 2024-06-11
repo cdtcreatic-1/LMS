@@ -1,0 +1,148 @@
+/* Button */
+
+.floating-btn {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background-color: #00de97;
+  width: 65px;
+  height: 65px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: none;
+  /* border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%; */
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.floating-btn:active {
+  opacity: 0.5;
+}
+
+.floating-btn:hover {
+  width: 70px;
+  height: 70px;
+  background-color: #00c586;
+}
+
+.container-icon {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.icon {
+  color: #fff;
+  font-size: 3vw;
+}
+
+/* Modal chat */
+
+.container-modal-chat {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background: #fff;
+  width: 25%;
+  height: 400px;
+  background-size: contain;
+  border-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 11px 11px 31px rgba(0, 0, 0, 0.25);
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to right, #2f0084, #00de97);
+  height: 15%;
+  color: #fff;
+  padding-inline: 3%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.icon-header {
+  font-size: 2.5vw;
+}
+
+/* Body */
+
+.chat {
+  height: 70%;
+  overflow-y: auto;
+  max-height: 70%;
+  padding-block: 2%;
+  padding-inline: 5%;
+  word-break: break-all;
+}
+
+.container-response {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+  word-break: break-word;
+}
+
+.container-question-answers {
+  width: max-content;
+  max-width: 70%;
+  background-color: #ededeb;
+  padding-inline: 20px;
+  padding-block: 10px;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.container-answers {
+  background-color: rgba(0, 222, 151, 0.2);
+}
+
+/* Footer */
+
+.footer-chat {
+  display: flex;
+  align-items: center;
+  height: 15%;
+  margin-inline: 2%;
+  border-top: 1px solid #d9d9d9;
+  background-color: #fff;
+  border-radius: 0;
+}
+
+.icon-footer {
+  color: #bebebe;
+  font-size: 2vw;
+}
+
+.container-form {
+  width: 90%;
+  padding-inline: 5%;
+}
+
+input {
+  border: none;
+  outline: none;
+  width: 100%;
+  color: #2f0084;
+  font-size: 1.2vw;
+  background-color: transparent;
+}
+
+input::placeholder {
+  color: #bebebe;
+}

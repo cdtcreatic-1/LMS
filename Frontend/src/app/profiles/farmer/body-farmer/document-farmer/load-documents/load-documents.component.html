@@ -1,0 +1,98 @@
+<div class="container-formc" align="center">
+  <div class="container-title-principal">
+    Documentos del representante legal
+  </div>
+  <div class="container-cards">
+    <div class="container-title-card" align="center">
+      <div class="container-title">Adjunta Documento de identidad</div>
+      <div class="container-card">
+        <input
+          type="file"
+          accept="application/pdf"
+          class="input-load-documents-farm"
+          (change)="onChangeLoadImage($event, 1)"
+        />
+        <div *ngIf="imageCedula" class="container-image-loaded">
+          <img *ngIf="imageCedula !== 'pdf'" src="{{ imageCedula }}" alt="" />
+          <img
+            *ngIf="imageCedula === 'pdf'"
+            src="../../../../../assets/icons/icon_pdf.webp"
+            alt=""
+          />
+        </div>
+        <div *ngIf="!imageCedula">
+          <div class="container-icon-load">
+            <img src="../../../../assets/icons/icon_load.webp" alt="load" />
+          </div>
+          <div class="container-text-drag">
+            arrastra y suelta o elige tu archivo
+          </div>
+          <div class="container-text-jpg-pdf">PDF</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-title-card" align="center">
+      <div class="container-title">Adjunta RUT</div>
+      <div class="container-card">
+        <input
+          type="file"
+          accept="application/pdf"
+          class="input-load-documents-farm"
+          (change)="onChangeLoadImage($event, 2)"
+        />
+        <div *ngIf="imageRut" class="container-image-loaded">
+          <img *ngIf="imageRut !== 'pdf'" src="{{ imageRut }}" alt="" />
+          <img
+            *ngIf="imageRut === 'pdf'"
+            src="../../../../../assets/icons/icon_pdf.webp"
+            alt=""
+          />
+        </div>
+        <div *ngIf="!imageRut">
+          <div class="container-icon-load">
+            <img src="../../../../assets/icons/icon_load.webp" alt="load" />
+          </div>
+          <div class="container-text-drag">
+            arrastra y suelta o elige tu archivo
+          </div>
+          <div class="container-text-jpg-pdf">PDF</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-title-card" align="center">
+      <div class="container-title">Adjunta Cámara de Comercio</div>
+      <div class="container-card">
+        <input
+          type="file"
+          accept="application/pdf"
+          class="input-load-documents-farm"
+          (change)="onChangeLoadImage($event, 3)"
+        />
+        <div *ngIf="imageCamara" class="container-image-loaded">
+          <img *ngIf="imageCamara !== 'pdf'" src="{{ imageCamara }}" alt="" />
+          <img
+            *ngIf="imageCamara === 'pdf'"
+            src="../../../../../assets/icons/icon_pdf.webp"
+            alt=""
+          />
+        </div>
+        <div *ngIf="!imageCamara">
+          <div class="container-icon-load">
+            <img src="../../../../assets/icons/icon_load.webp" alt="load" />
+          </div>
+          <div class="container-text-drag">
+            arrastra y suelta o elige tu archivo
+          </div>
+          <div class="container-text-jpg-pdf">PDF</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-buttons-formc" align="center">
+    <button class="btn-formc" (click)="comeBack()">Atrás</button>
+    <button class="btn-formc" (click)="next()">Siguiente</button>
+  </div>
+</div>

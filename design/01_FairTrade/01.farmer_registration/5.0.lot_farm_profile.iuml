@@ -1,0 +1,17 @@
+@startuml
+
+    group 4.0 Main dashboard
+        !include 4.0.farmer_profile/4.1a.get_farmer_data.iuml
+        !include 4.0.farmer_profile/4.2.get_farms.iuml
+        !include 4.0.farmer_profile/4.6.delete_farm_by_id_farm.iuml
+    end group 
+    group 5.0 Get Lot Info by Farm
+        !include 4.0.farmer_profile/4.3.lots_info_by_farm.iuml
+    end group 
+    !include 5.0.lot_farm_profile/5.1.register_lot_profile.iuml
+    !include 5.0.lot_farm_profile/5.2.register_qunatity_associations.iuml
+    !include 5.0.lot_farm_profile/5.3.register_lot_summary.iuml
+    !include 5.0.lot_farm_profile/5.4.register_lot_certification.iuml
+    !include 5.0.lot_farm_profile/5.5.register_lot_photo.iuml
+
+@enduml

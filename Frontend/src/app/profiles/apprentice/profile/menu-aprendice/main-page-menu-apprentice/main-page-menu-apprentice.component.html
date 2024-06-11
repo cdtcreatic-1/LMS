@@ -1,0 +1,92 @@
+<div class="container-menu">
+  <div class="container-menu-logo">
+    <img src="../../../../assets/logo_color.webp" alt="Logo" width="70%" />
+  </div>
+
+  <div
+    class="container-buttons-menu"
+    align="center"
+ 
+  >
+    <div
+      [ngClass]="{
+        'container-color-buttons': actualId === 1,
+        'container-color-buttons-witout': actualId !== 1
+      }"
+      (click)="handleClickButtons()"
+    >
+      <app-button-menu-counter
+        [idRole]="3"
+        [ionIcon]="'home-outline'"
+        [buttonName]="'Inicio'"
+        [amountNotification]="0"
+        [idItemMenu]="1"
+      ></app-button-menu-counter>
+    </div>
+
+    <div
+      [ngClass]="{
+        'container-color-buttons': actualId >= 2 && actualId <= 3,
+        'container-color-buttons-witout': actualId < 2 || actualId > 3
+      }"
+      (click)="handleClickButtons()"
+    >
+      <app-button-profile-apprentice></app-button-profile-apprentice>
+    </div>
+    <app-accordion-apprentice *ngIf="isAccordion"></app-accordion-apprentice>
+
+    <div
+      [ngClass]="{
+        'container-color-buttons': actualId >= 4 && actualId <= 7,
+        'container-color-buttons-witout': actualId < 4 || actualId > 7
+      }"
+      (click)="handleClickButtons()"
+    >
+      <app-button-my-courses></app-button-my-courses>
+    </div>
+    <app-accordion-my-courses
+      *ngIf="isAccordionMyCourses"
+    ></app-accordion-my-courses>
+
+    <div
+      [ngClass]="{
+        'container-color-buttons': actualId === 8,
+        'container-color-buttons-witout': actualId !== 8
+      }"
+      (click)="handleClickButtons()"
+    >
+      <app-button-menu-counter
+        [idRole]="3"
+        [iconItemPath]="'../../../../assets/icons/icon_notification.webp'"
+        [buttonName]="'Notificaciones'"
+        [amountNotification]="0"
+        [idItemMenu]="8"
+      ></app-button-menu-counter>
+    </div>
+
+    <div
+      [ngClass]="{
+        'container-color-buttons': actualId === 9,
+        'container-color-buttons-witout': actualId !== 9
+      }"
+      (click)="handleClickButtons()"
+    >
+      <app-button-menu-counter
+        [ionIcon]="'cart-outline'"
+        [idRole]="3"
+        [buttonName]="'Carrito de compras'"
+        [amountNotification]="dataTotalCartShop"
+        [idItemMenu]="9"
+      ></app-button-menu-counter>
+    </div>
+  </div>
+
+  <div align="center" *ngIf="!isAccordion || !isAccordionMyCourses">
+    <app-button-menu
+      [buttonName]="'Cerrar sesión'"
+      [idItemMenu]="-1"
+      [iconItemPath]="'../../../../assets/icons/icon_off.webp'"
+      [onClick]="handleClickButton"
+    ></app-button-menu>
+  </div>
+</div>

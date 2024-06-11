@@ -1,0 +1,38 @@
+@startuml
+
+group #99FF99 5.2 GET get_farmers
+
+
+    Businessman -> BackEnd: GET get_farmers
+
+    BackEnd -> DB: Retrieve from users_table (farmer), farms_table, lot_table
+
+    hnote over BackEnd
+
+        Depending if the data are correct the response will be:
+        200 OK (get_farmers data)
+        404 Not Found (get_farmers not found)
+        400 Bad Request (missing data)
+        500 Internal Server Error (server error)
+
+    endnote
+
+    BackEnd -> Businessman: HTTP 200 OK (get_farmers data)
+
+    note over Businessman
+
+        Body {
+            "id_user",
+            "user_name",
+            "user_username",
+            "user_profile_photo",
+            "farm_name",
+            "profile_name"
+        }
+
+    endnote
+
+end group
+
+
+@enduml

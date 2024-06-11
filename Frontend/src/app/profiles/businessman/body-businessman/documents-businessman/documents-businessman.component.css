@@ -1,0 +1,78 @@
+.container-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  width: 98.5%;
+  margin-left: 1vw;
+}
+
+.container-icon-text {
+  width: 10%;
+  height: 100%;
+  padding-top: 10vw;
+  margin-right: 3%;
+  cursor: pointer;
+  margin-bottom: 1.5vw;
+}
+
+.container-icon {
+  width: 30%;
+}
+
+.container-text {
+  margin-top: 0.5vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.1rem;
+  color: #686868;
+  text-align: center;
+}
+
+.container-details {
+  padding-block: 2vw;
+  width: 75%;
+  height: 45vh;
+  border: 1px solid #bebebe;
+  border-radius: 8px;
+}
+
+.container-text-details {
+  height: 2vw;
+  padding-top: 1.3px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #fff;
+  padding-inline: 2vw;
+  background-color: #00de97;
+}
+
+.container-documents {
+  padding-inline: 2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.container-icon-image-pdf {
+  height: 60%;
+  margin-bottom: 2vw;
+}
+
+.container-text-pdf {
+  margin-top: 0.5vw;
+  width: 60%;
+  margin-left: 20%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #686868;
+}

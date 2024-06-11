@@ -1,0 +1,89 @@
+.container-principal {
+  width: 400px;
+  height: 350px;
+  font-weight: 500;
+  padding-block: 5%;
+  padding-inline: 10%;
+  text-align: center;
+  font-size: 1.6vw;
+  overflow-y: hidden;
+}
+
+/* container windows */
+
+.container-windows {
+  height: 100%;
+}
+
+/* Title */
+
+.section-title {
+  height: 20%;
+}
+
+.section-title-screen2 {
+  display: flex;
+  align-items: center;
+  height: 70%;
+  font-size: 2vw;
+  font-weight: 500;
+}
+
+/* check label */
+
+.list-products {
+  height: 65%;
+  overflow-y: auto;
+  padding-block: 10px;
+}
+
+.container-check-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  padding-block: 7px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.container-disable-lot {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.input {
+  width: 1.4vw;
+  height: 1.4vw;
+  margin: 0;
+  padding: 0;
+}
+
+.input:active {
+  border: none;
+  outline: none;
+}
+
+label {
+  margin: 0;
+  padding: 0;
+  font-size: 1.4vw;
+  font-weight: 400;
+  margin-left: 10px;
+  color: #686868;
+  font-weight: 700;
+}
+
+/* Buttons */
+
+.section-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 15%;
+}
+
+.enable-button {
+  opacity: 0.5;
+  pointer-events: none;
+}

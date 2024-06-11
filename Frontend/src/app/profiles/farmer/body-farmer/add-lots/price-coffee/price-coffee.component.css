@@ -1,0 +1,242 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.container-form3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50vh;
+  overflow-y: auto;
+}
+
+.container-principal-form3 {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.container-inter-form3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 85%;
+  margin-left: 10%;
+}
+
+.container-selects-form3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+.container-select-form3-inter {
+  width: 80%;
+  padding-inline: 10%;
+}
+
+.select {
+  width: 60%;
+  height: 2.3rem;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #bebebe;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #686868;
+}
+
+.container-text-label-select {
+  height: 1rem;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #686868;
+  margin-top: -1px;
+  margin-bottom: 8px;
+}
+
+.container-text-title-count {
+  height: 3.3rem;
+  width: 60%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #686868;
+  margin-top: 10px;
+  margin-bottom: -12px;
+}
+
+.container-input-conunt {
+  height: 3rem;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #686868;
+}
+
+.input-conunt {
+  text-align: center;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #bebebe;
+  margin-block: 1vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #686868;
+}
+
+.input-conunt::placeholder {
+  color: #d9d9d9;
+}
+
+.container-buttons-form3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+}
+
+.container-text-historia {
+  width: 90%;
+  margin-block: 1.5vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #686868;
+}
+
+.container-input-text {
+  display: flex;
+  margin-top: 1vw;
+  width: 100%;
+}
+
+.textarea-text {
+  padding: 0.5vw;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.81);
+  border: 1.00375px solid #bebebe;
+  border-radius: 12.0339px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #686868;
+  outline: none;
+}
+
+.textarea-text::placeholder {
+  color: #d9d9d9;
+}
+
+.container-audio {
+  margin-top: 0.5vw;
+  align-items: center;
+  display: flex;
+}
+
+.container-text-audio {
+  width: 40%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #686868;
+}
+
+.container-image-audio {
+  margin-left: 0.8vw;
+  width: 5%;
+}
+
+.container-buttons-form3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 15%;
+}
+
+.btn-form3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  margin-inline: 0.5vw;
+  height: 28.61px;
+  background: #00de97;
+  border-radius: 4.40088px;
+  outline: none;
+  border: none;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  text-align: center;
+  color: #2f0084;
+}
+
+.btn-form3:active {
+  background-color: rgba(0, 222, 151, 0.5);
+}
+
+.container-price-coffee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55%;
+  border-radius: 5px;
+  border: 1px solid #d9d9d9;
+}
+
+.container-price-coffee-error {
+  border: 1px solid red;
+}
+
+.container-input-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  border: none;
+  text-align: center;
+  color: #2f0084;
+}
+
+.container-input-price:active {
+  border: none;
+  outline: none;
+}
+
+.container-input-price:focus {
+  border: none;
+  outline: none;
+}
+
+.container-kg-price {
+  width: 30%;
+  color: #686868;
+  text-align: center;
+  font-family: Lato;
+  font-size: 1.5vw;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-align: start;
+}

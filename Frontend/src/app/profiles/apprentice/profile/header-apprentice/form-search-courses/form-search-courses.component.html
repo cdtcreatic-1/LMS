@@ -1,0 +1,27 @@
+<div class="container-search">
+  <div class="container-input-search">
+    <div class="container-icons-filter">
+      <img
+        src="../../../../assets/icons/icon-search.webp"
+        height="60%"
+        alt=""
+      />
+    </div>
+    <form [formGroup]="form" class="container-form-filter">
+      <input
+        type="text"
+        formControlName="courseName"
+        maxlength="50"
+        placeholder="¿Que curso buscas?"
+        pattern="^[a-zA-ZáéíóúñÁÉÍÓÚñÑ,.\s]{10,100}$"
+      />
+    </form>
+    <div class="container-icons-filter">
+      <img
+        src="../../../../assets/icons/icon-filter.webp"
+        height="50%"
+        alt=""
+      />
+    </div>
+  </div>
+</div>

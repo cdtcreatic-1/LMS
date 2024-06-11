@@ -1,0 +1,40 @@
+<div *ngIf="questionSelected">
+  <section class="title-icon">
+    <h1>{{ questionSelected.question_content }}</h1>
+    <div
+      class="container-icon"
+      (click)="handleReadQuestion(questionSelected.question_content)"
+    >
+      <ion-icon name="volume-medium-outline" class="icon"></ion-icon>
+    </div>
+  </section>
+
+  <section class="container-body">
+    <div
+      class="container-letter-question"
+      *ngFor="let answer of questionSelected.SubmoduleAnswers; let i = index"
+    >
+      <div
+        class="letter"
+        [ngClass]="{ 'letter-selected': answer.isSelected }"
+        (click)="handleClickSelecAnswer(answer.id_answer)"
+      >
+        <span>
+          {{ letter[i] }}
+        </span>
+      </div>
+      <div class="response">{{ answer.answers_content }}</div>
+    </div>
+  </section>
+
+  <div class="container-buttons">
+    <button class="fcdt-btn-white-p2" (click)="handleBack()">Atrás</button>
+    <button class="fcdt-btn-p2" (click)="handleSubmit()">Siguiente</button>
+  </div>
+
+  <app-by-steps
+    [numberByStep]="dataQuestion.length"
+    [actualId]="1"
+    [showNumber]="true"
+  ></app-by-steps>
+</div>

@@ -1,0 +1,28 @@
+.container-accordion {
+  width: 100%;
+  background-color: rgba(0, 222, 151, 0.05);
+  border-radius: 10px;
+  padding-left: 30%;
+  padding-top: 5px;
+  text-align: start;
+}
+
+.container-text-items-menu {
+  padding-right: 5px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.2vw;
+  color: rgba(104, 104, 104, 1);
+  margin-bottom: 0.8vw;
+  cursor: default;
+  width: max-content;
+}
+
+.container-text-items-menu:hover {
+  padding-inline: 5px;
+  font-weight: 700;
+}
+
+.subrayar-item-menu {
+  border-bottom: 1px solid rgba(0, 222, 151, 0.5);
+}

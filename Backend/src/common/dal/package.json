@@ -1,0 +1,13 @@
+{
+    "private": true,
+    "name": "@ccprojecct/dal",
+    "version": "0.0.1",
+    "description": "FEX database / datastore abstraction module",
+    "main": "index.js",
+    "dependencies": {},
+    "devDependencies": {},
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    }
+  }
+  

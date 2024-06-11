@@ -1,0 +1,80 @@
+version: '3'
+services:
+  frontend:
+    build: ../Frontend
+    container_name: green_trade_frontend
+    ports:
+      - "4200:80"
+    networks:
+      - platform_network
+
+    depends_on:
+      - backend
+
+    environment:
+      frontend_deploy_enviroment: production
+
+  backend:
+    build: ../Backend
+    container_name: green_trade_backend
+    command: sh -c "./init_service.sh start"
+    environment:
+      exchange_db_username: myuser
+      exchange_db_password: mypassword
+      exchange_db_database: database
+      exchange_db_host: db
+      exchange_https: disable
+      enviroment_deploy: production #development or production
+      python_service_host: python_service
+      python_service_port: 5000
+      frontend_host: https://creatictrade.com/ #http://localhost:80/ #http://93.188.162.233:4200/ #https://creatictrade.com/ #frontend url http://localhost:80/
+      app_url: https://creatictrade.com/api/ #http://93.188.162.233:3000/api/ #http://localhost:4500/api/ #http://93.188.162.233:3000/api/ #https://creatictrade.com/api/ #bakend url http://localhost:4500/api/
+      url_apify: https://apify.epayco.co
+      PUBLIC_KEY: 27898648593732eddfee2eca289552ce
+      PRIVATE_KEY: 7131752194c562f15d7d4527958bb493
+      url_redirect: https://creatictrade.com/payment
+
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - ../Backend/src:/app
+
+    working_dir: /app
+
+    depends_on:
+      - db
+      - python_service
+
+    networks:
+      - platform_network
+
+  db:
+    build: .
+    container_name: green_trade_db
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: database
+    volumes:
+      - p2dbdata:/var/lib/postgresql/data
+
+    # ports:
+    #   - "5432:5432" #Temporal for debugging
+
+    networks:
+      - platform_network
+
+  python_service:
+    build: ../Datos
+    container_name: green_trade_python_service
+    networks:
+      - platform_network
+
+volumes:
+  p2dbdata:
+
+
+networks:
+  platform_network:
+    driver: bridge

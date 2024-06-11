@@ -1,0 +1,4 @@
+@startuml
+    !include 5.5.businessman_lot_offer_status/5.5.1.businessman_lot_offer_status_accepted.iuml
+    !include 5.5.businessman_lot_offer_status/5.5.2.businessman_lot_offer_status_declined.iuml
+@enduml

@@ -1,0 +1,139 @@
+<div class="container-form3">
+  <form
+    [formGroup]="formPriceCoffee"
+    autocomplete="on"
+    (ngSubmit)="next()"
+    class="container-principal-form3"
+  >
+    <div class="container-inter-form3">
+      <div class="container-selects-form3">
+        <div class="container-select-form3-inter">
+          <div style="margin-bottom: 8px">
+            <input
+              type="number"
+              class="fcdt-input-p2"
+              formControlName="price"
+              placeholder="$ 1000"
+              required
+              min="{{ dataPrice?.lower_price! }}"
+              max="{{ dataPrice?.higher_price! }}"
+              [ngClass]="{
+                'fcdt-field-error-form-border-button-p2':
+                  validatorFields('price')
+              }"
+              [matTooltip]="validatorFields('price') ? messageValuePrice : ''"
+              [matTooltipClass]="'myTooltip'"
+            />
+            <div class="container-text-label-select">
+              <span
+                [ngClass]="{
+                  'fcdt-color-span-form-p2': validatorFields('price')
+                }"
+              >
+                Precio sugerido por kilo
+              </span>
+            </div>
+          </div>
+
+          <div style="margin-top: 3vw">
+            <select
+              class="fcdt-select-p2"
+              formControlName="asociation"
+              required
+              [ngClass]="{
+                'fcdt-color-span-form-p2': validatorFields('asociation')
+              }"
+            >
+              <option value="">
+                <span> Asociación o programa </span>
+              </option>
+              <option
+                *ngFor="let item of dataAsociation"
+                value="{{ item.id_association }}"
+              >
+                {{ item.association_name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-selects-form3">
+        <div class="container-select-form3-inter">
+          <div style="margin-bottom: 1vw">
+            <div
+              class="container-text-label-select"
+              style="margin-bottom: 2.2vw"
+            >
+              ¿Con cuantos kilos por taza de {{ tazaProfileOnly }} cuentas?
+            </div>
+            <div
+              class="container-price-coffee"
+              [ngClass]="{
+                'container-price-coffee-error': validatorFields('kilos')
+              }"
+              [matTooltip]="
+                validatorFields('kilos')
+                  ? 'El valor minimo de kilos por lote es de 10Kg y máximo de 30.000Kg'
+                  : ''
+              "
+              [matTooltipClass]="'myTooltip'"
+            >
+              <div class="container-input-price">
+                <input
+                  type="number"
+                  class="container-input-price"
+                  formControlName="kilos"
+                  placeholder="+ 1000 -"
+                  required
+                  min="0"
+                  max="30000"
+                />
+              </div>
+              <div class="container-kg-price">Kg</div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 8px">
+            <div
+              class="container-text-label-select"
+              style="margin-bottom: 0.8vw"
+            >
+              Kilos disponibles para muestra
+            </div>
+            <div
+              class="container-price-coffee"
+              [ngClass]="{
+                'container-price-coffee-error': validatorFields('kilosSample')
+              }"
+              [matTooltip]="
+                validatorFields('kilosSample')
+                  ? 'El valor minimo de kilos de prueba son 2Kg y máximo de 100Kg'
+                  : ''
+              "
+              [matTooltipClass]="'myTooltip'"
+            >
+              <div class="container-input-price">
+                <input
+                  type="number"
+                  class="container-input-price"
+                  formControlName="kilosSample"
+                  placeholder="+ 02 -"
+                  required
+                  min="2"
+                  max="100"
+                />
+              </div>
+              <div class="container-kg-price">Kg</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-buttons-form3" align="center">
+      <button class="btn-form3" (click)="comeBack()">Atrás</button>
+      <button class="btn-form3" type="submit">Siguiente</button>
+    </div>
+  </form>
+</div>

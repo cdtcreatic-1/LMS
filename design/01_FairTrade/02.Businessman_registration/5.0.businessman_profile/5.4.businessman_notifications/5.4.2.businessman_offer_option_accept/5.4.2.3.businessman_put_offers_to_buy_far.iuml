@@ -1,0 +1,41 @@
+@startuml
+
+    group #0295F7 5.4.2 PUT offers_to_buy_to_farmer
+
+        Businessman -> BackEnd: PUT offers_to_buy/:id_make_offer
+        hnote over BackEnd
+            The 'id_offer_types' field is set to 2, which represents 'Venta'
+            Only the 'id_offer_status' field is updated, which changes to 'Aceptada'.
+        endnote
+        BackEnd -> DB: UPDATE id_offer_status = 2 \nWHERE id_make_offer = :id_make_offer
+
+        hnote over BackEnd
+            Depending if the data are correct the response will be:
+            200 OK (offers_to_buy)
+            409 Conflict (user_email or user_username already exists)
+            400 Bad Request (missing data)
+            500 Internal Server Error (server error)
+        endnote
+
+        BackEnd -> Businessman: HTTP 200 OK (offers_to_buy_data)
+
+        note over Businessman
+            Body {
+                id_make_offer
+                id_offer_status
+                id_offer_types
+                id_user
+                id_lot
+                offer_date
+                offer_quantity
+                user_name
+                country_name
+                user_photo_profile
+                profile_name
+                variety_name
+            }
+        endnote
+    
+    end group 
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml
+
+    group #99FF99 4.3.4 Get Lot Summary
+        Farmer -> BackEnd: GET lot_summary/:id_lot
+
+        BackEnd -> DB: SELECT id_lot_summary, id_lot, germination_summary, \n sown_summary, harvest_summary, drying_summary, \n roasting_summary, packaging_summary \nFROM lot_summary \nWHERE id_lot = :id_lot
+        DB -> BackEnd: Return lot summary
+
+        BackEnd -> Farmer: HTTP 200 OK (lot summary)
+
+        note over Farmer
+            Response {
+                id_lot_summary,
+                id_lot,
+                germination_summary,
+                sown_summary,
+                harvest_summary,
+                drying_summary,
+                roasting_summary,
+                packaging_summary
+            }
+        endnote
+        
+    end group
+
+@enduml

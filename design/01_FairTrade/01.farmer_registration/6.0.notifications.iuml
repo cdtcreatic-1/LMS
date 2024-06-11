@@ -1,0 +1,38 @@
+@startuml
+
+group #99FF99 6.0 Get Famer Notifications
+
+    Farmer -> Backend: GET farmer_notification/:id_lot
+
+    Backend -> DB: SELECT * FROM notification_farmer
+
+    DB -> Backend: Return all farmer notification
+
+    hnote over Backend
+        Depending if the data are correct the response will be:
+        200 OK (buisinessman_name, buisinessman_photo, coffee_profile, variety_name, num_lots)
+        404 Not Found (lot photo not found)
+        500 Internal Server Error (server error)
+    endnote
+
+    note over Farmer
+        Body {
+            businessman_name,
+            businessman_photo,
+            coffee_profile,
+            variety_name, 
+            businessman_price_lot,
+            country_name,
+            offer_status,
+            offer_time
+        }
+        .
+        .
+        .
+    endnote
+
+end group
+
+@enduml
+
+

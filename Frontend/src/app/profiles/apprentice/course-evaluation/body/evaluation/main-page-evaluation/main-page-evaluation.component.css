@@ -1,0 +1,20 @@
+.container-principal {
+  padding-inline: 10%;
+  padding-top: 1%;
+  font-size: 15px;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  padding: 5px 10px;
+  background-color: #2f0084;
+}
+
+p {
+  border: 1px solid #bebebe;
+  color: #666666;
+  line-height: 19px;
+  padding: 10px 20px;
+}

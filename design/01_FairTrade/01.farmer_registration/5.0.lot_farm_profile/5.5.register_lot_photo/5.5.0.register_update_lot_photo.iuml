@@ -1,0 +1,30 @@
+@startuml
+
+group #F4A020 5.5.0 Register/Update lot photo 
+
+    note over Farmer
+        Body {
+            id_lot,
+            lot_photo
+        }
+    endnote
+
+    Farmer -> BackEnd: POST/PUT lot_photo(Body)
+
+    BackEnd -> DB: INSERT/UPDATE into lot_photo
+
+    DB -> BackEnd: Confirmation of insertion
+
+    hnote over BackEnd
+        Depending if the data are correct the response will be:
+        201 Created (id_lot, lot_photo)
+        409 Conflict (lot_photo already exists)
+        400 Bad Request (missing data)
+        500 Internal Server Error (server error)
+    endnote
+
+    BackEnd -> Farmer: HTTP 201 Created (lot photo registered)
+
+end group
+
+@enduml

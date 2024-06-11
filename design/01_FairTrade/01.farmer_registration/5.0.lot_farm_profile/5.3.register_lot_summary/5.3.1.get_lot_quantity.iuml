@@ -1,0 +1,33 @@
+@startuml
+
+group #99FF99 5.3.1 Get Lot Summary
+
+    Farmer -> BackEnd: GET lot_summary/:id_lot
+
+    BackEnd -> DB: SELECT id_lot, germination_summary, sown_summary, \n harvest_summary, drying_summary, roasting_summary, packaging_summary \nFROM lot_summary WHERE id_lot = :id_lot
+    DB -> BackEnd: Return lot_summary_data
+
+    hnote over BackEnd
+        Depending if the data are correct the response will be:
+        200 OK (id_lot, germination_summary, sown_summary, harvest_summary, drying_summary, roasting_summary, packaging_summary)
+        404 Not Found (lot_summary not found)
+        500 Internal Server Error (server error)
+    endnote
+
+    BackEnd -> Farmer: HTTP 200 OK (lot summary data)
+
+    note over Farmer
+        Body {
+            id_lot,
+            germination_summary,
+            sown_summary,
+            harvest_summary,
+            drying_summary,
+            roasting_summary,
+            packaging_summary
+        }
+    endnote
+
+end group
+
+@enduml

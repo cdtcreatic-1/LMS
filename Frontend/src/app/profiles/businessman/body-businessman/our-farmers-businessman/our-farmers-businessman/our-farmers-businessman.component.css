@@ -1,0 +1,134 @@
+.container-principal {
+  width: 90%;
+  margin-left: 5%;
+}
+
+.container-nuestros-caficultores {
+  padding-left: 2vw;
+  width: 30%;
+  margin-top: 3vw;
+  margin-left: 0px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.7vw;
+  color: #2f0084;
+}
+
+.container-sub-title {
+  padding-left: 2vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #686868;
+}
+
+.container-cars {
+  height: 54vh;
+  display: flex;
+  margin-top: 2vw;
+}
+
+.container-left-rigth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2%;
+  margin-inline: 2vw;
+  z-index: 2;
+}
+
+.container-car {
+  width: 17vw;
+  height: 54vh;
+  background: #ffffff;
+  box-shadow: 5px 21px 19px rgba(0, 0, 0, 0.25);
+  border-radius: 17px;
+}
+
+.container-car-rigth {
+  translate: 10vw;
+  background-color: #fff;
+  transition: 0.5s ease;
+}
+
+.container-car-left {
+  translate: -10vw;
+  background-color: #fff;
+  transition: 0.5s ease;
+}
+
+.container-principal-cards {
+  width: 96%;
+  display: flex;
+  overflow-x: hidden;
+  height: 60vh;
+  padding-top: 3%;
+}
+
+.container-inter-cards {
+  height: 95%;
+  max-width: 40vw;
+  margin-right: 3%;
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.container-image {
+  height: 50%;
+  width: 15vw;
+  padding: 5%;
+}
+
+.container-text-name {
+  margin-top: 0.5vw;
+  margin-left: 10%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #2f0084;
+}
+
+.container-finca {
+  margin-top: -0.3vw;
+  margin-left: 10%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #2f0084;
+}
+
+.container-name-profile-taza {
+  width: 45%;
+  margin-left: 10%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #2f0084;
+}
+
+.container-name-taza {
+  border-bottom: 1px solid #bebebe;
+}
+
+.container-sub-title-taza {
+  border: none;
+  color: #686868;
+  font-size: 0.7rem;
+}
+
+.container-icon {
+  width: 12%;
+  margin-left: 0.7vw;
+}
+
+.container-buttons {
+  width: 55%;
+  margin-left: 10%;
+  margin-block: 1vw;
+}

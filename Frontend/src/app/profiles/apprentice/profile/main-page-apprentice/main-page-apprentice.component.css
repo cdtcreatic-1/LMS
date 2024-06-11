@@ -1,0 +1,16 @@
+.container-main-page-apprentice {
+  display: flex;
+  background-color: #2f0084;
+}
+
+.container-main-page-apprentice-image {
+  display: flex;
+}
+
+.container-menu {
+  width: 25%;
+}
+
+.container-header-body {
+  width: 75%;
+}

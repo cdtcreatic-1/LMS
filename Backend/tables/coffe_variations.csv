@@ -1,0 +1,3 @@
+Restrictions,variable_name,type_data,references
+PK,id_variety,SMALLINT,
+"NN U",variety_name,VARCHAR(45),

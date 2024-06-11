@@ -1,0 +1,43 @@
+@startuml
+
+'Notas'
+group #LightGray 2.6.2 Get id_village_by_coordinates
+
+
+    hnote over Farmer
+        Body : {
+            latitude,
+            longitude 
+        }
+    end note
+
+    Farmer -> BackEnd: POST id_village_by_coordinates
+    
+    hnote over BackEnd
+
+        body_data_service{
+            "service": "get_geoinformation_from_polygon",
+            "longitude", 
+            "latitude"
+        }
+    endnote
+
+
+    BackEnd -> Data_Service:  POST  get_data_geoinformation_service(body_data_service)
+
+    hnote over Data_Service
+        ids_by_coordinates = {
+            id_state,
+            id_city,
+            id_village
+        }
+    endnote
+
+    Data_Service -> BackEnd: Return (ids_by_coordinates)
+
+
+
+    BackEnd -> Farmer: HTTP 200 OK (ids_by_coordinates)
+
+end group
+@enduml

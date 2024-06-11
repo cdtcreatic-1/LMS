@@ -1,0 +1,6 @@
+<app-loading [isLoading]="isLoading"></app-loading>
+
+<div class="container-loading">
+  <div *ngIf="status === 1">Cargando...</div>
+  <div *ngIf="status === 2">No autorizado</div>
+</div>

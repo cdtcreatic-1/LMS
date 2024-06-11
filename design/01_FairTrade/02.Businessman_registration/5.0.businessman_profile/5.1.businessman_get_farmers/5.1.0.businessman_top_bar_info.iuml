@@ -1,0 +1,42 @@
+@startuml
+
+group #99FF99 5.1 GET businessman top bar info 
+
+
+    Businessman -> BackEnd: GET register/:id_user (businessman)
+
+    BackEnd -> DB: Retrieve from businessman_table
+
+    hnote over BackEnd
+
+        Depending if the data are correct the response will be:
+        200 OK (register_data)
+        404 Not Found (id_user not found)
+        400 Bad Request (missing data)
+        500 Internal Server Error (server error)
+
+    endnote
+
+    BackEnd -> Businessman: HTTP 200 OK (register_data)
+
+    note over Businessman
+
+        {
+            "id_user",
+            "user_name",
+            "user_phone",
+            "user_email",
+            "user_username",
+            "number_document",
+            "postal_code",
+            "id_state",
+            "user_profile_photo",
+            "user_country"
+        }
+
+    endnote
+
+end group
+
+
+@enduml

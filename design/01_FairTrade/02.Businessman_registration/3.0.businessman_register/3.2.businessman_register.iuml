@@ -1,0 +1,40 @@
+@startuml
+
+group #F4A020 Register Businessman
+    hnote over Businessman
+        Body {
+            user_name,
+            user_phone,
+            user_email,
+            user_gender
+            user_username,
+            user_password,
+            user_confirm_password,
+            user_profile_photo,
+            id_type_document 
+            number_document,
+            postal_code,
+            id_state,
+            id_role =2 (Businessman)
+        }
+
+        user_email and user_username must be unique
+    endnote
+
+    Businessman -> BackEnd: POST register(Body)
+
+    BackEnd -> DB: Insert user in user_table
+
+    hnote over BackEnd
+        Depending if the data are correct the response will be:
+        201 Created (id_user, token, fex_version)
+        409 Conflict (user_email or user_username already exists)
+        400 Bad Request (missing data)
+        500 Internal Server Error (server error)
+    endnote
+
+    BackEnd -> Businessman: HTTP 201 Created (id_user, token, fex_version)
+
+end group    
+
+@enduml

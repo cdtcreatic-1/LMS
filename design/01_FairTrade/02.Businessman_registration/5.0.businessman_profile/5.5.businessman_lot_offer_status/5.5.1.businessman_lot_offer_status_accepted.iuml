@@ -1,0 +1,40 @@
+@startuml
+
+    group #99FF99 5.4.3 GET lot_offer_status_data
+
+        Businessman -> BackEnd: GET lot_offer_status_data/:id_make_offer
+
+        BackEnd -> DB: Select data FROM make_offer_table and lot_table related
+        hnote over BackEnd
+            Depending if the data are correct the response will be:
+            200 OK (lot_offer_status_data)
+            409 Conflict (user_email or user_username already exists)
+            400 Bad Request (missing data)
+            500 Internal Server Error (server error)
+        endnote
+
+        BackEnd -> Businessman: HTTP 200 OK (lot_offer_status_data)
+
+        note over Businessman
+            Body {
+                id_make_offer
+                id_offer_status = 2 (Aceptada)
+                id_offer_types = 1
+                id_user
+                id_lot
+                offer_date
+                offer_quantity
+                lot_photo
+                score
+                coffee_profile
+                variety_name
+                association_name
+                roasting_name
+                total_quantity
+                samples_quantity
+            }
+        endnote
+    
+    end group 
+
+@enduml

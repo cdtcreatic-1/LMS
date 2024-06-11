@@ -1,0 +1,58 @@
+.container-como-preparo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 5%;
+  width: 95%;
+  padding-block: 4%;
+  background-color: #2f0084;
+  margin-inline: 2.5%;
+  margin-top: -2%;
+  text-align: center;
+}
+
+.container-text-como-preparo {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 2.5vw;
+}
+
+.container-subtitle-como-preparo {
+  margin-top: -1%;
+  width: 65%;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.2rem;
+  text-align: left;
+  color: #ffffff;
+  margin-bottom: 1vw;
+  text-align: center;
+}
+
+.container-start-today {
+  color: #00de97;
+  font-weight: 600;
+}
+
+/* video youtube */
+
+.container-principal-cards {
+  margin-top: 2%;
+  width: 100%;
+  display: flex;
+  gap: 0px;
+  align-items: center;
+  justify-content: space-between;
+  height: 250px;
+  overflow-y: hidden;
+  color: #ffffff;
+  padding: 0;
+}
+
+.container-card-videos {
+  height: 100%;
+  width: 350px;
+}

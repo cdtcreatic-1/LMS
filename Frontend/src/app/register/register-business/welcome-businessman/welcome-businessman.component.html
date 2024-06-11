@@ -1,0 +1,9 @@
+<app-welcome
+  *ngIf="dataUser"
+  [pathRol]="'../../../../assets/register_business.webp'"
+  [textCongratulations]="'Has creado tu perfil de empresario con éxito'"
+  [textName]="dataUser.user_name"
+  [pathImage]="dataUser.user_profile_photo"
+  [textDownPhoto]="dataUser.user_username"
+  [idRole]="2"
+></app-welcome>

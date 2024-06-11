@@ -1,0 +1,20 @@
+@startuml
+
+group #99FF99 5.1.4 get coffee_profile
+
+    Farmer -> BackEnd: GET get_coffee_profile
+    BackEnd -> DB: get SELECT profile_name FROM coffee_profile_table
+    DB -> BackEnd: Retrieve all coffee profile table
+
+    BackEnd -> Farmer: HTTP 200 OK (get_coffee_profile)
+
+    note over Farmer
+        Body {
+            id_profile
+            profile_name
+        }
+    endnote
+
+end group
+
+@enduml 

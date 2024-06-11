@@ -1,0 +1,13 @@
+@startuml
+
+group #FF735A 4.6 Delete farm by id farm 
+
+    Farmer -> BackEnd:  DELETE /get_farms_by_user/:id_farm
+
+    BackEnd -> DB:  DELETE FROM farm_table WHERE id_farm = :id_farm
+
+    BackEnd -> Farmer : HTTP 200 OK (Farm and related data deleted successfully)
+
+end group
+
+@enduml

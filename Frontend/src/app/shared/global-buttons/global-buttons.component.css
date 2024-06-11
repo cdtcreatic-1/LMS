@@ -1,0 +1,22 @@
+.btn-shared {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: max-content;
+  background: #00de97;
+  border-radius: 4.40088px;
+  outline: none;
+  border: none;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  text-align: center;
+  color: #2f0084;
+  padding-inline: 15px;
+}
+
+.btn-shared:active {
+  opacity: 0.5;
+  outline: none;
+}

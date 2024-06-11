@@ -1,0 +1,19 @@
+<div class="container-accordion">
+  <div class="container-text-items-menu" (click)="setBodyFarmer(0)">
+    Agregar perfil
+  </div>
+  <div
+    class="container-text-items-menu"
+    (click)="setBodyFarmer(1)"
+    [ngClass]="{ 'subrayar-item-menu': actualId === 2 }"
+  >
+    Editar perfil
+  </div>
+  <div
+    class="container-text-items-menu"
+    (click)="setBodyFarmer(2)"
+    [ngClass]="{ 'subrayar-item-menu': actualId === 3 }"
+  >
+    Cambiar contraseña
+  </div>
+</div>

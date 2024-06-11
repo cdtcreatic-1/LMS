@@ -1,0 +1,104 @@
+<div class="container-principal">
+  <div class="container-nuestros-caficultores">Nuestros caficultores</div>
+  <div class="container-sub-title">
+    Encuentra a todas las personas que trabajan para entregarte el mejor
+    producto
+  </div>
+
+  <div class="container-cars">
+    <div class="container-left-rigth">
+      <img
+        src="../../../../../assets/icons/icon_left.webp"
+        alt="Left"
+        width="100%"
+        (click)="moveToCards(1)"
+      />
+    </div>
+    <div class="container-principal-cards">
+      <div
+        [ngStyle]="presentacion"
+        *ngFor="let farmer of dataFarmers"
+        class="container-inter-cards"
+      >
+        <div class="container-image">
+          <img
+            *ngIf="farmer.user_profile_photo"
+            src="{{ farmer.user_profile_photo }}"
+            alt="Caficultor"
+            height="100%"
+            width="100%"
+            style="border-radius: 10px; object-fit: cover"
+          />
+          <img
+            *ngIf="!farmer.user_profile_photo"
+            src="../../../../../../assets/icons/icon_user.webp"
+            alt="Caficultor"
+            width="100%"
+            height="100%"
+            style="border-radius: 10px; object-fit: contain"
+          />
+        </div>
+        <div class="container-text-name">
+          {{ farmer.user_name.slice(0, 15) }}
+        </div>
+        <div class="container-finca">
+          Finca
+          <span>
+            {{
+              farmer.farm_name.length > 15
+                ? farmer.farm_name.slice(0, 15) + "..."
+                : farmer.farm_name
+            }}
+          </span>
+        </div>
+
+        <div style="display: flex; margin-top: 1vw">
+          <div class="container-name-profile-taza">
+            <div
+              class="container-name-taza"
+              title="{{
+                farmer.profile_name.length > 10 ? farmer.profile_name : ''
+              }}"
+            >
+              {{
+                farmer.profile_name.length > 10
+                  ? farmer.profile_name.slice(0, 10) + "..."
+                  : farmer.profile_name
+              }}
+            </div>
+            <div class="container-sub-title-taza">Perfil de taza</div>
+          </div>
+          <div class="container-icon">
+            <!-- <img
+              src="../../../../../assets/icons/icon_harth.webp"
+              alt="Harth"
+              width="100%"
+            /> -->
+          </div>
+          <div class="container-icon">
+            <!-- <img
+              src="../../../../../assets/icons/icon_carShop.webp"
+              alt="Harth"
+              width="100%"
+            /> -->
+          </div>
+        </div>
+
+        <div class="container-buttons" (click)="viewProfile(farmer.id_user)">
+          <app-global-buttons
+            [nameButton]="'Visitar perfil'"
+          ></app-global-buttons>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-left-rigth">
+      <img
+        src="../../../../../assets/icons/icon_rigth.webp"
+        alt="Rigth"
+        width="100%"
+        (click)="moveToCards(-1)"
+      />
+    </div>
+  </div>
+</div>

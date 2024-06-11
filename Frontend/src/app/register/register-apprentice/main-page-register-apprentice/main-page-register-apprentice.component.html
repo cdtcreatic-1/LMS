@@ -1,0 +1,36 @@
+<app-loading [isLoading]="isLoading"></app-loading>
+
+<div
+  [ngClass]="{ 'fcdt-disable-screen': isLoading }"
+  style="position: relative; height: 100%"
+>
+  <div class="container-principal">
+    <div class="container-barra-logo">
+      <div class="container-logo-register-component" (click)="home()">
+        <img
+          src="../../../../assets/logo_color.webp"
+          alt="Logo exchange 2"
+          width="100%"
+          height="70%"
+        />
+      </div>
+    </div>
+    <div class="container-image">
+      <img
+        src="../../../../assets/register_apprendice.webp"
+        alt="Image_cafe"
+        width="100%"
+        height="95%"
+        style="border-radius: 30px; margin-left: 5%"
+      />
+    </div>
+    <div class="container-form">
+      <app-title [text]="'Datos esenciales'"></app-title>
+      <app-form-register-apprentice></app-form-register-apprentice>
+    </div>
+  </div>
+  <app-floting-alert
+    *ngIf="isErrorAlert"
+    [message]="message"
+  ></app-floting-alert>
+</div>

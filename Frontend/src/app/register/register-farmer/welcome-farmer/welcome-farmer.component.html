@@ -1,0 +1,9 @@
+<app-welcome
+  *ngIf="dataUser"
+  [pathRol]="'../../../assets/image_welcome.webp'"
+  [textCongratulations]="'Has creado con éxito tu perfil de caficultor'"
+  [textName]="dataUser.User.user_name!"
+  [pathImage]="dataUser.User.user_profile_photo!"
+  [textDownPhoto]="dataUser.User.user_username"
+  [idRole]="1"
+></app-welcome>

@@ -1,0 +1,30 @@
+<div class="container-principa-profile">
+  <div
+    class="container-name-email"
+    [ngStyle]="{ color: actualId === 1 ? '#ffffff' : '#2F0084' }"
+    *ngIf="dataUser"
+  >
+    <div class="container-name">{{ dataUser.user_name }}</div>
+    <div class="container-email">{{ dataUser.user_email }}</div>
+  </div>
+  <div class="container-image-profile">
+    <div class="container-inter-image-profile">
+      <img
+        *ngIf="dataUser?.user_profile_photo"
+        src="{{ dataUser?.user_profile_photo }}"
+        alt=""
+        height="90%"
+        width="90%"
+        style="object-fit: cover; border-radius: 100%"
+      />
+      <img
+        *ngIf="!dataUser?.user_profile_photo"
+        src="../../../../assets/icons/icon_user.webp"
+        alt=""
+        height="90%"
+        width="90%"
+        style="object-fit: cover; border-radius: 100%"
+      />
+    </div>
+  </div>
+</div>

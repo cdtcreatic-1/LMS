@@ -1,0 +1,14 @@
+<app-title-add-lots></app-title-add-lots>
+<app-type-coffee *ngIf="actualId === 2.1"></app-type-coffee>
+<app-price-coffee *ngIf="actualId === 2.2"></app-price-coffee>
+<app-review-coffee *ngIf="actualId === 2.3"></app-review-coffee>
+<app-q-grader-certification
+*ngIf="actualId === 2.4"
+></app-q-grader-certification>
+<app-load-photo *ngIf="actualId === 2.5"></app-load-photo>
+
+<app-by-steps
+  [numberByStep]="5"
+  [actualId]="actualByStep"
+  *ngIf="actualId <= 2.5"
+></app-by-steps>

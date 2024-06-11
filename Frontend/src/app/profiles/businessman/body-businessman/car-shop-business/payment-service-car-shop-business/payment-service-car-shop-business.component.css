@@ -1,0 +1,85 @@
+.container-send-services {
+  width: 101%;
+  padding-top: 5%;
+  padding-left: 10%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #a1a1a1;
+}
+
+.container-average-send {
+  display: flex;
+  margin-top: 1vw;
+  width: 90%;
+}
+
+.container-inter-average-send {
+  padding-inline: 2vw;
+  padding-block: 1vw;
+  width: 48%;
+  height: 20vh;
+  background: #ffffff;
+  border: 1px solid #a1a1a1;
+  border-radius: 8px;
+  margin-bottom: 1.2vw;
+  cursor: pointer;
+}
+
+.container-circle-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4vh;
+  width: 4vh;
+  border-radius: 100%;
+  border: 1px solid #a1a1a1;
+}
+
+.container-inter-circle-select {
+  height: 2.5vh;
+  width: 2.5vh;
+  border-radius: 100%;
+}
+
+.container-description {
+  margin-top: 4%;
+  width: 100%;
+}
+
+.container-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+
+.container-button {
+  display: flex;
+  width: 90%;
+  justify-content: flex-start;
+  margin-top: 2vw;
+  height: 6vh;
+  margin-left: -2%;
+}
+
+.container-inter-buton {
+  width: 35%;
+  margin-inline: 2%;
+}
+
+.container-name-number-card {
+  width: 38.5%;
+}
+
+.input-payment {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #bebebe;
+}
+
+.container-data-card {
+  width: 31%;
+}

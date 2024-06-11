@@ -1,0 +1,52 @@
+@startuml
+
+'Cargar user_information'
+    group #F4A020 3.3 Save and Updating user_information
+        hnote over Businessman
+            Body : {
+                id_user,
+                id_type_of_information = {2, 3, 4, 5}
+                user_personal_description_text 
+            }
+
+            id_type_of_information = 2 = business_brief_vision
+            id_type_of_information = 3 = business_reliable_provider
+            id_type_of_information = 4 = business_brief_industry
+            id_type_of_information = 5 = business_brief_future
+        end note
+        Businessman -> BackEnd: POST, PUT user_information(Body)
+
+        BackEnd -> DB: Insert user_information in user_information_table
+
+        hnote over BackEnd
+            Depending if the data are correct the response will be:
+            201 Created (id_user_information)
+            400 Bad Request (missing data)
+            500 Internal Server Error (server error)
+
+            if the message is 201 Created the response is:
+            Body : { message,
+            user_informationSaved: {
+            id_user_information,
+            id_user,
+            id_type_of_information,
+            user_personal_description_text } }
+
+        endnote
+
+        BackEnd -> Businessman: HTTP 201 Created (Body)
+
+        hnote over Businessman
+            Body { 
+                message,
+                user_informationSaved: {
+                    id_user_information,
+                    id_user,
+                    id_type_of_information,
+                    user_personal_description_text 
+                }
+            }
+        end note
+    end group 
+
+@enduml

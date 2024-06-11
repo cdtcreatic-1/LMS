@@ -1,0 +1,7 @@
+@startuml
+    !include 5.1.businessman_get_farmers/5.1.0.businessman_top_bar_info.iuml
+    !include 5.2.businessman_edit_profile/5.2.1.businessman_get_profile.iuml
+    !include ../3.0.businessman_register/2.0.get_data_countries.iuml
+    !include ../3.0.businessman_register/2.1.get_data_states.iuml
+    !include 5.2.businessman_edit_profile/5.2.2.businessman_put_profile.iuml
+@enduml

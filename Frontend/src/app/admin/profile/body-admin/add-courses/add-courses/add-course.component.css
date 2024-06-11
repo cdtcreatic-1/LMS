@@ -1,0 +1,272 @@
+.container-principal-add-course {
+  height: 85vh;
+  font-family: "lato", sans-serif;
+  color: #2f0084;
+}
+
+.form-course {
+  display: grid;
+  grid-template-areas:
+    "left-form"
+    "rigth-form"
+    "buttons-form";
+  padding: 5px;
+  gap: 15px;
+  justify-items: center;
+  align-content: space-around;
+  height: 90%;
+}
+
+.left-form {
+  display: flex;
+  justify-content: center;
+  grid-area: left-form;
+  border: 1px solid #d9d9d9;
+  padding-inline: 5%;
+}
+.rigth-form {
+  grid-area: rigth-form;
+  display: grid;
+  gap: 15px;
+  width: 100%;
+}
+
+/* Form */
+
+form {
+  display: grid;
+  padding: 15px;
+  width: 80%;
+  height: 75vh;
+}
+
+input {
+  display: flex;
+  align-items: flex-end;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid #bebebe;
+  outline: none;
+  color: #2f0084;
+  padding-top: 5px;
+}
+
+.description-course {
+  background: #d9d9d952;
+  border-radius: 4px;
+  border: none;
+  resize: none;
+}
+
+.textarea {
+  color: #2f0084;
+  padding: 5px;
+  background: #d9d9d952;
+  width: 100%;
+  height: 85px;
+  border-radius: 4px;
+  border: none;
+  resize: none;
+}
+
+.textarea::placeholder {
+  color: #cccccc;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.container-border-red {
+  border: 1px solid red;
+}
+
+.container-border-red:active:focus {
+  border: 1px solid red;
+}
+
+textarea:focus {
+  border: none;
+  outline: none;
+}
+
+label {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #686868;
+}
+
+/* Icon add */
+
+.add-photo-course {
+  position: relative;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin-top: 2vh;
+  border: 1px solid #d9d9d9;
+  width: 50%;
+  height: 30vh;
+  padding-bottom: 15px;
+}
+
+.icon-image {
+  position: relative;
+  font-size: 10vw;
+  width: 100%;
+}
+
+/* Load image from PC */
+
+.input-load-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  background-color: red;
+  cursor: pointer;
+  z-index: 3;
+}
+
+/* Load image */
+
+.container-image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 30vh;
+  margin-top: 2vh;
+  z-index: 1;
+  border: 1px solid #d9d9d9;
+}
+
+.contaner-image-course {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.text-add-image {
+  text-align: center;
+  margin-top: -1vw;
+  line-height: 1.5vw;
+}
+
+/* Add documento course */
+
+.add-doc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  width: 372px;
+  height: 205px;
+  border: 1px solid #d9d9d9;
+  padding: 5px;
+}
+
+.icon-add-document-text {
+  width: 50%;
+}
+
+.container-icon {
+  position: relative;
+  width: max-content;
+}
+
+.container-icon:active {
+  opacity: 0.5;
+}
+
+/* Buttons */
+
+.container-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1vw;
+}
+
+/* button {
+  padding: 5px;
+  margin: 5px;
+  height: 37px;
+  width: 90%;
+  font-family: "lato", sans-serif;
+} */
+
+.btn-cancel {
+  color: #2f0084;
+  border-radius: 6px;
+  border: 1px solid #2f0084;
+}
+
+.btn-next {
+  background: #00de97;
+  color: #2f0084;
+  border-radius: 6px;
+  border: none;
+}
+
+@media (min-width: 767px) {
+  .buttons {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  button {
+    width: 207px;
+    height: 37px;
+  }
+  .buttons {
+    justify-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  form {
+    width: 372px;
+  }
+
+  .form-course {
+    grid-template-areas:
+      "left-form rigth-form  " 1fr
+      "left-form buttons-form  " 1fr;
+    height: 90%;
+    gap: 15px;
+  }
+  .rigth-form {
+    align-content: space-between;
+    justify-items: center;
+  }
+  .buttons-form {
+    padding: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  form {
+    width: 372px;
+  }
+
+  .form-course {
+    grid-template-areas:
+      "left-form rigth-form  "
+      "buttons-form  buttons-form";
+    gap: 15px;
+  }
+  .rigth-form {
+    justify-items: left;
+    align-content: space-between;
+  }
+}

@@ -1,0 +1,75 @@
+<div class="container-body">
+  <!-- <div class="container-icon-text" align="center">
+    <div class="container-icon">
+      <img
+        src="../../../../../../assets/icons/icon_download.webp"
+        alt="Agregar"
+        width="100%"
+        height="100%"
+      />
+    </div>
+    <div class="container-text">Descargar</div>
+  </div> -->
+  <div class="container-details">
+    <div class="container-text-details">Detalles</div>
+    <div class="container-documents">
+      <div class="container-icon-image-pdf" *ngIf="pathDocument">
+        <a href="{{ pathDocument }}" target="_blank" rel="noreferrer" download>
+          <img
+            src="../../../../../../assets/icons/icon_pdf.webp"
+            alt="pdf"
+            height="100%"
+            width="100%"
+          />
+        </a>
+        <div class="container-text-pdf">Matricula comercial</div>
+      </div>
+
+      <div *ngIf="!pathDocument">No se cargaron documentos</div>
+
+      <!-- <div class="container-icon-image-pdf">
+        <img
+          src="../../../../../../assets/icons/icon_pdf.webp"
+          alt="pdf"
+          height="100%"
+          width="100%"
+        />
+        <div class="container-text-pdf">RUT</div>
+      </div>
+
+      <div class="container-icon-image-pdf">
+        <img
+          src="../../../../../../assets/icons/icon_pdf.webp"
+          alt="pdf"
+          height="100%"
+          width="100%"
+        />
+        <div class="container-text-pdf">Cédula</div>
+      </div>
+
+      <div class="container-icon-image-pdf">
+        <img
+          src="../../../../../../assets/icons/icon_image.webp"
+          alt="pdf"
+          height="100%"
+          width="100%"
+        />
+        <div class="container-text-pdf" style="margin-left: 26%">
+          Certificado de café especia
+        </div>
+      </div>
+
+      <div class="container-icon-image-pdf">
+        <img
+          src="../../../../../../assets/icons/icon_image.webp"
+          alt="pdf"
+          height="100%"
+          width="100%"
+        />
+        <div class="container-text-pdf" style="margin-left: 30%">
+          Certificado de catador
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>

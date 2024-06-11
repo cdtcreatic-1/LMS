@@ -1,0 +1,35 @@
+<div class="container-principal">
+  <p>
+    ¿Conoces el nombre de esta vereda? ¿De ser así podrías indicarnos cuál es?
+  </p>
+
+  <form autocomplete="on" (ngSubmit)="handleSubmit()" [formGroup]="form">
+    <input
+      type="text"
+      formControlName="villageName"
+      class="fcdt-input-p2"
+      minlength="3"
+      maxlength="40"
+      required
+      pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}$"
+      [matTooltip]="
+        validatorFields('villageName')
+          ? 'Usar únicamente letras con un mínimo 3 y máximo de 40 caracteres'
+          : ''
+      "
+      [matTooltipClass]="'myTooltip'"
+    />
+
+    <div class="container-placeholder">
+      <span
+        [ngClass]="{
+          'fcdt-color-span-form-p2': validatorFields('villageName')
+        }"
+      >
+        Nombre de la vereda
+      </span>
+    </div>
+
+    <button class="fcdt-btn-p2" type="submit">Continuar</button>
+  </form>
+</div>

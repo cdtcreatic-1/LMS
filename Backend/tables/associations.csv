@@ -1,0 +1,4 @@
+Restrictions,variable_name,type_data,references
+PK,id_association,SMALLINT,
+"NN U",association_name,VARCHAR(45),
+"NN U",association_situation,BOOLEAN,

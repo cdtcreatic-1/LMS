@@ -1,0 +1,33 @@
+@startuml
+
+group #B246F2 UPDATE 4.7 farmer_data 
+
+hnote over Farmer
+    Body: {
+        user_name: "string",
+        user_phone: "string",
+        user_email: "string",
+        user_username: "string"
+    }
+end note 
+
+Farmer -> BackEnd : PATCH /user_data/:id_user(Body)
+hnote over BackEnd
+
+    UPDATE user_data 
+    SET 
+    user_name = "string", 
+    user_phone = "string", 
+    user_email = "string", 
+    user_username = "string" 
+    WHERE id_user = "string"
+end note
+
+BackEnd -> DB : UPDATE user_data 
+BackEnd -> Farmer : HTTP 200 OK
+
+
+
+end group
+
+@enduml

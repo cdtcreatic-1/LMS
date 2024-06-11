@@ -1,0 +1,124 @@
+<div style="position: relative">
+  <div class="container-principal-details-lots">
+    <!-- Header -->
+    <div class="container-profile-photo" *ngIf="dataFarmer">
+      <div class="container-image-profile">
+        <img
+          *ngIf="!dataFarmer.path_photo"
+          src="../../../../../../assets/icons/icon_user.webp"
+          alt="Foto de perfíl"
+          width="95%"
+          height="95%"
+          style="border-radius: 100%"
+        />
+        <img
+          *ngIf="dataFarmer.path_photo"
+          src="{{ dataFarmer.path_photo }}"
+          alt="Foto de perfíl"
+          width="95%"
+          height="95%"
+          style="border-radius: 100%; object-fit: cover"
+        />
+      </div>
+      <div class="container-profile-name">
+        <div>{{ dataFarmer.user_name }}</div>
+        <div style="color: #bebebe">{{ dataFarmer.farm_name }}</div>
+      </div>
+      <div class="container-text-message">
+        <textarea
+          class="fcdt-text-area-p2"
+          [value]="dataFarmer.description_text"
+          style="border: none"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- Details -->
+    <div class="container-body">
+      <div
+        class="container-card animate__animated animate__zoomIn"
+        *ngFor="let lot of dataLots"
+      >
+        <div class="container-title-lot">
+          Lote <span>{{ lot.id_lot }}</span>
+        </div>
+        <div class="container-image-lote">
+          <img
+            *ngIf="!lot.LotPhoto"
+            src="../../../../../../assets/lote2.webp"
+            alt="Lote"
+            height="100%"
+            width="100%"
+            class="image-style"
+            style="object-fit: cover"
+          />
+          <img
+            *ngIf="lot.LotPhoto"
+            src="{{ lot.LotPhoto.lot_photo }}"
+            alt="Lote"
+            height="100%"
+            width="100%"
+            class="image-style"
+            style="object-fit: cover"
+          />
+        </div>
+        <div class="shoping-card">
+          <div class="container-icons-shoping-cart">
+            <div
+              style="width: 42%; margin-right: -5%"
+              (click)="sendCarShop(lot.id_lot)"
+            >
+              <app-global-buttons
+                [nameButton]="'Comprar'"
+                [color]="'#fff'"
+              ></app-global-buttons>
+            </div>
+            <img
+              src="../../../../../../assets/icons/shoping_car.webp"
+              alt="Shoping cart"
+              height="100%"
+              class="container-image-card-shop"
+              (click)="addCarShop(lot.id_lot)"
+            />
+          </div>
+        </div>
+        <div class="container-prices">
+          <strong style="font-size: 1.5rem"
+            >$<span *ngIf="lot.LotQuantity">{{
+              lot.LotQuantity.price_per_kilo | number
+            }}</span></strong
+          >
+
+          <span class="text-price-old-price" *ngIf="lot.LotQuantity"
+            >${{ lot.LotQuantity.price_per_kilo * 1.1 | number }}</span
+          >
+        </div>
+
+        <div class="container-start-number-name">
+          <div class="container-start-number">
+            <!-- <div class="container-start">
+              <img
+                src="../../../../../../assets/icons/icon_start_white.webp"
+                alt=""
+                width="100%"
+              />
+            </div>
+            <div class="container-number">4.8</div> -->
+          </div>
+          <div class="container-name-profile-taza">
+            <div class="container-name-taza">
+              {{ lot.CoffeeProfile.profile_name }}
+            </div>
+            <div class="container-sub-title-taza">Perfil de taza</div>
+          </div>
+        </div>
+
+        <div class="container-buttons" (click)="getSample(lot)">
+          <app-global-buttons
+            [nameButton]="'Solicitar muestra'"
+          ></app-global-buttons>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

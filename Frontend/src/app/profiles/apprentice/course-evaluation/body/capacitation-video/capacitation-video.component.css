@@ -1,0 +1,39 @@
+.container-principal {
+  height: 87%;
+  padding-inline: 10%;
+}
+
+.container-video-pdf {
+  display: flex;
+  padding-top: 1%;
+  height: 75%;
+}
+
+.container-pdf {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+}
+
+iframe {
+  width: 50vw;
+  max-height: 800px;
+}
+
+a {
+  color: #2f0084;
+}
+
+p {
+  text-align: center;
+}
+
+/* Description course */
+
+.container-description-course {
+  padding-block: 2%;
+  color: #434343;
+  font-size: 14px;
+}

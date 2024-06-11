@@ -1,0 +1,28 @@
+<button
+  *ngIf="callbackFunction"
+  class="btn-shared"
+  [ngStyle]="{
+    color: color ? color : '#2F0084',
+    'background-color': backgroud ? backgroud : '#00DE97',
+    border: borderColor ? '1px solid' + borderColor : 'none',
+    height: height ? height : '2rem',
+    width: width ? width : 'auto',
+  }"
+  (click)="callbackFunction(1)"
+>
+  {{ nameButton }}
+</button>
+
+<button
+  *ngIf="!callbackFunction"
+  class="btn-shared"
+  [ngStyle]="{
+    color: color ? color : '#2F0084',
+    'background-color': backgroud ? backgroud : '#00DE97',
+    border: borderColor ? '1px solid' + borderColor : 'none',
+    height: height ? height : '2rem',
+    width: width ? width : 'auto',
+  }"
+>
+  {{ nameButton }}
+</button>

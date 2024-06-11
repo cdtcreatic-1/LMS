@@ -1,0 +1,30 @@
+@startuml
+
+    group #99FF99 4.3.2 Get Score 
+
+        Farmer -> BackEnd: GET score_lots/:id_lot
+
+        BackEnd -> DB: SELECT id_lot, id_user, score FROM score_lots WHERE id_lot = :id_lot
+
+        DB -> BackEnd: Return score_data
+
+        hnote over BackEnd
+            Depending if the data are correct the response will be:
+            200 OK (id_lot, id_user, score)
+            404 Not Found (score not found)
+            500 Internal Server Error (server error)
+        endnote
+
+        BackEnd -> Farmer: HTTP 200 OK (score data)
+
+        note over Farmer
+            Response {
+                id_lot,
+                id_user,
+                score
+            }
+        endnote
+
+    end group
+
+@enduml

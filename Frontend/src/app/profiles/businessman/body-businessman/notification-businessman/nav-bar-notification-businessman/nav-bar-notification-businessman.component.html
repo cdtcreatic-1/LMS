@@ -1,0 +1,19 @@
+<div class="container-navbar">
+  <div class="container-btns">
+    <button
+      class="btn-nav-bar-farmer"
+      [ngClass]="{ 'border-button-btn': rol === 1 }"
+      (click)="received()"
+    >
+      Ofertas recibidas
+    </button>
+    <!-- <button
+      class="btn-nav-bar-farmer"
+      [ngClass]="{ 'border-button-btn': rol === 2 }"
+      (click)="sent()"
+    >
+      Ofertas enviadas
+    </button> -->
+  </div>
+  <div class="line-btns"></div>
+</div>

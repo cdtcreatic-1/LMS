@@ -1,0 +1,19 @@
+<app-loading [isLoading]="isLoading"></app-loading>
+<app-search-products *ngIf="isModalShowProduct"></app-search-products>
+
+<div
+  class="row container-principal"
+  [ngClass]="{ 'fcdt-disable-screen': isLoading }"
+>
+  <app-floting-alert
+    *ngIf="isErrorAlert"
+    [message]="message"
+  ></app-floting-alert>
+  <div class="container-menu" align="center">
+    <app-menu-business></app-menu-business>
+  </div>
+  <div class="container-content">
+    <app-header-profile-business></app-header-profile-business>
+    <app-main-page-body-businessman></app-main-page-body-businessman>
+  </div>
+</div>

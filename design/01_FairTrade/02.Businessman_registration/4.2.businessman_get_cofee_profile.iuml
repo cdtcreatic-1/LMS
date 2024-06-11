@@ -1,0 +1,36 @@
+@startuml
+
+group #99FF99 4.2 GET businesman_coffee_interested 
+
+
+    Businessman -> BackEnd: GET businesman_coffee_interested/:id_user
+
+    BackEnd -> DB: Insert into businesman_coffee_interested
+
+    hnote over BackEnd
+
+        Depending if the data are correct the response will be:
+        200 OK (businesman_coffee_interested_data)
+        404 Not Found (id_state not found)
+        400 Bad Request (missing data)
+        500 Internal Server Error (server error)
+
+    endnote
+
+    BackEnd -> Businessman: HTTP 200 OK (businesman_coffee_interested_data)
+
+    note over Businessman
+
+        Body {
+            "id_user",
+            "profile_name",
+            "roasting_name",
+            "city_name"
+        }
+
+    endnote
+
+end group
+
+
+@enduml

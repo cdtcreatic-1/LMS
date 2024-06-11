@@ -1,0 +1,139 @@
+<div class="container-body" *ngIf="dataUserFarmer">
+  <div class="container-icons-add-notification" align="center">
+    <div class="container-add-farm">
+      <div class="container-icon-text" (click)="onClickAddFarm()">
+        <div class="container-icon">
+          <img
+            src="../../../../../assets/icons/icon_add.webp"
+            alt="Agregar"
+            width="100%"
+            height="100%"
+          />
+        </div>
+        <div class="container-text">Agregar Finca</div>
+      </div>
+    </div>
+    <div class="container-delete-farm">
+      <div
+        class="container-icon-text"
+        [ngClass]="{
+          'container-icon-text-disabled': dataUserFarmer.length === 0
+        }"
+        (click)="onClickDeleteFarm()"
+      >
+        <div class="container-icon">
+          <img
+            src="../../../../../../assets/icons/icon-delete-farm.webp"
+            alt="Agregar"
+            width="100%"
+            height="100%"
+          />
+        </div>
+        <div class="container-text">Eliminar Finca</div>
+      </div>
+    </div>
+  </div>
+  <div class="container-principal-details">
+    <div class="container-details" *ngFor="let farm of dataUserFarmer">
+      <div class="container-text-details">
+        <div class="container-text-details-button">
+          <span class="details-farm-hover">
+            <div class="fcdt-title-responsive" title="{{ farm.farm_name }}">
+              Detalles finca
+              {{ farm.farm_name }} asafas fasfsa
+            </div>
+          </span>
+          <div class="container-button-more-products">
+            <select (change)="handleChange($event, farm)">
+              <option hidden><strong>Producto</strong></option>
+              <option value="1">Ver productos</option>
+              <option value="2">Añadir productos</option>
+            </select>
+            <!-- <button
+              (click)="onClickViewProducts(farm, 1)"
+              type="button"
+              class="buttonProductcontainet"
+              mdbRipple
+            >
+              <ion-icon name="eye-outline" class="icon"></ion-icon>
+
+              <div class="buttonProduct">Ver</div>
+            </button>
+            <button
+              (click)="onClickViewProducts(farm, 2)"
+              type="button"
+              class="buttonProductcontainet"
+              mdbRipple
+            >
+              <ion-icon name="add-circle-outline" class="icon"></ion-icon>
+              <div class="buttonProduct">Agregar</div>
+            </button> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="container-rows-details">
+        <div style="width: 45%">
+          <div class="input-text-details">
+            Finca &nbsp;<span
+              title="{{ farm.farm_name.length > 15 ? farm.farm_name : '' }}"
+              >{{
+                farm.farm_name.length > 15
+                  ? farm.farm_name.slice(0, 15) + "..."
+                  : farm.farm_name
+              }}</span
+            >
+          </div>
+          <div class="container-sub-input">Nombre de la finca</div>
+        </div>
+        <div style="width: 45%; margin-left: 10%">
+          <div class="input-text-details">
+            <span *ngIf="farm">{{ farm.altitude }}</span>
+          </div>
+          <div class="container-sub-input">Altura (m.s.n.m)</div>
+        </div>
+      </div>
+
+      <div class="container-rows-details">
+        <div style="width: 45%">
+          <input
+            class="container-input-without-editing input-text-details"
+            value="{{ farm.state_name }}-{{ farm.city_name }}-{{
+              farm.village_name | uppercase
+            }} "
+            title="{{ farm.state_name }}-{{ farm.city_name }}-{{
+              farm.village_name
+            }}"
+            disabled
+          />
+          <div class="container-sub-input">Ubicación</div>
+        </div>
+        <div style="width: 45%; margin-left: 10%">
+          <div class="input-text-details">
+            <span *ngIf="farm"> {{ farm.climate }}</span>
+          </div>
+          <div class="container-sub-input">Clima</div>
+        </div>
+      </div>
+
+      <div class="container-rows-details">
+        <div style="width: 45%">
+          <div class="input-text-details">
+            <span *ngIf="farm">
+              {{ farm.temperature }}
+            </span>
+          </div>
+          <div class="container-sub-input">Temperatura</div>
+        </div>
+        <div style="width: 45%; margin-left: 10%">
+          <div class="input-text-details">
+            <span>
+              {{ farm.farm_number_lots }}
+            </span>
+          </div>
+          <div class="container-sub-input">Lotes de la finca</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

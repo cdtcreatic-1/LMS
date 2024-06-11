@@ -1,0 +1,48 @@
+<main class="container-princial" *ngIf="dataStep">
+  <section class="container-85">
+    <section class="container-title">
+      {{ dataStep.question_content }}
+    </section>
+
+    <div class="container-border-top"></div>
+    <section
+      class="container-selects"
+      *ngFor="let item of dataStep.answers; let i = index"
+    >
+      <div
+        class="fcdt-input-box-p2 container-box"
+        [ngClass]="{ 'backgroud-check-box': item.isSelected }"
+        (click)="handleClickChecked(item.id_answer)"
+      ></div>
+      <div class="container-option">{{ item.answer_content }}</div>
+    </section>
+
+    <app-errors-forms
+      *ngIf="!validatorForm()"
+      [message]="'Por favor, seleccione un campo'"
+    ></app-errors-forms>
+  </section>
+
+  <section class="container-buttons-number-step" align="center">
+    <section class="container-button">
+      <div class="constainer-width-button" (click)="handleBack()">
+        <app-global-buttons
+          [nameButton]="'Atrás'"
+          [backgroud]="'#fff'"
+          [borderColor]="'#2F0084'"
+          [height]="'1.7rem'"
+        ></app-global-buttons>
+      </div>
+
+      <div class="constainer-width-button" (click)="handleNext()">
+        <app-global-buttons
+          [nameButton]="'Siguiente'"
+          [height]="'1.7rem'"
+        ></app-global-buttons>
+      </div>
+    </section>
+    <section class="container-steps">
+      {{ actualStep }} de {{ numberSteps }}
+    </section>
+  </section>
+</main>

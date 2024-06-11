@@ -1,0 +1,157 @@
+.container-principal {
+  max-height: 76vh;
+  overflow-y: auto;
+  padding-inline: 10%;
+}
+
+.container-form1 {
+  display: flex;
+  justify-content: center;
+}
+
+.container-form {
+  width: 80%;
+}
+
+.container-input-image {
+  width: 20%;
+}
+
+.container-inter-form-photo {
+  display: flex;
+}
+
+.container-exter-inputs {
+  width: 100%;
+}
+
+.container-row-input-form {
+  display: flex;
+  margin-top: 1.5vw;
+}
+
+.container-input-form {
+  width: 40%;
+  margin-right: 2vw;
+}
+
+input {
+  border: none;
+  outline: none;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #2f0084;
+  width: 100%;
+  border-bottom: 1px solid #bebebe;
+}
+
+.input-password {
+  margin-top: 2vw;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  height: 2rem;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #2f0084;
+  padding-inline: 5px;
+  padding-bottom: 0px;
+}
+
+.input-password::placeholder {
+  color: #d9d9d9;
+}
+
+.container-placeholder {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #686868;
+}
+
+.select {
+  margin-top: 2vw;
+  width: 38%;
+  height: 2rem;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #bebebe;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.2vw;
+  color: #686868;
+}
+
+.container-image-tex-inter {
+  align-items: center;
+  width: 100%;
+  height: 32vh;
+  padding-inline: 10px;
+  padding-block: 12px;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container-icon-image {
+  width: 50%;
+  margin-bottom: 1vw;
+}
+
+.container-text-image {
+  display: grid;
+  width: 90%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  display: flex;
+  color: #bebebe;
+}
+
+.container-button {
+  width: 30%;
+  margin-top: 2vw;
+}
+
+/* Load image */
+
+.container-form-image {
+  width: 100%;
+  height: auto;
+}
+
+.container-inter-load-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.input-load-cedula {
+  position: absolute;
+  width: 10%;
+  height: 30%;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+  background-color: #686868;
+}
+
+.container-image-load-inter {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 32vh;
+  padding: 10px;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  cursor: pointer;
+  object-fit: cover;
+}

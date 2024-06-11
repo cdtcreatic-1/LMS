@@ -1,0 +1,36 @@
+@startuml
+
+group #99FF99 Get data cities and documents
+        'Get the cities for businessman'
+        Businessman -> BackEnd: POST get_cities(id_state)
+
+        BackEnd -> DB: Select cities from city_table where id_state = id_state
+
+        hnote over BackEnd
+            Depending if the data are correct the response will be:
+            200 OK (cities)
+            404 Not Found (id_state not found)
+            400 Bad Request (missing data)
+            500 Internal Server Error (server error)
+        endnote
+
+        BackEnd -> Businessman: HTTP 200 OK (cities)
+
+        ' Get the documents for businessman'
+        Businessman -> BackEnd: POST type_document
+
+        BackEnd -> DB: Select documents from document_table
+
+        hnote over BackEnd
+            Depending if the data are correct the response will be:
+            200 OK (documents)
+            404 Not Found (documents not found)
+            400 Bad Request (missing data)
+            500 Internal Server Error (server error)
+        endnote
+
+        BackEnd -> Businessman: HTTP 200 OK (documents)
+
+    end group
+
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+
+'Options to Get Coordinates'
+group #99FF99 2.6 Options to Get Coordinates
+
+    !include 2.6.1.get_coordinates_by_village.iuml
+    !include 2.6.2.get_village_by_coordinates.iuml
+
+end group
+
+@enduml

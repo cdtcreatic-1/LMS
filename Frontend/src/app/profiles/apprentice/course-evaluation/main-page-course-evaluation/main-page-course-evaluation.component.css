@@ -1,0 +1,11 @@
+.container-menu-body {
+  display: flex;
+  height: 80%;
+}
+
+.container-body {
+  height: 100%;
+  width: 75%;
+  overflow-y: auto;
+  padding-bottom: 1%;
+}

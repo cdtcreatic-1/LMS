@@ -1,0 +1,29 @@
+<div
+  class="container-navbar"
+  [ngStyle]="{ 'pointer-events': actualId === 4 ? 'none' : 'auto' }"
+>
+  <div class="container-btns">
+    <button
+      class="btn-nav-bar-farmer"
+      [ngClass]="{ 'border-button-btn': rol === 1 }"
+      (click)="farmer()"
+    >
+      Caficultor
+    </button>
+    <button
+      class="btn-nav-bar-farmer"
+      [ngClass]="{ 'border-button-btn': rol === 2 }"
+      (click)="businessman()"
+    >
+      Comprador
+    </button>
+    <button
+      class="btn-nav-bar-farmer"
+      [ngClass]="{ 'border-button-btn': rol === 3 }"
+      (click)="apprentice()"
+    >
+      Aprendiz
+    </button>
+  </div>
+  <div class="line-btns"></div>
+</div>

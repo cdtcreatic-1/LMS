@@ -1,0 +1,137 @@
+<div class="container-carrito-compras">
+  <div class="container-image-content" *ngFor="let item of dataLotsCarShop">
+    <div class="container-image">
+      <img
+        *ngIf="!item.Lot.LotPhoto"
+        src="../../../../../assets/lote2.webp"
+        alt="LoteImage"
+        width="100%"
+        height="100%"
+        style="object-fit: cover"
+      />
+      <img
+        *ngIf="item.Lot.LotPhoto"
+        src="{{ item.Lot.LotPhoto.lot_photo }}"
+        alt="LoteImage"
+        width="100%"
+        height="100%"
+        style="object-fit: cover"
+      />
+    </div>
+    <div class="container-description-lote">
+      <div class="container-title-lot">Lote {{ item.Lot.lot_number }}</div>
+      <div class="container-prices">
+        <div>
+          <span *ngIf="item.Lot.LotQuantity"
+            >${{ item.Lot.LotQuantity.price_per_kilo | number }}</span
+          >
+        </div>
+        <div class="container-line-price">
+          <div class="container-price-false">
+            ${{ item.Lot.LotQuantity.price_per_kilo * 1.1 | number }}
+          </div>
+        </div>
+        <div class="container-percentage">
+          <strong>10% Off</strong>
+        </div>
+      </div>
+
+      <div class="container-start-number-name">
+        <!-- <div class="container-start-number">
+          <div class="container-start">
+            <img
+              src="../../../../../../assets/icons/icon_start_white.webp"
+              alt=""
+              width="100%"
+            />
+          </div>
+          <div class="container-number">4.8</div>
+        </div> -->
+        <div class="container-name-profile-taza">
+          <div class="container-name-taza">
+            {{ item.Lot.CoffeeProfile.profile_name }}
+          </div>
+          <div class="container-sub-title-taza">Perfil de taza</div>
+        </div>
+      </div>
+
+      <div
+        class="container-text-area-description-lot"
+        *ngIf="item.Lot.LotSummary"
+      >
+        <span>{{ item.Lot.LotSummary.germination_summary }}</span
+        >&nbsp;
+        <span>{{ item.Lot.LotSummary.sown_summary }}</span>
+        &nbsp;
+        <span>{{ item.Lot.LotSummary.harvest_summary }}</span>
+        &nbsp;
+        <span>{{ item.Lot.LotSummary.drying_summary }}</span>
+        &nbsp; <span>{{ item.Lot.LotSummary.roasting_summary }}</span
+        >&nbsp;
+        <span>{{ item.Lot.LotSummary.packaging_summary }}</span>
+      </div>
+
+      <div class="container-amount-delete-more-products">
+        <div class="container-amount">
+          <span>
+            <button
+              class="btn-count"
+              (click)="countProduct(item.id_cart, -1, item.quantity)"
+            >
+              -
+            </button>
+          </span>
+          <span>{{ item.quantity }}</span>
+          <span>
+            <button
+              class="btn-count"
+              (click)="countProduct(item.id_cart, +1, item.quantity)"
+            >
+              +
+            </button>
+          </span>
+          <span>Kg</span>
+        </div>
+        <div
+          class="container-eliminar"
+          (click)="deleteProduct(item.Lot.id_lot)"
+        >
+          Eliminar
+        </div>
+        <div
+          class="container-more-products"
+          (click)="moreProductFarmer(item.id_seller)"
+        >
+          Más productos del vendedor
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="container-prices container-all-prices"
+    *ngIf="dataLotsCarShop.length > 0"
+  >
+    <div>
+      <strong style="font-size: 1.7vw">${{ totalPrice | number }}</strong>
+    </div>
+    <div class="container-line-price" style="margin-top: 2px">
+      <div class="container-price-false">${{ totalPrice * 1.1 | number }}</div>
+    </div>
+    <div class="container-percentage">
+      <strong>10% Off</strong>
+    </div>
+    <div class="container-button-buy" (click)="sendContinue()">
+      <app-global-buttons
+        [nameButton]="'Continuar comprar'"
+      ></app-global-buttons>
+    </div>
+  </div>
+
+  <div
+    class="container-description-lote"
+    style="font-size: 1.2vw; padding: 3%"
+    *ngIf="dataLotsCarShop.length === 0"
+  >
+    No tienes productos agregados
+  </div>
+</div>

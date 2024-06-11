@@ -1,0 +1,33 @@
+<div *ngIf="isLoading">
+  <app-loading [isLoading]="isLoading"></app-loading>
+</div>
+
+<div
+  class="row"
+  [ngClass]="{ 'fcdt-disable-screen': isLoading }"
+  style="width: 100%"
+>
+  <app-floting-alert
+    *ngIf="isErrorAlert"
+    [message]="message"
+    [good]="goodMessage"
+  ></app-floting-alert>
+  <div
+    class="container-menu"
+    align="center"
+    *ngIf="actualId === 1 || actualId > 1.13"
+  >
+    <app-menu-lateral-farmer></app-menu-lateral-farmer>
+  </div>
+  <div class="container-content">
+    <div *ngIf="(actualId > 1.14 || actualId === 1) && actualId !== 4">
+      <app-header-farmer></app-header-farmer>
+      <!-- <app-navbar-farmer></app-navbar-farmer> -->
+    </div>
+
+    <app-add-farm *ngIf="actualId >= 1.11 && actualId <= 1.13"></app-add-farm>
+    <app-main-page-body-farmer *ngIf="rol === 1"></app-main-page-body-farmer>
+    <!-- <app-businessman *ngIf="rol === 2"></app-businessman>
+    <app-apprentice *ngIf="rol === 3"></app-apprentice> -->
+  </div>
+</div>

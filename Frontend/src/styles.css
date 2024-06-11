@@ -1,0 +1,354 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  color: #2f0084;
+  font-family: "Lato";
+  font-weight: 400;
+}
+
+@import url("https://unpkg.com/leaflet@1.9.3/dist/leaflet.css");
+@import "~animate.css/animate.min.css";
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Scroll */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 100px;
+  background-color: rgb(124, 124, 124);
+  background-clip: content-box;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  border: 3px solid transparent;
+  border-radius: 100px;
+  background-color: rgba(47, 0, 132, 1);
+}
+
+/* disable */
+
+.fcdt-disable-screen {
+  pointer-events: none;
+}
+
+/* icons */
+ion-icon {
+  font-size: 1.6rem;
+  color: #a7a6a6;
+  cursor: pointer;
+}
+
+.ion-icon-green {
+  font-size: 2rem;
+  color: #00de97;
+  cursor: pointer;
+}
+
+.ion-icon-blue {
+  font-size: 1.7rem;
+  color: #2f0084;
+  cursor: pointer;
+}
+
+ion-icon:active {
+  opacity: 0.5;
+}
+
+/* Tooltips */
+
+.myTooltip {
+  font-family: Lato;
+  font-size: 1vw;
+  color: #2f0084;
+}
+.container-input-form {
+  width: 100%;
+}
+
+/* Select */
+
+.fcdt-select-p2 {
+  width: 100%;
+  height: 2.3vw;
+  border: none;
+  outline: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.1vw;
+  color: #686868;
+  margin-left: -3px;
+}
+
+.fcdt-select-p2:focus {
+  color: #2f0084;
+}
+
+.fcdt-label-select-p2 {
+  height: 2vw;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  color: #686868;
+  margin-top: -1.5vw;
+}
+
+.container-text-label-select-p2 {
+  height: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2vw;
+  color: #686868;
+  margin-top: -2vw;
+  margin-bottom: 8px;
+}
+
+/* Inputs */
+
+.fcdt-input-p2 {
+  border: none;
+  outline: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #2f0084;
+  width: 100%;
+  border-bottom: 1px solid #bebebe;
+  padding-inline: 2%;
+}
+
+.fcdt-input-p2::placeholder {
+  color: #969696;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.fcdt-input-box-p2 {
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  width: 100%;
+  height: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2vw;
+  color: #2f0084;
+  padding-inline: 5px;
+  padding-bottom: 0px;
+}
+
+.fcdt-input-box-p2:focus {
+  outline: none;
+}
+
+.fcdt-input-box-p2::placeholder {
+  font-size: 1vw;
+  color: #d9d9d9;
+}
+
+.fcdt-field-error-form-all-border-p2 {
+  border: 1px solid red;
+}
+
+.fcdt-field-error-form-all-border-p2::placeholder {
+  color: red;
+}
+
+.fcdt-field-error-form-border-button-p2 {
+  border-bottom: 1px solid red;
+  color: red;
+}
+
+.fcdt-color-span-form-p2 {
+  color: red;
+}
+
+.fcdt-message-error-form-p2 {
+  color: red;
+  font-size: 14px;
+}
+
+/* Input password */
+
+.fcdt-input-password {
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid #bebebe;
+}
+
+.fcdt-input-password-all-boder {
+  display: flex;
+  align-items: center;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  padding-right: 5px;
+  height: 3vw;
+}
+
+.fcdt-input-error-password-all-boder {
+  display: flex;
+  align-items: center;
+  border: 1px solid red;
+  border-radius: 5px;
+  padding-right: 5px;
+  height: 3vw;
+}
+
+/* Text area */
+
+.fcdt-text-area-p2 {
+  padding: 0.5vw;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.81);
+  border: 1.00375px solid #bebebe;
+  border-radius: 12.0339px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #686868;
+  outline: none;
+}
+
+.fcdt-text-area-p2::placeholder {
+  font-size: 1vw;
+  color: #cecdcc;
+}
+
+.fcdt-text-area-p2-error {
+  border: 1px solid red;
+}
+
+/* Button */
+
+.fcdt-btn-p2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 2.5vw;
+  background: #00de97;
+  border-radius: 4.40088px;
+  outline: none;
+  border: none;
+  font-style: normal;
+  font-weight: 500;
+  padding-inline: 5px;
+  font-size: 1rem;
+  text-align: center;
+  color: #2f0084;
+}
+
+.fcdt-btn-p2:active {
+  background-color: rgba(0, 222, 151, 0.5);
+}
+
+.fcdt-btn-p2-disable {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.fcdt-btn-white-p2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 2.5vw;
+  border-radius: 4.40088px;
+  outline: none;
+  border: none;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1vw;
+  text-align: center;
+  color: #2f0084;
+  border: 1px solid #2f0084;
+}
+
+.fcdt-btn-white-p2:active {
+  opacity: 0.5;
+}
+
+.fcdt-btn-blue-p2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 2.5vw;
+  border-radius: 4.40088px;
+  outline: none;
+  border: none;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1vw;
+  text-align: center;
+  color: #fff;
+  background-color: #2f0084;
+}
+
+.fcdt-btn-blue-p2:active {
+  opacity: 0.5;
+}
+
+/* imeges */
+
+.fcdt-img {
+  object-fit: cover;
+}
+
+/* Recapcha */
+
+.fcdt-container-recapcha-passwords {
+  -webkit-transform: scale(0.84);
+  -moz-transform: scale(0.84);
+  -ms-transform: scale(0.84);
+  -o-transform: scale(0.84);
+  transform: scale(0.84);
+  margin-left: -10%;
+}
+
+/* Message NO data */
+
+.fcdt-no-data-found {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2vw;
+  color: #2f0084;
+  padding: 3%;
+}
+
+/* Color button select dashboard */
+
+.fcdt-container-color-buttons {
+  background-color: #00de97;
+  border-right: solid 1vw #2f0084;
+  padding-left: 0.12rem;
+}
+
+.fcdt-container-color-buttons-witout {
+  border-right: solid 1vw transparent;
+  padding-left: 0.12rem;
+}
+
+/* Text large */
+
+.fcdt-title-responsive {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: max-content;
+  text-align: center;
+}

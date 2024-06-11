@@ -1,0 +1,20 @@
+<div *ngIf="isLoading">
+  <app-loading [isLoading]="isLoading"></app-loading>
+</div>
+
+<app-floting-alert *ngIf="isErrorAlert" [message]="message"></app-floting-alert>
+
+<div
+  class="container-principal"
+  [ngClass]="{ 'fcdt-disable-screen': isLoading }"
+>
+  <div class="navbar">
+    <app-navbar-admin></app-navbar-admin>
+  </div>
+  <header class="header">
+    <app-header-admin></app-header-admin>
+  </header>
+  <main class="container-main">
+    <router-outlet></router-outlet>
+  </main>
+</div>

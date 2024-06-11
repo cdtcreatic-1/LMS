@@ -1,0 +1,23 @@
+<section
+  class="container-body-farmer"
+  [ngClass]="{ 'container-100': actualId === 4 }"
+>
+  <app-details-farmer *ngIf="actualId === 1"></app-details-farmer>
+  <app-my-products-farmer *ngIf="actualId === 2"></app-my-products-farmer>
+  <app-app-lots *ngIf="actualId === 2.1"></app-app-lots>
+
+  <app-document-farmer *ngIf="actualId === 3"></app-document-farmer>
+  <app-load-document *ngIf="actualId === 3.5"></app-load-document>
+
+  <app-edit-profile-farmer *ngIf="actualId === 4"></app-edit-profile-farmer>
+
+  <app-update-password *ngIf="actualId === 5" [rol]="1"></app-update-password>
+  <app-notification-farmer *ngIf="actualId === 7"></app-notification-farmer>
+
+  <div style="position: absolute" *ngIf="modalNotification">
+    <app-modal-notification-farmer></app-modal-notification-farmer>
+  </div>
+
+  <app-history-sales *ngIf="actualId === 8"></app-history-sales>
+  <app-trading-business *ngIf="actualId === 9"></app-trading-business>
+</section>

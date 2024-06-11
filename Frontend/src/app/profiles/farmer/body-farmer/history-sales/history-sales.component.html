@@ -1,0 +1,47 @@
+<div
+  class="container-principal-history-conections"
+  *ngIf="dataTableStateSell.length > 0"
+>
+  <div class="container-history-conections">
+    <div class="container-header">
+      <div class="container-header-text">Tipo</div>
+      <div class="container-header-text">Moneda</div>
+      <div class="container-header-text">Fecha</div>
+      <div class="container-header-text">Estado</div>
+      <div class="container-header-text">Generar QR</div>
+    </div>
+
+    <div *ngFor="let item of dataTableStateSell; let i = index">
+      <div
+        class="container-body"
+        [ngClass]="{
+          'container-body-impar': (i + 1) % 2 !== 0,
+          'container-body-par': (i + 1) % 2 === 0
+        }"
+      >
+        <div class="container-body-table">{{ item.tipo | titlecase }}</div>
+        <div class="container-body-table">Pesos</div>
+        <div class="container-body-table">{{ item.fecha }}</div>
+        <div class="container-body-table">{{ item.estado }}</div>
+        <div class="container-body-table">
+          <div *ngIf="item.estado === 'Aceptada'" class="container-image-qr">
+            <img
+              src="../../../../../../assets/Qr.webp"
+              width="100%"
+              style="cursor: pointer"
+              (click)="openModalQr(item.id_purchase)"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="container-header-text"
+  style="width: 100%; padding: 3%; justify-content: flex-start"
+  *ngIf="dataTableStateSell.length === 0"
+>
+  No se registran ventas hasta el momento
+</div>

@@ -1,0 +1,19 @@
+@startuml
+
+group #99FF99 5.1.2 get coffee_roasting
+
+    Farmer -> BackEnd: GET coffee_roasting
+    BackEnd -> DB: get SELECT roasting_name FROM roasting_type_table
+    DB -> BackEnd: Retrieve all roasting names
+
+    BackEnd -> Farmer: HTTP 200 OK (coffee_roasting)
+
+    note over Farmer
+        Body {
+            roasting_name
+        }
+    endnote
+
+end group
+
+@enduml 

@@ -1,0 +1,127 @@
+.container-principal {
+  width: 100%;
+  padding-inline: 10%;
+}
+
+h1 {
+  background-color: #2f0084;
+  color: #fff;
+  font-size: 15px;
+  padding: 3px 15px;
+  margin-top: 2%;
+}
+
+/* Figure button */
+
+.contanier-figure-button {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 1%;
+}
+
+.figure {
+  width: 80%;
+}
+
+.container-buttons {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 3%;
+}
+
+.button {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+
+.button-end {
+  align-items: flex-end;
+}
+
+.p-button {
+  font-size: 12px;
+  line-height: 15px;
+  color: #2f0084;
+  padding: 0;
+  margin: 0;
+}
+
+.p-certificate {
+  margin-right: -10%;
+  margin-bottom: 6%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.icon {
+  font-size: 45px;
+  color: #2f0084;
+  padding: 0;
+  margin: 0;
+}
+
+.icon-green {
+  color: #29cb97;
+}
+
+/* Line progress */
+.container-line-progrees {
+  width: 100%;
+  padding-inline: 5%;
+}
+
+.box-progrees {
+  position: relative;
+  width: 100%;
+  height: 12px;
+}
+
+.container-progress-content {
+  position: absolute;
+  background-color: #d9d9d99c;
+  height: 12px;
+  width: 100%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: 1;
+}
+
+.container-completion {
+  background-color: #29cb97;
+  z-index: 2;
+}
+
+/* text percentage */
+
+.text-number {
+  display: flex;
+}
+
+p {
+  width: 50%;
+  color: #a1a1a1;
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.p {
+  color: #31394d;
+  font-size: 25px;
+}
+
+/* Disable download certificate */
+
+.constainer-disable {
+  opacity: 0.5;
+  pointer-events: none;
+}

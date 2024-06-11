@@ -1,0 +1,55 @@
+<section>
+  <div class="item-list">
+    <h1 class="title">Fair Trade</h1>
+    <div
+      class="icon"
+      [routerLink]="['../../add-submodule-details/', idModule, 0]"
+    >
+      <app-add-icon-message
+        [title]="'Añadir submódulos'"
+      ></app-add-icon-message>
+    </div>
+    <ul class="list">
+      <li class="item" *ngFor="let submodule of dataSubmodules; let i = index">
+        <div class="tittle">
+          <strong title="{{ submodule.submodule_title }}">{{
+            submodule.submodule_title.slice(0, 20)
+          }}</strong>
+        </div>
+        <div
+          class="info"
+          [routerLink]="[
+            '../../add-evaluation-details',
+            idModule,
+            submodule.id_submodule
+          ]"
+        >
+          <strong>Evaluación</strong>
+        </div>
+        <div class="crud">
+          <span
+            [routerLink]="[
+              '../../add-submodule-details',
+              idModule,
+              submodule.id_submodule
+            ]"
+            >Editar</span
+          >
+          <span>Eliminar</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container-buttons">
+    <button class="fcdt-btn-white-p2" [routerLink]="['../../add-modules']">
+      Atrás
+    </button>
+    <button
+      class="fcdt-btn-p2"
+      [routerLink]="['../../add-submodule-details', idModule, 0]"
+    >
+      Siguiente
+    </button>
+  </div>
+</section>

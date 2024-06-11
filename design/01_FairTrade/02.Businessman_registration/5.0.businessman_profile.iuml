@@ -1,0 +1,7 @@
+@startuml
+    !include 5.0.businessman_profile/5.1.businessman_get_farmers.iuml
+    !include 5.0.businessman_profile/5.2.businessman_edit_profile.iuml
+    !include 5.0.businessman_profile/5.3.businessman_get_farmer_lots.iuml
+    !include 5.0.businessman_profile/5.4.businessman_notifications.iuml
+    !include 5.0.businessman_profile/5.5.businessman_lot_offer_status.iuml
+@enduml

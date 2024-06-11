@@ -1,0 +1,88 @@
+<div class="container-menu">
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 18vh;
+    "
+  >
+    <div style="width: 50%">
+      <img
+        src="../../../../assets/logo_color.webp"
+        alt="Logo"
+        width="100%"
+        height="100%"
+      />
+    </div>
+  </div>
+
+  <div style="height: 72vh">
+    <div
+      [ngClass]="{
+        'container-color-buttons': itemMenuLateral >= 1 && itemMenuLateral < 7,
+        'container-color-buttons-witout': itemMenuLateral >= 7
+      }"
+    >
+      <app-button-profile></app-button-profile>
+    </div>
+    <app-accordion-businessman *ngIf="isAccordion"></app-accordion-businessman>
+
+    <div
+      [ngClass]="{
+        'container-color-buttons': itemMenuLateral === 7,
+        'container-color-buttons-witout': itemMenuLateral !== 7
+      }"
+    >
+      <app-button-menu-counter
+        [iconItemPath]="'../../../../assets/icons/icon_notification.webp'"
+        [idRole]="2"
+        [buttonName]="'Notificaciones'"
+        [amountNotification]="numberNotification"
+        [idItemMenu]="7"
+      ></app-button-menu-counter>
+    </div>
+
+    <div
+      [ngClass]="{
+        'container-color-buttons': itemMenuLateral >= 8 && itemMenuLateral < 12,
+        'container-color-buttons-witout':
+          itemMenuLateral < 8 || itemMenuLateral > 12
+      }"
+    >
+      <app-button-menu-counter
+        [iconItemPath]="'../../../../assets/icons/icon_carShop.webp'"
+        [idRole]="2"
+        [buttonName]="'Carrito de compras'"
+        [amountNotification]="numberProductsCar"
+        [idItemMenu]="8"
+      ></app-button-menu-counter>
+    </div>
+
+    <app-button-menu
+      [buttonName]="'Estado de compras'"
+      [idItemMenu]="12"
+      [isSelected]="itemMenuLateral === 12 ? true : false"
+      [onClick]="handleClickButtons"
+      [iconItemPath]="'../../../../assets/icons/icon_sales.webp'"
+    ></app-button-menu>
+
+    <app-button-menu
+      [buttonName]="'Tendencias de caficultores'"
+      [idItemMenu]="13"
+      [isSelected]="itemMenuLateral === 13 ? true : false"
+      [onClick]="handleClickButtons"
+      [iconItemPath]="'../../../../assets/icons/icon_trading_business.webp'"
+    ></app-button-menu>
+  </div>
+
+  <div class="container-logout" *ngIf="!isAccordion">
+    <app-button-menu
+      [buttonName]="'Cerrar sesión'"
+      [idItemMenu]="-1"
+      [onClick]="handleClickButtons"
+      [iconItemPath]="'../../../../assets/icons/icon_off.webp'"
+    ></app-button-menu>
+  </div>
+</div>

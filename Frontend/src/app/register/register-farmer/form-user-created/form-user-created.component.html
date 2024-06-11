@@ -1,0 +1,94 @@
+<app-title text="Información de perfil"></app-title>
+
+<div
+  class="container-form1"
+  *ngIf="dataUser"
+  style="position: relative; z-index: 1"
+>
+  <div class="row">
+    <div class="col-9">
+      <div class="container-row-input-form">
+        <div class="container-input-form">
+          <div style="pointer-events: none">
+            <div class="input">
+              {{ dataUser!.User.user_name }}
+            </div>
+          </div>
+          <div class="container-placeholder">
+            <span> Nombre completo </span>
+          </div>
+        </div>
+        <div class="container-input-form">
+          <div style="pointer-events: none">
+            <div class="input">
+              {{ dataUser!.User.user_phone }}
+            </div>
+          </div>
+          <div class="container-placeholder">
+            <span> Teléfono </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-row-input-form">
+        <div class="container-input-form">
+          <div style="pointer-events: none">
+            <div class="input">
+              {{ dataUser!.User.user_email }}
+            </div>
+          </div>
+          <div class="container-placeholder">
+            <span> Correo electrónico</span>
+          </div>
+        </div>
+        <div class="container-input-form">
+          <div style="pointer-events: none">
+            <div class="input">
+              {{ dataUser!.User.user_username }}
+            </div>
+          </div>
+          <div class="container-placeholder">
+            <span> Nombre de usuario </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-row-input-form">
+        <div class="container-input-form">
+          <div style="pointer-events: none">
+            <div class="input">
+              {{ dataUser!.farm_name.slice(0, 20) }}
+            </div>
+          </div>
+          <div class="container-placeholder">
+            <span>Nombre de la finca</span>
+          </div>
+        </div>
+        <div class="container-input-form"></div>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="container-form-image">
+        <div class="container-icon-image">
+          <img
+            *ngIf="!dataUser.User.user_profile_photo"
+            src="../../../../../assets/icons/icon_user.webp"
+            alt="Icon user"
+          />
+          <img
+            *ngIf="dataUser.User.user_profile_photo"
+            src="{{ dataUser!.User.user_profile_photo }}"
+            alt="Icon user"
+            style="object-fit: cover"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-buttons-form1" align="center">
+    <button class="btn-form1" routerLink="../history-farmer">Atrás</button>
+    <button class="btn-form1" (click)="next()">Siguiente</button>
+  </div>
+</div>

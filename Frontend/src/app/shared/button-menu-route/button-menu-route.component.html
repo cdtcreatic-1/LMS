@@ -1,0 +1,14 @@
+<div
+  class="container-button"
+  [routerLink]="routerLink"
+  [routerLinkActive]="'background-active'"
+>
+  <div class="container-icon" *ngIf="iconItemPath">
+    <img src="{{ iconItemPath }}" alt="Icon profile" height="100%" />
+  </div>
+  <div class="container-text" (click)="onClick(route)">
+    <button class="btns-menu">{{ buttonName }}</button>
+  </div>
+  <div class="container-chevron"></div>
+  <div class="container-line-blue" *ngIf="isSelected"></div>
+</div>

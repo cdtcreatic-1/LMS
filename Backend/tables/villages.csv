@@ -1,0 +1,3 @@
+Restrictions,variable_name,type_data,references
+PK,id_village,SMALLINT,
+"NN U",village_name,VARCHAR(45),

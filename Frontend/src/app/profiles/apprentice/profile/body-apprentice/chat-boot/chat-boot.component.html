@@ -1,0 +1,39 @@
+<button class="floating-btn" (click)="openCloseModalChat(true)">
+  <div class="container-icon">
+    <ion-icon name="chatbubble-ellipses-outline" class="icon"></ion-icon>
+  </div>
+</button>
+
+<div class="container-modal-chat" *ngIf="isOpenModalChat()">
+  <section class="header">
+    <ion-icon name="chatbubble-ellipses-outline" class="icon"></ion-icon>
+    <ion-icon
+      name="close-outline"
+      class="icon icon-header"
+      (click)="openCloseModalChat(false)"
+    ></ion-icon>
+  </section>
+
+  <section #chat class="chat">
+    <div class="container-response" *ngFor="let item of dataChatBoot">
+      <div
+        class="container-question-answers"
+        [ngClass]="{ 'container-answers': item.id === 1 }"
+      >
+        {{ item.value }}
+      </div>
+    </div>
+  </section>
+
+  <section class="footer-chat">
+    <ion-icon name="paper-plane-outline" class="icon-footer"></ion-icon>
+    <form [formGroup]="form" class="container-form" (ngSubmit)="handleSubmit()">
+      <input
+        type="text"
+        placeholder="Pregunta"
+        formControlName="question"
+        maxlength="500"
+      />
+    </form>
+  </section>
+</div>

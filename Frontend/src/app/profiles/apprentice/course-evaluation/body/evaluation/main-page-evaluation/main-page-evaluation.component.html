@@ -1,0 +1,28 @@
+<div class="container-principal">
+  <section *ngIf="idEvaluationQuestion === 1">
+    <section class="container-title-description" *ngIf="typeLearning < 4">
+      <h1>Evaluación del modulo / Prácticas laborales</h1>
+      <p>
+        Este cuestionario ha sido diseñado para ayudarnos a comprender mejor tu
+        estilo de aprendizaje único. Responder estas preguntas te permitirá
+        identificar las preferencias y enfoques que mejor se adaptan a tu forma
+        de aprender.
+      </p>
+    </section>
+
+    <section *ngIf="typeLearning === 1">
+      <app-visual></app-visual>
+    </section>
+
+    <section *ngIf="typeLearning === 2">
+      <app-auditory></app-auditory>
+    </section>
+
+    <section *ngIf="typeLearning === 3">
+      <app-kinesthetic></app-kinesthetic>
+    </section>
+  </section>
+  <section *ngIf="idEvaluationQuestion === 2">
+    <app-send-answers [idSubmodule]="idSubmodule"></app-send-answers>
+  </section>
+</div>

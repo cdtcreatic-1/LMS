@@ -1,0 +1,45 @@
+<main class="container-principal-instruction">
+  <section class="container-section-grid-80">
+    <section>
+      <div>Habilidades a fortalecer</div>
+      <div class="container-description">
+        A continuación selecciona una o varias habilidades que consideres
+        fortalecer
+      </div>
+    </section>
+
+    <section class="container-skills">
+      <section class="container-selects" *ngFor="let skill of skills">
+        <div
+          class="fcdt-input-box-p2 container-box"
+          [ngClass]="{ 'backgroud-check-box': skill.isSelected }"
+          (click)="handleSelectSkill(skill.id_skill)"
+        ></div>
+        <div class="container-option">{{ skill.skill_name }}</div>
+      </section>
+    </section>
+  </section>
+  <section class="container-buttons-number-step" align="center">
+    <section class="container-button">
+      <div
+        class="constainer-width-button container-button-disabled"
+        (click)="handleClickBack()"
+      >
+        <app-global-buttons
+          [nameButton]="'Atrás'"
+          [backgroud]="'#fff'"
+          [borderColor]="'#2F0084'"
+          [height]="'1.7rem'"
+        ></app-global-buttons>
+      </div>
+
+      <div class="constainer-width-button" (click)="handleClickNext()">
+        <app-global-buttons
+          [nameButton]="'Siguiente'"
+          [height]="'1.7rem'"
+        ></app-global-buttons>
+      </div>
+    </section>
+    <!-- <section class="container-steps">1 de 1</section> -->
+  </section>
+</main>

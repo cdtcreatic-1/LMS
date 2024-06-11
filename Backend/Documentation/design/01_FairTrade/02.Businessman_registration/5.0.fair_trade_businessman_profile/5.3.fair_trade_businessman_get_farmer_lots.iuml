@@ -1,0 +1,7 @@
+@startuml
+    !include 5.1.fair_trade_businessman_get_farmers/5.1.0.fair_trade_businessman_top_bar_info.iuml
+    group #99FF99 5.3.1 GET info user data
+        !include 5.2.fair_trade_businessman_edit_profile/5.2.1.fair_trade_businessman_get_profile.iuml
+    end group
+    !include 5.3.fair_trade_businessman_get_farmer_lots/5.3.1.fair_trade_businessman_get_lots_by_user.iuml
+@enduml

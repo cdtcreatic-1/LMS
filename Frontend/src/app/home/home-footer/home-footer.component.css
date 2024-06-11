@@ -1,0 +1,38 @@
+.container-footer {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: 2.5%;
+  background-color: #2f0084;
+  color: #fff;
+  padding-left: 9%;
+  padding-bottom: 3%;
+}
+
+.container-description-dates-home {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 100%;
+  font-weight: 400;
+  font-size: 1.2vw;
+  margin: -3% 0% 0% -5%;
+  gap: 10px;
+}
+
+.text-link-green {
+  background-color: #00de97;
+  color: #2f0084;
+  font-weight: 600;
+  font-size: 1.5vw;
+  text-decoration: none;
+  padding: 5px 15px;
+  border-radius: 10px;
+  width: max-content;
+  font-weight: 700;
+}
+
+.text-link-green:active {
+  opacity: 0.5;
+}

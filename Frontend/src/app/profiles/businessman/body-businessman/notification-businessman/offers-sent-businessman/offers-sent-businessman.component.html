@@ -1,0 +1,101 @@
+<div class="container-body">
+  <div class="container-list-products" style="overflow-y: auto">
+    <div *ngFor="let item of dataItems">
+      <div style="display: flex; margin-top: 1vw; margin-left: 0.5vw">
+        <div class="container-icon-check" style="margin-bottom: -0.5vw">
+          <img
+            *ngIf="item.accept"
+            src="../../../../../../assets/icons/icon_check.webp"
+            alt="Check"
+            width="100%"
+            height="100%"
+            style="object-fit: contain"
+          />
+          <img
+            *ngIf="!item.accept"
+            src="../../../../../../assets/icons/icon_denied.webp"
+            alt="Check"
+            width="100%"
+            height="100%"
+            style="object-fit: contain"
+          />
+        </div>
+        <div style="margin-left: 1vw">
+          <div style="margin-bottom: -0.3vw">
+            <app-global-subtitles
+              [nameSubTitle]="'Tu oferta  de Lote - 561HF26'"
+            ></app-global-subtitles>
+          </div>
+          <app-global-titles
+            *ngIf="item.accept"
+            [titleName]="'Oferta aceptada'"
+          ></app-global-titles>
+
+          <app-global-titles
+            *ngIf="!item.accept"
+            [titleName]="'Oferta rechazda'"
+          ></app-global-titles>
+        </div>
+      </div>
+      <div class="container-inter-list-products">
+        <div style="margin-bottom: 2vw">
+          <div class="container-image-input">
+            <div class="container-image">
+              <div>
+                <div class="container-name-lote">{{ item.nameLote }}</div>
+                <!-- <div style="margin-left: -0.6vw">
+                  <app-starts [numberStart]="item.numberStart"></app-starts>
+                </div> -->
+              </div>
+              <div>
+                <img
+                  src="../../../../../assets/item1_coffe.webp"
+                  alt="Image"
+                  height="100%"
+                  width="100%"
+                />
+              </div>
+            </div>
+
+            <div class="container-input">
+              <div class="container-inter-input">
+                <div class="input-text-item">{{ item.pofileTaza }}</div>
+                <div class="container-sub-item">Perfil de taza</div>
+              </div>
+
+              <div class="container-inter-input">
+                <div class="input-text-item">{{ item.coffeeVariety }}</div>
+                <div class="container-sub-item">Variedad de café</div>
+              </div>
+
+              <div class="container-inter-input">
+                <div class="input-text-item">{{ item.asociationProgram }}</div>
+                <div class="container-sub-item">Asociación o programa</div>
+              </div>
+
+              <div class="container-inter-input">
+                <div class="input-text-item">{{ item.totalKilos }}</div>
+                <div class="container-sub-item">Total de kilos</div>
+              </div>
+
+              <div class="container-inter-input">
+                <div class="input-text-item">{{ item.testKilos }}</div>
+                <div class="container-sub-item">Kilos de prueba</div>
+              </div>
+
+              <div class="container-inter-input">
+                <div class="input-text-item">{{ item.tostion }}</div>
+                <div class="container-sub-item">Tostión</div>
+              </div>
+
+              <div class="container-inter-input" style="margin-bottom: -0.5vw;">
+                <div class="input-text-item">600Kg</div>
+                <div class="container-sub-item">Kilos comprados</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

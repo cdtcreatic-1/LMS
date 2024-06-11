@@ -1,0 +1,84 @@
+.container-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding-block: 2vh;
+  padding-left: 2vh;
+  width: 40%;
+  z-index: 2;
+}
+.container-logo-photo {
+  width: 60%;
+}
+
+.container-congratulation {
+  margin-top: 3vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #2F0084;
+}
+
+.container-sub-title {
+  margin-top: -2px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #00de97;
+  width: 40%;
+}
+
+.container-name {
+  margin-top: 2vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: #686868;
+}
+
+.container-photo {
+  margin-top: 1vw;
+  width: 9rem;
+  height: 9rem;
+  border: 1px solid rgba(84, 84, 84, 0.1);;
+  border-radius: 100%;
+  padding: 3px;
+}
+
+.container-name-photo {
+  margin-top: 0.3vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #686868;
+}
+
+.btn-welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vw;
+  width: 15%;
+  margin-inline: 0.5vw;
+  height: 28.61px;
+  background: #00de97;
+  border-radius: 4.40088px;
+  outline: none;
+  border: none;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  text-align: center;
+  color: #2F0084;
+}
+
+.btn-welcome:active {
+  background-color: rgba(0, 222, 151, 0.5);
+}

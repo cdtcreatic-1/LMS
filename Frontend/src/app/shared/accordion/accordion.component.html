@@ -1,0 +1,25 @@
+<section class="container-principal-accordion">
+  <section class="container-title-icon">
+    <div class="container-title">{{ title }}</div>
+    <div
+      class="container-icon"
+      (click)="handleChageAccordion()"
+      *ngIf="content || data"
+    >
+      <ion-icon name="chevron-down-outline" *ngIf="isAccordion()"></ion-icon>
+
+      <ion-icon name="chevron-up-outline" *ngIf="!isAccordion()"></ion-icon>
+    </div>
+  </section>
+  <h2 *ngIf="subtitle">{{ subtitle }}</h2>
+
+  <section *ngIf="!isAccordion()">
+    <div class="container-content" *ngIf="content">{{ content }}</div>
+
+    <section *ngIf="data" class="container-list">
+      <ol *ngFor="let item of data">
+        <li>{{ item }}</li>
+      </ol>
+    </section>
+  </section>
+</section>

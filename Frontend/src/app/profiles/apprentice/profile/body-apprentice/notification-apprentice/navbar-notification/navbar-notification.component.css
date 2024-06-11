@@ -1,0 +1,46 @@
+.container-section-navbar-question {
+  position: relative;
+  width: 100%;
+  margin: 1% 0% 2% 0%;
+}
+
+.container-btns {
+  width: 100%;
+  display: flex;
+  padding-inline: 20%;
+}
+
+.icon {
+  color: #ffcc00;
+  font-size: 18px;
+  margin: 0px 5px -2px 0px;
+  padding: 0;
+}
+
+.btn-nav-bar {
+  padding-inline: 5px;
+  width: 30%;
+  border: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #2f0084;
+  background-color: transparent;
+  margin-left: 1vw;
+}
+
+.border-button-btn {
+  border-bottom: 6px solid #00de97;
+  font-weight: 800;
+  margin-bottom: -2px;
+}
+
+.btn-nav-bar-farmer:active {
+  color: rgba(104, 104, 104, 0.5);
+}
+
+.line-btns {
+  margin-top: -2px;
+  height: 2px;
+  background-color: #2f0084;
+}

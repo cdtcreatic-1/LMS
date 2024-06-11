@@ -1,0 +1,92 @@
+<div class="container-principal">
+  <form [formGroup]="formSelected" class="container-content">
+    <section class="container-section-navbar-question">
+      <div class="container-btns">
+        <button
+          *ngFor="let question of questions"
+          (click)="handleSelectQuestion(question.id)"
+          class="btn-nav-bar-farmer"
+          [ngClass]="{
+            'border-button-btn': question.isSelected
+          }"
+        >
+          {{ question.name }}
+        </button>
+      </div>
+      <div class="line-btns"></div>
+    </section>
+
+    <section class="container-button-add-question">
+      <div class="icon">
+        <div (click)="handleAddQuestion()">
+          <app-add-icon-message
+            [title]="'Añadir pregunta'"
+          ></app-add-icon-message>
+        </div>
+      </div>
+      <div class="container-text-area-question">
+        <textarea
+          id="textAreaRef"
+          placeholder="Pregunta"
+          formControlName="question"
+          class="text-area-question"
+          required
+          minlength="20"
+          maxlength="500"
+          pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.%!¡¿'?ñÑ,\s]*$"
+        ></textarea>
+      </div>
+    </section>
+
+    <section
+      class="container-button-add-question section-answers"
+      *ngIf="questionSelected"
+    >
+      <div class="icon" (click)="handleAddAnswer()">
+        <app-add-icon-message
+          [title]="'Añadir respuesta'"
+        ></app-add-icon-message>
+      </div>
+      <div class="container-add-answers">
+        <div class="container-question">
+          <article
+            class="container-input-checbox"
+            *ngFor="let item of questionSelected.answers"
+          >
+            <input
+              type="text"
+              class="input-answer"
+              placeholder="Respuesta"
+              formControlName="{{ item.key }}"
+              minlength="2"
+              maxlength="250"
+              required
+              pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.:%!¡¿'?ñÑ,\s]*$"
+            />
+            <input
+              id="{{ item.keyCheck }}"
+              type="checkbox"
+              class="checkbox"
+              formControlName="{{ item.keyCheck }}"
+              (change)="handleCheckBox(item.id)"
+              [ngModel]="item.checked"
+            />
+          </article>
+        </div>
+        <div class="container-select-question">
+          Selecciona la respuesta correcta
+        </div>
+      </div>
+    </section>
+  </form>
+
+  <div class="container-buttons">
+    <button
+      class="fcdt-btn-white-p2"
+      [routerLink]="['../../../add-submodules', idModule]"
+    >
+      Atrás
+    </button>
+    <button class="fcdt-btn-p2" (click)="handleSubmit()">Guardar</button>
+  </div>
+</div>

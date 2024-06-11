@@ -1,0 +1,135 @@
+<app-loading [isLoading]="isLoading"></app-loading>
+
+<div
+  class="container-principal"
+  align="center"
+  [ngClass]="{ 'fcdt-disable-screen': isLoading }"
+>
+  <app-floting-alert
+    *ngIf="isErrorAlert"
+    [message]="message"
+  ></app-floting-alert>
+
+  <div class="container-image-cafe">
+    <div class="image-cafe"></div>
+  </div>
+  <div class="container-title-form-login-btns-register">
+    <div class="container-title">
+      <img
+        src="../../../assets/logo_color.webp"
+        height="60%"
+        (click)="home()"
+        style="margin-left: -5%"
+      />
+    </div>
+    <div class="container-form-login-btns-register">
+      <div>
+        <p class="text-login">Inicio de Sesión</p>
+      </div>
+
+      <div class="form-login">
+        <!-- start form -->
+        <form
+          (ngSubmit)="iniciarSesion()"
+          autocomplete="on"
+          [formGroup]="formLogin"
+        >
+          <div class="container-login-input">
+            <input
+              type="email"
+              formControlName="email"
+              maxlength="50"
+              required
+              class="fcdt-input-p2"
+              placeholder="Correo"
+            />
+          </div>
+
+          <div class="container-login-input">
+            <div class="fcdt-input-password">
+              <input
+                [type]="isShowPassword ? 'text' : 'password'"
+                formControlName="password"
+                maxlength="40"
+                required
+                class="fcdt-input-p2"
+                placeholder="Contraseña"
+                style="border: none"
+              />
+
+              <ion-icon
+                *ngIf="!isShowPassword"
+                name="eye-outline"
+                (click)="showPassword()"
+              ></ion-icon>
+
+              <ion-icon
+                *ngIf="isShowPassword"
+                name="eye-off-outline"
+                (click)="showPassword()"
+              ></ion-icon>
+            </div>
+          </div>
+
+          <div class="check-remember-password">
+            <label for="remember">
+              <input type="checkbox" name="remember" id="remember" />
+              Recuerdame
+            </label>
+            <div class="container-link-olvidaste-contrasena-responsive">
+              <a href="" class="link-olvidaste-contrasena-responsive">
+                ¿Olvidaste tu contraseña?
+              </a>
+            </div>
+          </div>
+
+          <div class="container-recapcha">
+            <re-captcha
+              (resolved)="resolved($event)"
+              (errored)="onError($event)"
+              errorMode="default"
+              siteKey="{{ apiKey }}"
+            ></re-captcha>
+          </div>
+
+          <div class="container-button-iniciar-sesion">
+            <button type="submit" class="button-iniciar-sesion">
+              Iniciar sesión
+            </button>
+          </div>
+        </form>
+
+        <hr class="separator-form" />
+        <div class="container-link-olvidaste-contrasena">
+          <div class="link-olvidaste-contrasena">
+            <span
+              class="text-decoration-change-password"
+              (click)="forgotPassword()"
+            >
+              ¿Olvidaste tu contraseña?
+            </span>
+          </div>
+        </div>
+        <!-- <div class="container-icon-btn-sesion-google">
+          <div class="container-icon-text-google">
+            <div class="container-icon-google">
+              <img
+                src="../../../assets/google.webp"
+                height="100%"
+                width="100%"
+              />
+            </div>
+            <div class="container-button-sesion-google">
+              <button class="button-registrarse-extern">
+                Iniciar sesión con Google
+              </button>
+            </div>
+          </div>
+        </div> -->
+        <div class="container-button-register" (click)="register()">
+          <button class="button-registrarse">Registrarse</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

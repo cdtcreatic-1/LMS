@@ -1,0 +1,19 @@
+<!-- Home -->
+<app-all-courses *ngIf="actualId === 1"></app-all-courses>
+
+<!-- Profile -->
+<app-edit-profile-apprentice
+  *ngIf="actualId === 2"
+></app-edit-profile-apprentice>
+<app-update-password *ngIf="actualId === 3" [rol]="3"></app-update-password>
+
+<!-- My courses -->
+<!-- Course recomended ActuaId 4 -->
+<app-course-recomender *ngIf="actualId === 4"></app-course-recomender>
+<app-my-courses *ngIf="actualId === 5"></app-my-courses>
+<app-all-courses *ngIf="actualId === 6"></app-all-courses>
+<app-details-course *ngIf="actualId === 7"></app-details-course>
+<!-- Notification actualId 8 -->
+<app-main-page-notification *ngIf="actualId === 8"></app-main-page-notification>
+<!-- Cart shop -->
+<app-car-shop *ngIf="actualId === 9"></app-car-shop>

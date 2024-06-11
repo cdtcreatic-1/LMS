@@ -1,0 +1,58 @@
+.container-principal-accordion {
+  font-family: Lato;
+}
+
+.container-title-icon {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.container-title {
+  font-size: 1.2rem;
+  line-height: 1.3rem;
+  font-weight: 800;
+  width: 70%;
+}
+
+.container-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+}
+
+ion-icon {
+  color: #2f0084;
+}
+
+h2 {
+  font-size: 1rem;
+  line-height: 18px;
+  font-weight: 300;
+}
+
+.container-content {
+  margin-top: 0.8rem;
+  font-weight: 400;
+  color: #686868;
+  font-size: 0.9rem;
+  line-height: 20px;
+}
+
+.container-list {
+  color: #686868;
+  font-weight: 400;
+  line-height: 1rem;
+  margin-top: 1rem;
+  padding: 0;
+}
+
+ol {
+  list-style-type: disc;
+  width: 90%;
+}
+
+li {
+  margin-bottom: -0.5rem;
+}

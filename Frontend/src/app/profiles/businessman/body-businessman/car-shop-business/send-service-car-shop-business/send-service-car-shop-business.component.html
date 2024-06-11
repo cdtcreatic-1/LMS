@@ -1,0 +1,72 @@
+<div class="container-send-services">
+  <app-global-titles
+    [titleName]="'Selecciona servicio de envío'"
+  ></app-global-titles>
+  <div style="margin-top: 1vw">
+    <app-global-subtitles
+      [nameSubTitle]="
+        'Aquí puedes elegir la mejor opción de envío que se adapte a tus necesidades. ¿Listo para comenzar? ¡Vamos allá!'
+      "
+    ></app-global-subtitles>
+  </div>
+
+  <div class="container-average-send">
+    <div class="container-principal-body">
+      <div
+        class="container-inter-average-send"
+        *ngFor="let item of dataShippings"
+        [ngStyle]="{
+          border: item.isSelected ? '1px solid #00DE97' : '1px solid #a1a1a1',
+          color: item.isSelected ? '#00DE97' : '#a1a1a1',
+          background: item.isSelected ? 'rgba(0, 222, 151, 0.1)' : 'white'
+        }"
+        (click)="changeAverageSend(item.id)"
+      >
+        <div
+          class="container-circle-select"
+          [ngStyle]="{
+            border: item.isSelected ? '1px solid #00DE97' : '1px solid #a1a1a1'
+          }"
+        >
+          <div
+            class="container-inter-circle-select"
+            [ngStyle]="{ background: item.isSelected ? '#00DE97' : 'none' }"
+          ></div>
+        </div>
+
+        <div class="container-description">
+          <div>
+            <strong>{{ item.name }}</strong>
+          </div>
+          <div style="font-size: 0.8rem; color: #a1a1a1">
+            {{ item.description }}
+          </div>
+        </div>
+
+        <div style="width: 20%">{{ item.Price }}</div>
+
+        <div class="container-image">
+          <img src="{{ item.image }}" alt="Image" height="100%" />
+        </div>
+      </div>
+    </div>
+    <div class="container-button">
+      <div class="container-inter-buton">
+        <app-global-buttons
+          (click)="paymentCancel()"
+          [nameButton]="'Cancelar'"
+          [backgroud]="'white'"
+          [borderColor]="'#2F0084'"
+          width="80%"
+        ></app-global-buttons>
+      </div>
+      <div class="container-inter-buton">
+        <app-global-buttons
+          (click)="paymentContinue()"
+          [nameButton]="'Continua con el pago'"
+          width="80%"
+        ></app-global-buttons>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,208 @@
+.container-principal {
+  color: #2f0084;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 2.2vw;
+}
+
+/* Title */
+
+.container-title {
+  padding-inline: 5%;
+  height: 100%;
+  font-size: 2.2vw;
+}
+.container-subtitle-car {
+  padding-inline: 5%;
+  font-size: 1vw;
+  color: #a1a1a1;
+  font-weight: 400;
+}
+
+/* Cards and price */
+
+.container-card-total-price {
+  padding-inline: 5%;
+  display: grid;
+  overflow-y: auto;
+  width: 100%;
+  margin-top: 2%;
+  max-height: 65vh;
+  padding-bottom: 2%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+}
+
+/* cards */
+
+.container-card-principal {
+  display: grid;
+  grid-column: span 3;
+  row-gap: 1.2rem;
+}
+
+.container-card {
+  display: flex;
+  width: 85%;
+  height: 100%;
+  max-height: 25vh;
+  border-radius: 10.45px;
+  background: #fff;
+  box-shadow: 0px -5.144px 10.045px 0px rgba(0, 0, 0, 0.25);
+}
+
+.container-image-start-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25vh;
+  width: 45%;
+}
+
+.container-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+  width: 90%;
+  object-fit: cover;
+}
+
+.container-principal-play {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.container-image-play {
+  width: 20%;
+}
+
+/* Title course */
+
+.container-description-price {
+  width: 55%;
+  height: 100%;
+  padding-inline: 3%;
+  color: #2f0084;
+}
+
+.container-title-course {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  height: 40%;
+  margin-top: 5%;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 100%;
+}
+
+/* icon delete */
+
+.container-icon-delete {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -20%;
+  height: 1%;
+  width: 120%;
+}
+
+/* Price */
+
+.container-principal-price {
+  display: flex;
+  align-items: center;
+  display: flex;
+  color: #00de97;
+  height: 20%;
+  margin-top: 3%;
+}
+
+.container-price {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.container-discount {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #a1a1a1;
+  margin-left: 10px;
+  text-decoration: line-through;
+}
+
+/* Price second colum */
+
+.container-principal-grid-price {
+  padding: 7% 5% 0% 5%;
+  grid-column: span 2;
+}
+
+.conntainer-price-total {
+  display: flex;
+  padding-block: 5px;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #a1a1a1;
+  padding-inline: 5%;
+}
+
+.container-price-name {
+  width: 50%;
+  font-weight: 400;
+}
+
+.container-price-value {
+  text-align: end;
+  width: 50%;
+  color: #a1a1a1;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.all-value-price {
+  color: #00de97;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+/* Button buy */
+
+.container-button {
+  margin-top: 5%;
+}
+
+.container-continue-buying {
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #00de97;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+
+.span-continue-shopping:active {
+  opacity: 0.5;
+  width: max-content;
+}
+
+.icon-arrow-rigth {
+  margin-left: 2%;
+  font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .container-card {
+    width: 100%;
+  }
+}

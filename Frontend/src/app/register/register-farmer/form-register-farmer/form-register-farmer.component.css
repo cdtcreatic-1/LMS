@@ -1,0 +1,179 @@
+.container-form1 {
+  width: 80%;
+  margin-top: 0.5vw;
+  margin-left: 10%;
+  height: 65vh;
+}
+
+::ng-deep .tooltip {
+  background-color: palegreen;
+  color: blue;
+  font-size: 1vw;
+}
+
+.container-inter-form-photo {
+  display: flex;
+}
+
+.container-exter-inputs {
+  width: 80%;
+}
+
+.container-row-input-form {
+  display: flex;
+  align-items: center;
+  height: 4.3vw;
+}
+
+.container-row-input-form-password {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  height: 4.3vw;
+}
+
+.container-input-form {
+  width: 40%;
+  margin-right: 5vw;
+}
+
+.input-disable {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.container-input-form-passwords {
+  width: 30%;
+}
+
+.input-password {
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  width: 100%;
+  height: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #2f0084;
+  padding-inline: 5px;
+  padding-bottom: 0px;
+}
+
+.input-password::placeholder {
+  color: #d9d9d9;
+}
+
+.container-placeholder {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #686868;
+}
+
+.container-form-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 40vh;
+}
+
+.container-inter-load-image {
+  position: relative;
+  width: 90%;
+}
+
+.input-load-cedula {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-left: -50%;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.select {
+  margin-top: 2vw;
+  width: 38%;
+  height: 2rem;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #bebebe;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #686868;
+}
+
+.container-image-load-inter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30vh;
+  padding: 10px;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container-image-tex-inter {
+  width: 100%;
+  height: 30vh;
+  padding: 10px;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container-icon-image {
+  width: 50%;
+  margin-bottom: 1vw;
+}
+
+.container-text-image {
+  width: 100%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  display: flex;
+  align-items: flex-end;
+  color: #bebebe;
+}
+
+.container-buttons-form1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 1.5vw;
+}
+
+.container-button-without-password {
+  margin-top: 7vw;
+}
+
+.btn-form1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  margin-inline: 0.5vw;
+  height: 28.61px;
+  background: #00de97;
+  border-radius: 4.40088px;
+  outline: none;
+  border: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  text-align: center;
+  color: #2f0084;
+}
+
+.btn-form1:active {
+  background-color: rgba(0, 222, 151, 0.5);
+}

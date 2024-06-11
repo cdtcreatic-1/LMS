@@ -1,0 +1,18 @@
+@startuml
+
+    group #99FF99 4.3.3 Get Lot Photo
+        Farmer -> BackEnd: GET lot_photo/:id_lot
+
+        BackEnd -> DB: SELECT lot_photo, \nFROM lot_photo_table \nWHERE id_lot = :id_lot
+        DB -> BackEnd: Return lot_photo
+
+        BackEnd -> Farmer: HTTP 200 OK (lot photo)
+
+        note over Farmer
+            Response {
+                lot_photo: (URL or Archive)
+            }
+        endnote
+    end group
+
+@enduml

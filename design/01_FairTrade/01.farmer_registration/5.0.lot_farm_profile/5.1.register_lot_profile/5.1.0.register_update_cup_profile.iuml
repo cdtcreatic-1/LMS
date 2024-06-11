@@ -1,0 +1,75 @@
+@startuml
+
+group #F4A020 5.1.0 Register/Update Lot
+
+    note over Farmer
+        Body {
+            id_farm
+            lot_number, 
+            variety_name, 
+            profile_name, 
+            roasting_name
+        }
+    endnote
+
+    Farmer -> BackEnd: POST/PUT register_lots(Body)
+
+    BackEnd -> DB: INSERT/UPDATE into lot_table
+
+    DB -> BackEnd: Confirmation of insertion
+
+    hnote over BackEnd
+        Depending if the data are correct the response will be:
+        201 Created (id_lot, lot_number, variety_name, profile_name, roasting_name)
+        409 Conflict (cup_profile already exists)
+        400 Bad Request (missing data)
+        500 Internal Server Error (server error)
+    endnote
+
+    BackEnd -> Farmer: HTTP 201 Created (lot created)
+
+    note over Farmer
+        Response {
+            id_lot
+            lot_number, 
+            variety_name, 
+            profile_name, 
+            roasting_name,
+            id_farm
+        }
+    endnote
+
+end group
+
+
+group #99FF99 5.1.0 Get cup profile 
+
+    Farmer -> BackEnd: GET get_lot_by_id_lot/:id_lot
+
+    BackEnd -> DB: SELECT lot_number, variety_name, \n profile_name, roasting_name \nFROM lot_table
+    DB -> BackEnd: Return lot information
+
+    hnote over BackEnd
+        Depending if the data are correct the response will be:
+        200 OK (id_lot, lot_number, variety_name, profile_name, roasting_name)
+        404 Not Found (cup_profile not found)
+        500 Internal Server Error (server error)
+    endnote
+
+    BackEnd -> Farmer: HTTP 200 OK (lot updated)
+
+    note over Farmer
+        Response {
+            id_lot
+            lot_number, 
+            variety_name, 
+            profile_name, 
+            roasting_name,
+            id_farm
+        }
+    endnote
+
+end group
+
+
+@enduml

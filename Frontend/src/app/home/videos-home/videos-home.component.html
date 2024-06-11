@@ -1,0 +1,23 @@
+<div class="container-como-preparo">
+  <div class="container-text-como-preparo">¿Como lo preparo?</div>
+  <div class="container-subtitle-como-preparo">
+    <div>
+      Descubre secretos, trucos y técnicas para preparar café como un
+      profesional en nuestra plataforma. Sorprende a tus amigos y familiares con
+      tu café casero excepcional.
+    </div>
+
+    <div class="container-start-today">Inicia hoy</div>
+  </div>
+
+  <div class="container-principal-cards">
+    <div class="container-card-videos" *ngFor="let item of urlVideosHome">
+      <iframe
+        width="100%"
+        height="100%"
+        [src]="item | safe"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</div>

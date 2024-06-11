@@ -1,0 +1,9 @@
+<div class="container-principal-notification">
+  <div class="container-title-notification">
+    <span>Notificaciones</span>
+  </div>
+  <app-navbar-notification></app-navbar-notification>
+  <app-new-courses *ngIf="idNavBar === 1"></app-new-courses>
+  <app-finish-courses *ngIf="idNavBar === 2"></app-finish-courses>
+  <app-old-courses *ngIf="idNavBar === 3"></app-old-courses>
+</div>

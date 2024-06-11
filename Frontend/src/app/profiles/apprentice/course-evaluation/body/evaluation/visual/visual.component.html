@@ -1,0 +1,71 @@
+<div *ngIf="questionSelected">
+  <section class="title-icon">
+    <h1>{{ questionSelected.question_content }}</h1>
+    <div
+      class="container-icon"
+      (click)="handleReadQuestion(questionSelected.question_content)"
+    >
+      <ion-icon name="volume-medium-outline" class="icon"></ion-icon>
+    </div>
+  </section>
+
+  <section class="container-list-option-answers">
+    <section class="box">
+      <div class="title-box">Lista de opciones</div>
+      <section class="container-box-inter">
+        <div
+          class="container-check-text"
+          *ngFor="let answer of questionSelected.SubmoduleAnswers"
+        >
+          <div
+            class="input"
+            [ngClass]="{ 'input-selected': answer.isSelected }"
+            (click)="handleClickSelectQuestion(answer.id_answer)"
+          ></div>
+          <span>{{ answer.answers_content }}</span>
+        </div>
+      </section>
+    </section>
+    <section class="arrows">
+      <ion-icon
+        name="chevron-forward-circle-outline"
+        [ngClass]="{
+          'disabled-icon': questionSelected.SubmoduleAnswers.length === 0
+        }"
+        (click)="handlePassAnswers()"
+      ></ion-icon>
+      <ion-icon
+        name="chevron-back-circle-outline"
+        [ngClass]="{
+          'disabled-icon': dataAnswers.length === 0
+        }"
+        (click)="handleBackAnswers()"
+      ></ion-icon>
+    </section>
+
+    <section class="box">
+      <div class="title-box">Lista de palabras correctas</div>
+      <section class="container-box-inter">
+        <div class="container-check-text" *ngFor="let answer of dataAnswers">
+          <div
+            class="input"
+            [ngClass]="{ 'input-selected': answer.isSelected }"
+            (click)="handleClickSelectAnswers(answer.id_answer)"
+          ></div>
+          <span>{{ answer.answers_content }}</span>
+        </div>
+      </section>
+    </section>
+  </section>
+
+  <div class="container-buttons">
+    <button class="fcdt-btn-white-p2" (click)="handleBack()">Atrás</button>
+    <button class="fcdt-btn-p2" (click)="handleSubmit()">Siguiente</button>
+  </div>
+
+  <app-by-steps
+    [numberByStep]="dataQuestion.length"
+    [actualId]="1"
+    [showNumber]="true"
+  ></app-by-steps>
+</div>

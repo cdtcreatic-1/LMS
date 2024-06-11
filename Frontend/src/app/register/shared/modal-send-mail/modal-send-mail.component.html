@@ -1,0 +1,23 @@
+<section>
+  <div class="container-icon">
+    <ion-icon
+      name="close-circle-outline"
+      class="icon-close"
+      (click)="handleClosModal()"
+    ></ion-icon>
+  </div>
+  <main class="container-modal-send-mail">
+    <div class="conatainer-description-modal">
+      Se ha enviado un correo de verificación a:
+      <strong>{{ email }}</strong
+      >, Por favor, revísalo y utilízalo para completar el proceso. Si no encuentras el correo en tu bandeja de entrada, revisa la carpeta de SPAM, ya que dependiendo de la configuración de tu cuenta, podría haber sido filtrado ahí.
+    </div>
+  </main>
+
+  <section class="container-section-buttton">
+    <app-global-buttons
+      nameButton="Continuar"
+      [callbackFunction]="handleClosModal"
+    ></app-global-buttons>
+  </section>
+</section>

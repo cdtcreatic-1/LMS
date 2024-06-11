@@ -1,0 +1,14 @@
+Restrictions,variable_name,type_data,references
+PK,id_farm,SMALLINT,
+"NN U",farm_name,VARCHAR(45),
+"NN U",farm_number_lots,SMALLINT,
+FK,id_village,SMALLINT,villages(id_village)
+NN,farm_longitude,REAL,
+NN,farm_latitude,REAL,
+"NN U",farm_commercial_registry,VARCHAR(250),
+,farm_photos,VARCHAR(250),
+NN,farm_altitude,SMALLINT,
+NN,farm_temperature,SMALLINT,
+FK,id_climate,SMALLINT,climates(id_climate)
+FK,id_user,SMALLINT,users(id_user)
+NN,farm_situation,BOOLEAN,

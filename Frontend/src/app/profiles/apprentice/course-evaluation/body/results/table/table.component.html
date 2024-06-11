@@ -1,0 +1,72 @@
+<div class="container-principal">
+  <section class="container-table">
+    <form class="title-select" [formGroup]="form">
+      <h1>Resultados de evaluación</h1>
+      <div>
+        <select
+          class="fcdt-select-p2"
+          formControlName="idSubmodule"
+          (change)="handleChangeForm()"
+        >
+          <option disabled selected hidden>Selecciona módulo</option>
+          <option
+            *ngFor="let submodule of submodulesData"
+            value="{{ submodule.id_submodule }}"
+          >
+            <span class="fcdt-title-responsive">
+              {{ submodule.submodule_title }}</span
+            >
+          </option>
+        </select>
+      </div>
+    </form>
+
+    <section class="title-table">
+      <div class="container-title"><p>Preguntas</p></div>
+      <div class="container-resultados">
+        <p>Resultados</p>
+      </div>
+
+      <section class="container-question-response"></section>
+    </section>
+
+    <section class="container-body-table">
+      <section
+        class="container-question-response"
+        *ngFor="let item of dataQuestionAnswers"
+      >
+        <section class="questions">
+          <strong>{{ item.order }}.</strong> {{ item.question_content }}
+        </section>
+        <section class="response">
+          <div class="box box-green" *ngIf="item.validity">
+            <ion-icon name="checkmark-outline" class="icon"></ion-icon>
+          </div>
+
+          <div class="box box-blue" *ngIf="!item.validity">
+            <ion-icon name="close-outline" class="icon"></ion-icon>
+          </div>
+        </section>
+      </section>
+    </section>
+  </section>
+
+  <section class="contanier-figure-button">
+    <section class="button">
+      <p class="p-button">Resultados de evaluación del curso</p>
+
+      <ion-icon
+        name="chevron-forward-circle-outline"
+        class="icon-chevron"
+        (click)="handleChangeId()"
+      ></ion-icon>
+    </section>
+
+    <section class="container-figure" *ngIf="options">
+      <ag-charts-angular
+        style="height: 50%; width: 90%"
+        [options]="options"
+      ></ag-charts-angular>
+    </section>
+  </section>
+</div>

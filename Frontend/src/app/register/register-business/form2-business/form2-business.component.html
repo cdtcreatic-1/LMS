@@ -1,0 +1,115 @@
+<app-title text="En que café estas interesado"></app-title>
+<div class="container-form-interested">
+  <div class="container-body-form-interested">
+    <form [formGroup]="form2Business" (ngSubmit)="next()">
+      <div>
+        <div class="container-input-form">
+          <select
+            class="fcdt-select-p2"
+            formControlName="tazaProfile"
+            required
+            [ngClass]="{
+              'fcdt-color-span-form-p2': validatorFields('tazaProfile')
+            }"
+            [matTooltip]="
+              validatorFields('tazaProfile') ? 'Seleccione una opción' : ''
+            "
+            [matTooltipClass]="'myTooltip'"
+          >
+            <option value="" disabled selected hidden>
+              <strong> Perfil de taza </strong>
+            </option>
+            <option
+              *ngFor="let taza of dataProfileTaza"
+              value="{{ taza.id_profile }}"
+            >
+              {{ taza.profile_name }}
+            </option>
+          </select>
+        </div>
+
+        <br />
+
+        <div class="container-input-form">
+          <select
+            class="fcdt-select-p2"
+            formControlName="toston"
+            required
+            [ngClass]="{
+              'fcdt-color-span-form-p2': validatorFields('toston')
+            }"
+            [matTooltip]="
+              validatorFields('toston') ? 'Seleccione una opción' : ''
+            "
+            [matTooltipClass]="'myTooltip'"
+          >
+            <option value="" disabled selected hidden>
+              <strong> Tostión </strong>
+            </option>
+            <option
+              *ngFor="let tostion of dataTostion"
+              value="{{ tostion.id_roast }}"
+            >
+              {{ tostion.roasting_name }}
+            </option>
+          </select>
+        </div>
+
+        <br />
+
+        <div class="container-input-form">
+          <select
+            class="fcdt-select-p2"
+            formControlName="state"
+            required
+            [ngClass]="{
+              'fcdt-color-span-form-p2': validatorFields('state')
+            }"
+            [matTooltip]="
+              validatorFields('state') ? 'Seleccione una opción' : ''
+            "
+            [matTooltipClass]="'myTooltip'"
+          >
+            <option value="" disabled selected hidden>
+              <strong> Departamento </strong>
+            </option>
+            <option *ngFor="let state of states" value="{{ state.id_state }}">
+              {{ state.state_name }}
+            </option>
+          </select>
+        </div>
+
+        <br />
+
+        <div class="container-input-form">
+          <select
+            class="fcdt-select-p2"
+            formControlName="city"
+            required
+            [ngClass]="{
+              'fcdt-color-span-form-p2': validatorFields('city')
+            }"
+            [matTooltip]="
+              validatorFields('city') ? 'Seleccione una opción' : ''
+            "
+            [matTooltipClass]="'myTooltip'"
+          >
+            <option value="" disabled selected hidden>
+              <strong> Municipio </strong>
+            </option>
+            <option *ngFor="let city of cities" value="{{ city.id_city }}">
+              {{ city.city_name }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="container-buttons-formc" align="center">
+    <button class="fcdt-btn-p2 fcdt-btn-p2-disable">Atrás</button>
+    <button class="fcdt-btn-p2" style="margin-left: 2%" (click)="next()">
+      Siguiente
+    </button>
+  </div>
+</div>

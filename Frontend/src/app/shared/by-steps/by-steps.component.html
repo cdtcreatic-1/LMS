@@ -1,0 +1,14 @@
+<main align="center">
+  <div *ngIf="showNumber">{{ actualId }} de {{ numberByStep }}</div>
+  <div class="container-btns-multi-step">
+    <div *ngFor="let item of dataByStep; index as i" class="container-inter">
+      <div
+        key="index"
+        class="container-pont-multistep"
+        [ngStyle]="{
+          'background-color': actualId === i + 1 ? '#FFFFFF' : '#a1a1a1'
+        }"
+      ></div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,72 @@
+<div class="container-herder-farmer" *ngIf="dataUserRegister">
+  <div class="container-image-portada">
+    <img
+      *ngIf="!dataUserRegister.User.user_cover_photo"
+      src="../../../../../assets/farmer_portada.webp"
+      alt="Portada"
+      height="100%"
+      width="100%"
+      style="object-fit: cover; border-radius: 10px"
+    />
+    <img
+      *ngIf="dataUserRegister.User.user_cover_photo"
+      src="{{ dataUserRegister.User.user_cover_photo }}"
+      alt="Portada"
+      height="100%"
+      width="100%"
+      style="object-fit: cover; border-radius: 10px"
+    />
+    <div class="container-icon-camera-portada" *ngIf="actualId === 4">
+      <div class="container-icon-text-portada">
+        <div class="container-icon-portada">
+          <img
+            src="../../../../../assets/icons/icon_camera_edit_portada.webp"
+            alt="Camera"
+            height="100%"
+            width="100%"
+          />
+        </div>
+        <div class="container-text-edit-portada">Cambiar foto de portada</div>
+      </div>
+    </div>
+  </div>
+  <div class="container-profile-photo">
+    <div class="container-image-profile">
+      <img
+        *ngIf="dataUserRegister.User.user_profile_photo"
+        src="{{ dataUserRegister!.User.user_profile_photo }}"
+        alt="Foto de perfíl"
+      />
+      <img
+        *ngIf="!dataUserRegister.User.user_profile_photo"
+        src="../../../../../assets/icons/icon_user.webp"
+        alt="Foto de perfíl"
+      />
+      <div class="container-icon-camera-profile" *ngIf="actualId === 4">
+        <div class="container-image-icon-camera-profile">
+          <img
+            src="../../../../../assets/icons/icon_camera_edit_profile.webp"
+            alt=""
+            height="100%"
+            width="100%"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="container-profile-name">
+      <div>{{ dataUserRegister!.User.user_username }}</div>
+      <div style="color: #bebebe; margin-top: 0.2vh">
+        {{ dataUserRegister.farm_name.slice(0, 20) }}
+      </div>
+      <div class="container-text-profile-farmer" style="margin-top: 0.5vw">
+        {{ dataUserRegister.User.user_phone }}
+      </div>
+      <div class="container-text-profile-farmer">
+        {{ dataUserRegister.User.user_email }}
+      </div>
+    </div>
+    <textarea class="fcdt-text-area-p2 container-text-message" disabled="true">
+      "{{ dataUserRegister.user_personal_description_text }}"
+    </textarea>
+  </div>
+</div>

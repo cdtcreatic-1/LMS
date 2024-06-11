@@ -1,0 +1,150 @@
+<app-title text="Datos de la finca"></app-title>
+
+<div class="container-formb">
+  <form [formGroup]="form1B">
+    <div class="container-formb-inter">
+      <div class="container-inputs">
+        <div class="container-input-form">
+          <div>
+            <input
+              type="text"
+              formControlName="nameFarm"
+              required
+              minlength="3"
+              maxlength="50"
+              style="padding: 0px"
+              pattern="^[a-zA-ZáéíóúñÑÁÉÍÓÚüÜ\s]+$"
+              [matTooltip]="
+                validatorFields('nameFarm')
+                  ? 'Use únicamente letras con un mínimo 3 y máximo de 50 caracteres'
+                  : ''
+              "
+              [matTooltipClass]="'myTooltip'"
+            />
+          </div>
+          <div class="container-placeholder">
+            <span
+              [ngClass]="{
+                'fcdt-color-span-form-p2': validatorFields('nameFarm')
+              }"
+            >
+              Nombre de la finca
+            </span>
+          </div>
+        </div>
+
+        <div class="container-input-form">
+          <div>
+            <input
+              type="text"
+              formControlName="numberLots"
+              minlength="1"
+              maxlength="2"
+              required
+              style="padding: 0px"
+              pattern="[0-9]*"
+              [matTooltip]="
+                validatorFields('numberLots')
+                  ? 'Usar únicamente números. La cantidad máxima permitida es de 99 lotes.'
+                  : ''
+              "
+              [matTooltipClass]="'myTooltip'"
+            />
+          </div>
+          <div class="container-placeholder">
+            <span
+              [ngClass]="{
+                'fcdt-color-span-form-p2': validatorFields('numberLots')
+              }"
+              >¿Cuántos lotes tiene la finca?</span
+            >
+          </div>
+        </div>
+
+        <div class="container-title-ubication">Datos de ubicación</div>
+
+        <div class="container-input-form">
+          <select
+            class="fcdt-select-p2"
+            formControlName="state"
+            required
+            [ngClass]="{
+              'fcdt-color-span-form-p2': validatorFields('state')
+            }"
+            [matTooltip]="
+              validatorFields('state') ? 'Seleccione una opción' : ''
+            "
+            [matTooltipClass]="'myTooltip'"
+            (change)="onChangeState($event)"
+          >
+            <option value="" disabled selected hidden>
+              <span> Departamento </span>
+            </option>
+            <option *ngFor="let state of states" value="{{ state.id_state }}">
+              {{ state.state_name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="container-input-form">
+          <select
+            class="fcdt-select-p2"
+            formControlName="city"
+            required
+            [ngClass]="{
+              'fcdt-color-span-form-p2': validatorFields('city')
+            }"
+            [matTooltip]="
+              validatorFields('city') ? 'Seleccione una opción' : ''
+            "
+            [matTooltipClass]="'myTooltip'"
+            (change)="onChangeCity($event)"
+          >
+            <option value="" disabled selected hidden>
+              <span> Municipio </span>
+            </option>
+            <option *ngFor="let city of cities" value="{{ city.id_city }}">
+              {{ city.city_name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="container-input-form">
+          <select
+            class="fcdt-select-p2"
+            formControlName="village"
+            required
+            [ngClass]="{
+              'fcdt-color-span-form-p2': validatorFields('village')
+            }"
+            [matTooltip]="
+              validatorFields('village') ? 'Seleccione una opción' : ''
+            "
+            [matTooltipClass]="'myTooltip'"
+            (change)="onChangeVillage($event)"
+          >
+            <option value="" disabled selected hidden>
+              <span> Vereda </span>
+            </option>
+            <option
+              *ngFor="let village of villages"
+              value="{{ village.id_village }}"
+            >
+              {{ village.village_name }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div id="map"></div>
+    </div>
+
+    <div
+      class="container-buttons-form1"
+      align="center"
+      style="margin-top: -3.5vh"
+    >
+      <button class="btn-form1" (click)="next()">Siguiente</button>
+    </div>
+  </form>
+</div>

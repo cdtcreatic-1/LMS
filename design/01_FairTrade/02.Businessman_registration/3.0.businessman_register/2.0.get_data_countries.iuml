@@ -1,0 +1,32 @@
+@startuml
+
+    group #99FF99 2.0 Get data countries
+        Businessman -> BackEnd: GET get_countries
+
+        BackEnd -> DB: SELECT id_country, country_name \nFROM countries_table \nWHERE id_country = :id_country
+
+        hnote over BackEnd
+            Depending if the data are correct the response will be:
+            200 OK (countries)
+            404 Not Found (id_country not found)
+            400 Bad Request (missing data)
+            500 Internal Server Error (server error)
+        endnote
+
+        BackEnd -> Businessman: HTTP 200 OK (countries)
+
+        hnote over Businessman
+            Body{
+                    {
+                        "id_country"
+                        "country_name"
+                    },
+                    .
+                    .
+                    .
+            }
+        endnote
+
+    end group
+
+@enduml

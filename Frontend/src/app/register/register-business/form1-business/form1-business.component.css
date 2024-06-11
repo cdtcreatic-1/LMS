@@ -1,0 +1,191 @@
+.container-form1 {
+  width: 90%;
+  margin-left: 10%;
+  height: 75vh;
+}
+
+.container-inter-form-photo {
+  display: flex;
+  height: 100%;
+}
+
+.container-exter-inputs {
+  width: 100%;
+}
+
+.container-row-input-form {
+  display: flex;
+  margin-top: 1.5vw;
+}
+
+.container-input-form {
+  width: 40%;
+  margin-right: 3vw;
+}
+
+input {
+  border: none;
+  outline: none;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #2f0084;
+  width: 100%;
+  border-bottom: 1px solid #bebebe;
+}
+
+.input-disable {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.input-password {
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  height: 2rem;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2vw;
+  color: #2f0084;
+  padding-inline: 5px;
+  padding-bottom: 0px;
+}
+
+.input-password::placeholder {
+  color: #d9d9d9;
+  font-size: 1vw;
+}
+
+.container-placeholder {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #686868;
+}
+
+.container-form-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: auto;
+}
+
+.select {
+  width: 100%;
+  height: 2rem;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #bebebe;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #686868;
+}
+
+.container-image-tex-inter {
+  width: 90%;
+  height: 100%;
+  padding-inline: 10px;
+  padding-block: 12px;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container-icon-image {
+  width: 50%;
+  margin-bottom: 1vw;
+}
+
+.container-text-image {
+  width: 90%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  display: flex;
+  align-items: flex-end;
+  color: #bebebe;
+}
+
+.container-buttons-form1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+
+.btn-form1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  margin-inline: 0.5vw;
+  height: 28.61px;
+  background: #00de97;
+  border-radius: 4.40088px;
+  outline: none;
+  border: none;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  text-align: center;
+  color: #2f0084;
+}
+
+.btn-form1:active {
+  background-color: rgba(0, 222, 151, 0.5);
+}
+
+.container-form-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 45vh;
+}
+
+.container-inter-load-image {
+  position: relative;
+  width: 90%;
+  margin-top: -30vh;
+}
+
+.input-load-cedula {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-left: -50%;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.container-image-load-inter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 35vh;
+  padding: 10px;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container-recapcha-passwords {
+  -webkit-transform: scale(0.84);
+  -moz-transform: scale(0.84);
+  -ms-transform: scale(0.84);
+  -o-transform: scale(0.84);
+  transform: scale(0.84);
+  margin-left: -8.5%;
+  margin-top: -28%;
+}

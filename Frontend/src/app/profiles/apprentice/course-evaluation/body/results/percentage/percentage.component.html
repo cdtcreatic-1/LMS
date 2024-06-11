@@ -1,0 +1,60 @@
+<div class="container-principal" *ngIf="percentageRate">
+  <h1 class="container-title">Resultados de evaluación del curso</h1>
+
+  <section class="contanier-figure-button">
+    <section class="figure">
+      <ag-charts-angular
+        style="height: 100%"
+        [options]="options"
+      ></ag-charts-angular>
+      <!-- <img
+        src="{{ dataImagePercentage.chart_path }}"
+        height="100%"
+        width="100%"
+        alt=""
+      /> -->
+    </section>
+
+    <div class="container-buttons">
+      <section class="button">
+        <p class="p-button">Resultados de evaluación de submódulos</p>
+        <ion-icon
+          name="chevron-back-circle-outline"
+          class="icon"
+          (click)="handleChangeId()"
+        ></ion-icon>
+      </section>
+
+      <section
+        class="button button-end"
+        [ngClass]="{
+          'constainer-disable': percentageRate !== '100%'
+        }"
+      >
+        <p class="p-button p-certificate">Descargar certificado</p>
+
+        <ion-icon
+          name="chevron-down-circle-outline"
+          class="icon icon-green"
+          (click)="handleDownloadCertificate()"
+        ></ion-icon>
+      </section>
+    </div>
+  </section>
+
+  <section class="container-line-progrees">
+    <div class="box-progrees">
+      <div class="container-progress-content"></div>
+      <div
+        class="container-progress-content container-completion"
+        [ngStyle]="{
+          width: percentageRate
+        }"
+      ></div>
+    </div>
+    <div class="text-number">
+      <p>Progreso del curso</p>
+      <p class="p">{{ percentageRate }}</p>
+    </div>
+  </section>
+</div>

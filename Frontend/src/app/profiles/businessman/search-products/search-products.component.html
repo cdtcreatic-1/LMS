@@ -1,0 +1,140 @@
+<div
+  class="container-principal-search animate__animated"
+  [ngClass]="{
+    animate__slideInLeft: isModalFilter
+  }"
+>
+  <div class="container-all-sections">
+    <!-- Section Farmers -->
+
+    <!-- <section class="container-section">
+      <div class="container-input-chevron" (click)="handleClickChecvron(1)">
+        <div class="container-name-input">Caficultor</div>
+        <div class="container-chevron">
+          <ion-icon name="chevron-down-outline"></ion-icon>
+        </div>
+      </div>
+      <div *ngIf="isSelects.isFarmers" class="container-show-content-select">
+        <div class="container-check-label" *ngFor="let item of farmersData">
+          <input
+            type="checkbox"
+            class="input"
+            (change)="handleOnChange($event, item, 1)"
+            [ngModel]="item.isSelected"
+          />
+  
+          <label>{{ item.name }}</label>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Section Coffee Variety -->
+
+    <section class="container-section">
+      <div class="container-input-chevron" (click)="handleClickChecvron(2)">
+        <div class="container-name-input">Variedad de café</div>
+        <div class="container-chevron">
+          <ion-icon name="chevron-down-outline"></ion-icon>
+        </div>
+      </div>
+      <div
+        *ngIf="isSelects.isVarietyCoffee"
+        class="container-show-content-select"
+      >
+        <div
+          class="container-check-label"
+          *ngFor="let item of dataCoffeeVariety"
+        >
+          <input
+            type="checkbox"
+            class="input"
+            (change)="handleOnChange($event, item, 2)"
+            [ngModel]="item.isSelected"
+          />
+
+          <label>{{ item.variety_name }}</label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section states -->
+    <section class="container-section">
+      <div class="container-input-chevron" (click)="handleClickChecvron(3)">
+        <div class="container-name-input">Origen del café</div>
+        <div class="container-chevron">
+          <ion-icon name="chevron-down-outline"></ion-icon>
+        </div>
+      </div>
+      <div
+        *ngIf="isSelects.isOriginCoffee"
+        class="container-show-content-select"
+      >
+        <div class="container-check-label" *ngFor="let item of dataStates">
+          <input
+            type="checkbox"
+            class="input"
+            (change)="handleOnChange($event, item, 3)"
+            [ngModel]="item.isSelected"
+          />
+
+          <label>{{ item.state_name | titlecase }}</label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Price Range -->
+
+    <section class="container-section">
+      <div class="container-input-chevron">
+        <div class="container-name-input">Rango de precio</div>
+        <div class="container-chevron">
+          <!-- <ion-icon name="chevron-down-outline"></ion-icon> -->
+        </div>
+      </div>
+      <div class="container-price-range">
+        <mat-slider
+          min="{{ minPrice }}"
+          max="{{ maxPrice }}"
+          step="100"
+          class="container-mat-slider"
+        >
+          <input
+            type="range"
+            matSliderStartThumb
+            (change)="handleOnChangePrice($event, 1)"
+            [ngModel]="coffeePriceRange.min"
+          />
+          <input
+            type="range"
+            matSliderEndThumb
+            (change)="handleOnChangePrice($event, 2)"
+            [ngModel]="coffeePriceRange.max"
+          />
+        </mat-slider>
+
+        <div class="container-number-prices">
+          <div>${{ coffeePriceRange.min }}</div>
+          <div>${{ coffeePriceRange.max }}</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="container-btn-filter">
+    <div (click)="handleResetClose(1)">
+      <app-global-buttons
+        nameButton="Limpiar filtros"
+        backgroud="#fff"
+        borderColor="#2F0084"
+        width="100px"
+      ></app-global-buttons>
+    </div>
+    <div style="margin-left: 10px"></div>
+    <div (click)="handleResetClose(2)">
+      <app-global-buttons
+        nameButton="Cerrar"
+        width="100px"
+      ></app-global-buttons>
+    </div>
+  </div>
+</div>

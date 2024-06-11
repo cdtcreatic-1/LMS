@@ -1,0 +1,104 @@
+<div class="container-home">
+  <div class="container-image-home1">
+    <div
+      id="carouselExampleCaptions"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="6000">
+          <img
+            src="../../../assets/hero1.webp"
+            class="d-block w-100"
+            alt="caficultor"
+          />
+          <div class="carousel-caption">
+            <div class="container-text-logo-carousel">
+              <img
+                class="logo-card"
+                src="../../../assets/logo_blanco.webp"
+                alt="Logo"
+              />
+              <p class="text-bienvenidos">
+                Abre las puertas a tu presencia en el mercado global y deja que
+                la calidad de tu café conquiste el mundo
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="6000">
+          <img
+            src="../../../assets/hero2.webp"
+            class="d-block w-100"
+            alt="..."
+          />
+          <div class="carousel-caption">
+            <div class="container-text-logo-carousel">
+              <img
+                class="logo-card"
+                src="../../../assets/logo_blanco.webp"
+                alt="Logo"
+              />
+              <p class="text-bienvenidos2">
+                Sorvo te presenta los mejores granos de cafés especiales de
+                Colombia, compra con confianza y conoce a detalle el proceso.
+                ¡Sorvo te cuenta una historia! descúbrela aquí.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="6000">
+          <img
+            src="../../../assets/barista1.webp"
+            class="d-block w-100"
+            alt="..."
+          />
+          <div class="carousel-caption">
+            <div class="container-text-logo-carousel">
+              <img
+                class="logo-card"
+                src="../../../assets/logo_blanco.webp"
+                alt="Logo"
+              />
+              <p class="text-bienvenidos3">
+                Embárcate en una aventura única en el universo del café especial
+                con Sorvo. Inicia tu camino hacia el mundo del café: ¡Explora
+                nuestros cursos ahora y conviértete en un auténtico maestro
+                cafetero!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-buttons">
+    <button class="bnt-login" [routerLink]="'../login'">Iniciar sesión</button>
+    <button class="bnt-singn-in" [routerLink]="'../register/profiles'">
+      Registrarse
+    </button>
+  </div>
+</div>

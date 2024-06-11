@@ -1,0 +1,11 @@
+@startuml
+
+'Lot Quantity'
+
+    group 5.2 Lot Quantity Register
+        !include 5.2.register_lot_quantity_associations/5.2.2.get_associations.iuml
+        !include 5.2.register_lot_quantity_associations/5.2.0.register_update_lot_quantity.iuml
+        !include 5.2.register_lot_quantity_associations/5.2.1.get_lot_quantity.iuml
+    end group 
+
+@enduml

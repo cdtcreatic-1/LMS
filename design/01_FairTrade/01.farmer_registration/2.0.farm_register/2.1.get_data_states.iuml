@@ -1,0 +1,32 @@
+@startuml
+
+    group #99FF99 2.1 Get data states
+        Farmer -> BackEnd: GET get_states/:id_country
+
+        BackEnd -> DB: SELECT id_state, state_name \nFROM states_table \nWHERE id_country = :id_country
+
+        hnote over BackEnd
+            Depending if the data are correct the response will be:
+            200 OK (states)
+            404 Not Found (id_state not found)
+            400 Bad Request (missing data)
+            500 Internal Server Error (server error)
+        endnote
+
+        BackEnd -> Farmer: HTTP 200 OK (states)
+
+        hnote over Farmer
+            Body{
+                    {
+                        "id_state"
+                        "state_name"
+                    },
+                    .
+                    .
+                    .
+            }
+        endnote
+
+    end group
+
+@enduml

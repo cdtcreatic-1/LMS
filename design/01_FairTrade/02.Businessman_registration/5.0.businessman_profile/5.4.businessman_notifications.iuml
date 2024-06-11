@@ -1,0 +1,7 @@
+@startuml
+    !include 5.1.businessman_get_farmers/5.1.0.businessman_top_bar_info.iuml
+    !include 5.4.businessman_notifications/5.4.1.businessman_get_offers_to_buy.iuml   
+    !include 5.4.businessman_notifications/5.4.2.businessman_offer_option_accept.iuml   
+    !include 5.4.businessman_notifications/5.4.3.businessman_offer_option_decline.iuml   
+    !include 5.4.businessman_notifications/5.4.4.businessman_get_id_make_offer.iuml   
+@enduml

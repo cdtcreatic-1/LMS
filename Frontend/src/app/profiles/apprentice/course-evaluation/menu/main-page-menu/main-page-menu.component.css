@@ -1,0 +1,134 @@
+.container-principal-menu {
+  width: 25vw;
+  height: 80vh;
+  box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.25);
+}
+
+.container-title {
+  height: max-content;
+  padding-inline: 10%;
+  padding-block: 5% 3%;
+}
+
+h2 {
+  font-size: 1.3vw;
+  margin: 0;
+  font-weight: 300;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2vw;
+  font-weight: 600;
+}
+
+/* Menu */
+
+.container-buttons-menu {
+  height: max-content;
+  overflow-y: auto;
+}
+
+/* Button */
+
+.container-button {
+  display: flex;
+  align-items: center;
+  padding-inline: 5%;
+  padding-block: 1%;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 5px;
+}
+
+.container-button-green {
+  background-color: #00de97;
+}
+
+.container-icon {
+  width: 5%;
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+}
+
+.container-text {
+  display: flex;
+  width: 85%;
+  word-wrap: break-word;
+  font-size: 1.3vw;
+
+  & strong {
+    padding-top: 2px;
+    margin: 0;
+  }
+}
+
+.btns-menu {
+  border: none;
+  background: transparent;
+  padding: 0px;
+  font-style: normal;
+  font-weight: 700;
+  color: #2f0084;
+  text-align: start;
+}
+
+.container-chevron {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 100%;
+}
+
+.icon {
+  color: #2f0084;
+}
+
+/* Accordion content */
+
+.container-accordion {
+  width: 100%;
+  border-radius: 0px;
+  border-radius: 10px;
+  margin-bottom: 1vw;
+  font-size: 1.2vw;
+}
+
+.container-text-items-menu {
+  text-align: start;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 2px;
+  cursor: pointer;
+  word-wrap: break-word;
+  padding-block: 0.5%;
+  padding-inline: 6%;
+}
+
+.submodule-selected {
+  background-color: rgba(0, 222, 151, 1);
+  border-radius: 5px;
+}
+
+.submodule-disable {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.container-text-items-menu:active {
+  opacity: 0.5;
+}
+
+.container-text-items-menu:hover {
+  background-color: rgba(0, 222, 151, 1);
+  border-radius: 5px;
+}
+
+.subrayar-item-menu {
+  border-bottom: 1px solid rgba(0, 222, 151, 0.5);
+}

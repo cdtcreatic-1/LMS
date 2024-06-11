@@ -1,0 +1,31 @@
+@startuml
+
+group #99FF99 5.2.1 Get Lot Quantity
+
+    Farmer -> BackEnd: GET lot_quantity/:id_lot
+
+    BackEnd -> DB: SELECT id_lot, total_quantity, samples_quantity, \n id_association, price_per_kilo \nFROM lot_quantity WHERE id_lot = :id_lot
+    DB -> BackEnd: Return lot_quantity_data
+
+    hnote over BackEnd
+        Depending if the data are correct the response will be:
+        200 OK (id_lot, total_quantity, samples_quantity, id_association, price_per_kilo)
+        404 Not Found (lot_quantity not found)
+        500 Internal Server Error (server error)
+    endnote
+
+    BackEnd -> Farmer: HTTP 200 OK (lot quantity data)
+
+    note over Farmer
+        Response {
+            id_lot,
+            total_quantity,
+            samples_quantity,
+            id_association,
+            price_per_kilo
+        }
+    endnote
+
+end group
+
+@enduml

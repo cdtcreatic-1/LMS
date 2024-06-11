@@ -1,0 +1,31 @@
+@startuml
+
+    group #99FF99 4.3.0 Get Lot Main Data
+        Farmer -> BackEnd: GET get_lot_info/:id_lot
+
+        BackEnd -> DB: SELECT id_lot, profile_name, variety_name, \n roasting_name, total_quantity, samples_quantity, association_name \nFROM associations_table, roasting_type_table, coffee_variations_table, coffee_profile_table, lot_table \nWHERE id_lot = :id_lot
+        DB -> BackEnd: Return lot_data
+
+        hnote over BackEnd
+            Depending if the data are correct the response will be:
+            200 OK (id_lot, profile_name, variety_name, roasting_name, total_quantity, samples_quantity, association_name)
+            404 Not Found (lot_data not found)
+            500 Internal Server Error (server error)
+        endnote
+
+        BackEnd -> Farmer: HTTP 200 OK (lot data)
+
+        note over Farmer
+            Response {
+                id_lot, 
+                profile_name, 
+                variety_name,
+                association_name,
+                total_quantity, 
+                samples_quantity,
+                roasting_name 
+            }
+        endnote
+    end group
+
+@enduml

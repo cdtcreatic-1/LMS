@@ -1,0 +1,32 @@
+<main class="container-principal-instruction">
+  <section class="container-section-grid-80">
+    <section>
+      <div>Instrucciones:</div>
+      <div class="container-description">
+        Por favor, selecciona las habilidades que te gustaría fortalecer durante
+        tu proceso como aprendiz. A continuación, encontrarás algunas
+        habilidades registradas por los tutores de los cursos. Marca aquellas
+        que consideres relevantes para tu desarrollo personal y profesional.
+      </div>
+    </section>
+  </section>
+  <section class="container-buttons-number-step" align="center">
+    <section class="container-button">
+      <div class="constainer-width-button container-button-disabled">
+        <app-global-buttons
+          [nameButton]="'Atrás'"
+          [backgroud]="'#fff'"
+          [borderColor]="'#2F0084'"
+          [height]="'1.7rem'"
+        ></app-global-buttons>
+      </div>
+
+      <div class="constainer-width-button" (click)="handleClickNext()">
+        <app-global-buttons
+          [nameButton]="'Siguiente'"
+          [height]="'1.7rem'"
+        ></app-global-buttons>
+      </div>
+    </section>
+  </section>
+</main>

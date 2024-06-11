@@ -1,0 +1,7 @@
+@startuml
+    !include 5.0.fair_trade_businessman_profile/5.1.fair_trade_businessman_get_farmers.iuml
+    !include 5.0.fair_trade_businessman_profile/5.3.fair_trade_businessman_get_farmer_lots.iuml
+    !include 5.0.fair_trade_businessman_profile/5.2.fair_trade_businessman_edit_profile.iuml
+    !include 5.0.fair_trade_businessman_profile/5.4.fair_trade_businessman_notifications.iuml
+    !include 5.0.fair_trade_businessman_profile/5.5.fair_trade_businessman_lot_offer_status.iuml
+@enduml

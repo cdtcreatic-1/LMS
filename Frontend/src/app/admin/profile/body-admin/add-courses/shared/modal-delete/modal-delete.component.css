@@ -1,0 +1,27 @@
+.container-pincipal-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-modal-white {
+  padding: 5% 2%;
+  background: rgba(255, 255, 255, 0.81);
+  box-shadow: 0px 1.77516px 35.1655px rgba(0, 0, 0, 0.25);
+  border-radius: 16.864px;
+}
+
+.container-title-modal {
+  width: 70%;
+  color: #2f0084;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.container-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}

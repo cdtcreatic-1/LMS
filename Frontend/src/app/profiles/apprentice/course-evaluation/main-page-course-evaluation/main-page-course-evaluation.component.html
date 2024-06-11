@@ -1,0 +1,21 @@
+<app-loading [isLoading]="isLoading"></app-loading>
+
+<app-floting-alert *ngIf="isErrorAlert" [message]="message"></app-floting-alert>
+
+<app-modal-menu-apprentice
+  *ngIf="isModalMenuApprentice"
+></app-modal-menu-apprentice>
+
+<app-header></app-header>
+<div
+  class="container-menu-body"
+  [ngClass]="{ 'fcdt-disable-screen': isLoading }"
+>
+  <app-main-page-menu></app-main-page-menu>
+  <div class="container-body">
+    <app-nav-bar-course></app-nav-bar-course>
+    <router-outlet></router-outlet>
+  </div>
+
+  <app-chat-boot></app-chat-boot>
+</div>

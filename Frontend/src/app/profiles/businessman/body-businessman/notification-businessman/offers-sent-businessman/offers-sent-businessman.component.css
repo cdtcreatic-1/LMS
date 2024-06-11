@@ -1,0 +1,113 @@
+.container-body {
+  display: flex;
+  width: 98.5%;
+  margin-left: 1vw;
+}
+
+.container-list-products {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 2vw;
+  margin-top: 0.8vw;
+  width: 100%;
+  height: 74vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.container-icon-check {
+  width: 8%;
+}
+
+.container-inter-list-products {
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  width: auto;
+  margin-left: 2%;
+}
+
+.container-image-input {
+  margin-top: 1vw;
+  display: flex;
+  width: 100%;
+  margin-left: 5%;
+}
+
+.container-image {
+  width: 45%;
+  height: 100%;
+}
+
+.container-name-lote {
+  margin-top: 0.2vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #2f0084;
+}
+
+.container-input {
+  width: 50%;
+  margin-top: 0.5vw;
+  padding-inline: 1vw;
+}
+
+.container-inter-input {
+  margin-bottom: 0.3vw;
+}
+
+.input-text-item {
+  width: 100%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #2f0084;
+  border-bottom: 1px solid #bebebe;
+}
+
+.container-sub-item {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.67rem;
+  color: #686868;
+}
+
+.container-trazabbilidad {
+  display: flex;
+  align-items: center;
+  padding-inline: 1vw;
+  width: 92%;
+  height: 2.5vw;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #bebebe;
+  margin-top: 0.5vw;
+  margin-left: 5%;
+}
+
+.container-value-buy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 1vw;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #2f0084;
+}
+
+.container-button {
+  width: 50%;
+}
+

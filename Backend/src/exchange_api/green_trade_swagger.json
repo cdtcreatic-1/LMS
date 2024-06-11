@@ -1,0 +1,4485 @@
+{
+  "swagger": "2.0",
+  "info": {
+      "description": "API para la plataforma Green Trade. Esta API permite realizar operaciones relacionadas con los usuarios Caficultores, incluyendo el registro y la gestión de sus perfiles.",
+      "version": "1.0.0",
+      "title": "Green Trade API",
+      "contact": {
+          "email": "soporte@greentrade.com"
+      }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+      {
+          "name": "Caficultor",
+          "description": "Operaciones de Caficultor"
+      },
+      {
+          "name": "Empresario",
+          "description": "Operaciones de Empresario"
+      },
+      {
+          "name": "General",
+          "description": "Operaciones comunes a todos los usuarios"
+      },
+      {
+        "name": "Administrador",
+        "description": "Operaciones de Administrador para la gestión de cursos"
+      }
+  ],
+  "schemes": ["http"],
+  "securityDefinitions": {
+      "api_key": {
+          "type": "apiKey",
+          "name": "Authorization",
+          "in": "header"
+      }
+  },
+  "paths": {
+      "caficultor/register/post": {
+          "post": {
+              "tags": ["Caficultor"],
+              "summary": "Registro de un nuevo caficultor",
+              "description": "Endpoint para registrar un nuevo caficultor en la plataforma. Este proceso incluye la validación de los datos proporcionados y la creación de un nuevo registro de usuario en el sistema. Estos datos se insertan en la tabla users_table",
+              "operationId": "registerCaficultor",
+              "consumes": ["application/json"],
+              "produces": ["application/json"],
+              "parameters": [
+                  {
+                      "in": "body",
+                      "name": "body",
+                      "description": "Datos del caficultor para el registro. Todos los campos son obligatorios a menos que se indique lo contrario.",
+                      "required": true,
+                      "schema": {
+                          "$ref": "#/definitions/Caficultor"
+                      }
+                  }
+              ],
+              "responses": {
+                  "201": {
+                      "description": "Caficultor registrado con éxito. La respuesta incluye un identificador único del usuario y un token de sesión.",
+                      "examples": {
+                          "application/json": {
+                              "id_user": 123,
+                              "token": "abc123xyz"
+                          }
+                      }
+                  },
+                  "400": {
+                      "description": "Solicitud inválida. Esto puede deberse a datos de entrada faltantes o mal formateados."
+                  },
+                  "500": {
+                      "description": "Error interno del servidor."
+                  }
+              }
+          }
+      },
+      "caficultor/register/put": {
+          "put": {
+              "tags": ["Caficultor"],
+              "summary": "Actualiza los datos de un caficultor existente",
+              "description": "Endpoint para actualizar la información de un caficultor existente en la plataforma. Este proceso incluye la validación de los datos proporcionados y la actualización del registro de usuario en el sistema. Estos datos se actualizan en la tabla users_table",
+              "operationId": "updateCaficultor",
+              "consumes": ["application/json"],
+              "produces": ["application/json"],
+              "parameters": [
+                  {
+                      "in": "body",
+                      "name": "body",
+                      "description": "Datos del caficultor para actualizar. Todos los campos son opcionales, solo se actualizarán los campos proporcionados.",
+                      "required": true,
+                      "schema": {
+                          "$ref": "#/definitions/Caficultor"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Información del caficultor actualizada con éxito.",
+                      "examples": {
+                          "application/json": {
+                              "id_user": 123,
+                              "token": "abc123xyz",
+                              "message": "Datos del usuario actualizados correctamente."
+                          }
+                      }
+                  },
+                  "400": {
+                      "description": "Solicitud inválida. Esto puede deberse a datos de entrada faltantes o mal formateados."
+                  },
+                  "404": {
+                      "description": "No se encontró al usuario especificado."
+                  },
+                  "500": {
+                      "description": "Error interno del servidor."
+                  }
+              }
+          }
+      },
+      "caficultor/register/get/{id_user}": {
+          "get": {
+            "tags": ["Caficultor"],
+            "summary": "Obtiene los detalles de un usuario específico",
+            "description": "Endpoint para obtener los detalles de un caficultor existente en la plataforma a partir de su ID de usuario. Estos datos se obtienen en la tabla users_table",
+            "operationId": "getUserById",
+            "produces": ["application/json"],
+            "parameters": [
+              {
+                "name": "id_user",
+                "in": "path",
+                "required": true,
+                "description": "El ID único del usuario que se desea obtener.",
+                "type": "integer"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Detalles del usuario obtenidos con éxito",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id_user": {
+                      "type": "integer",
+                      "example": 123
+                    },
+                    "user_name": {
+                      "type": "string",
+                      "example": "John Doe"
+                    },
+                    "user_phone": {
+                      "type": "string",
+                      "example": "1234567890"
+                    },
+                    "user_email": {
+                      "type": "string",
+                      "example": "email@example.com"
+                    },
+                    "user_profile_photo": {
+                      "type": "string",
+                      "example": "http://example.com/path/to/photo.jpg"
+                    },
+                    "user_cover_photo": {
+                      "type": "string",
+                      "example": "http://example.com/path/to/cover.jpg"
+                    },
+                    "hasDocumentation": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "user_country": {
+                      "type": "string",
+                      "example": "Colombia"
+                    },
+                    "id_country": {
+                      "type": "integer",
+                      "example": 47
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "ID de usuario faltante o inválido"
+              },
+              "404": {
+                "description": "Usuario no encontrado"
+              },
+              "500": {
+                "description": "Error interno del servidor"
+              }
+            }
+          }
+      },
+      "caficultor/cover_photo/put": {
+        "put": {
+          "tags": ["Caficultor"],
+          "summary": "Actualiza la foto de portada del caficultor",
+          "description": "Endpoint para actualizar la foto de portada de un caficultor existente en la plataforma. Este proceso valida la existencia del caficultor por su ID y luego actualiza la foto de portada en la base de datos en la tabla 'users_table'. La foto debe ser de tipo JPG, JPEG, o PNG y no exceder 1MB de tamaño. Este cambio se refleja directamente en la columna 'user_cover_photo' de la tabla 'users_table'.",
+          "operationId": "updateCaficultorCoverPhoto",
+          "consumes": ["multipart/form-data"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "formData",
+              "name": "id_user",
+              "type": "integer",
+              "required": true,
+              "description": "ID único del caficultor cuya foto de portada se actualizará."
+            },
+            {
+              "in": "formData",
+              "name": "user_cover_photo",
+              "type": "file",
+              "required": true,
+              "description": "La nueva foto de portada del caficultor. Debe ser de tipo JPG, JPEG, o PNG y no exceder 1MB de tamaño."
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Foto de portada actualizada con éxito en la tabla 'users_table'.",
+              "examples": {
+                "application/json": {
+                  "message": "Cover photo updated successfully",
+                  "cover_photo": "path/to/updated/photo.jpg"
+                }
+              }
+            },
+            "400": {
+              "description": "Solicitud inválida debido a ID de usuario inválido o problemas con el archivo de la foto."
+            },
+            "404": {
+              "description": "Caficultor no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor al intentar actualizar la foto de portada."
+            }
+          }
+        }
+      }, 
+      "caficultor/register_farm/post": {
+        "post": {
+          "tags": ["Caficultor"],
+          "summary": "Registro de una nueva finca por un caficultor",
+          "description": "Endpoint para registrar una nueva finca asociada a un caficultor en la plataforma. Este proceso valida los datos proporcionados y crea un nuevo registro en la tabla 'farms_table' de la base de datos.",
+          "operationId": "registerFarm",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos de la finca para el registro. Todos los campos son obligatorios excepto 'id_village', 'farm_longitude' y 'farm_latitude', que son opcionales si se proporciona uno de ellos. Este proceso crea un nuevo registro en la tabla 'farms_table' de la base de datos.",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_user": {
+                    "type": "integer",
+                    "description": "ID del caficultor asociado a la finca."
+                  },
+                  "farm_name": {
+                    "type": "string",
+                    "description": "Nombre de la finca."
+                  },
+                  "farm_number_lots": {
+                    "type": "integer",
+                    "description": "Número de lotes de la finca."
+                  },
+                  "id_village": {
+                    "type": "integer",
+                    "description": "ID de la aldea a la que pertenece la finca (opcional)."
+                  },
+                  "farm_longitude": {
+                    "type": "number",
+                    "format": "float",
+                    "description": "Longitud geográfica de la finca (opcional)."
+                  },
+                  "farm_latitude": {
+                    "type": "number",
+                    "format": "float",
+                    "description": "Latitud geográfica de la finca (opcional)."
+                  }
+                },
+                "required": ["id_user", "farm_name", "farm_number_lots"]
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Finca registrada con éxito en la tabla 'farms_table'. La respuesta incluye los detalles de la finca creada.",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "example": "Finca registrada con éxito."
+                  },
+                  "farmSaved": {
+                    "$ref": "#/definitions/FarmDetails"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Solicitud inválida debido a datos de entrada faltantes o mal formateados."
+            },
+            "404": {
+              "description": "Caficultor no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor al intentar registrar la finca."
+            }
+          }
+        }
+      },
+      "caficultor/farms_additional_info/post": {
+        "post": {
+          "tags": ["Caficultor"],
+          "summary": "Registra información adicional de una finca",
+          "description": "Endpoint para registrar información adicional sobre una finca existente en la plataforma. Este proceso incluye la validación de los datos proporcionados y la creación de un nuevo registro en la tabla 'farms_additional_info' en la base de datos. Esta información ayuda a detallar las características específicas de cada finca, como la altitud, el clima y la temperatura.",
+          "operationId": "createFarmAdditionalInfo",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos adicionales de la finca para el registro. Todos los campos son obligatorios.",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_farm": {
+                    "type": "integer",
+                    "description": "ID de la finca a la cual se le agrega la información adicional."
+                  },
+                  "altitude": {
+                    "type": "integer",
+                    "description": "Altitud de la finca en metros sobre el nivel del mar."
+                  },
+                  "climate": {
+                    "type": "string",
+                    "description": "Clima predominante en la ubicación de la finca."
+                  },
+                  "temperature": {
+                    "type": "string",
+                    "description": "Rango de temperatura en la finca."
+                  }
+                },
+                "required": ["id_farm", "altitude", "climate", "temperature"]
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Información adicional de la finca registrada con éxito en la tabla 'farms_additional_info'.",
+              "schema": {
+                "$ref": "#/definitions/FarmAdditionalInfo"
+              }
+            },
+            "400": {
+              "description": "Solicitud inválida debido a datos de entrada faltantes o mal formateados."
+            },
+            "404": {
+              "description": "Finca no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor al intentar registrar la información adicional de la finca."
+            }
+          }
+        }
+      },
+      "caficultor/user_information/post": {
+        "post": {
+          "tags": ["Caficultor"],
+          "summary": "Crea nueva información adicional para un usuario",
+          "description": "Este endpoint crea un nuevo registro de información adicional para un usuario en la tabla 'user_information_table'. Se utiliza para almacenar datos adicionales de los usuarios caficultores.",
+          "operationId": "createUserInformation",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos de la información adicional del usuario.",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/UserInformationInput"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Información adicional del usuario creada con éxito."
+            },
+            "400": {
+              "description": "Solicitud inválida debido a datos de entrada faltantes o mal formateados."
+            },
+            "404": {
+              "description": "Usuario no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/user_information/put": {
+        "put": {
+          "tags": ["Caficultor"],
+          "summary": "Actualiza la información adicional de un usuario existente",
+          "description": "Este endpoint actualiza un registro existente de información adicional para un usuario en la tabla 'user_information_table'. Se asegura de que solo los usuarios caficultores puedan actualizar su propia información.",
+          "operationId": "updateUserInformation",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos actualizados de la información adicional del usuario.",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/UserInformationInput"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Información adicional del usuario actualizada con éxito."
+            },
+            "400": {
+              "description": "Solicitud inválida debido a datos de entrada faltantes o mal formateados."
+            },
+            "404": {
+              "description": "Información adicional del usuario no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/user_information/get/{id_user}": {
+        "get": {
+          "tags": ["Caficultor"],
+          "summary": "Obtiene la información adicional de un usuario específico",
+          "description": "Este endpoint recupera la información adicional de un usuario específico de la tabla 'user_information_table' usando el ID del usuario. Diseñado para que los usuarios caficultores puedan ver su propia información adicional.",
+          "operationId": "getUserInformation",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_user",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID único del usuario cuya información adicional se desea obtener."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Información adicional del usuario obtenida con éxito."
+            },
+            "400": {
+              "description": "ID de usuario faltante o inválido."
+            },
+            "404": {
+              "description": "Información adicional del usuario no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/farmer_profile/{id_user}": {
+        "get": {
+          "tags": ["Caficultor"],
+          "summary": "Obtiene el perfil del caficultor junto con sus fincas",
+          "description": "Este endpoint recupera la información del perfil de un caficultor, incluyendo detalles personales y de sus fincas, y verifica si tiene documentación asociada. La información se recupera de las tablas 'user_information_table', 'farms_table', y se verifica la documentación a través de 'farm_documentation'.",
+          "operationId": "getFarmerProfile",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_user",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID único del caficultor cuyo perfil se desea obtener."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Perfil del caficultor obtenido con éxito."
+            },
+            "400": {
+              "description": "ID de usuario faltante o inválido."
+            },
+            "404": {
+              "description": "Caficultor no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/get_farms_by_user/{id_user}": {
+        "get": {
+          "tags": ["Caficultor"],
+          "summary": "Obtiene información detallada de las fincas de un caficultor",
+          "description": "Este endpoint recupera información detallada de las fincas pertenecientes a un caficultor específico, incluyendo lotes asociados, estado de compras en el carrito y realizadas, y información adicional sobre cada finca. Se recopila información de varias tablas como 'farms_table', 'lots_table', 'cart_table', 'purchases_table', y 'farms_additional_info_table'.",
+          "operationId": "getFarmsDetailByUserId",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_user",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID único del caficultor cuyas fincas se desean obtener."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Información detallada de las fincas obtenida con éxito.",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/FarmDetail"
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "ID de usuario faltante o inválido."
+            },
+            "404": {
+              "description": "Fincas no encontradas para este usuario."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },      
+      "caficultor/register_lots": {
+        "post": {
+          "tags": ["Caficultor"],
+          "summary": "Registra nuevos lotes de café",
+          "description": "Este endpoint permite el registro de nuevos lotes de café asociados a una finca específica. Los datos necesarios incluyen el ID de la finca, el número del lote, el ID de la variedad de café, el ID del perfil de café y el ID del tipo de tueste. Se crea un nuevo registro en la tabla 'lot_table'.",
+          "operationId": "registerLots",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos necesarios para registrar el lote.",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_farm": {
+                    "type": "integer",
+                    "description": "ID de la finca a la que pertenece el lote."
+                  },
+                  "lot_number": {
+                    "type": "integer",
+                    "description": "Número del lote."
+                  },
+                  "id_variety": {
+                    "type": "integer",
+                    "description": "ID de la variedad de café."
+                  },
+                  "id_profile": {
+                    "type": "integer",
+                    "description": "ID del perfil de café."
+                  },
+                  "id_roast": {
+                    "type": "integer",
+                    "description": "ID del tipo de tueste."
+                  }
+                },
+                "required": ["id_farm", "lot_number", "id_variety", "id_profile", "id_roast"]
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Lote creado con éxito.",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "lot_id": {
+                    "type": "integer",
+                    "description": "ID del lote creado."
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Solicitud inválida debido a datos de entrada faltantes o mal formateados."
+            },
+            "404": {
+              "description": "Finca no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/lot_quantity/post": {
+        "post": {
+          "tags": ["Caficultor"],
+          "summary": "Crea la cantidad de un lote",
+          "description": "Este endpoint registra la cantidad de un lote específico en la tabla 'lot_quantity'.",
+          "operationId": "createLotQuantity",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos necesarios para registrar la cantidad del lote.",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/LotQuantityInput"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Cantidad del lote creada con éxito."
+            },
+            "400": {
+              "description": "Datos faltantes o inválidos en la solicitud."
+            },
+            "404": {
+              "description": "Lote no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/lot_quantity/put": {
+        "put": {
+          "tags": ["Caficultor"],
+          "summary": "Actualiza la cantidad de un lote específico",
+          "description": "Este endpoint actualiza la cantidad registrada para un lote específico en la tabla 'lot_quantity'.",
+          "operationId": "updateLotQuantity",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos necesarios para actualizar la cantidad del lote.",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/LotQuantityInput"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Cantidad del lote actualizada con éxito."
+            },
+            "400": {
+              "description": "Datos faltantes o inválidos en la solicitud."
+            },
+            "404": {
+              "description": "Cantidad del lote no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/lot_quantity/get/{id_lot}": {
+        "get": {
+          "tags": ["Caficultor"],
+          "summary": "Obtiene la cantidad de un lote específico",
+          "description": "Este endpoint recupera la cantidad registrada para un lote específico de la tabla 'lot_quantity'.",
+          "operationId": "getLotQuantity",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_lot",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID único del lote cuya cantidad se desea obtener."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Cantidad del lote obtenida con éxito."
+            },
+            "400": {
+              "description": "ID del lote faltante o inválido."
+            },
+            "404": {
+              "description": "Cantidad del lote no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },  
+      "caficultor/lot_summary/post": {
+        "post": {
+          "tags": ["Caficultor"],
+          "summary": "Crea un resumen para un lote específico",
+          "description": "Este endpoint registra un resumen para un lote específico, incluyendo detalles de germinación, siembra, cosecha, secado, tostado y empaquetado en la tabla 'lot_summary'.",
+          "operationId": "createLotSummary",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos necesarios para registrar el resumen del lote.",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/LotSummaryInput"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Resumen del lote creado con éxito."
+            },
+            "400": {
+              "description": "Datos faltantes o inválidos en la solicitud."
+            },
+            "404": {
+              "description": "Lote no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/lot_summary/put": {
+        "put": {
+          "tags": ["Caficultor"],
+          "summary": "Actualiza el resumen de un lote específico",
+          "description": "Este endpoint actualiza el resumen registrado para un lote específico, incluyendo detalles de germinación, siembra, cosecha, secado, tostado y empaquetado en la tabla 'lot_summary'.",
+          "operationId": "updateLotSummary",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos necesarios para actualizar el resumen del lote.",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/LotSummaryInput"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Resumen del lote actualizado con éxito."
+            },
+            "400": {
+              "description": "Datos faltantes o inválidos en la solicitud."
+            },
+            "404": {
+              "description": "Resumen del lote no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/lot_summary/get/{id_lot}": {
+        "get": {
+          "tags": ["Caficultor"],
+          "summary": "Obtiene el resumen de un lote específico",
+          "description": "Este endpoint recupera el resumen de un lote específico, incluyendo detalles de germinación, siembra, cosecha, secado, tostado y empaquetado de la tabla 'lot_summary'.",
+          "operationId": "getLotSummary",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_lot",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID único del lote cuyo resumen se desea obtener."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Resumen del lote obtenido con éxito."
+            },
+            "400": {
+              "description": "ID del lote faltante o inválido."
+            },
+            "404": {
+              "description": "Resumen del lote no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },   
+      "caficultor/lot_certifications/post": {
+        "post": {
+          "tags": ["Caficultor"],
+          "summary": "Crea una certificación para un lote específico",
+          "description": "Este endpoint registra una nueva certificación para un lote específico, incluyendo el certificado de calidad del producto y el certificado del catador, en la tabla 'lot_certifications'.",
+          "operationId": "createLotCertification",
+          "consumes": ["multipart/form-data"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "formData",
+              "name": "id_lot",
+              "type": "integer",
+              "required": true,
+              "description": "ID del lote al que pertenece la certificación."
+            },
+            {
+              "in": "formData",
+              "name": "product_sc_certificate",
+              "type": "file",
+              "required": true,
+              "description": "Archivo del certificado de calidad del producto."
+            },
+            {
+              "in": "formData",
+              "name": "product_taster_certificate",
+              "type": "file",
+              "required": true,
+              "description": "Archivo del certificado del catador."
+            },
+            {
+              "in": "formData",
+              "name": "contact_qgrader",
+              "type": "boolean",
+              "required": true,
+              "description": "Indica si se incluye información de contacto de un Q-Grader."
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Certificación del lote creada con éxito."
+            },
+            "400": {
+              "description": "Datos faltantes o inválidos en la solicitud."
+            },
+            "404": {
+              "description": "Lote no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/lot_certifications/put": {
+        "put": {
+          "tags": ["Caficultor"],
+          "summary": "Actualiza la certificación de un lote específico",
+          "description": "Este endpoint actualiza la certificación existente de un lote específico, permitiendo modificar los certificados de calidad del producto y del catador en la tabla 'lot_certifications'.",
+          "operationId": "updateLotCertification",
+          "consumes": ["multipart/form-data"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id_lot",
+              "type": "integer",
+              "required": true,
+              "description": "ID del lote al que pertenece la certificación."
+            },
+            {
+              "in": "formData",
+              "name": "product_sc_certificate",
+              "type": "file",
+              "description": "Archivo actualizado del certificado de calidad del producto."
+            },
+            {
+              "in": "formData",
+              "name": "product_taster_certificate",
+              "type": "file",
+              "description": "Archivo actualizado del certificado del catador."
+            },
+            {
+              "in": "formData",
+              "name": "contact_qgrader",
+              "type": "boolean",
+              "description": "Indica si se actualiza la información de contacto de un Q-Grader."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Certificación del lote actualizada con éxito."
+            },
+            "400": {
+              "description": "Datos faltantes o inválidos en la solicitud."
+            },
+            "404": {
+              "description": "Certificación del lote no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/lot_certifications/get/{id_lot}": {
+        "get": {
+          "tags": ["Caficultor"],
+          "summary": "Obtiene la certificación de un lote específico",
+          "description": "Este endpoint recupera la certificación de un lote específico de la tabla 'lot_certifications', incluyendo los certificados de calidad del producto y del catador.",
+          "operationId": "getLotCertification",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_lot",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID único del lote cuya certificación se desea obtener."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Certificación del lote obtenida con éxito."
+            },
+            "400": {
+              "description": "ID del lote faltante o inválido."
+            },
+            "404": {
+              "description": "Certificación del lote no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/lot_photo/post": {
+        "post": {
+          "tags": ["Caficultor"],
+          "summary": "Carga una foto para un lote específico",
+          "description": "Este endpoint permite cargar una foto para un lote específico, almacenándola en la tabla 'lot_photo'.",
+          "operationId": "createLotPhoto",
+          "consumes": ["multipart/form-data"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "formData",
+              "name": "id_lot",
+              "type": "integer",
+              "required": true,
+              "description": "ID del lote al que pertenece la foto."
+            },
+            {
+              "in": "formData",
+              "name": "lot_photo",
+              "type": "file",
+              "required": true,
+              "description": "Archivo de la foto del lote."
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Foto del lote creada con éxito."
+            },
+            "400": {
+              "description": "Datos faltantes o inválidos en la solicitud."
+            },
+            "404": {
+              "description": "Lote no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/lot_photo/put/{id_lot}": {
+        "put": {
+          "tags": ["Caficultor"],
+          "summary": "Actualiza la foto de un lote específico",
+          "description": "Este endpoint permite actualizar la foto de un lote específico, reemplazando la existente en la tabla 'lot_photo'.",
+          "operationId": "updateLotPhoto",
+          "consumes": ["multipart/form-data"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id_lot",
+              "type": "integer",
+              "required": true,
+              "description": "ID del lote cuya foto se actualizará."
+            },
+            {
+              "in": "formData",
+              "name": "lot_photo",
+              "type": "file",
+              "description": "Archivo actualizado de la foto del lote."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Foto del lote actualizada con éxito."
+            },
+            "400": {
+              "description": "Datos faltantes o inválidos en la solicitud."
+            },
+            "404": {
+              "description": "Foto del lote no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },   
+      "caficultor/lot_photo/get/{id_lot}": {
+        "get": {
+          "tags": ["Caficultor"],
+          "summary": "Obtiene la foto de un lote específico",
+          "description": "Este endpoint recupera la foto de un lote específico de la tabla 'lot_photo'.",
+          "operationId": "getLotPhoto",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_lot",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID único del lote cuya foto se desea obtener."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Foto del lote obtenida con éxito."
+            },
+            "400": {
+              "description": "ID del lote faltante o inválido."
+            },
+            "404": {
+              "description": "Foto del lote no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/get_lot_info/{id_farm}": {
+        "get": {
+          "tags": ["Caficultor"],
+          "summary": "Obtiene información detallada de los lotes por ID de granja",
+          "description": "Este endpoint recupera información detallada de los lotes para una granja específica, incluyendo fotos de los lotes, cantidad de productos, resumen del lote y certificaciones. Las operaciones afectan y consultan múltiples tablas en la base de datos, incluyendo 'Lots', 'LotPhoto', 'LotQuantity', 'LotSummary', y 'LotCertifications'.",
+          "operationId": "getLotInfoByFarmId",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_farm",
+              "in": "path",
+              "description": "ID de la granja para la cual se recuperará la información de lotes.",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Información de lotes recuperada exitosamente.",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "example": "Lots retrieved successfully"
+                  },
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/LotDetails"
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "ID de granja faltante o inválido."
+            },
+            "404": {
+              "description": "Información de lotes no encontrada para la ID de granja proporcionada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/delete_farms_by_id_farm/{id_farm}": {
+        "delete": {
+          "tags": ["Caficultor"],
+          "summary": "Elimina una granja por su ID",
+          "description": "Este endpoint permite eliminar una granja especificada por su ID. Cambia el estado de la granja a 'inactivo' en la tabla 'Farms' y actualiza el estado de todos los lotes asociados a 'inactivo' en la tabla 'Lots'.",
+          "operationId": "deleteFarmByIdFarm",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_farm",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID de la granja a eliminar."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Granja y datos relacionados eliminados con éxito.",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "example": "Farm and related data deleted successfully"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "ID de granja inválido."
+            },
+            "404": {
+              "description": "Granja con el ID proporcionado no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor al intentar eliminar la granja."
+            }
+          }
+        }
+      },    
+      "caficultor/farm_documentation/post": {
+        "post": {
+          "tags": ["Caficultor"],
+          "summary": "Crea documentación para la granja de un usuario",
+          "description": "Este endpoint permite subir y registrar la documentación de la granja para un usuario específico. Guarda la documentación en la tabla 'farm_documentation'.",
+          "operationId": "createFarmDocumentation",
+          "consumes": ["multipart/form-data"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_user",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "description": "El ID del usuario propietario de la granja."
+            },
+            {
+              "name": "farm_documentation_id_document",
+              "in": "formData",
+              "required": true,
+              "type": "file",
+              "description": "Documento de identificación de la granja."
+            },
+            {
+              "name": "farm_documentation_rut",
+              "in": "formData",
+              "required": true,
+              "type": "file",
+              "description": "RUT de la granja."
+            },
+            {
+              "name": "farm_documentation_chamber_commerce",
+              "in": "formData",
+              "required": true,
+              "type": "file",
+              "description": "Certificado de la cámara de comercio de la granja."
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Documentación de la granja creada exitosamente."
+            },
+            "400": {
+              "description": "Error de validación."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/farm_documentation/put/{id_user}": {
+        "put": {
+          "tags": ["Caficultor"],
+          "summary": "Actualiza la documentación de la granja de un usuario",
+          "description": "Este endpoint permite actualizar la documentación existente de la granja de un usuario específico. Actualiza los registros en la tabla 'farm_documentation'.",
+          "operationId": "updateFarmDocumentation",
+          "consumes": ["multipart/form-data"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_user",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID del usuario propietario de la granja a actualizar."
+            },
+            {
+              "name": "farm_documentation_id_document",
+              "in": "formData",
+              "type": "file",
+              "description": "Nuevo documento de identificación de la granja."
+            },
+            {
+              "name": "farm_documentation_rut",
+              "in": "formData",
+              "type": "file",
+              "description": "Nuevo RUT de la granja."
+            },
+            {
+              "name": "farm_documentation_chamber_commerce",
+              "in": "formData",
+              "type": "file",
+              "description": "Nuevo certificado de la cámara de comercio de la granja."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Documentación de la granja actualizada exitosamente."
+            },
+            "400": {
+              "description": "Error de validación."
+            },
+            "404": {
+              "description": "Documentación de la granja no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/farm_documentation/get/{id_user}": {
+        "get": {
+          "tags": ["Caficultor"],
+          "summary": "Obtiene la documentación de la granja de un usuario",
+          "description": "Este endpoint recupera la documentación registrada de la granja de un usuario específico de la tabla 'farm_documentation'.",
+          "operationId": "getFarmDocumentationByUserId",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_user",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID del usuario propietario de la granja."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Documentación de la granja obtenida exitosamente."
+            },
+            "404": {
+              "description": "Documentación de la granja no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },                            
+      "caficultor/user_profile_photo": {
+        "post": {
+          "tags": ["Caficultor"],
+          "summary": "Actualiza la foto de perfil del caficultor",
+          "description": "Este endpoint permite a un caficultor actualizar su foto de perfil en la tabla 'users_table'. Se requiere el ID del usuario y el archivo de la nueva foto de perfil.",
+          "operationId": "updateCaficultorProfilePhoto",
+          "consumes": ["multipart/form-data"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "formData",
+              "name": "id_user",
+              "type": "integer",
+              "required": true,
+              "description": "El ID del caficultor cuya foto de perfil se va a actualizar."
+            },
+            {
+              "in": "formData",
+              "name": "user_profile_photo",
+              "type": "file",
+              "required": true,
+              "description": "El archivo de la nueva foto de perfil del caficultor. La foto se actualiza en la tabla 'users_table'."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Foto de perfil actualizada con éxito en la tabla 'users_table'.",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "example": "Profile photo updated successfully"
+                  },
+                  "profile_photo": {
+                    "type": "string",
+                    "example": "path/to/updated/photo.jpg"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Solicitud inválida debido a parámetros faltantes o inválidos."
+            },
+            "404": {
+              "description": "Caficultor no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/user_role": {
+        "post": {
+          "tags": ["Caficultor"],
+          "summary": "Asigna un rol a un usuario",
+          "description": "Este endpoint permite asignar un nuevo rol a un usuario. Guarda la asignación en la tabla 'user_role'.",
+          "operationId": "addNewUserRole",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_user",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "description": "El ID del usuario al que se le asignará el rol."
+            },
+            {
+              "name": "id_role",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "description": "El ID del rol que se asignará al usuario."
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Rol de usuario agregado exitosamente."
+            },
+            "400": {
+              "description": "Error de validación."
+            },
+            "404": {
+              "description": "Usuario no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/user_role/put/{id_user}": {
+        "put": {
+          "tags": ["Caficultor"],
+          "summary": "Actualiza el rol de un usuario",
+          "description": "Este endpoint permite actualizar el rol asignado a un usuario. Actualiza los registros en la tabla 'user_role'.",
+          "operationId": "updateUserRole",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_user",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID del usuario al que se le actualizará el rol."
+            },
+            {
+              "name": "id_role",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "description": "El nuevo ID del rol que se asignará al usuario."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Rol de usuario actualizado exitosamente."
+            },
+            "400": {
+              "description": "Error de validación."
+            },
+            "404": {
+              "description": "Rol de usuario no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "caficultor/user_role/get/{id_user}": {
+        "get": {
+          "tags": ["Caficultor"],
+          "summary": "Obtiene el rol de un usuario",
+          "description": "Este endpoint recupera el rol asignado a un usuario específico de la tabla 'user_role'.",
+          "operationId": "getUserRoleByIdUser",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_user",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID del usuario cuyo rol se desea obtener."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Rol de usuario encontrado exitosamente."
+            },
+            "404": {
+              "description": "Rol de usuario no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },                                                                                                        
+      "empresario/register/post": {
+          "post": {
+            "tags": ["Empresario"],
+            "summary": "Registro de un nuevo empresario",
+            "description": "Endpoint para registrar un nuevo empresario en la plataforma. Este proceso incluye la validación de los datos proporcionados y la creación de un nuevo registro de usuario en el sistema.",
+            "operationId": "registerEmpresario",
+            "consumes": ["application/json"],
+            "produces": ["application/json"],
+            "parameters": [
+              {
+                "in": "body",
+                "name": "body",
+                "description": "Datos del empresario para el registro. Los campos requeridos pueden variar según el rol del usuario.",
+                "required": true,
+                "schema": {
+                  "$ref": "#/definitions/Empresario"
+                }
+              }
+            ],
+            "responses": {
+              "201": {
+                "description": "Empresario registrado con éxito. La respuesta incluye un identificador único del usuario y un token de sesión.",
+                "examples": {
+                  "application/json": {
+                    "id_user": 123,
+                    "token": "abc123xyz"
+                  }
+                }
+              },
+              "400": {
+                "description": "Solicitud inválida. Esto puede deberse a datos de entrada faltantes o mal formateados."
+              },
+              "500": {
+                "description": "Error interno del servidor."
+              }
+            }
+          }
+      },
+      "/aprendiz/register/post": {
+        "post": {
+          "tags": ["Aprendiz"],
+          "summary": "Registro de un nuevo aprendiz",
+          "description": "Endpoint para registrar un nuevo aprendiz en la plataforma. Este proceso incluye la validación de los datos proporcionados y la creación de un nuevo registro de usuario en el sistema.",
+          "operationId": "registerAprendiz",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos del aprendiz para el registro. Los campos requeridos pueden variar según el rol del usuario.",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Usuario"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Aprendiz registrado con éxito. La respuesta incluye un identificador único del usuario y un token de sesión.",
+              "examples": {
+                "application/json": {
+                  "id_user": 123,
+                  "token": "abc123xyz"
+                }
+              }
+            },
+            "400": {
+              "description": "Solicitud inválida. Esto puede deberse a datos de entrada faltantes o mal formateados."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/register/post": {
+        "post": {
+          "tags": ["Administrador"],
+          "summary": "Registro de un nuevo administrador",
+          "description": "Endpoint para registrar un nuevo administrador en la plataforma. Este proceso incluye la validación de los datos proporcionados y la creación de un nuevo registro de usuario en el sistema.",
+          "operationId": "registerAdministrador",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos del administrador para el registro. Los campos requeridos pueden variar según el rol del usuario.",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Usuario"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Administrador registrado con éxito. La respuesta incluye un identificador único del usuario y un token de sesión.",
+              "examples": {
+                "application/json": {
+                  "id_user": 123,
+                  "token": "abc123xyz"
+                }
+              }
+            },
+            "400": {
+              "description": "Solicitud inválida. Esto puede deberse a datos de entrada faltantes o mal formateados."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "general/type_document/get": {
+          "get": {
+            "tags": ["General"],
+            "summary": "Obtiene los tipos de documentos disponibles",
+            "description": "Endpoint para obtener los tipos de documentos que pueden ser utilizados por los usuarios durante el registro.",
+            "operationId": "getTypeDocument",
+            "produces": ["application/json"],
+            "responses": {
+              "200": {
+                "description": "Tipos de documentos obtenidos con éxito",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "User Information created successfully"
+                    },
+                    "type_document": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id_type_document": {
+                            "type": "integer"
+                          },
+                          "type_document_name": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "example": [
+                        {
+                          "id_type_document": 1,
+                          "type_document_name": "Cédula de ciudadanía"
+                        },
+                        {
+                          "id_type_document": 2,
+                          "type_document_name": "Cédula de extranjería"
+                        },
+                        {
+                          "id_type_document": 3,
+                          "type_document_name": "Pasaporte"
+                        },
+                        {
+                          "id_type_document": 4,
+                          "type_document_name": "Tarjeta de identidad"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              "500": {
+                "description": "Error interno del servidor"
+              }
+            }
+          }
+      },
+      "general/cover_photo/put": {
+          "put": {
+            "tags": ["General"],
+            "summary": "Actualiza la foto de portada de un usuario",
+            "description": "Endpoint para actualizar la foto de portada de un usuario en la plataforma. Este proceso valida el ID del usuario y la imagen proporcionada.",
+            "operationId": "updateUserCoverPhoto",
+            "consumes": ["multipart/form-data"],
+            "produces": ["application/json"],
+            "parameters": [
+              {
+                "in": "formData",
+                "name": "user_cover_photo",
+                "type": "file",
+                "description": "La nueva foto de portada del usuario, debe ser un archivo en formato PNG, JPG o JPEG y no exceder el tamaño de 1MB.",
+                "required": true
+              },
+              {
+                "in": "formData",
+                "name": "id_user",
+                "type": "integer",
+                "description": "El ID del usuario cuya foto de portada se actualizará.",
+                "required": true
+              }
+            ],
+            "responses": {
+              "201": {
+                "description": "Foto de portada actualizada con éxito",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Cover photo updated successfully"
+                    },
+                    "cover_photo": {
+                      "type": "string",
+                      "example": "path/to/new/cover_photo.jpg"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Información de usuario faltante, inválida o imagen en formato incorrecto"
+              },
+              "404": {
+                "description": "Usuario no encontrado"
+              },
+              "500": {
+                "description": "Error interno del servidor"
+              }
+            }
+          }
+      },
+      "general/verify_token/get/{token}": {
+          "get": {
+            "tags": ["General"],
+            "summary": "Verifica el token de un usuario",
+            "description": "Endpoint para verificar la validez del token de un usuario. Si el token es válido, habilita al usuario correspondiente.",
+            "operationId": "verifyUserToken",
+            "produces": ["application/json"],
+            "parameters": [
+              {
+                "name": "token",
+                "in": "path",
+                "required": true,
+                "description": "El token de usuario a verificar.",
+                "type": "string"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Token válido. Usuario habilitado",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "valid": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "id_user": {
+                      "type": "integer",
+                      "example": 123
+                    },
+                    "token": {
+                      "type": "string",
+                      "example": "abc123xyz"
+                    },
+                    "id_role": {
+                      "type": "integer",
+                      "example": 2
+                    }
+                  }
+                }
+              },
+              "401": {
+                "description": "Token inválido o no autorizado"
+              },
+              "500": {
+                "description": "Error interno del servidor"
+              }
+            }
+          }
+      },
+      "general/login/post": {
+          "post": {
+            "tags": ["General"],
+            "summary": "Iniciar sesión de usuario",
+            "description": "Endpoint para verificar las credenciales del usuario e iniciar sesión. Si las credenciales son correctas, devuelve información relevante sobre el usuario.",
+            "operationId": "loginUser",
+            "consumes": ["application/json"],
+            "produces": ["application/json"],
+            "parameters": [
+              {
+                "in": "body",
+                "name": "body",
+                "description": "Credenciales del usuario para iniciar sesión.",
+                "required": true,
+                "schema": {
+                  "type": "object",
+                  "required": ["user_email", "user_password"],
+                  "properties": {
+                    "user_email": {
+                      "type": "string",
+                      "format": "email",
+                      "example": "email@example.com"
+                    },
+                    "user_password": {
+                      "type": "string",
+                      "example": "yourpassword"
+                    }
+                  }
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Inicio de sesión exitoso. Devuelve información del usuario.",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id_user": {
+                      "type": "integer",
+                      "example": 123
+                    },
+                    "user_email": {
+                      "type": "string",
+                      "example": "email@example.com"
+                    },
+                    "user_name": {
+                      "type": "string",
+                      "example": "John Doe"
+                    },
+                    "user_phone": {
+                      "type": "string",
+                      "example": "1234567890"
+                    },
+                    "user_token": {
+                      "type": "string",
+                      "example": "abc123xyz"
+                    },
+                    "id_role": {
+                      "type": "integer",
+                      "example": 2
+                    },
+                    "login_status": {
+                      "type": "string",
+                      "example": "success"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Información de usuario faltante o inválida"
+              },
+              "401": {
+                "description": "Credenciales incorrectas o usuario no autorizado"
+              },
+              "404": {
+                "description": "Usuario no encontrado"
+              },
+              "500": {
+                "description": "Error interno del servidor"
+              }
+            }
+          }
+      },
+      "general/get_countries/get": {
+          "get": {
+            "tags": ["General"],
+            "summary": "Obtener lista de países",
+            "description": "Endpoint para obtener una lista de países disponibles en la plataforma.",
+            "operationId": "getCountries",
+            "produces": ["application/json"],
+            "responses": {
+              "200": {
+                "description": "Lista de países obtenida con éxito",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id_country": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "country_name_en": {
+                        "type": "string",
+                        "example": "Colombia"
+                      },
+                      "country_name_es": {
+                        "type": "string",
+                        "example": "Colombia"
+                      },
+                      "country_iso2": {
+                        "type": "string",
+                        "example": "CO"
+                      },
+                      "country_iso3": {
+                        "type": "string",
+                        "example": "COL"
+                      },
+                      "country_numericcode": {
+                        "type": "string",
+                        "example": "170"
+                      },
+                      "country_phonecode": {
+                        "type": "string",
+                        "example": "+57"
+                      }
+                    }
+                  }
+                }
+              },
+              "500": {
+                "description": "Error interno del servidor"
+              }
+            }
+          }
+      },
+      "general/get_cities/get/{id_state}": {
+          "get": {
+            "tags": ["General"],
+            "summary": "Obtener lista de ciudades por estado",
+            "description": "Endpoint para obtener una lista de ciudades basada en el ID del estado.",
+            "operationId": "getCitiesByState",
+            "produces": ["application/json"],
+            "parameters": [
+              {
+                "name": "id_state",
+                "in": "path",
+                "required": true,
+                "description": "El ID del estado para el cual se quieren obtener las ciudades.",
+                "type": "integer"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Lista de ciudades obtenida con éxito",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id_city": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "id_state": {
+                        "type": "integer",
+                        "example": 5
+                      },
+                      "city_name": {
+                        "type": "string",
+                        "example": "Medellín"
+                      }
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "ID de estado faltante o inválido"
+              },
+              "404": {
+                "description": "Ciudades no encontradas para el estado especificado"
+              },
+              "500": {
+                "description": "Error interno del servidor"
+              }
+            }
+          }
+      },
+      "general/get_villages/get/{id_city}": {
+          "get": {
+            "tags": ["General"],
+            "summary": "Obtener lista de aldeas por ciudad",
+            "description": "Endpoint para obtener una lista de aldeas basada en el ID de la ciudad.",
+            "operationId": "getVillagesByCity",
+            "produces": ["application/json"],
+            "parameters": [
+              {
+                "name": "id_city",
+                "in": "path",
+                "required": true,
+                "description": "El ID de la ciudad para la cual se quieren obtener las aldeas.",
+                "type": "integer"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Lista de aldeas obtenida con éxito",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id_village": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "id_city": {
+                        "type": "integer",
+                        "example": 10
+                      },
+                      "village_name": {
+                        "type": "string",
+                        "example": "El Poblado"
+                      }
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "ID de ciudad faltante o inválido"
+              },
+              "404": {
+                "description": "Aldeas no encontradas para la ciudad especificada"
+              },
+              "500": {
+                "description": "Error interno del servidor"
+              }
+            }
+          }
+      },
+      "/administrador/cursos/post": {
+        "post": {
+            "tags": ["Administrador"],
+            "summary": "Crear un nuevo curso",
+            "description": "Endpoint para crear un nuevo curso en la plataforma.",
+            "operationId": "createCourse",
+            "consumes": ["application/json"],
+            "produces": ["application/json"],
+            "parameters": [
+                {
+                    "in": "body",
+                    "name": "body",
+                    "description": "Datos necesarios para la creación del curso.",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Curso"
+                    }
+                }
+            ],
+            "responses": {
+                "201": {
+                    "description": "Curso creado con éxito."
+                },
+                "400": {
+                    "description": "Datos proporcionados son inválidos o insuficientes."
+                },
+                "500": {
+                    "description": "Error interno del servidor."
+                }
+            }
+        }
+      },
+      "/administrador/cursos/put/{id_curso}": {
+        "put": {
+            "tags": ["Administrador"],
+            "summary": "Actualizar un curso existente",
+            "description": "Endpoint para actualizar un curso existente por su ID.",
+            "operationId": "updateCourse",
+            "consumes": ["application/json"],
+            "produces": ["application/json"],
+            "parameters": [
+                {
+                    "name": "id_curso",
+                    "in": "path",
+                    "required": true,
+                    "type": "integer",
+                    "description": "ID único del curso a actualizar."
+                },
+                {
+                    "in": "body",
+                    "name": "body",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Curso"
+                    }
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "Curso actualizado con éxito."
+                },
+                "400": {
+                    "description": "Datos proporcionados son inválidos o insuficientes."
+                },
+                "404": {
+                    "description": "Curso no encontrado."
+                },
+                "500": {
+                    "description": "Error interno del servidor."
+                }
+            }
+        }
+      },
+      "/administrador/cursos/get/{id_curso}": {
+        "get": {
+            "tags": ["Administrador"],
+            "summary": "Obtener detalles de un curso",
+            "description": "Endpoint para obtener los detalles de un curso por su ID.",
+            "operationId": "getCourseById",
+            "produces": ["application/json"],
+            "parameters": [
+                {
+                    "name": "id_curso",
+                    "in": "path",
+                    "required": true,
+                    "type": "integer",
+                    "description": "ID único del curso a obtener."
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "Detalles del curso obtenidos con éxito."
+                },
+                "400": {
+                    "description": "ID de curso inválido."
+                },
+                "404": {
+                    "description": "Curso no encontrado."
+                },
+                "500": {
+                    "description": "Error interno del servidor."
+                }
+            }
+        }
+      },
+      "/administrador/cursos/objective/post": {
+        "post": {
+          "tags": ["Administrador"],
+          "summary": "Create a new course objective",
+          "description": "An endpoint to create a new course objective linked to a specific course.",
+          "operationId": "createCourseObjective",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Course objective information",
+              "required": true,
+              "schema": {
+                "required": [
+                  "objective_text",
+                  "id_course"
+                ],
+                "properties": {
+                  "objective_text": {
+                    "type": "string",
+                    "maxLength": 500,
+                    "minLength": 10,
+                    "description": "The text of the course objective."
+                  },
+                  "id_course": {
+                    "type": "integer",
+                    "description": "The ID of the course to which the objective belongs."
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Course objective created successfully.",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "objective_text": {
+                    "type": "string"
+                  },
+                  "id_course": {
+                    "type": "integer"
+                  },
+                  "id_objective": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Validation error with input data."
+            },
+            "404": {
+              "description": "Course not found."
+            },
+            "500": {
+              "description": "Internal server error."
+            }
+          }
+        }
+      },
+      "/administrador/cursos/objetivos/post": {
+        "post": {
+          "tags": ["Administrador"],
+          "summary": "Crear un nuevo objetivo de curso",
+          "description": "Endpoint para crear un nuevo objetivo asociado a un curso específico.",
+          "operationId": "crearObjetivoDeCurso",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Información del objetivo del curso",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "required": [
+                  "objective_text",
+                  "id_course"
+                ],
+                "properties": {
+                  "objective_text": {
+                    "type": "string",
+                    "maxLength": 500,
+                    "minLength": 10,
+                    "description": "El texto del objetivo del curso."
+                  },
+                  "id_course": {
+                    "type": "integer",
+                    "description": "El ID del curso al cual pertenece el objetivo."
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Objetivo del curso creado con éxito.",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "objective_text": {
+                    "type": "string"
+                  },
+                  "id_course": {
+                    "type": "integer"
+                  },
+                  "id_objective": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Error de validación en los datos de entrada."
+            },
+            "404": {
+              "description": "Curso no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      
+      },
+      "/administrador/cursos/objetivo/actualizar": {
+        "put": {
+          "tags": ["Administrador"],
+          "summary": "Actualizar un objetivo de curso existente",
+          "description": "Endpoint para actualizar un objetivo de curso existente por su ID.",
+          "operationId": "actualizarObjetivoCurso",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos del objetivo del curso para actualizar.",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "required": ["id_objective", "objective_text", "id_course"],
+                "properties": {
+                  "id_objective": {
+                    "type": "integer",
+                    "description": "El ID único del objetivo del curso."
+                  },
+                  "objective_text": {
+                    "type": "string",
+                    "maxLength": 500,
+                    "minLength": 20,
+                    "description": "El texto descriptivo del objetivo del curso."
+                  },
+                  "id_course": {
+                    "type": "integer",
+                    "description": "El ID del curso al que pertenece el objetivo."
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Objetivo del curso actualizado con éxito."
+            },
+            "400": {
+              "description": "Error de validación en los datos de entrada."
+            },
+            "404": {
+              "description": "Curso u objetivo no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/cursos/objetivo/{id_objective}": {
+        "get": {
+          "tags": ["Administrador"],
+          "summary": "Obtener un objetivo de curso por ID",
+          "description": "Endpoint para obtener los detalles de un objetivo de curso por su ID.",
+          "operationId": "obtenerObjetivoCursoPorId",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_objective",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID único del objetivo del curso a obtener."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Detalles del objetivo del curso obtenidos con éxito."
+            },
+            "400": {
+              "description": "ID del objetivo del curso inválido."
+            },
+            "404": {
+              "description": "Objetivo del curso no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/cursos/get": {
+        "get": {
+          "tags": ["Administrador"],
+          "summary": "Obtener todos los cursos",
+          "description": "Endpoint para obtener todos los cursos disponibles en la plataforma.",
+          "operationId": "obtenerTodosLosCursos",
+          "produces": ["application/json"],
+          "responses": {
+            "200": {
+              "description": "Lista de cursos obtenida con éxito.",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/CursoConFoto"
+                }
+              }
+            },
+            "404": {
+              "description": "No se encontraron cursos."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/habilidades/post": {
+        "post": {
+          "tags": ["Administrador"],
+          "summary": "Crear una nueva habilidad",
+          "description": "Endpoint para crear una nueva habilidad.",
+          "operationId": "crearHabilidad",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos de la nueva habilidad.",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "required": [
+                  "skill_name",
+                  "skill_description"
+                ],
+                "properties": {
+                  "skill_name": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "minLength": 10,
+                    "description": "El nombre de la habilidad."
+                  },
+                  "skill_description": {
+                    "type": "string",
+                    "maxLength": 500,
+                    "minLength": 20,
+                    "description": "La descripción de la habilidad."
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Habilidad creada con éxito."
+            },
+            "400": {
+              "description": "Error de validación con los datos de entrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/habilidades/{id_habilidad}": {
+        "get": {
+          "tags": ["Administrador"],
+          "summary": "Obtener una habilidad por ID",
+          "description": "Endpoint para obtener los detalles de una habilidad por su ID.",
+          "operationId": "obtenerHabilidadPorId",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_habilidad",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID único de la habilidad."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Detalles de la habilidad obtenidos con éxito."
+            },
+            "400": {
+              "description": "ID de habilidad inválido."
+            },
+            "404": {
+              "description": "Habilidad no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/habilidades/actualizar": {
+        "put": {
+          "tags": ["Administrador"],
+          "summary": "Actualizar una habilidad existente",
+          "description": "Endpoint para actualizar los datos de una habilidad existente por su ID.",
+          "operationId": "actualizarHabilidad",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos de la habilidad para actualizar.",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "required": [
+                  "id_skill",
+                  "skill_name",
+                  "skill_description"
+                ],
+                "properties": {
+                  "id_skill": {
+                    "type": "integer",
+                    "description": "El ID único de la habilidad."
+                  },
+                  "skill_name": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "minLength": 10,
+                    "description": "El nombre de la habilidad."
+                  },
+                  "skill_description": {
+                    "type": "string",
+                    "maxLength": 1500,
+                    "minLength": 20,
+                    "description": "La descripción de la habilidad."
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Habilidad actualizada con éxito."
+            },
+            "400": {
+              "description": "Error de validación en los datos de entrada."
+            },
+            "404": {
+              "description": "Habilidad no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/eliminar_habilidades/{id_habilidad}": {
+        "delete": {
+          "tags": ["Administrador"],
+          "summary": "Eliminar una habilidad",
+          "description": "Endpoint para eliminar una habilidad por su ID.",
+          "operationId": "eliminarHabilidad",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_habilidad",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID único de la habilidad a eliminar."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Habilidad eliminada con éxito."
+            },
+            "400": {
+              "description": "ID de habilidad inválido o falta el ID de habilidad."
+            },
+            "404": {
+              "description": "Habilidad no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/curso-habilidad/crear": {
+        "post": {
+          "tags": ["Administrador"],
+          "summary": "Crear una asociación entre un curso y una habilidad",
+          "description": "Endpoint para crear una nueva asociación entre un curso y una habilidad.",
+          "operationId": "crearAsociacionCursoHabilidad",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "ID del curso e ID de la habilidad para crear la asociación.",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "required": ["id_course", "id_skill"],
+                "properties": {
+                  "id_course": {
+                    "type": "integer",
+                    "description": "El ID del curso."
+                  },
+                  "id_skill": {
+                    "type": "integer",
+                    "description": "El ID de la habilidad."
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Asociación entre curso y habilidad creada con éxito."
+            },
+            "400": {
+              "description": "Error de validación en los datos de entrada."
+            },
+            "404": {
+              "description": "Curso o habilidad no encontrados."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/curso-habilidad/obtener/{id_course}/{id_skill}": {
+        "get": {
+          "tags": ["Administrador"],
+          "summary": "Obtener habilidades asociadas a un curso",
+          "description": "Endpoint para obtener las habilidades asociadas a un curso específico.",
+          "operationId": "obtenerHabilidadesCurso",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_course",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID del curso."
+            },
+            {
+              "name": "id_skill",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID de la habilidad."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Habilidades del curso obtenidas con éxito."
+            },
+            "404": {
+              "description": "Asociación de curso y habilidad no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/curso-habilidad/eliminar/{id_course}/{id_skill}": {
+        "delete": {
+          "tags": ["Administrador"],
+          "summary": "Eliminar una asociación entre un curso y una habilidad",
+          "description": "Endpoint para eliminar una asociación existente entre un curso y una habilidad.",
+          "operationId": "eliminarAsociacionCursoHabilidad",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_course",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID del curso."
+            },
+            {
+              "name": "id_skill",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID de la habilidad."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Asociación entre curso y habilidad eliminada con éxito."
+            },
+            "404": {
+              "description": "Asociación de curso y habilidad no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/modulos/crear": {
+        "post": {
+          "tags": ["Administrador"],
+          "summary": "Crear un nuevo módulo",
+          "description": "Endpoint para crear un nuevo módulo asociado a un curso.",
+          "operationId": "crearModulo",
+          "consumes": ["multipart/form-data"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "formData",
+              "name": "module_title",
+              "type": "string",
+              "maxLength": 250,
+              "minLength": 5,
+              "description": "El título del módulo.",
+              "required": true
+            },
+            {
+              "in": "formData",
+              "name": "module_description",
+              "type": "string",
+              "maxLength": 500,
+              "minLength": 20,
+              "description": "La descripción del módulo."
+            },
+            {
+              "in": "formData",
+              "name": "id_status",
+              "type": "integer",
+              "description": "El ID del estado del curso asociado al módulo.",
+              "required": true
+            },
+            {
+              "in": "formData",
+              "name": "id_course",
+              "type": "integer",
+              "description": "El ID del curso al que pertenece el módulo.",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Módulo creado con éxito."
+            },
+            "400": {
+              "description": "Error de validación en los datos de entrada."
+            },
+            "404": {
+              "description": "Curso o estado no encontrados."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/modulos/obtener/{id_module}": {
+        "get": {
+          "tags": ["Administrador"],
+          "summary": "Obtener un módulo por ID",
+          "description": "Endpoint para obtener los detalles de un módulo por su ID.",
+          "operationId": "obtenerModuloPorId",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_module",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID único del módulo a obtener."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Detalles del módulo obtenidos con éxito."
+            },
+            "404": {
+              "description": "Módulo no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/modulos/actualizar": {
+        "put": {
+          "tags": ["Administrador"],
+          "summary": "Actualizar un módulo existente",
+          "description": "Endpoint para actualizar un módulo existente por su ID.",
+          "operationId": "actualizarModulo",
+          "consumes": ["multipart/form-data"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "formData",
+              "name": "id_module",
+              "type": "integer",
+              "description": "El ID único del módulo.",
+              "required": true
+            },
+            {
+              "in": "formData",
+              "name": "module_title",
+              "type": "string",
+              "maxLength": 250,
+              "minLength": 5,
+              "description": "El título del módulo."
+            },
+            {
+              "in": "formData",
+              "name": "module_description",
+              "type": "string",
+              "maxLength": 500,
+              "minLength": 20,
+              "description": "La descripción del módulo."
+            },
+            {
+              "in": "formData",
+              "name": "id_status",
+              "type": "integer",
+              "description": "El ID del estado del curso asociado al módulo."
+            },
+            {
+              "in": "formData",
+              "name": "id_course",
+              "type": "integer",
+              "description": "El ID del curso al que pertenece el módulo."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Módulo actualizado con éxito."
+            },
+            "400": {
+              "description": "Error de validación en los datos de entrada."
+            },
+            "404": {
+              "description": "Módulo, curso o estado no encontrados."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/submodulos/crear": {
+        "post": {
+          "tags": ["Administrador"],
+          "summary": "Crear un nuevo submódulo",
+          "description": "Endpoint para crear un nuevo submódulo asociado a un módulo.",
+          "operationId": "crearSubmodulo",
+          "consumes": ["multipart/form-data"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "formData",
+              "name": "submodule_title",
+              "type": "string",
+              "maxLength": 250,
+              "minLength": 5,
+              "description": "El título del submódulo.",
+              "required": true
+            },
+            {
+              "in": "formData",
+              "name": "submodule_summary",
+              "type": "string",
+              "maxLength": 500,
+              "minLength": 20,
+              "description": "El resumen del submódulo.",
+              "required": true
+            },
+            {
+              "in": "formData",
+              "name": "submodule_resources",
+              "type": "file",
+              "description": "Recursos del submódulo, como imágenes o documentos."
+            },
+            {
+              "in": "formData",
+              "name": "submodule_class_video",
+              "type": "string",
+              "maxLength": 250,
+              "minLength": 25,
+              "description": "Video de la clase del submódulo."
+            },
+            {
+              "in": "formData",
+              "type": "number",
+              "description": "Porcentaje de aprobación del submódulo.",
+              "default": 80
+            },
+            {
+              "in": "formData",
+              "name": "id_status",
+              "type": "integer",
+              "description": "El ID del estado del curso asociado al submódulo.",
+              "required": true
+            },
+            {
+              "in": "formData",
+              "name": "id_module",
+              "type": "integer",
+              "description": "El ID del módulo al que pertenece el submódulo.",
+              "required": true
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Submódulo creado con éxito."
+            },
+            "400": {
+              "description": "Error de validación en los datos de entrada."
+            },
+            "404": {
+              "description": "Módulo o estado no encontrados."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/submodulos/obtener/{id_submodule}": {
+        "get": {
+          "tags": ["Administrador"],
+          "summary": "Obtener un submódulo por ID",
+          "description": "Endpoint para obtener los detalles de un submódulo por su ID.",
+          "operationId": "obtenerSubmoduloPorId",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_submodule",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID único del submódulo a obtener."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Detalles del submódulo obtenidos con éxito."
+            },
+            "404": {
+              "description": "Submódulo no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/submodulos/actualizar": {
+        "put": {
+          "tags": ["Administrador"],
+          "summary": "Actualizar un submódulo existente",
+          "description": "Endpoint para actualizar un submódulo existente por su ID.",
+          "operationId": "actualizarSubmodulo",
+          "consumes": ["multipart/form-data"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "formData",
+              "name": "id_submodule",
+              "type": "integer",
+              "description": "El ID único del submódulo.",
+              "required": true
+            },
+            {
+              "in": "formData",
+              "name": "submodule_title",
+              "type": "string",
+              "maxLength": 250,
+              "minLength": 5,
+              "description": "El título del submódulo."
+            },
+            {
+              "in": "formData",
+              "name": "submodule_summary",
+              "type": "string",
+              "maxLength": 500,
+              "minLength": 20,
+              "description": "El resumen del submódulo."
+            },
+            {
+              "in": "formData",
+              "name": "submodule_resources",
+              "type": "file",
+              "description": "Recursos del submódulo, como imágenes o documentos."
+            },
+            {
+              "in": "formData",
+              "name": "submodule_class_video",
+              "type": "string",
+              "maxLength": 250,
+              "minLength": 25,
+              "description": "Video de la clase del submódulo."
+            },
+            {
+              "in": "formData",
+              "type": "number",
+              "description": "Porcentaje de aprobación del submódulo.",
+              "default": 80
+            },
+            {
+              "in": "formData",
+              "name": "id_status",
+              "type": "integer",
+              "description": "El ID del estado del curso asociado al submódulo."
+            },
+            {
+              "in": "formData",
+              "name": "id_module",
+              "type": "integer",
+              "description": "El ID del módulo al que pertenece el submódulo."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Submódulo actualizado con éxito."
+            },
+            "400": {
+              "description": "Error de validación en los datos de entrada."
+            },
+            "404": {
+              "description": "Submódulo, módulo o estado no encontrados."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/evaluaciones/crear": {
+        "post": {
+          "tags": ["Administrador"],
+          "summary": "Crear una nueva evaluación de submódulo",
+          "description": "Endpoint para crear una nueva evaluación asociada a un submódulo.",
+          "operationId": "crearEvaluacion",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos de la nueva evaluación.",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "required": ["evaluation_title", "evaluation_description", "id_submodule"],
+                "properties": {
+                  "evaluation_title": {
+                    "type": "string",
+                    "maxLength": 250,
+                    "minLength": 5,
+                    "description": "El título de la evaluación."
+                  },
+                  "evaluation_description": {
+                    "type": "string",
+                    "maxLength": 1000,
+                    "minLength": 20,
+                    "description": "La descripción de la evaluación."
+                  },
+                  "id_submodule": {
+                    "type": "integer",
+                    "description": "El ID del submódulo al que está asociada la evaluación."
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Evaluación creada con éxito."
+            },
+            "400": {
+              "description": "Error de validación en los datos de entrada."
+            },
+            "404": {
+              "description": "Submódulo no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/evaluaciones/obtener/{id_evaluation}": {
+        "get": {
+          "tags": ["Administrador"],
+          "summary": "Obtener una evaluación de submódulo por ID",
+          "description": "Endpoint para obtener los detalles de una evaluación de submódulo por su ID.",
+          "operationId": "obtenerEvaluacionPorId",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_evaluation",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID único de la evaluación a obtener."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Detalles de la evaluación obtenidos con éxito."
+            },
+            "404": {
+              "description": "Evaluación no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/evaluaciones/actualizar": {
+        "put": {
+          "tags": ["Administrador"],
+          "summary": "Actualizar una evaluación de submódulo existente",
+          "description": "Endpoint para actualizar una evaluación de submódulo existente por su ID.",
+          "operationId": "actualizarEvaluacion",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos de la evaluación para actualizar.",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "required": ["id_evaluation", "evaluation_title", "evaluation_description", "id_submodule"],
+                "properties": {
+                  "id_evaluation": {
+                    "type": "integer",
+                    "description": "El ID único de la evaluación."
+                  },
+                  "evaluation_title": {
+                    "type": "string",
+                    "maxLength": 250,
+                    "minLength": 5,
+                    "description": "El título de la evaluación."
+                  },
+                  "evaluation_description": {
+                    "type": "string",
+                    "maxLength": 1000,
+                    "minLength": 20,
+                    "description": "La descripción de la evaluación."
+                  },
+                  "id_submodule": {
+                    "type": "integer",
+                    "description": "El ID del submódulo al que está asociada la evaluación."
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Evaluación actualizada con éxito."
+            },
+            "400": {
+              "description": "Error de validación en los datos de entrada."
+            },
+            "404": {
+              "description": "Evaluación o submódulo no encontrados."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/preguntas/crear": {
+        "post": {
+          "tags": ["Administrador"],
+          "summary": "Crear una nueva pregunta para una evaluación",
+          "description": "Endpoint para crear una nueva pregunta asociada a una evaluación de submódulo.",
+          "operationId": "crearPregunta",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos necesarios para la creación de la pregunta.",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "required": ["question_content", "id_evaluation"],
+                "properties": {
+                  "question_content": {
+                    "type": "string",
+                    "maxLength": 250,
+                    "minLength": 5,
+                    "description": "El contenido de la pregunta."
+                  },
+                  "id_evaluation": {
+                    "type": "integer",
+                    "description": "El ID de la evaluación a la que pertenece la pregunta."
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Pregunta creada con éxito."
+            },
+            "400": {
+              "description": "Error de validación en los datos de entrada."
+            },
+            "404": {
+              "description": "Evaluación no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/preguntas/obtener/{id_question}": {
+        "get": {
+          "tags": ["Administrador"],
+          "summary": "Obtener una pregunta por ID",
+          "description": "Endpoint para obtener los detalles de una pregunta por su ID.",
+          "operationId": "obtenerPreguntaPorId",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_question",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID único de la pregunta a obtener."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Detalles de la pregunta obtenidos con éxito."
+            },
+            "404": {
+              "description": "Pregunta no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/preguntas/actualizar": {
+        "put": {
+          "tags": ["Administrador"],
+          "summary": "Actualizar una pregunta existente",
+          "description": "Endpoint para actualizar una pregunta existente por su ID.",
+          "operationId": "actualizarPregunta",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos de la pregunta para actualizar.",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "required": ["id_question", "question_content", "id_evaluation"],
+                "properties": {
+                  "id_question": {
+                    "type": "integer",
+                    "description": "El ID de la pregunta."
+                  },
+                  "question_content": {
+                    "type": "string",
+                    "maxLength": 500,
+                    "minLength": 20,
+                    "description": "El contenido actualizado de la pregunta."
+                  },
+                  "id_evaluation": {
+                    "type": "integer",
+                    "description": "El ID de la evaluación a la que pertenece la pregunta."
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Pregunta actualizada con éxito."
+            },
+            "400": {
+              "description": "Error de validación en los datos de entrada."
+            },
+            "404": {
+              "description": "Pregunta o evaluación no encontradas."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/respuestas/crear": {
+        "post": {
+          "tags": ["Administrador"],
+          "summary": "Crear una nueva respuesta para una pregunta",
+          "description": "Endpoint para crear una nueva respuesta asociada a una pregunta de una evaluación de submódulo.",
+          "operationId": "crearRespuesta",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos necesarios para la creación de la respuesta.",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "required": ["answers_content", "answers_validity", "id_question"],
+                "properties": {
+                  "answers_content": {
+                    "type": "string",
+                    "maxLength": 250,
+                    "minLength": 25,
+                    "description": "El contenido de la respuesta."
+                  },
+                  "answers_validity": {
+                    "type": "boolean",
+                    "description": "La validez de la respuesta, donde 'true' indica una respuesta correcta y 'false' una incorrecta."
+                  },
+                  "id_question": {
+                    "type": "integer",
+                    "description": "El ID de la pregunta a la que pertenece la respuesta."
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Respuesta creada con éxito."
+            },
+            "400": {
+              "description": "Error de validación en los datos de entrada."
+            },
+            "404": {
+              "description": "Pregunta no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/respuestas/obtener/{id_answer}": {
+        "get": {
+          "tags": ["Administrador"],
+          "summary": "Obtener una respuesta por ID",
+          "description": "Endpoint para obtener los detalles de una respuesta por su ID.",
+          "operationId": "obtenerRespuestaPorId",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_answer",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID único de la respuesta a obtener."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Detalles de la respuesta obtenidos con éxito."
+            },
+            "404": {
+              "description": "Respuesta no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/administrador/respuestas/actualizar": {
+        "put": {
+          "tags": ["Administrador"],
+          "summary": "Actualizar una respuesta existente",
+          "description": "Endpoint para actualizar una respuesta existente por su ID, incluyendo su validez y asociación a una nueva pregunta.",
+          "operationId": "actualizarRespuesta",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos de la respuesta para actualizar.",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "required": ["id_answer", "answers_content", "answers_validity", "id_question"],
+                "properties": {
+                  "id_answer": {
+                    "type": "integer",
+                    "description": "El ID de la respuesta."
+                  },
+                  "answers_content": {
+                    "type": "string",
+                    "maxLength": 250,
+                    "minLength": 25,
+                    "description": "El contenido actualizado de la respuesta."
+                  },
+                  "answers_validity": {
+                    "type": "boolean",
+                    "description": "La validez actualizada de la respuesta."
+                  },
+                  "id_question": {
+                    "type": "integer",
+                    "description": "El ID de la nueva pregunta a la que pertenece la respuesta."
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Respuesta actualizada con éxito."
+            },
+            "400": {
+              "description": "Error de validación en los datos de entrada."
+            },
+            "404": {
+              "description": "Respuesta o pregunta no encontradas."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/aprendiz/preferencias-habilidades/crear": {
+        "post": {
+          "tags": ["Aprendiz"],
+          "summary": "Crear preferencia de habilidad para un usuario",
+          "description": "Endpoint para crear una nueva preferencia de habilidad asociada a un usuario aprendiz.",
+          "operationId": "crearPreferenciaHabilidadAprendiz",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos necesarios para la creación de la preferencia de habilidad.",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "required": ["id_user", "id_skill"],
+                "properties": {
+                  "id_user": {
+                    "type": "integer",
+                    "description": "El ID del usuario aprendiz al que se le asignará la preferencia de habilidad."
+                  },
+                  "id_skill": {
+                    "type": "integer",
+                    "description": "El ID de la habilidad preferida por el usuario aprendiz."
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Preferencia de habilidad creada con éxito para el aprendiz."
+            },
+            "400": {
+              "description": "Error de validación en los datos de entrada."
+            },
+            "404": {
+              "description": "Usuario aprendiz o habilidad no encontrados."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/aprendiz/preferencias-habilidades/obtener/{id_user}/{id_skill}": {
+        "get": {
+          "tags": ["Aprendiz"],
+          "summary": "Obtener preferencia de habilidad de un usuario aprendiz por ID",
+          "description": "Endpoint para obtener los detalles de una preferencia de habilidad de un usuario aprendiz por ID de usuario y habilidad.",
+          "operationId": "obtenerPreferenciaHabilidadAprendizPorId",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_user",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID del usuario aprendiz."
+            },
+            {
+              "name": "id_skill",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID de la habilidad."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Detalles de la preferencia de habilidad del aprendiz obtenidos con éxito."
+            },
+            "404": {
+              "description": "Preferencia de habilidad del aprendiz no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/aprendiz/preferencias-habilidades/eliminar/{id_user}/{id_skill}": {
+        "delete": {
+          "tags": ["Aprendiz"],
+          "summary": "Eliminar preferencia de habilidad de un usuario aprendiz",
+          "description": "Endpoint para eliminar una preferencia de habilidad de un usuario aprendiz por ID de usuario y habilidad.",
+          "operationId": "eliminarPreferenciaHabilidadAprendiz",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_user",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID del usuario aprendiz cuya preferencia de habilidad será eliminada."
+            },
+            {
+              "name": "id_skill",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID de la habilidad cuya preferencia será eliminada."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Preferencia de habilidad del aprendiz eliminada con éxito."
+            },
+            "404": {
+              "description": "Preferencia de habilidad del aprendiz no encontrada."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/aprendiz/cursos/basados-en-habilidades/{id_user}": {
+        "get": {
+          "tags": ["Aprendiz"],
+          "summary": "Obtener cursos basados en las habilidades del usuario",
+          "description": "Endpoint para obtener una lista de cursos recomendados basados en las habilidades preferidas del aprendiz, identificado por su ID de usuario.",
+          "operationId": "obtenerCursosPorHabilidadesUsuario",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_user",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID del usuario aprendiz para el cual se recuperarán los cursos."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Lista de cursos recuperada con éxito.",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "example": "retrieved courses successfully"
+                  },
+                  "courses": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/Curso"
+                    }
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "No se encontraron cursos basados en las habilidades del usuario."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/aprendiz/carrito/agregar": {
+        "post": {
+          "tags": ["Aprendiz"],
+          "summary": "Agregar un curso al carrito de compras",
+          "description": "Endpoint para que un aprendiz agregue un curso a su carrito de compras.",
+          "operationId": "agregarCursoCarrito",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Identificadores necesarios para agregar el curso al carrito.",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "required": ["id_seller", "id_buyer", "id_course"],
+                "properties": {
+                  "id_seller": {
+                    "type": "integer",
+                    "description": "El ID del vendedor del curso."
+                  },
+                  "id_buyer": {
+                    "type": "integer",
+                    "description": "El ID del comprador (aprendiz) que agrega el curso."
+                  },
+                  "id_course": {
+                    "type": "integer",
+                    "description": "El ID del curso a agregar al carrito."
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Curso agregado al carrito con éxito."
+            },
+            "400": {
+              "description": "Datos proporcionados inválidos o insuficientes."
+            },
+            "409": {
+              "description": "El curso ya existe en el carrito."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/aprendiz/carrito/obtener/{id_buyer}": {
+        "get": {
+          "tags": ["Aprendiz"],
+          "summary": "Obtener cursos en el carrito de compras",
+          "description": "Endpoint para obtener todos los cursos presentes en el carrito de compras de un aprendiz.",
+          "operationId": "obtenerCursosCarrito",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_buyer",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID del aprendiz cuyo carrito se está consultando."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Cursos en el carrito recuperados con éxito."
+            },
+            "404": {
+              "description": "No se encontraron cursos en el carrito para el aprendiz especificado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/aprendiz/carrito/eliminar/{id_buyer}/{id_course}": {
+        "delete": {
+          "tags": ["Aprendiz"],
+          "summary": "Eliminar un curso del carrito de compras",
+          "description": "Endpoint para que un aprendiz elimine un curso de su carrito de compras.",
+          "operationId": "eliminarCursoCarrito",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_buyer",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID del aprendiz que realiza la eliminación."
+            },
+            {
+              "name": "id_course",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID del curso a eliminar del carrito."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Curso eliminado del carrito con éxito."
+            },
+            "404": {
+              "description": "Curso no encontrado en el carrito del aprendiz."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/aprendiz/compras/{id_buyer}": {
+        "get": {
+          "tags": ["Aprendiz"],
+          "summary": "Obtener compras realizadas por el aprendiz",
+          "description": "Endpoint para obtener todas las compras realizadas por un aprendiz identificado por su ID.",
+          "operationId": "obtenerComprasPorIdAprendiz",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_buyer",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "El ID del aprendiz cuyas compras se desean consultar."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Compras obtenidas con éxito."
+            },
+            "404": {
+              "description": "Compras no encontradas para el aprendiz especificado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/aprendiz/compras/realizar_compra": {
+        "post": {
+          "tags": ["Aprendiz"],
+          "summary": "Realizar la compra de cursos agregados al carrito",
+          "description": "Endpoint para que un aprendiz realice la compra de los cursos que ha agregado a su carrito.",
+          "operationId": "realizarCompraCursos",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Datos necesarios para realizar la compra.",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "required": ["shipping_address", "additional_notes", "id_shipping_option", "courseData"],
+                "properties": {
+                  "shipping_address": {
+                    "type": "string",
+                    "description": "Dirección de envío para la compra."
+                  },
+                  "additional_notes": {
+                    "type": "string",
+                    "description": "Notas adicionales para la compra."
+                  },
+                  "id_shipping_option": {
+                    "type": "integer",
+                    "description": "Opción de envío seleccionada para la compra."
+                  },
+                  "courseData": {
+                    "type": "array",
+                    "description": "Datos de los cursos a comprar.",
+                    "items": {
+                      "type": "object",
+                      "required": ["id_cart_course"],
+                      "properties": {
+                        "id_cart_course": {
+                          "type": "integer",
+                          "description": "ID del curso en el carrito."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Compra realizada con éxito."
+            },
+            "400": {
+              "description": "Datos proporcionados inválidos o insuficientes."
+            },
+            "404": {
+              "description": "Curso o carrito no encontrado."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          }
+        }
+      },
+      "/aprendiz/cursos/recientes": {
+        "get": {
+          "tags": ["Aprendiz"],
+          "summary": "Obtiene la lista de cursos recientemente comprados por un usuario.",
+          "description": "Retorna una lista de los cursos comprados recientemente por el usuario, basándose en la fecha de registro de los cursos.",
+          "operationId": "getRecentlyPurchasedCourses",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_user",
+              "in": "path",
+              "description": "ID del usuario para quien se buscan los cursos recientemente comprados.",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Lista de cursos comprados recientemente obtenida exitosamente.",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Curso"
+                }
+              }
+            },
+            "400": {
+              "description": "ID del usuario inválido. El id debe ser un valor numérico."
+            },
+            "404": {
+              "description": "Usuario o cursos no encontrados."
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          },
+          "security": [
+            {
+              "api_key": []
+            }
+          ]
+        }
+      },
+      "/aprendiz/cursos/completados": {
+        "get": {
+          "tags": ["Aprendiz"],
+          "summary": "Obtiene la lista de cursos completados por un usuario específico.",
+          "description": "Retorna una lista de los cursos que un usuario ha completado, basándose en el progreso del curso.",
+          "operationId": "getCompletedCourses",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id_user",
+              "in": "path",
+              "description": "ID del usuario para quien se buscan los cursos completados.",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Lista de cursos completados obtenida exitosamente.",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Curso"
+                }
+              },
+              "examples": {
+                "application/json": [
+                  {
+                    "course_title": "Curso Avanzado de Java",
+                    "course_description": "Profundiza en conceptos avanzados de Java.",
+                    "course_duration": "40 horas",
+                    "course_instructor_name": "Juan Pérez",
+                    "course_price": 150.00,
+                    "course_curriculum_file": "java_avanzado.pdf",
+                    "course_start_date": "2024-02-01",
+                    "id_status": 2,
+                    "id_course_profile": 3
+                  }
+                ]
+              }
+            },
+            "400": {
+              "description": "ID del usuario inválido. El id debe ser un valor numérico.",
+              "examples": {
+                "application/json": {
+                  "message": "ID del usuario inválido. El id debe ser un valor númerico."
+                }
+              }
+            },
+            "404": {
+              "description": "Usuario o cursos no encontrados.",
+              "examples": {
+                "application/json": {
+                  "message": "Usuario o cursos no encontrados."
+                }
+              }
+            },
+            "500": {
+              "description": "Error interno del servidor."
+            }
+          },
+          "security": [
+            {
+              "api_key": []
+            }
+          ]
+        }
+      }   
+      
+  },
+  "definitions": {
+      "Caficultor": {
+          "type": "object",
+          "required": [
+              "user_name",
+              "user_phone",
+              "user_email",
+              "id_user_gender",
+              "user_username",
+              "user_password",
+              "user_confirm_password",
+              "id_type_document",
+              "number_document",
+              "id_role"
+          ],
+          "properties": {
+              "user_name": {
+                  "type": "string",
+                  "description": "Nombre completo del caficultor."
+              },
+              "user_phone": {
+                  "type": "string",
+                  "description": "Número de teléfono del caficultor."
+              },
+              "user_email": {
+                  "type": "string",
+                  "description": "Correo electrónico del caficultor."
+              },
+              "id_user_gender": {
+                  "type": "integer",
+                  "description": "Identificador de género del usuario."
+              },
+              "user_username": {
+                  "type": "string",
+                  "description": "Nombre de usuario para iniciar sesión."
+              },
+              "user_password": {
+                  "type": "string",
+                  "description": "Contraseña para la cuenta de usuario."
+              },
+              "user_confirm_password": {
+                  "type": "string",
+                  "description": "Confirmación de la contraseña."
+              },
+              "id_type_document": {
+                  "type": "integer",
+                  "description": "Tipo de documento de identidad."
+              },
+              "number_document": {
+                  "type": "string",
+                  "description": "Número del documento de identidad."
+              },
+              "postal_code": {
+                  "type": "string",
+                  "description": "Código postal del lugar de residencia del caficultor."
+              },
+              "id_state": {
+                  "type": "integer",
+                  "description": "Identificador del estado o región."
+              },
+              "id_role": {
+                  "type": "integer",
+                  "description": "Rol del usuario en la plataforma."
+              },
+              "id_user_created_by": {
+                  "type": "integer",
+                  "description": "Identificador del usuario que creó este registro (opcional)."
+              },
+              "register_from_google": {
+                  "type": "boolean",
+                  "description": "Indica si el registro se realizó a través de Google."
+              },
+              "user_profile_photo": {
+                  "type": "string",
+                  "format": "binary",
+                  "description": "Foto de perfil del usuario (opcional)."
+              }
+          }
+      },
+      "Empresario": {
+          "type": "object",
+          "required": [
+            "user_name",
+            "user_phone",
+            "user_email",
+            "id_user_gender",
+            "user_username",
+            "user_password",
+            "user_confirm_password",
+            "id_type_document",
+            "number_document",
+            "id_role",
+            "postal_code",
+            "id_state"
+          ],
+          "properties": {
+              "user_name": {
+                  "type": "string",
+                  "description": "Nombre completo del empresario."
+              },
+              "user_phone": {
+                  "type": "string",
+                  "description": "Número de teléfono del empresario."
+              },
+              "user_email": {
+                  "type": "string",
+                  "description": "Correo electrónico del empresario."
+              },
+              "id_user_gender": {
+                  "type": "integer",
+                  "description": "Identificador de género del usuario."
+              },
+              "user_username": {
+                  "type": "string",
+                  "description": "Nombre de usuario para iniciar sesión."
+              },
+              "user_password": {
+                  "type": "string",
+                  "description": "Contraseña para la cuenta de usuario."
+              },
+              "user_confirm_password": {
+                  "type": "string",
+                  "description": "Confirmación de la contraseña."
+              },
+              "id_type_document": {
+                  "type": "integer",
+                  "description": "Tipo de documento de identidad."
+              },
+              "number_document": {
+                  "type": "string",
+                  "description": "Número del documento de identidad."
+              },
+              "postal_code": {
+                  "type": "string",
+                  "description": "Código postal del lugar de residencia del empresario."
+              },
+              "id_state": {
+                  "type": "integer",
+                  "description": "Identificador del estado o región."
+              },
+              "id_role": {
+                  "type": "integer",
+                  "description": "Rol del usuario en la plataforma."
+              },
+              "id_user_created_by": {
+                  "type": "integer",
+                  "description": "Identificador del usuario que creó este registro (opcional)."
+              },
+              "register_from_google": {
+                  "type": "boolean",
+                  "description": "Indica si el registro se realizó a través de Google."
+              },
+              "user_profile_photo": {
+                  "type": "string",
+                  "format": "binary",
+                  "description": "Foto de perfil del usuario (opcional)."
+              }
+          }
+      },
+      "Administrador": {
+        "type": "object",
+        "required": [
+          "user_name",
+          "user_phone",
+          "user_email",
+          "id_user_gender",
+          "user_username",
+          "user_password",
+          "user_confirm_password",
+          "id_type_document",
+          "number_document",
+          "id_role",
+          "postal_code",
+          "id_state"
+        ],
+        "properties": {
+            "user_name": {
+                "type": "string",
+                "description": "Nombre completo del Administrador."
+            },
+            "user_phone": {
+                "type": "string",
+                "description": "Número de teléfono del Administrador."
+            },
+            "user_email": {
+                "type": "string",
+                "description": "Correo electrónico del Administrador."
+            },
+            "id_user_gender": {
+                "type": "integer",
+                "description": "Identificador de género del usuario."
+            },
+            "user_username": {
+                "type": "string",
+                "description": "Nombre de usuario para iniciar sesión."
+            },
+            "user_password": {
+                "type": "string",
+                "description": "Contraseña para la cuenta de usuario."
+            },
+            "user_confirm_password": {
+                "type": "string",
+                "description": "Confirmación de la contraseña."
+            },
+            "id_type_document": {
+                "type": "integer",
+                "description": "Tipo de documento de identidad."
+            },
+            "number_document": {
+                "type": "string",
+                "description": "Número del documento de identidad."
+            },
+            "postal_code": {
+                "type": "string",
+                "description": "Código postal del lugar de residencia del Administrador."
+            },
+            "id_state": {
+                "type": "integer",
+                "description": "Identificador del estado o región."
+            },
+            "id_role": {
+                "type": "integer",
+                "description": "Rol del usuario en la plataforma, específico para administrador."
+            },
+            "id_user_created_by": {
+                "type": "integer",
+                "description": "Identificador del usuario que creó este registro (opcional)."
+            },
+            "register_from_google": {
+                "type": "boolean",
+                "description": "Indica si el registro se realizó a través de Google."
+            },
+            "user_profile_photo": {
+                "type": "string",
+                "format": "binary",
+                "description": "Foto de perfil del usuario (opcional)."
+            }
+        }
+      },
+      "Curso": {
+          "type": "object",
+          "required": [
+              "course_title",
+              "course_price",
+              "course_curriculum_file",
+              "course_start_date",
+              "id_status",
+              "id_course_profile"
+          ],
+          "properties": {
+              "course_title": {
+                  "type": "string",
+                  "example": "Curso de Desarrollo Web"
+              },
+              "course_description": {
+                  "type": "string",
+                  "example": "Aprende las últimas tecnologías en desarrollo web..."
+              },
+              "course_duration": {
+                  "type": "string",
+                  "example": "30 horas"
+              },
+              "course_instructor_name": {
+                  "type": "string",
+                  "example": "Jane Doe"
+              },
+              "course_price": {
+                  "type": "number",
+                  "example": 299.99
+              },
+              "course_curriculum_file": {
+                  "type": "string",
+                  "example": "Contenido de la presentación del curso."
+              },
+              "course_start_date": {
+                  "type": "string",
+                  "example": "2024-01-15"
+              },
+              "id_status": {
+                  "type": "integer",
+                  "example": 1
+              },
+              "id_course_profile": {
+                  "type": "integer",
+                  "example": 2
+              }
+          }
+      },
+      "CursoConFoto": {
+        "type": "object",
+        "properties": {
+          "id_curso": {
+            "type": "integer",
+            "description": "El ID único del curso."
+          },
+          "titulo_curso": {
+            "type": "string",
+            "description": "El título del curso."
+          },
+          "descripcion_curso": {
+            "type": "string",
+            "description": "La descripción del curso."
+          },
+          "precio_curso": {
+            "type": "number",
+            "description": "El precio del curso."
+          },
+          "fecha_inicio": {
+            "type": "string",
+            "description": "La fecha de inicio del curso."
+          },
+          "curso_foto": {
+            "type": "string",
+            "description": "La URL de la foto del curso."
+          }
+        }
+      },
+      "Aprendiz": {
+        "type": "object",
+        "required": [
+          "user_name",
+          "user_phone",
+          "user_email",
+          "id_user_gender",
+          "user_username",
+          "user_password",
+          "user_confirm_password",
+          "id_type_document",
+          "number_document",
+          "id_role",
+          "postal_code",
+          "id_state"
+        ],
+        "properties": {
+            "user_name": {
+                "type": "string",
+                "description": "Nombre completo del aprendiz."
+            },
+            "user_phone": {
+                "type": "string",
+                "description": "Número de teléfono del aprendiz."
+            },
+            "user_email": {
+                "type": "string",
+                "description": "Correo electrónico del aprendiz."
+            },
+            "id_user_gender": {
+                "type": "integer",
+                "description": "Identificador de género del usuario."
+            },
+            "user_username": {
+                "type": "string",
+                "description": "Nombre de usuario para iniciar sesión."
+            },
+            "user_password": {
+                "type": "string",
+                "description": "Contraseña para la cuenta de usuario."
+            },
+            "user_confirm_password": {
+                "type": "string",
+                "description": "Confirmación de la contraseña."
+            },
+            "id_type_document": {
+                "type": "integer",
+                "description": "Tipo de documento de identidad."
+            },
+            "number_document": {
+                "type": "string",
+                "description": "Número del documento de identidad."
+            },
+            "postal_code": {
+                "type": "string",
+                "description": "Código postal del lugar de residencia del aprendiz."
+            },
+            "id_state": {
+                "type": "integer",
+                "description": "Identificador del estado o región."
+            },
+            "id_role": {
+                "type": "integer",
+                "description": "Rol del usuario en la plataforma, específico para aprendices."
+            },
+            "id_user_created_by": {
+                "type": "integer",
+                "description": "Identificador del usuario que creó este registro (opcional)."
+            },
+            "register_from_google": {
+                "type": "boolean",
+                "description": "Indica si el registro se realizó a través de Google."
+            },
+            "user_profile_photo": {
+                "type": "string",
+                "format": "binary",
+                "description": "Foto de perfil del usuario (opcional)."
+            }
+        }
+      },
+      "FarmAdditionalInfo": {
+        "type": "object",
+        "properties": {
+          "id_farm_additional_info": {
+            "type": "integer",
+            "description": "ID único del registro de información adicional de la finca."
+          },
+          "id_farm": {
+            "type": "integer",
+            "description": "ID de la finca a la cual se le agrega la información adicional."
+          },
+          "altitude": {
+            "type": "integer",
+            "description": "Altitud de la finca en metros sobre el nivel del mar."
+          },
+          "climate": {
+            "type": "string",
+            "description": "Clima predominante en la ubicación de la finca."
+          },
+          "temperature": {
+            "type": "string",
+            "description": "Rango de temperatura en la finca."
+          }
+        }
+      },
+      "FarmDetails": {
+        "type": "object",
+        "properties": {
+          "id_farm": {
+            "type": "integer",
+            "description": "ID único de la finca registrada."
+          },
+          "farm_name": {
+            "type": "string",
+            "description": "Nombre de la finca."
+          },
+          "farm_number_lots": {
+            "type": "integer",
+            "description": "Número de lotes de la finca."
+          },
+          "id_village": {
+            "type": "integer",
+            "description": "ID de la aldea a la que pertenece la finca."
+          },
+          "farm_longitude": {
+            "type": "number",
+            "format": "float",
+            "description": "Longitud geográfica de la finca."
+          },
+          "farm_latitude": {
+            "type": "number",
+            "format": "float",
+            "description": "Latitud geográfica de la finca."
+          }
+        }
+      },
+      "UserInformationInput": {
+        "type": "object",
+        "properties": {
+          "id_user": {
+            "type": "integer",
+            "description": "ID del usuario al que pertenece la información."
+          },
+          "id_type_of_information": {
+            "type": "integer",
+            "description": "ID del tipo de información que se está registrando."
+          },
+          "user_personal_description_text": {
+            "type": "string",
+            "description": "Descripción personal del usuario."
+          }
+        },
+        "required": ["id_user", "user_personal_description_text"]
+      },
+      "FarmDetail": {
+        "type": "object",
+        "properties": {
+          "id_farm": {
+            "type": "integer"
+          },
+          "farm_name": {
+            "type": "string"
+          },
+          "farm_number_lots": {
+            "type": "integer"
+          },
+          "village_name": {
+            "type": "string"
+          },
+          "city_name": {
+            "type": "string"
+          },
+          "state_name": {
+            "type": "string"
+          },
+          "additionalInfo": {
+            "type": "object",
+            "properties": {
+              "altitude": {
+                "type": "string"
+              },
+              "climate": {
+                "type": "string"
+              },
+              "temperature": {
+                "type": "string"
+              }
+            }
+          },
+          "is_in_purchase": {
+            "type": "boolean"
+          }
+        }
+      },
+      "LotQuantityInput": {
+        "type": "object",
+        "properties": {
+          "id_lot": {
+            "type": "integer",
+            "description": "ID del lote al que pertenece la cantidad."
+          },
+          "total_quantity": {
+            "type": "integer",
+            "description": "Cantidad total del lote."
+          },
+          "samples_quantity": {
+            "type": "integer",
+            "description": "Cantidad de muestras del lote."
+          },
+          "id_association": {
+            "type": "integer",
+            "description": "ID de la asociación relacionada con el lote."
+          },
+          "price_per_kilo": {
+            "type": "number",
+            "description": "Precio por kilo del lote."
+          }
+        },
+        "required": ["id_lot", "total_quantity", "samples_quantity", "id_association", "price_per_kilo"]
+      },
+      "LotSummaryInput": {
+        "type": "object",
+        "properties": {
+          "id_lot": {
+            "type": "integer",
+            "description": "ID del lote al que pertenece el resumen."
+          },
+          "germination_summary": {
+            "type": "string",
+            "description": "Resumen de la germinación."
+          },
+          "sown_summary": {
+            "type": "string",
+            "description": "Resumen de la siembra."
+          },
+          "harvest_summary": {
+            "type": "string",
+            "description": "Resumen de la cosecha."
+          },
+          "drying_summary": {
+            "type": "string",
+            "description": "Resumen del secado."
+          },
+          "roasting_summary": {
+            "type": "string",
+            "description": "Resumen del tostado."
+          },
+          "packaging_summary": {
+            "type": "string",
+            "description": "Resumen del empaquetado."
+          }
+        },
+        "required": ["id_lot", "germination_summary", "sown_summary", "harvest_summary", "drying_summary", "roasting_summary", "packaging_summary"]
+      },
+      "LotInfo": {
+        "type": "object",
+        "properties": {
+          "id_lot": {
+            "type": "integer",
+            "example": 1
+          },
+          "LotPhoto": {
+            "type": "object",
+            "properties": {
+              "lot_photo": {
+                "type": "string",
+                "example": "http://example.com/path/to/photo.jpg"
+              }
+            }
+          },
+          "CoffeeProfile": {
+            "type": "object",
+            "properties": {
+              "profile_name": {
+                "type": "string",
+                "example": "Arabica"
+              }
+            }
+          },
+          "CoffeeVariations": {
+            "type": "object",
+            "properties": {
+              "variety_name": {
+                "type": "string",
+                "example": "Typica"
+              }
+            }
+          },
+          "RoastingType": {
+            "type": "object",
+            "properties": {
+              "roasting_name": {
+                "type": "string",
+                "example": "Medium"
+              }
+            }
+          },
+          "LotQuantity": {
+            "type": "object",
+            "properties": {
+              "total_quantity": {
+                "type": "integer",
+                "example": 100
+              },
+              "samples_quantity": {
+                "type": "integer",
+                "example": 5
+              },
+              "price_per_kilo": {
+                "type": "number",
+                "example": 12.5
+              },
+              "Associations": {
+                "type": "object",
+                "properties": {
+                  "association_name": {
+                    "type": "string",
+                    "example": "Local Coffee Farmers"
+                  }
+                }
+              }
+            }
+          },
+          "is_in_purchase": {
+            "type": "boolean",
+            "example": false
+          }
+        }
+      },
+      "LotDetails": {
+        "type": "object",
+        "properties": {
+          "id_lot": { "type": "integer" },
+          "lot_photo": { "type": "string", "description": "URL de la foto del lote. Afecta la tabla 'LotPhoto'." },
+          "quantity": { "type": "object", "description": "Detalles de la cantidad del lote. Consulta y afecta la tabla 'LotQuantity'." },
+          "summary": { "type": "object", "description": "Resumen del proceso del lote. Consulta y afecta la tabla 'LotSummary'." },
+          "certifications": { "type": "object", "description": "Certificaciones del lote. Consulta y afecta la tabla 'LotCertifications'." }
+        }
+      }
+  }
+}

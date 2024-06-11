@@ -1,0 +1,63 @@
+<div class="container-principal">
+  <!-- <h1>{{ idWindow() }}</h1> -->
+
+  <div class="container-windows" *ngIf="idWindow() === 1">
+    <section class="section-title">
+      A continuación selecciona la finca que deseas eliminar
+    </section>
+    <section class="list-products">
+      <div
+        class="container-check-label"
+        *ngFor="let farm of dataFarms"
+        [ngClass]="{ 'container-disable-farm': farm.is_in_purchase }"
+      >
+        <input
+          type="checkbox"
+          class="input"
+          (change)="handleOnChange(farm)"
+          [ngModel]="farm.isSelected"
+        />
+
+        <label>Finca &nbsp;{{ farm.farm_name }}</label>
+      </div>
+    </section>
+
+    <section class="section-buttons">
+      <app-global-buttons
+        nameButton="Cancelar"
+        backgroud="#fff"
+        borderColor="#2F0084"
+        [callbackFunction]="handleCancel"
+      ></app-global-buttons>
+
+      <div
+        [ngClass]="{ 'enable-button': !enableButtonDelete }"
+        (click)="handleDelete(1)"
+      >
+        <app-global-buttons nameButton="Eliminar"></app-global-buttons>
+      </div>
+    </section>
+  </div>
+
+  <div class="container-windows" *ngIf="idWindow() === 2">
+    <section class="section-title-screen2">
+      ¿Está seguro(a) que desea eliminar las fincas seleccionadas?
+    </section>
+
+    <section class="section-buttons">
+      <app-global-buttons
+        nameButton="Cancelar"
+        backgroud="#fff"
+        borderColor="#2F0084"
+        [callbackFunction]="handleCancel"
+      ></app-global-buttons>
+
+      <div
+        [ngClass]="{ 'enable-button': !enableButtonDelete }"
+        (click)="handleDelete(2)"
+      >
+        <app-global-buttons nameButton="Eliminar"></app-global-buttons>
+      </div>
+    </section>
+  </div>
+</div>

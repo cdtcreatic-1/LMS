@@ -1,0 +1,99 @@
+<div class="container-body" *ngIf="dataNotification.length > 0">
+  <div class="container-details" *ngFor="let item of dataNotification">
+    <div class="container-photo-description" align="start">
+      <div style="width: 15%">
+        <div class="container-photo">
+          <img
+            *ngIf="item.Seller.user_profile_photo"
+            src="{{ item.Seller.user_profile_photo }}"
+            alt="Photo Profile"
+            width="100%"
+            height="100%"
+            style="border-radius: 100%; object-fit: cover"
+          />
+          <img
+            *ngIf="!item.Seller.user_profile_photo"
+            src="../../../../../../assets/icons/icon_profile.webp"
+            alt="Photo Profile"
+            width="100%"
+            height="100%"
+            style="border-radius: 100%; object-fit: cover"
+          />
+        </div>
+      </div>
+      <div class="container-description">
+        <div class="container-text-title-name">
+          {{ item.Seller.user_name }}
+        </div>
+        <div class="container-text-subtitle-name">
+          Tienes una oferta para ti
+        </div>
+        <div
+          class="container-text-subtitle-name"
+          style="margin-top: 1vw; font-weight: 600"
+        >
+          Tipo de oferta, café {{ item.Lot.CoffeeVariation.variety_name }}
+        </div>
+      </div>
+    </div>
+
+    <div class="container-rows-details">
+      <div class="container-inter-rows" style="margin-left: 0">
+        <div
+          class="input-text-details"
+          title="{{ item.Lot.CoffeeProfile.profile_name }}"
+        >
+          {{
+            item.Lot.CoffeeProfile.profile_name.length > 12
+              ? item.Lot.CoffeeProfile.profile_name.slice(0, 12) + "..."
+              : item.Lot.CoffeeProfile.profile_name
+          }}
+        </div>
+        <div class="container-sub-input">Perfil de taza</div>
+      </div>
+
+      <div class="container-inter-rows">
+        <div
+          class="input-text-details"
+          title="{{ item.Lot.RoastingType.roasting_name }}"
+        >
+          {{
+            item.Lot.RoastingType.roasting_name.length > 12
+              ? item.Lot.RoastingType.roasting_name.slice(0, 12) + "..."
+              : item.Lot.RoastingType.roasting_name
+          }}
+        </div>
+        <div class="container-sub-input">Tostión</div>
+      </div>
+
+      <div class="container-inter-rows-flex">
+        <div class="container-ver-mas">Ver más</div>
+        <ion-icon
+          name="ellipsis-horizontal-circle-outline"
+          class="ion-icon-notificiaction"
+          (click)="openModal(item)"
+        ></ion-icon>
+      </div>
+    </div>
+
+    <div class="container-buttons" align="center">
+      <button
+        class="btn"
+        style="border: 1px solid #2f0084; background-color: transparent"
+        (click)="acceptDecline(item.Seller.id_user, item.Lot.id_lot, 3)"
+      >
+        Rechazar
+      </button>
+      <button
+        class="btn"
+        (click)="acceptDecline(item.Seller.id_user, item.Lot.id_lot, 2)"
+      >
+        Aceptar
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="dataNotification.length === 0" class="fcdt-no-data-found">
+  No tiene notificaciones
+</div>

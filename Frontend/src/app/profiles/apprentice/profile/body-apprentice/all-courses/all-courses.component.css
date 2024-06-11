@@ -1,0 +1,199 @@
+.container-principal-all-courses {
+  height: 80%;
+  padding-inline: 5%;
+  font-family: Lato;
+}
+
+/* Title all courses */
+
+.container-title-result {
+  display: flex;
+  align-items: flex-end;
+  color: #00de97;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 800;
+  height: 15%;
+  font-size: 2.2vw;
+}
+
+.container-title {
+  height: 100%;
+  font-size: 2.2vw;
+}
+
+.container-result {
+  height: 100%;
+  margin-left: 1vw;
+  font-size: 1.3vw;
+  padding-top: 0.9vw;
+  color: #ffffff;
+  font-weight: 300;
+}
+
+/* Card all courses */
+
+.container-principal-cards {
+  display: grid;
+  width: 100%;
+  height: 68vh;
+  overflow-y: auto;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.container-card {
+  height: 55vh;
+  width: 270px;
+  margin-bottom: 10%;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px -7px 5px 0px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.container-image-start-play {
+  position: relative;
+  height: 50%;
+  width: 100%;
+}
+
+.container-image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.container-start {
+  position: absolute;
+  height: 100%;
+  padding: 3%;
+  z-index: 2;
+}
+
+.container-start-number {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 5vw;
+  height: 1.6vw;
+  background: #ffcc00;
+  border-radius: 15px;
+  color: #ffffff;
+}
+
+.container-number {
+  font-weight: 600;
+  margin-left: -10%;
+}
+
+.container-image-start {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5%;
+  margin-bottom: 1px;
+}
+
+.container-start {
+  height: 100%;
+  width: 30%;
+}
+
+.container-principal-play {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.container-image-play {
+  width: 20%;
+}
+
+/* Title course */
+
+.container-principal-description-course {
+  width: 100%;
+  height: 50%;
+  padding-inline: 7%;
+  color: #2f0084;
+}
+
+.container-title-course {
+  display: flex;
+  align-items: center;
+  width: 78%;
+  height: 40%;
+  font-weight: 400;
+  font-size: 1.6vw;
+  line-height: 100%;
+  cursor: pointer;
+}
+
+.container-title-course:hover {
+  opacity: 0.8;
+}
+
+/* Price */
+
+.container-principal-price {
+  display: flex;
+  align-items: center;
+  font-family: Lato;
+  display: flex;
+  color: #00de97;
+  height: 20%;
+}
+
+.container-price {
+  font-size: 1.5vw;
+  font-weight: 800;
+}
+
+.container-discount {
+  font-size: 1.2vw;
+  font-weight: 400;
+  color: #a1a1a1;
+  margin-left: 10px;
+  text-decoration: line-through;
+}
+
+/* cars shop and buttton buy */
+
+.container-principal-card-buy {
+  display: flex;
+  align-items: center;
+  height: 40%;
+  padding-bottom: 2%;
+}
+
+.container-car-buy-disable {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.container-card-shop {
+  display: flex;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+}
+
+.container-card-shop:active {
+  opacity: 0.5;
+}
+
+.container-button-buy {
+  width: 80%;
+  padding-left: 5%;
+  height: 75%;
+}
+
+.container-see-course {
+  width: 80%;
+  height: 75%;
+}

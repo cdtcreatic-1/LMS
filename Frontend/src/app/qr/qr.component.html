@@ -1,0 +1,295 @@
+<div class="principal-home">
+  <div class="container-navbar-responsive">
+    <div class="container-logo-responsive">
+      <img
+        class="logo-responsive"
+        src="../../../assets/logo_color.webp"
+        alt="logo-responsive"
+      />
+    </div>
+    <div class="container-btn-inicioSesion">
+      <button class="bnt-login">Iniciar sesión</button>
+    </div>
+  </div>
+  <div class="container-home">
+    <div class="container-image-home1">
+      <div
+        id="carouselExampleCaptions"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="6000">
+            <img
+              src="../../../assets/hero1.webp"
+              class="d-block w-100"
+              alt="caficultor"
+            />
+            <div class="carousel-caption">
+              <div class="container-text-logo-carousel">
+                <img
+                  class="logo-card"
+                  src="../../../assets/logo_blanco.webp"
+                  alt="Logo"
+                />
+                <p class="text-bienvenidos">
+                  ¡Descubre nuevas oportunidades para tu café con Creza! Amplia
+                  tu visión y conecta directamente con potenciales compradores.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="6000">
+            <img
+              src="../../../assets/hero2.webp"
+              class="d-block w-100"
+              alt="..."
+            />
+            <div class="carousel-caption">
+              <div class="container-text-logo-carousel">
+                <img
+                  class="logo-card"
+                  src="../../../assets/logo_blanco.webp"
+                  alt="Logo"
+                />
+                <p class="text-bienvenidos2">
+                  Encuentra los mejores granos de café ético y especial en Green
+                  trade. Apoya el comercio justo y disfruta de los sabores
+                  excepcionales.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="6000">
+            <img
+              src="../../../assets/barista1.webp"
+              class="d-block w-100"
+              alt="..."
+            />
+            <div class="carousel-caption">
+              <div class="container-text-logo-carousel">
+                <img
+                  class="logo-card"
+                  src="../../../assets/logo_blanco.webp"
+                  alt="Logo"
+                />
+                <p class="text-bienvenidos3">
+                  Sumérgete en el mundo del café especial y aprende sobre el
+                  comercio justo en Green trade. Descubre, aprende y cultiva tu
+                  pasión por el café.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-buttons">
+      <button class="bnt-login">Iniciar sesión</button>
+      <button class="bnt-singn-in">Registrarse</button>
+    </div>
+  </div>
+
+  <div class="container-box-trend" align="center">
+    <div class="container-nuestros-perfiles">Tendencias</div>
+    <div class="container-inter-card-trend">
+      <div class="container-title">
+        <div class="container-text-title-card">Caficultores en tendencia</div>
+      </div>
+      <div class="container-cards-caficultor-trend">
+        <div class="container-card-caficultor" *ngFor="let item of data">
+          <div class="container-profile-trend">
+            <div class="container-image-caficultor">
+              <div class="container-image-circle">
+                <img src="{{ item.pathImage }}" alt="Caficultor" />
+              </div>
+            </div>
+            <div class="container-trend">
+              <div class="container-inter-trend">
+                <div class="container-percentage">
+                  <div
+                    class="container-inter-percentage"
+                    [ngStyle]="{
+                      height: item.percentage.toString().concat('%'),
+                      background: item.color
+                    }"
+                  >
+                    <span>{{ item.percentage }}</span
+                    ><span>%</span>
+                  </div>
+                </div>
+                <div
+                  class="container-type-coffee"
+                  [ngStyle]="{
+                    background: item.color
+                  }"
+                >
+                  <span class="text-type-coffe">{{ item.typeCoffee }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-name-rating-caficultor">
+            <div class="container-name-caficultor">{{ item.name }}</div>
+            <div class="container-rating-caficultor">
+              <!-- <app-starts [numberStart]="item.numberStart"></app-starts> -->
+            </div>
+            <div class="container-farm-name">{{ item.name }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-perfiles" align="center">
+      <div class="container-nuestros-perfiles" style="margin-top: 5vh">
+        Nuestros perfiles
+      </div>
+      <div class="container-cards-perfiles">
+        <div class="card-perfil">
+          <div class="container-image-profile">
+            <img
+              src="../../../assets/empresario.webp"
+              alt="Comprador"
+              height="100%"
+              width="100%"
+              style="border-radius: 10px"
+            />
+          </div>
+          <div class="text-profiles">
+            <div>
+              <h4><strong>Comprador</strong></h4>
+            </div>
+            <div>
+              En Creatic Exchange, impulsamos las inversiones de los empresarios
+              y les brindamos apoyo en todo momento. Ofrecemos asistencia
+              personalizada y un equipo altamente capacitado para asegurar el
+              éxito de cada inversión y el crecimiento empresarial de nuestros
+              clientes
+            </div>
+          </div>
+        </div>
+        <div class="card-perfil-1">
+          <div class="container-image-profile-1">
+            <img
+              src="../../../assets/caficultor8.webp"
+              alt="Comprador"
+              height="100%"
+              width="100%"
+            />
+          </div>
+          <div class="text-profiles-1">
+            <div>
+              <h4><strong>Caficultor</strong></h4>
+            </div>
+            <div>
+              El eje fundamental de Creatic exchange es el ser humano detrás del
+              producto Personas con valores sólidos como honestidad, esfuerzo y
+              dedicación en su trabajo, una cultura de calidad y un fuerte
+              vínculo entre tradición y modernidad, valores que se reflejan en
+              la dinámica región.
+            </div>
+          </div>
+        </div>
+        <div class="card-perfil">
+          <div class="container-image-profile">
+            <img
+              src="../../../assets/aprendiz.webp"
+              alt="Comprador"
+              height="100%"
+              width="100%"
+            />
+          </div>
+          <div class="text-profiles">
+            <div>
+              <h4><strong>Aprendiz</strong></h4>
+            </div>
+            <div>
+              Creatic Exchange busca promover la cultura cafetera y enseñar todo
+              lo necesario para apreciarla. Proporcionamos información sobre la
+              producción de café y su impacto en la economía y la sociedad. Con
+              esto, buscamos preservar y perpetuar la cultura cafetera para las
+              generaciones futuras.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-preparation-dates">
+    <div class="container-como-preparo">
+      <div class="container-text-como-preparo">¿Como lo preparo?</div>
+      <div class="container-subtitle-como-preparo">
+        <span
+          >Tenemos la solución! a través de tutoriales para aprender a preparar
+          café de varias formas, utilizando herramientas como la cafetera de
+          goteo, Moka, Chemex, prensa francesa y espresso. También se brindan
+          consejos para mejorar el sabor y aroma del café.
+        </span>
+      </div>
+
+      <div class="container-car">
+        <div class="container-left-rigth">
+          <img
+            src="../../../../../assets/icons/icon_left.webp"
+            alt="Left"
+            width="100%"
+            (click)="moveToCards(-1)"
+          />
+        </div>
+
+        <div class="container-principal-cards">
+          <div
+            [ngStyle]="presentacion"
+            class="container-card-videos"
+            *ngFor="let item of urlVideosHome; let i = index"
+          >
+            <iframe
+              width="100%"
+              height="100%"
+              [src]="item | safe"
+              allowfullscreen
+              style="width: 30vw"
+            ></iframe>
+          </div>
+        </div>
+
+        <div class="container-left-rigth">
+          <img
+            src="../../../../../assets/icons/icon_rigth.webp"
+            alt="Rigth"
+            width="100%"
+            (click)="moveToCards(1)"
+          />
+        </div>
+      </div>
+
+      <div class="container-dates">
+        <app-home-footer></app-home-footer>
+      </div>
+    </div>
+  </div>
+</div>

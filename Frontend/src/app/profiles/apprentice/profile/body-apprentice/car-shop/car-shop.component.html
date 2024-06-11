@@ -1,0 +1,94 @@
+<main class="container-principal">
+  <section class="title-car-shop">
+    <div class="container-title">Tu carrito de compras</div>
+    <div class="container-subtitle-car">
+      Tienes {{ dataCarShop.length }} items en tu carrito
+    </div>
+  </section>
+
+  <section class="container-card-total-price">
+    <section class="container-card-principal">
+      <div class="container-cards-courses" *ngFor="let course of dataCarShop">
+        <div class="container-card">
+          <div class="container-image-start-play">
+            <div class="container-image">
+              <img
+                src="{{ course.Course.course_photo }}"
+                alt="courses"
+                height="100%"
+                width="100%"
+                class="fcdt-img"
+                style="border-radius: 8px"
+              />
+            </div>
+          </div>
+          <div class="container-description-price">
+            <div class="container-title-course">
+              <div>
+                <strong> {{ course.Course.course_title.slice(0, 20) }}</strong>
+              </div>
+              <div
+                class="container-icon-delete"
+                (click)="deleteCartShop(course.Course.id_course)"
+              >
+                <ion-icon name="trash-outline"></ion-icon>
+              </div>
+            </div>
+            <div class="container-principal-price">
+              <div class="container-price">
+                $ <span> {{ course.Course.course_price | number }}</span>
+              </div>
+              <div class="container-discount">
+                {{ course.Course.course_price * 1.1 | number }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="container-principal-grid-price"
+      *ngIf="dataCarShop.length > 0"
+    >
+      <div class="conntainer-price-total">
+        <div class="container-price-name">Subtotal</div>
+        <div class="container-price-value">
+          ${{ totalPrice * 1.1 | number }}
+        </div>
+      </div>
+
+      <div class="conntainer-price-total">
+        <div class="container-price-name">Descuentos</div>
+        <div class="container-price-value">{{ totalPrice * 0.1 | number }}</div>
+      </div>
+
+      <div class="conntainer-price-total">
+        <div class="container-price-name">Total a pagar</div>
+        <div class="container-price-value all-value-price">
+          ${{ totalPrice | number }}
+        </div>
+      </div>
+
+      <div class="container-button" (click)="handleBuy()">
+        <app-global-buttons
+          [nameButton]="'Comprar'"
+          [backgroud]="'#2F0084'"
+          [color]="'#fff'"
+          [height]="'2.5rem'"
+        ></app-global-buttons>
+      </div>
+
+      <div class="container-continue-buying">
+        <span class="span-continue-shopping" (click)="continueShopping()"
+          >Seguir comprando</span
+        >
+        <ion-icon
+          (click)="continueShopping()"
+          name="arrow-forward-outline"
+          color="'#00de97'"
+          class="icon-arrow-rigth"
+        ></ion-icon>
+      </div>
+    </section>
+  </section>
+</main>

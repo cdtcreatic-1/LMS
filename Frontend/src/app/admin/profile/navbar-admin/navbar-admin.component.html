@@ -1,0 +1,15 @@
+<div class="container-principal">
+  <div class="container-img">
+    <img src="../../../../assets/logo_color.webp" alt="" width="80%" />
+  </div>
+  <div class="container-buttons">
+    <div *ngFor="let route of routes; let i = index" style="width: 100%">
+      <app-button-menu-route
+        [buttonName]="itemMenu[i]"
+        [route]="route"
+        [isSelected]="idRoute === route ? true : false"
+        [onClick]="handleClickButtons"
+      ></app-button-menu-route>
+    </div>
+  </div>
+</div>

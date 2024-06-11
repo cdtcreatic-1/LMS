@@ -1,0 +1,62 @@
+.contaner-principal {
+  position: relative;
+  width: 45vw;
+  padding: 5% 7%;
+}
+
+/* Close modal */
+
+.container-close-modal {
+  position: absolute;
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -3%;
+}
+
+.icon {
+  color: #2f0084;
+}
+
+/* cards */
+
+.container-principal-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.container-car {
+  width: 25%;
+  padding: 10px;
+  height: max-content;
+  background: #ffffff;
+  border: 1px solid #bebebe;
+  border-radius: 5.68217px;
+}
+
+.container-image {
+  width: 80px;
+  height: 80px;
+
+  & img {
+    border-radius: 100%;
+  }
+}
+
+.container-add-profile {
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  margin-block: 5px;
+}
+
+.container-disable {
+  opacity: 0.5;
+}
+
+a {
+  text-decoration: none;
+}

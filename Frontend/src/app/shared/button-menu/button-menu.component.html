@@ -1,0 +1,13 @@
+<div
+  class="container-button"
+  [ngStyle]="{ background: isSelected ? '#00DE97' : 'transparent' }"
+>
+  <div class="container-icon" *ngIf="iconItemPath">
+    <img src="{{ iconItemPath }}" alt="Icon profile" height="100%" />
+  </div>
+  <div class="container-text" (click)="onClick(idItemMenu)">
+    <button class="btns-menu">{{ buttonName }}</button>
+  </div>
+  <div class="container-chevron"></div>
+  <div class="container-line-blue" *ngIf="isSelected"></div>
+</div>

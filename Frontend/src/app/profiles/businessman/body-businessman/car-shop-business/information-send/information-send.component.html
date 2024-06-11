@@ -1,0 +1,105 @@
+<div class="container-principal-send-information">
+  <div class="container-backgrud-icon-dhl">
+    <img
+      src="../../../../../../assets/dhl-information.webp"
+      alt=""
+      width="100%"
+    />
+  </div>
+
+  <div class="container-send-services">
+    <app-global-titles
+      [titleName]="'Ahora, tus datos de contacto'"
+    ></app-global-titles>
+    <div style="margin-top: 0.5vw">
+      <app-global-subtitles
+        [nameSubTitle]="
+          'Para personalizar tu servicio, necesitamos algunos detalles clave. Por favor, ingresa tus datos de ubicación y contacto a continuación para garantizar que tu pedido llegue a la dirección correcta de manera oportuna.'
+        "
+      ></app-global-subtitles>
+    </div>
+
+    <div class="container-average-send">
+      <div class="container-inter-form">
+        <div class="container-inputs-flex">
+          <div class="container-inter-inputs">
+            <input type="text" class="input-payment" />
+            <div class="container-text-placeholder-input">País</div>
+          </div>
+          <div class="container-inter-inputs">
+            <input type="text" class="input-payment" />
+            <div class="container-text-placeholder-input">
+              Nombre del destinatario
+            </div>
+          </div>
+        </div>
+
+        <div class="container-inputs-flex">
+          <div class="container-inter-inputs">
+            <input type="text" class="input-payment" />
+            <div class="container-text-placeholder-input">
+              Departamento / Estado
+            </div>
+          </div>
+          <div class="container-inter-inputs">
+            <input type="text" class="input-payment" />
+            <div class="container-text-placeholder-input">Teléfono 1</div>
+          </div>
+        </div>
+
+        <div class="container-inputs-flex">
+          <div class="container-inter-inputs">
+            <input type="text" class="input-payment" />
+            <div class="container-text-placeholder-input">Ciudad</div>
+          </div>
+          <div class="container-inter-inputs">
+            <input type="text" class="input-payment" />
+            <div class="container-text-placeholder-input">
+              Teléfono 2 (opcional)
+            </div>
+          </div>
+        </div>
+
+        <div class="container-inputs-flex">
+          <div class="container-inter-inputs">
+            <input type="text" class="input-payment" />
+            <div class="container-text-placeholder-input">Dirección</div>
+          </div>
+          <div class="container-inter-inputs">
+            <input type="text" class="input-payment" />
+            <div class="container-text-placeholder-input">Correo</div>
+          </div>
+        </div>
+
+        <div class="container-text-area">
+          <textarea
+            name=""
+            id=""
+            class="fcdt-text-area-p2"
+            placeholder="Observaciones:
+  Conjunto cerrado / interior / apartamento"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="container-button">
+        <div class="container-inter-buton">
+          <app-global-buttons
+            (click)="cancel()"
+            [nameButton]="'Cancelar'"
+            [backgroud]="'#fff'"
+            [borderColor]="'#2F0084'"
+            width="80%"
+          ></app-global-buttons>
+        </div>
+        <div class="container-inter-buton">
+          <app-global-buttons
+            (click)="buyProduct()"
+            [nameButton]="'Continua con el pago'"
+            width="80%"
+          ></app-global-buttons>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

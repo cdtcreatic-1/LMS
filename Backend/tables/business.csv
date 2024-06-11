@@ -1,0 +1,7 @@
+Restrictions,variable_name,type_data,references
+NN,company_name,VARCHAR(45),
+"NN  U",company_commercialRegistry,VARCHAR(250),
+FK,company_city,SMALLINT,
+"NN ",company_zipCode,VARCHAR(45),
+FK,user_id,SMALLINT,
+"NN ",company_situation,BOOLEAN,

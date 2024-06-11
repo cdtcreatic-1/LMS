@@ -1,0 +1,11 @@
+@startuml    
+    ' !include 3.0.businessman_register/3.1.get_data_cities_documents.iuml
+    !include 3.0.businessman_register/3.2.businessman_register.iuml
+    !include 4.0.businessman_cofee_interested.iuml
+    !include 3.0.businessman_register/2.1.get_data_states.iuml
+    !include 3.0.businessman_register/2.2.get_data_cities.iuml
+    !include 4.1.businessman_save_cofee_profile.iuml
+    !include 4.2.businessman_get_cofee_profile.iuml
+    !include 3.0.businessman_register/3.3.save_updating_businessman_information.iuml
+    !include 5.0.businessman_profile.iuml
+@enduml

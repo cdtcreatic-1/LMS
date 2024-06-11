@@ -1,0 +1,44 @@
+<div class="container-principal-header">
+  <div class="container-menu-logo">
+    <img
+      src="../../../../../assets/logo_color.webp"
+      alt="Logo"
+      width="70%"
+      (click)="handleNavigateProfile()"
+    />
+  </div>
+
+  <div class="container-form-search">
+    <div class="container-search">
+      <div class="container-input-search">
+        <div class="container-icons-filter">
+          <img
+            src="../../../../assets/icons/icon-search.webp"
+            height="60%"
+            alt=""
+          />
+        </div>
+        <form [formGroup]="form" class="container-form-filter">
+          <input
+            type="text"
+            formControlName="courseName"
+            maxlength="50"
+            placeholder="¿Que módulo buscas?"
+            pattern="^[a-zA-ZáéíóúñÁÉÍÓÚñÑ,.\s]{10,100}$"
+          />
+        </form>
+        <div class="container-icons-filter">
+          <img
+            src="../../../../assets/icons/icon-filter.webp"
+            height="50%"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-car-shop"></div>
+  <div class="container-profile-apprentice">
+    <app-profile-apprentice [actualId]="2"></app-profile-apprentice>
+  </div>
+</div>

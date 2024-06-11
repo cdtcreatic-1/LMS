@@ -1,0 +1,18 @@
+@startuml
+
+group #99FF99 5.1.1 get coffe_variety
+
+    Farmer -> BackEnd: GET coffe_variety
+    BackEnd -> DB: get SELECT variety_name FROM coffee_variations_table
+    DB -> BackEnd: Retrieve all variety names
+
+    BackEnd -> Farmer: HTTP 200 OK (coffe_variety)
+    note over Farmer
+        Body {
+            variety_name
+        }
+    endnote
+
+end group
+
+@enduml 

@@ -1,0 +1,248 @@
+<div class="container-principal-traceability" *ngIf="dataTraceability">
+  <div class="container-body-traceability">
+    <div class="container-title-traceability">Trayectoria</div>
+    <div class="container-image-content">
+      <div class="container-title-lote-image">
+        <div class="container-title-lot">
+          Lote {{ dataTraceability.purchaseData.Lot.id_lot }}
+        </div>
+        <div class="container-image">
+          <img
+            *ngIf="!dataTraceability.purchaseData.Lot.LotPhoto"
+            src="../../../assets/lote2.webp"
+            alt="LoteImage"
+            width="100%"
+            height="100%"
+            style="object-fit: cover; border-radius: 5px"
+          />
+          <img
+            *ngIf="dataTraceability.purchaseData.Lot.LotPhoto"
+            src="{{ dataTraceability.purchaseData.Lot.LotPhoto.lot_photo }}"
+            alt="LoteImage"
+            width="100%"
+            height="100%"
+            style="object-fit: cover; border-radius: 5px"
+          />
+        </div>
+      </div>
+      <div
+        class="container-description-lote"
+        *ngIf="dataTraceability.purchaseData"
+      >
+        <div class="container-input">
+          <div class="container-inter-input">
+            <div class="input-text-item">
+              {{ dataTraceability.purchaseData.Lot.CoffeeProfile.profile_name }}
+            </div>
+            <div class="container-sub-item">Perfil de taza</div>
+          </div>
+
+          <div class="container-inter-input">
+            <div class="input-text-item">
+              {{
+                dataTraceability.purchaseData.Lot.CoffeeVariation.variety_name
+              }}
+            </div>
+            <div class="container-sub-item">Variedad de café</div>
+          </div>
+
+          <div class="container-inter-input">
+            <div class="input-text-item">
+              <span>{{
+                dataTraceability.purchaseData.Lot.LotQuantity.Association
+                  .association_name
+              }}</span>
+            </div>
+            <div class="container-sub-item">Asociación o programa</div>
+          </div>
+
+          <div class="container-inter-input">
+            <div class="input-text-item">
+              <span *ngIf="dataTraceability.purchaseData.Lot.LotQuantity">
+                {{
+                  dataTraceability.purchaseData.Lot.LotQuantity.total_quantity
+                }}
+              </span>
+            </div>
+            <div class="container-sub-item">Total de kilos</div>
+          </div>
+
+          <div class="container-inter-input">
+            <div class="input-text-item">
+              <span *ngIf="dataTraceability.purchaseData.Lot.LotQuantity">
+                {{
+                  dataTraceability.purchaseData.Lot.LotQuantity.samples_quantity
+                }}
+              </span>
+            </div>
+            <div class="container-sub-item">Kilos de prueba</div>
+          </div>
+
+          <div class="container-inter-input">
+            <div class="input-text-item">
+              <span>
+                {{
+                  dataTraceability.purchaseData.Lot.RoastingType.roasting_name
+                }}
+              </span>
+            </div>
+            <div class="container-sub-item">Tostión</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-line-botton"></div>
+
+    <div class="container-principal-data-imege-flex">
+      <div class="container-initial-traceability-flex">
+        <div class="container-title-date-box1">
+          <div>
+            <div class="container-title-minor">Fecha de compra</div>
+            <div class="container-title-mayor">
+              {{
+                dataTraceability.purchaseData.purchase_created_at
+                  | date : "dd/MM/yyyy"
+              }}
+            </div>
+          </div>
+        </div>
+
+        <div class="container-title-date-box2" align="center">
+          <div class="container-circle-image container-circle-image-orange">
+            <img
+              *ngIf="!dataTraceability.purchaseData.Buyer.user_profile_photo"
+              src=" ../../../../../assets/icons/icon_user.webp"
+              alt=""
+              width="100%"
+              height="100%"
+              style="border-radius: 100%; object-fit: cover"
+            />
+            <img
+              *ngIf="dataTraceability.purchaseData.Buyer.user_profile_photo"
+              src="{{ dataTraceability.purchaseData.Buyer.user_profile_photo }}"
+              alt=""
+              width="100%"
+              height="100%"
+              style="border-radius: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="container-line container-line-orange"></div>
+        </div>
+
+        <div class="container-title-date-box3">
+          <div>
+            <div class="container-title-minor">Valor del lote</div>
+            <div class="container-title-mayor text-price">
+              <span
+                >${{
+                  dataTraceability.purchaseData.Lot.LotQuantity.price_per_kilo *
+                    dataTraceability.purchaseData.purchase_quantity
+                    | number : "1.0-0"
+                }}</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="container-title-date-box2" align="center">
+          <div class="container-circle-image container-circle-image-green">
+            <img
+              *ngIf="!dataTraceability.purchaseData.Seller.user_profile_photo"
+              src="../../../assets/aprendiz_p.webp"
+              alt=""
+              height="100%"
+              width="100%"
+              style="border-radius: 100%; object-fit: cover"
+            />
+            <img
+              *ngIf="dataTraceability.purchaseData.Seller.user_profile_photo"
+              src="{{
+                dataTraceability.purchaseData.Seller.user_profile_photo
+              }}"
+              alt=""
+              height="100%"
+              width="100%"
+              style="border-radius: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="container-line container-line-green"></div>
+        </div>
+      </div>
+
+      <div class="container-middle-traceability">
+        <div class="container-inter-boxes">
+          <div class="container-line-box">
+            <div class="container-circle-inter"></div>
+          </div>
+        </div>
+        <div class="container-inter-boxes">
+          <div class="container-line-box container-line-box-orange">
+            <div
+              class="container-circle-inter container-circle-inter-orange"
+            ></div>
+          </div>
+        </div>
+
+        <div class="container-inter-boxes">
+          <div class="container-line-box container-line-box-black">
+            <div
+              class="container-circle-inter container-circle-inter-black"
+            ></div>
+          </div>
+        </div>
+
+        <div class="container-inter-boxes">
+          <div class="container-line-box container-line-box-green">
+            <div
+              class="container-circle-inter container-circle-inter-green"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-end-traceabity">
+        <div class="container-inter-boxes" align="center">
+          <div class="container-line"></div>
+          <div class="container-circle-image">
+            <ion-icon
+              name="calendar-outline"
+              class="icon-traceability"
+            ></ion-icon>
+          </div>
+        </div>
+
+        <div class="container-inter-boxes" align="center">
+          <div class="fcdt-title-responsive">
+            <div class="container-title-minor container-title-minor-orange">
+              Lote comprado por
+            </div>
+            <div class="container-title-mayor container-title-mayor-orange">
+              {{ dataTraceability.purchaseData.Buyer.user_name }}
+            </div>
+          </div>
+        </div>
+
+        <div class="container-inter-boxes" align="center">
+          <div class="container-line container-line-black"></div>
+          <div class="container-circle-image container-circle-image-black">
+            <span class="icon-money">$</span>
+          </div>
+        </div>
+
+        <div class="container-inter-boxes" align="center">
+          <div>
+            <div class="container-title-minor container-title-minor-green">
+              Ganancia del caficultor
+            </div>
+            <div
+              class="container-title-mayor text-price container-title-mayor-green"
+            >
+              $20.000
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

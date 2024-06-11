@@ -1,0 +1,1 @@
+[{"Restrictions": "FK", "variable_name": "id_city", "type_data": "SMALLINT", "references": "cities(id_city)"}, {"Restrictions": "FK", "variable_name": "id_village", "type_data": "SMALLINT", "references": "villages(id_village)"}]

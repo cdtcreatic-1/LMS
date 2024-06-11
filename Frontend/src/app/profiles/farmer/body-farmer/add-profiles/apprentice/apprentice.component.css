@@ -1,0 +1,27 @@
+.container-businessman {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 57vh;
+}
+
+.container-click {
+  cursor: pointer;
+}
+
+.container-click:active {
+  opacity: 0.5;
+}
+
+.container-image-icon-profile {
+  width: 10%;
+}
+
+.container-text-add-profile {
+  margin-top: 0.5vw;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #686868;
+}

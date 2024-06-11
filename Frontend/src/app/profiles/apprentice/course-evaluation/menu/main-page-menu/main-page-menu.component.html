@@ -1,0 +1,56 @@
+<div class="container-principal-menu">
+  <section class="container-title">
+    <h2 class="title-course">Capacitación</h2>
+    <h1>{{ moduleTitle | uppercase }}</h1>
+  </section>
+
+  <section class="container-buttons-menu">
+    <section *ngFor="let module of dataModules; let i = index">
+      <!-- button -->
+
+      <div
+        class="container-button"
+        [ngClass]="{ 'container-button-green': module.isSelected }"
+      >
+        <div class="container-text">
+          <strong>{{ i + 1 }}.&nbsp;</strong>
+          <button class="btns-menu">
+            {{ module.module_title }}
+          </button>
+        </div>
+        <div
+          class="container-chevron"
+          (click)="handleClickAccordion(module.id_module)"
+        >
+          <ion-icon
+            name="chevron-down-outline"
+            class="icon"
+            *ngIf="!module.isAccordion"
+          ></ion-icon>
+          <ion-icon
+            name="chevron-up-outline"
+            class="icon"
+            *ngIf="module.isAccordion"
+          ></ion-icon>
+        </div>
+      </div>
+
+      <!-- Accordion content -->
+
+      <div class="container-accordion" *ngIf="module.isAccordion">
+        <div
+          class="container-text-items-menu"
+          *ngFor="let submodule of module.Submodules"
+          [ngClass]="{
+            'submodule-disable': !submodule.is_enabled,
+            'submodule-selected': submodule.isSelected
+          }"
+          (click)="handleSubmoduleSelected(submodule)"
+          [routerLink]="['training-video', submodule.id_submodule]"
+        >
+          <li>{{ submodule.submodule_title }}</li>
+        </div>
+      </div>
+    </section>
+  </section>
+</div>

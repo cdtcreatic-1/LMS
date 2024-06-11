@@ -1,0 +1,35 @@
+@startuml
+
+group #F4A020 POST / PUT businesman_coffee_interested
+
+    note over Businessman
+
+        Body {
+        "id_user",
+        "id_profile",
+        "id_roast",
+        "id_city"
+        }
+
+    endnote
+
+    Businessman -> BackEnd: POST, GET businesman_coffee_interested
+
+    BackEnd -> DB: Insert into businesman_coffee_interested
+
+    hnote over BackEnd
+
+        Depending if the data are correct the response will be:
+        200 OK (businesman_coffee_interested_data)
+        404 Not Found (id_state not found)
+        400 Bad Request (missing data)
+        500 Internal Server Error (server error)
+
+    endnote
+
+    BackEnd -> Businessman: HTTP 200 OK (businesman_coffee_interested_data)
+
+    end group
+
+
+@enduml

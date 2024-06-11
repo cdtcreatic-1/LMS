@@ -1,0 +1,23 @@
+<div class="container-principal">
+  <div
+    class="container-start"
+    [ngStyle]="{
+      height: height ? height : 'auto',
+      width: width ? width : '20%'
+    }"
+    *ngFor="let item of dataStart"
+  >
+    <img
+      *ngIf="background"
+      src="../../../assets/icons/icon_start_white.webp"
+      alt="start"
+      height="100%"
+    />
+    <img
+      *ngIf="!background"
+      src="../../../assets/icons/icon_star.webp"
+      alt="start"
+      height="100%"
+    />
+  </div>
+</div>

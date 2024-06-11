@@ -1,0 +1,14 @@
+Restrictions,variable_name,type_data,references
+PK,id_lots,SMALLINT,
+FK,id_variety,SMALLINT,coffe_variations(id_variety)
+FK,id_profile,SMALLINT,coffe_profile(id_profile)
+FK,id_association,INTEGER,associations(id_association)
+NN,product_avaliable_amount,SMALLINT,
+FK,id_roast,SMALLINT,roasting_type(id_roast)
+,product_production_description_text,TEXT,
+,product_production_description_audio,VARCHAR(250),
+"NN U",product_sc_certificate,VARCHAR(250),
+"NN U",product_taster_certificate,VARCHAR(250),
+FK,id_farm,SMALLINT,farms(id_farm)
+NN,product_situation,BOOLEAN,
+NN,product_referenceNumber,VARCHAR(45),

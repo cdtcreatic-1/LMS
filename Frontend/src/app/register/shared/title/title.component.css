@@ -1,0 +1,25 @@
+.container-title {
+  width: 80%;
+  margin-top: 1vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  color: #2f0084;
+  margin-left: 9.5%;
+}
+@media only screen and (width <= 768px) and (orientation: portrait) {
+  .container-title {
+    margin-top: -16vw;
+    margin-bottom: 15vw;
+    margin-left: 30%;
+    font-size: 5vw;
+  }
+}
+@media only screen and (width <= 396px) and (orientation: portrait) {
+}
+@media only screen and (width <= 390px) and (orientation: portrait) {
+}

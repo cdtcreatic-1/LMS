@@ -1,0 +1,46 @@
+<div class="container-principal">
+  <div class="constainer-close-modal">
+    <ion-icon
+      name="help-circle-outline"
+      class="ion-icon-blue"
+      [matTooltip]="
+        'La información que se presentan en esta sección es proveniente de modelos numéricos, por tanto son datos estimados'
+      "
+      [matTooltipClass]="'myTooltip'"
+    ></ion-icon>
+
+    <ion-icon
+      name="close-circle-outline"
+      class="ion-icon-blue"
+      (click)="handleCloseModal()"
+    ></ion-icon>
+  </div>
+
+  <div class="container-details" *ngIf="data">
+    <div class="container-text-details">
+      <div class="container-text-details-button">
+        <span>
+          {{ data.stateName | titlecase }} - {{ data.cityName | titlecase }} -
+          {{ data.villageName | titlecase }}
+        </span>
+      </div>
+    </div>
+
+    <div class="container-rows-details">
+      <div style="width: 45%">
+        <div class="input-text-details">
+          <span>{{ data.data.temperature }}</span>
+        </div>
+        <div class="container-sub-input">Temperatura</div>
+      </div>
+      <div style="width: 45%; margin-left: 10%">
+        <div class="input-text-details">
+          <span>{{ data.data.altitude }}</span>
+        </div>
+        <div class="container-sub-input">Altura (m.s.n.m)</div>
+      </div>
+    </div>
+  </div>
+
+  <button class="fcdt-btn-p2 btn" (click)="handleCloseModal()">Aceptar</button>
+</div>

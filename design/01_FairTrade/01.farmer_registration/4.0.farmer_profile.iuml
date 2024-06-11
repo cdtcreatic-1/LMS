@@ -1,0 +1,23 @@
+@startuml
+
+'Farmer Profile'
+
+group  Farmer Profile
+
+    group 4.0 Main dashboard
+        !include 4.0.farmer_profile/4.1a.get_farmer_data.iuml
+        !include 4.0.farmer_profile/4.2.get_farms.iuml
+        !include 4.0.farmer_profile/4.6.delete_farm_by_id_farm.iuml
+    end group 
+
+        !include 2.0.farm_register.iuml
+        !include ./1.0.user_register/1.3.save_updating_user_information.iuml
+    
+    group Edit user profile
+        !include 4.0.farmer_profile/4.1b.get_farmer_data.iuml
+        !include 4.0.farmer_profile/4.7.update_farm_name.iuml
+    end group    
+
+end group
+
+@enduml

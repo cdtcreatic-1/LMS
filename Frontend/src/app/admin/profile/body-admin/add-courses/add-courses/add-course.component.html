@@ -1,0 +1,265 @@
+<div class="container-principal-add-course">
+  <div
+    class="form-course"
+    [ngClass]="{ 'fcdt-disable-screen': idAction === 2 }"
+  >
+    <div class="left-form">
+      <form [formGroup]="form">
+        <input
+          type="text"
+          formControlName="title"
+          minlength="10"
+          maxlength="100"
+          required
+          pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.:%!¡¿'?ñÑ,\s]*$"
+          [matTooltip]="
+            validatorFields('title')
+              ? 'Usar letras, puntos, comas o números, con un mínimo de 20 y máximo de 1500 caracteres. Los caracteres especiales no están permitidos.'
+              : ''
+          "
+          [matTooltipClass]="'myTooltip'"
+        />
+        <label>
+          <span
+            [ngClass]="{
+              'fcdt-color-span-form-p2': validatorFields('title')
+            }"
+          >
+            Titulo
+          </span>
+        </label>
+        <textarea
+          formControlName="description"
+          placeholder="Descripción (mínimo 20 y máximo 1500 caracteres)"
+          required
+          class="textarea"
+          [ngClass]="{
+            'container-border-red': validatorFields('description')
+          }"
+          minlength="20"
+          maxlength="1500"
+          pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.:%!¡¿'?ñÑ,\s]*$"
+          [matTooltip]="
+            validatorFields('description')
+              ? 'Usar letras, puntos, comas o números, con un mínimo de 20 y máximo de 1500 caracteres. Los caracteres especiales no están permitidos.'
+              : ''
+          "
+          [matTooltipClass]="'myTooltip'"
+        ></textarea>
+
+        <!-- Duration course -->
+
+        <input
+          type="text"
+          formControlName="duration"
+          minlength="3"
+          maxlength="250"
+          placeholder="50 horas"
+          required
+          pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ,\s]*$"
+          [matTooltip]="
+            validatorFields('duration')
+              ? 'Usar letras, puntos, comas o números, con un mínimo de 20 y máximo de 1500 caracteres. Los caracteres especiales no están permitidos.'
+              : ''
+          "
+        />
+        <label>
+          <span
+            [ngClass]="{
+              'fcdt-color-span-form-p2': validatorFields('duration')
+            }"
+          >
+            Duración
+          </span>
+        </label>
+
+        <!-- Instructor name -->
+
+        <input
+          type="text"
+          formControlName="instructor_name"
+          minlength="5"
+          maxlength="50"
+          required
+          pattern="^[a-zA-ZáéíóúñÁÉÍÓÚñÑ\s]{5,50}$"
+          [matTooltip]="
+            validatorFields('instructor_name')
+              ? 'Usar unicamente letras con mínimo 10 y máximo de 50 caracteres'
+              : ''
+          "
+          [matTooltipClass]="'myTooltip'"
+        />
+        <label>
+          <span
+            [ngClass]="{
+              'fcdt-color-span-form-p2': validatorFields('instructor_name')
+            }"
+          >
+            Nombre del instructor
+          </span>
+        </label>
+
+        <!-- Date -->
+
+        <input
+          type="date"
+          formControlName="date_start"
+          min="{{ currectDate }}"
+          required
+          [matTooltip]="
+            validatorFields('date_start')
+              ? 'Completa este campo, digita una fecha'
+              : ''
+          "
+          [matTooltipClass]="'myTooltip'"
+        />
+        <label>
+          <span
+            [ngClass]="{
+              'fcdt-color-span-form-p2': validatorFields('date_start')
+            }"
+          >
+            Fecha de lanzamiento
+          </span>
+        </label>
+
+        <input
+          type="tel"
+          formControlName="price"
+          maxlength="10"
+          minlength="5"
+          pattern="[0-9]*"
+          required
+          [matTooltip]="
+            validatorFields('price')
+              ? 'Usar únicamente números con una longitud mínima de 5 y máxima de 10 dígitos'
+              : ''
+          "
+          [matTooltipClass]="'myTooltip'"
+          (keydown)="handleKeyDown($event)"
+        />
+        <label>
+          <span
+            [ngClass]="{
+              'fcdt-color-span-form-p2':
+                validatorFields('price') && !dataCourse?.course_price
+            }"
+          >
+            Precio
+          </span>
+        </label>
+      </form>
+    </div>
+    <div class="rigth-form">
+      <!-- false false -->
+      <div class="add-photo-course" *ngIf="!dataCourse?.course_photo && !image">
+        <input
+          type="file"
+          accept="image/jpeg,image/png"
+          class="input-load-image"
+          (change)="onChangeLoadImage($event)"
+        />
+
+        <div>
+          <ion-icon name="image-outline" class="icon-image"></ion-icon>
+          <div class="text-add-image">
+            Agregar tu foto, el tamaño recomendado es 256 x 256 px
+          </div>
+        </div>
+      </div>
+
+      <!-- true false -->
+
+      <div class="container-image" *ngIf="dataCourse?.course_photo && !image">
+        <input
+          type="file"
+          accept="image/jpeg,image/png"
+          class="input-load-image"
+          (change)="onChangeLoadImage($event)"
+        />
+        <img
+          src="{{ dataCourse?.course_photo }}"
+          alt=""
+          class="contaner-image-course"
+        />
+      </div>
+
+      <div class="container-image" *ngIf="!dataCourse?.course_photo && image">
+        <input
+          type="file"
+          accept="image/jpeg,image/png"
+          class="input-load-image"
+          (change)="onChangeLoadImage($event)"
+        />
+        <img src="{{ image }}" alt="" class="contaner-image-course" />
+      </div>
+
+      <!-- true true -->
+
+      <div class="container-image" *ngIf="dataCourse?.course_photo && image">
+        <input
+          type="file"
+          accept="image/jpeg,image/png"
+          class="input-load-image"
+          (change)="onChangeLoadImage($event)"
+        />
+        <img src="{{ image }}" alt="" class="contaner-image-course" />
+      </div>
+
+      <div class="add-doc">
+        <div class="icon-add-document-text" align="center">
+          <div class="container-icon">
+            <input
+              type="file"
+              accept="application/pdf"
+              class="input-load-image"
+              (change)="onChangeLoadDocument($event)"
+            />
+            <ion-icon name="add-circle-outline" class="ion-icon-green">
+            </ion-icon>
+          </div>
+          <div>
+            <strong style="text-align: center"
+              >Adjuntar documentos del curso</strong
+            >
+          </div>
+        </div>
+
+        <a
+          *ngIf="dataCourse?.course_presentation_content && !document"
+          href="{{ dataCourse?.course_presentation_content }}"
+          target="_blank"
+        >
+          <img
+            src="../../../../../../assets/icons/icon_pdf.webp"
+            alt=""
+            height="70%"
+          />
+        </a>
+
+        <img
+          *ngIf="!dataCourse?.course_presentation_content && document"
+          src="../../../../../../assets/icons/icon_pdf.webp"
+          alt=""
+          height="70%"
+        />
+
+        <img
+          *ngIf="dataCourse?.course_presentation_content && document"
+          src="../../../../../../assets/icons/icon_pdf.webp"
+          alt=""
+          height="70%"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="container-buttons">
+    <button
+      class="fcdt-btn-white-p2"
+      [routerLink]="['../../../../../all-courses']"
+    >
+      Atrás
+    </button>
+    <button class="fcdt-btn-p2" (click)="handleSubmit()">Siguiente</button>
+  </div>
+</div>

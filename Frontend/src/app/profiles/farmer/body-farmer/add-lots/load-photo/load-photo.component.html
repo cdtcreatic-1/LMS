@@ -1,0 +1,47 @@
+<div class="container-formc">
+  <div class="container-principal-formc">
+    <div class="container-inter-formc">
+      <div>
+        <div class="container-title">
+          Comparte fotos de tu lote o cultivos para que todos puedan apreciar la
+          belleza de tu trabajo y el proceso de crecimiento de tu producto.
+        </div>
+
+        <div class="container-cards">
+          <div class="container-title-card" align="center">
+            <div class="container-card">
+              <input
+                type="file"
+                accept="image/jpeg,image/png"
+                class="input-load-documents-farm"
+                (change)="onChangeLoadImage($event, 1)"
+              />
+              <div *ngIf="imageImg1" class="container-image-loaded">
+                <img src="{{ imageImg1 }}" alt="" />
+              </div>
+              <div *ngIf="!imageImg1">
+                <div class="container-icon-load">
+                  <img
+                    src="../../../../assets/icons/icon_load.webp"
+                    alt="load"
+                    height="100%"
+                    width="100%"
+                  />
+                </div>
+                <div class="container-text-drag">
+                  Inserta tu archivo de imagen, peso máximo 1MB
+                </div>
+                <div class="container-text-jpg-pdf">JPG o PNG</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-buttons-formc" align="center">
+      <button class="btn-formc" (click)="comeBack()">Atrás</button>
+      <button class="btn-formc" (click)="next()">Siguiente</button>
+    </div>
+  </div>
+</div>

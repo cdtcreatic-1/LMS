@@ -1,0 +1,41 @@
+<div class="container-form2">
+  <div class="container-text-historia">
+    Escribe brevemente la historia de tu empresa, cuando inició, cuál es su
+    visión
+  </div>
+
+  <form [formGroup]="form3A">
+    <div class="container-input-text">
+      <textarea
+        formControlName="histoyText"
+        placeholder="Escribe aquí tu texto (máximo 500 caracteres)"
+        required
+        rows="2"
+        cols="50"
+        minlength="20"
+        maxlength="500"
+        [matTooltip]="
+          validatorFields('histoyText')
+            ? 'Completa este campo con mínimo 20 caracteres y máximo de 500'
+            : ''
+        "
+        [matTooltipClass]="'myTooltip'"
+        class="fcdt-text-area-p2"
+        [ngClass]="{
+          'fcdt-text-area-p2-error': validatorFields('histoyText')
+        }"
+      ></textarea>
+    </div>
+
+    <div class="container-ponters">
+      <app-points-form3-business [position]="1"></app-points-form3-business>
+    </div>
+
+    <div class="container-buttons-form2" align="center">
+      <button class="btn-form2" [routerLink]="'../../preferences'">
+        Atrás
+      </button>
+      <button class="btn-form2" (click)="next()">Siguiente</button>
+    </div>
+  </form>
+</div>

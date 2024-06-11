@@ -1,0 +1,1 @@
+[{"Restrictions": "PK", "variable_name": "id_association", "type_data": "SMALLINT", "references": null}, {"Restrictions": "NN U", "variable_name": "association_name", "type_data": "VARCHAR(45)", "references": null}, {"Restrictions": "NN U", "variable_name": "association_situation", "type_data": "BOOLEAN", "references": null}]

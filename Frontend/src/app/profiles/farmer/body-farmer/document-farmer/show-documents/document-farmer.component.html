@@ -1,0 +1,131 @@
+<div class="container-body">
+  <div class="container-icons-add-notification" align="center">
+    <div class="container-add-farm">
+      <div
+        [ngClass]="{
+          'container-icon-text': !dataDocuments,
+          'container-icon-text-disable': dataDocuments
+        }"
+        (click)="addDocument()"
+      >
+        <div class="container-icon">
+          <img
+            src="../../../../../../assets/icons/icon_add.webp"
+            alt="Agregar"
+            width="100%"
+            height="100%"
+          />
+        </div>
+        <div class="container-text">Agregar documento</div>
+      </div>
+    </div>
+    <div class="container-delete-farm">
+      <div
+        [ngClass]="{
+          'container-icon-text': dataDocuments,
+          'container-icon-text-disable': !dataDocuments
+        }"
+        (click)="downloadAllDocuments()"
+      >
+        <div class="container-icon">
+          <img
+            src="../../../../../../assets/icons/icon_download.webp"
+            alt="Agregar"
+            width="100%"
+            height="100%"
+          />
+        </div>
+        <div class="container-text">Descargar documento</div>
+      </div>
+    </div>
+  </div>
+  <div class="container-details">
+    <div class="container-text-details">Detalles</div>
+
+    <div *ngIf="!dataDocuments" style="padding: 3%">
+      No se han cargado documentos
+    </div>
+    <div class="container-documents" *ngIf="dataDocuments">
+      <div class="container-icon-image-pdf">
+        <img
+          src="../../../../../../assets/icons/icon_pdf.webp"
+          alt="pdf"
+          height="100%"
+          width="100%"
+          (click)="
+            visualizationDocument(
+              dataDocuments.farm_documentation_chamber_commerce
+            )
+          "
+        />
+
+        <div class="container-text-pdf">
+          <div>Cámara</div>
+          <div>comercio</div>
+        </div>
+      </div>
+
+      <div class="container-icon-image-pdf">
+        <img
+          src="../../../../../../assets/icons/icon_pdf.webp"
+          alt="pdf"
+          height="100%"
+          width="100%"
+          (click)="visualizationDocument(dataDocuments.farm_documentation_rut)"
+        />
+        <div class="container-text-pdf">RUT</div>
+      </div>
+
+      <div class="container-icon-image-pdf">
+        <img
+          src="../../../../../../assets/icons/icon_pdf.webp"
+          alt="pdf"
+          height="100%"
+          width="100%"
+          (click)="
+            visualizationDocument(dataDocuments.farm_documentation_id_document)
+          "
+        />
+        <div class="container-text-pdf">Cédula</div>
+      </div>
+
+      <!-- <div
+        class="container-icon-image-pdf"
+        (click)="
+          visualizationDocument(dataDocuments.farmsData.product_sc_certificate)
+        "
+      >
+        <img
+          src="../../../../../../assets/icons/icon_image.webp"
+          alt="pdf"
+          height="100%"
+          width="100%"
+          title="{{ dataDocuments.farmsData.product_sc_certificate }}"
+        />
+        <div class="container-text-pdf" style="margin-left: 26%">
+          Certificado de café especia
+        </div>
+      </div>
+
+      <div
+        class="container-icon-image-pdf"
+        (click)="
+          visualizationDocument(
+            dataDocuments.farmsData.product_taster_certificate
+          )
+        "
+      >
+        <img
+          src="../../../../../../assets/icons/icon_image.webp"
+          alt="pdf"
+          height="100%"
+          width="100%"
+          title="{{ dataDocuments.farmsData.product_taster_certificate }}"
+        />
+        <div class="container-text-pdf" style="margin-left: 30%">
+          Certificado de catador
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>

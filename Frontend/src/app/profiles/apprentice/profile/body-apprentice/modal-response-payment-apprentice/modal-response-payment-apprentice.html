@@ -1,0 +1,23 @@
+<div class="container-pincipal-modal" align="center">
+  <div class="container-principal-icon">
+    <ion-icon name="{{ iconName }}" class="container-icon"></ion-icon>
+  </div>
+
+  <div class="container-modal-white">
+    <div *ngIf="idPayment === 1 || idPayment === 2">
+      <app-global-titles titleName="{{ title }}"></app-global-titles>
+      <app-global-subtitles
+        nameSubTitle="{{ subtitle }}"
+      ></app-global-subtitles>
+    </div>
+    <div *ngIf="idPayment === 3">
+      <app-global-titles titleName="{{ title }}"></app-global-titles>
+      <div style="margin-top: -4%">
+        <app-global-titles titleName="{{ subtitle }}"></app-global-titles>
+      </div>
+    </div>
+    <div class="container-button">
+      <button class="btn-shared" (click)="handleCloseModal()">Finalizar</button>
+    </div>
+  </div>
+</div>

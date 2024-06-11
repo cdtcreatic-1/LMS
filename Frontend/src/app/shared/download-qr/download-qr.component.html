@@ -1,0 +1,30 @@
+<div class="container-principal-modal-qr" align="center">
+  <div class="container-QR">
+    <qrcode
+      id="capture"
+      qrdata="{{ dataQr }}"
+      [allowEmptyString]="true"
+      [colorDark]="'#2F0084'"
+      [errorCorrectionLevel]="'M'"
+      [imageSrc]="'./assets/icons/icon_qr.webp'"
+      [imageHeight]="60"
+      [imageWidth]="60"
+      [margin]="4"
+      [scale]="1"
+      [title]="'A custom title attribute'"
+      [width]="300"
+      [elementType]="'canvas'"
+    ></qrcode>
+  </div>
+
+  <div class="container-description-qr">
+    Descarga este código QR para conocer en detalle la trazabilidad de tu
+    compra. De esta forma, podrás seguir el recorrido de tu producto desde su
+    origen hasta llegar a tus manos. ¡Obtén mayor transparencia y confianza en
+    tu adquisición en tan solo un clic!
+  </div>
+
+  <div class="container-button" (click)="downloadQr()">
+    <app-global-buttons [nameButton]="'Descargar'"></app-global-buttons>
+  </div>
+</div>

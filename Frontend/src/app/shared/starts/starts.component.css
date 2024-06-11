@@ -1,0 +1,12 @@
+.container-principal {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  padding-block: 5px;
+}
+
+.container-start {
+  width: 20%;
+  margin-top: -0.2rem;
+}

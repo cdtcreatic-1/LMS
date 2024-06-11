@@ -1,0 +1,207 @@
+<div class="container-principal">
+  <app-global-titles [titleName]="'Datos esenciales'"></app-global-titles>
+
+  <div class="container-form1">
+    <form
+      [formGroup]="form"
+      (ngSubmit)="next()"
+      class="container-form"
+    >
+      <div class="container-inter-form-photo">
+        <div class="container-exter-inputs">
+          <div class="container-row-input-form">
+            <div class="container-input-form">
+              <div>
+                <input
+                  type="text"
+                  formControlName="allName"
+                  class="fcdt-input-p2"
+                  minlength="10"
+                  maxlength="90"
+                  required
+                  placeholder="Ej: Pepe Gomez Muñoz"
+                  pattern="^[a-zA-ZáéíóúñÑÁÉÍÓÚüÜ\s]+$"
+                  [matTooltip]="
+                    validatorFields('allName')
+                      ? 'Usar únicamente letras con un mínimo 10 y máximo de 90 caracteres'
+                      : ''
+                  "
+                  [matTooltipClass]="'myTooltip'"
+                />
+              </div>
+              <div class="container-placeholder">
+                <span
+                  [ngClass]="{
+                    'fcdt-color-span-form-p2': validatorFields('allName')
+                  }"
+                >
+                  Nombre completo
+                </span>
+              </div>
+            </div>
+            <div class="container-input-form">
+              <div>
+                <input
+                  type="tel"
+                  formControlName="phone"
+                  class="fcdt-input-p2"
+                  minlength="6"
+                  maxlength="10"
+                  required
+                  pattern="[0-9]*"
+                  [matTooltip]="
+                    validatorFields('phone')
+                      ? 'Usar únicamente números con una longitud mínima de 6 y máxima de 10 dígitos'
+                      : ''
+                  "
+                  [matTooltipClass]="'myTooltip'"
+                  (keydown)="handleKeyDown($event)"
+                />
+              </div>
+              <div class="container-placeholder">
+                <span
+                  [ngClass]="{
+                    'fcdt-color-span-form-p2': validatorFields('phone')
+                  }"
+                >
+                  Teléfono
+                </span>
+              </div>
+            </div>
+
+            <div class="container-input-form">
+              <div>
+                <input
+                  type="email"
+                  formControlName="mail"
+                  class="fcdt-input-p2"
+                  maxlength="50"
+                  required
+                  [matTooltip]="
+                    validatorFields('mail')
+                      ? 'Digite un correo electrónico válido'
+                      : ''
+                  "
+                  [matTooltipClass]="'myTooltip'"
+                  style="pointer-events: none; opacity: 0.8"
+                />
+              </div>
+              <div class="container-placeholder">
+                <span
+                  [ngClass]="{
+                    'fcdt-color-span-form-p2': validatorFields('mail')
+                  }"
+                >
+                  Correo electrónico</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="container-row-input-form">
+            <div class="container-input-form">
+              <div>
+                <input
+                  type="text"
+                  formControlName="userName"
+                  class="fcdt-input-p2"
+                  minlength="6"
+                  maxlength="90"
+                  required
+                  pattern="^(?=.*[a-z])[A-Za-z0-9]{6,90}$"
+                  [matTooltip]="
+                    validatorFields('userName')
+                      ? 'El nombre de usuario no debe tener espacios, tíldes o símbolos. Además, debe contener entre 6 y 90 caracteres'
+                      : ''
+                  "
+                  [matTooltipClass]="'myTooltip'"
+                />
+              </div>
+              <div class="container-placeholder">
+                <span
+                  [ngClass]="{
+                    'fcdt-color-span-form-p2': validatorFields('userName')
+                  }"
+                  >Nombre de usuario</span
+                >
+              </div>
+            </div>
+            <div class="container-input-form">
+              <div>
+                <input
+                  type="tel"
+                  formControlName="identification"
+                  class="fcdt-input-p2"
+                  minlength="6"
+                  maxlength="10"
+                  pattern="[0-9]*"
+                  required
+                  [matTooltip]="
+                    validatorFields('identification')
+                      ? 'Usar únicamente números con una longitud mínima de 6 y máxima de 10 dígitos'
+                      : ''
+                  "
+                  [matTooltipClass]="'myTooltip'"
+                  (keydown)="handleKeyDown($event)"
+                />
+              </div>
+              <div class="container-placeholder">
+                <span
+                  [ngClass]="{
+                    'fcdt-color-span-form-p2': validatorFields('identification')
+                  }"
+                >
+                  Número de identificación
+                </span>
+              </div>
+            </div>
+
+            <div class="container-input-form"></div>
+          </div>
+
+          <div class="container-row-input-form"></div>
+        </div>
+      </div>
+      <div class="container-button" align="center">
+        <app-global-buttons
+          [nameButton]="'Guardar'"
+          width="100%"
+        ></app-global-buttons>
+      </div>
+    </form>
+
+    <div class="container-input-image">
+      <div class="container-form-image" align="center">
+        <div class="container-inter-load-image">
+          <input
+            type="file"
+            class="input-load-cedula"
+            accept="image/jpeg,image/png"
+            (change)="onChangeLoadImage($event)"
+          />
+          <div class="container-image-load-inter" *ngIf="image">
+            <img
+              [src]="image"
+              alt=""
+              width="100%"
+              height="100%"
+              style="object-fit: cover"
+            />
+          </div>
+          <div class="container-image-tex-inter" *ngIf="!image">
+            <div class="container-icon-image">
+              <img
+                src="../../../../../assets/icons/icon_user.webp"
+                alt="Icon user"
+                width="100%"
+              />
+            </div>
+            <div class="container-text-image">
+              agrega tu foto, el tamaño recomendado es 256 x 256px
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

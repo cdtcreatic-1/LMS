@@ -1,0 +1,108 @@
+<div class="container-principal-all-courses">
+  <div class="container-title-result">
+    <div class="container-title">Todos los cursos</div>
+    <div class="container-result" *ngIf="dataCourses.length <= 1">
+      {{ dataCourses.length }} Resultado
+    </div>
+    <div class="container-result" *ngIf="dataCourses.length > 1">
+      {{ dataCourses.length }} Resultados
+    </div>
+  </div>
+
+  <div class="container-principal-cards">
+    <div class="container-card" *ngFor="let course of dataCourses">
+      <div class="container-image-start-play">
+        <div class="container-image">
+          <img
+            src="{{ course.course_photo }}"
+            alt="courses"
+            height="100%"
+            width="100%"
+            class="fcdt-img"
+            style="border-radius: 8px"
+          />
+        </div>
+
+        <!-- <div class="container-start">
+          <div class="container-start-number">
+            <div class="container-image-start">
+              <img
+                src="../../../../assets/icons/icon_start_white.webp"
+                alt=""
+                width="50%"
+              />
+            </div>
+            <div class="container-number">5.0</div>
+          </div>
+        </div> -->
+
+        <div class="container-principal-play">
+          <div class="container-image-play">
+            <img
+              src="../../../../assets/icons/icon_play.webp"
+              alt=""
+              height="100%"
+              width="100%"
+              class="fcdt-img"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="container-principal-description-course">
+        <div class="container-title-course" (click)="detailCourse(course)">
+          <div class="fcdt-title-responsive" title="{{ course.course_title }}">
+            {{ course.course_title }}
+          </div>
+        </div>
+        <div class="container-principal-price">
+          <div class="container-price">
+            $ <span>{{ course.course_price }}</span>
+          </div>
+          <div class="container-discount">
+            ${{ course.course_price * 1.2 | number }}
+          </div>
+        </div>
+
+        <div class="container-principal-card-buy">
+          <div
+            class="container-card-shop"
+            *ngIf="course.is_purchasable"
+            (click)="addCarShop(course.id_course)"
+          >
+            <img
+              src="../../../../assets/icons/icon_car_shop_blue.webp"
+              alt=""
+              width="95%"
+            />
+          </div>
+          <div
+            class="container-button-buy"
+            (click)="handleClickBuyNow(course.id_course)"
+            *ngIf="course.is_purchasable"
+          >
+            <app-global-buttons
+              [nameButton]="'Comprar ahora'"
+              [color]="'#ffffff'"
+              [backgroud]="'#2F0084'"
+              [height]="'3.3vw'"
+            ></app-global-buttons>
+          </div>
+
+          <div
+            class="container-see-course"
+            (click)="handleNavigate(course)"
+            *ngIf="!course.is_purchasable"
+          >
+            <app-global-buttons
+              [nameButton]="'Ver curso'"
+              [color]="'#ffffff'"
+              [backgroud]="'#2F0084'"
+              [height]="'3.3vw'"
+              [width]="'80%'"
+            ></app-global-buttons>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

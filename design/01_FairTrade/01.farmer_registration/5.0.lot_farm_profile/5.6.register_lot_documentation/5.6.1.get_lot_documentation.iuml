@@ -1,0 +1,32 @@
+@startuml
+
+group #99FF99 5.5.1 Get Farm documentation 
+
+    Farmer -> BackEnd: GET farm_documentation/:id_lot
+
+    BackEnd -> DB: SELECT * FROM farm_documentation WHERE id_lot = :id_lot
+    DB -> BackEnd: Return Farm documentation
+
+    hnote over BackEnd
+        Depending if the data are correct the response will be:
+        200 Ok (id_lot, id_farm_documentation, farm_documentation_id_document, 
+        farm_documentation_rut, farm_documentation_chamber_commerce)
+        404 Not Found (Farm documentation not found)
+        500 Internal Server Error (server error)
+    endnote
+
+    BackEnd -> Farmer: HTTP 200 OK (Farm documentation data)
+
+    note over Farmer
+        Response{
+            id_lot,
+            id_farm_documentation,
+            farm_documentation_id_document,
+            farm_documentation_rut,
+            farm_documentation_chamber_commerce
+        }
+    endnote
+
+end group
+
+@enduml

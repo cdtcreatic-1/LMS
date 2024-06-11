@@ -1,0 +1,46 @@
+.container-modal-notification {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -100vh;
+  width: 70vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.container-text {
+  width: 35%;
+  height: 25%;
+  padding-block: 2.3vw;
+  padding-inline: 2vw;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 1.77516px 35.1655px rgba(0, 0, 0, 0.25);
+  border-radius: 16.864px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: center;
+  color: #2F0084;
+}
+
+.container-icon-historial-ventas {
+  margin-top: 1vw;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-icon {
+  width: 10%;
+  margin-right: 0.5vw;
+}
+
+.container-historial-ventas {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #00de97;
+}

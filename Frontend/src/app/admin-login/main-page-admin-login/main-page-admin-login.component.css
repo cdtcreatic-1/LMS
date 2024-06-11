@@ -1,0 +1,25 @@
+.container-login-admin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(#00de97, #2f0084);
+}
+
+form {
+  width: 30%;
+}
+
+.container-title-login {
+  font-family: Lato;
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 3%;
+  font-family: 800;
+}
+
+.container-form {
+  width: 100%;
+  margin-bottom: 3%;
+}

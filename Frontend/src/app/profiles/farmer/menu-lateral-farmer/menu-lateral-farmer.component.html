@@ -1,0 +1,72 @@
+<div class="container-menu">
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 18vh;
+    "
+  >
+    <div style="width: 50%">
+      <img
+        src="../../../../assets/logo_color.webp"
+        alt="Logo"
+        width="100%"
+        height="100%"
+      />
+    </div>
+  </div>
+
+  <div style="height: 72vh">
+    <div
+      [ngClass]="{
+        'container-color-buttons': itemMenuLateral >= 1 && itemMenuLateral <= 6,
+        'container-color-buttons-witout': itemMenuLateral > 6
+      }"
+    >
+      <app-button-profile></app-button-profile>
+    </div>
+    <app-accordion-farmer *ngIf="isAccordion"></app-accordion-farmer>
+
+    <div
+      [ngClass]="{
+        'container-color-buttons': itemMenuLateral === 7,
+        'container-color-buttons-witout': itemMenuLateral !== 7
+      }"
+    >
+      <app-button-menu-counter
+        [iconItemPath]="'../../../../assets/icons/icon_notification.webp'"
+        [idRole]="1"
+        [buttonName]="'Notificaciones'"
+        [amountNotification]="numberNotification"
+        [idItemMenu]="7"
+      ></app-button-menu-counter>
+    </div>
+
+    <app-button-menu
+      [buttonName]="'Estado de ventas'"
+      [idItemMenu]="8"
+      [iconItemPath]="'../../../../assets/icons/icon_sales.webp'"
+      [isSelected]="itemMenuLateral === 8 ? true : false"
+      [onClick]="handleClickButtons"
+    ></app-button-menu>
+
+    <app-button-menu
+      [buttonName]="'Tendencias de compradores'"
+      [idItemMenu]="9"
+      [iconItemPath]="'../../../../assets/icons/icon_trading_business.webp'"
+      [isSelected]="itemMenuLateral === 9 ? true : false"
+      [onClick]="handleClickButtons"
+    ></app-button-menu>
+  </div>
+
+  <div class="container-logout">
+    <app-button-menu
+      [buttonName]="'Cerrar sesión'"
+      [idItemMenu]="-1"
+      [onClick]="handleClickButtons"
+      [iconItemPath]="'../../../../assets/icons/icon_off.webp'"
+    ></app-button-menu>
+  </div>
+</div>

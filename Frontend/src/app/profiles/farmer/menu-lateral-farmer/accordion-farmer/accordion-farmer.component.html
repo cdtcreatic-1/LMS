@@ -1,0 +1,34 @@
+<div class="container-accordion">
+  <div class="container-text-items-menu" (click)="setBodyFarmer(0)">
+    Agregar perfil
+  </div>
+  <div
+    class="container-text-items-menu"
+    (click)="setBodyFarmer(1)"
+    [ngClass]="{ 'subrayar-item-menu': actualId === 1 }"
+  >
+    Fincas
+  </div>
+  <div
+    class="container-text-items-menu"
+    (click)="setBodyFarmer(2)"
+    [ngClass]="{ 'subrayar-item-menu': actualId === 3 }"
+  >
+    Documentos
+  </div>
+  <div
+    class="container-text-items-menu"
+    (click)="setBodyFarmer(3)"
+    [ngClass]="{ 'subrayar-item-menu': actualId === 4 }"
+  >
+    Editar perfil
+  </div>
+  <div
+    class="container-text-items-menu"
+    (click)="setBodyFarmer(4)"
+    [ngClass]="{ 'subrayar-item-menu': actualId === 5 }"
+    style="margin-bottom: 0px"
+  >
+    Cambiar contraseña
+  </div>
+</div>

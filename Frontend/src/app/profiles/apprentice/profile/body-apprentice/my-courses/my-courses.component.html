@@ -1,0 +1,63 @@
+<div class="container-principal-my-curses">
+  <div class="container-title-filter">
+    <div class="container-title">Mis cursos</div>
+    <div class="container-icon">
+      <img
+        src="../../../../assets/icons/icon_filter2.webp"
+        alt=""
+        width="70%"
+      />
+    </div>
+  </div>
+
+  <div class="container-courses">
+    <div class="container-inter-courses">
+      <div class="title-courses">Cursos actuales</div>
+      <div class="container-cards-courses" *ngFor="let item of myCourses">
+        <div class="container-card">
+          <div class="container-image-start-play">
+            <div class="container-image">
+              <img
+                src="{{ item.Course.course_photo }}"
+                alt="courses"
+                height="100%"
+                width="100%"
+                class="fcdt-img"
+                style="border-radius: 8px"
+              />
+            </div>
+
+            <div class="container-principal-play">
+              <div class="container-image-play">
+                <img
+                  src="../../../../assets/icons/icon_play.webp"
+                  alt=""
+                  height="100%"
+                  width="100%"
+                  class="fcdt-img"
+                  (click)="handleNavidate(item)"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="container-description-price">
+            <div
+              class="container-title-course"
+              (click)="handleNavidate(item)"
+            >
+              {{ item.Course.course_title.slice(0, 20) }}
+            </div>
+            <div class="container-principal-price">
+              <div class="container-price">
+                $ <span>{{ item.Course.course_price | number }}</span>
+              </div>
+              <div class="container-discount">
+                ${{ item.Course.course_price * 1.1 | number }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

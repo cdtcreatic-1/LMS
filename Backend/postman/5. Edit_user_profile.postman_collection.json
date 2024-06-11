@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "26380552-c8bd-4196-9c83-cdfa59ed3301",
+		"name": "5. Edit_user_profile",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29027766",
+		"_collection_link": "https://planetary-firefly-287054.postman.co/workspace/Plat-NovaPro~ef14d592-9b29-43bc-9b3e-9f16fea35acf/collection/29027766-26380552-c8bd-4196-9c83-cdfa59ed3301?action=share&source=collection_link&creator=29027766"
+	},
+	"item": [
+		{
+			"name": "register GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_DOMAIN}}/register/:id_user",
+					"host": [
+						"{{URL_DOMAIN}}"
+					],
+					"path": [
+						"register",
+						":id_user"
+					],
+					"variable": [
+						{
+							"key": "id_user",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_information PUT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_user",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id_type_of_information",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "user_personal_description_text",
+							"value": "hola",
+							"type": "text"
+						},
+						{
+							"key": "user_personal_description_audio",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL_DOMAIN}}/user_information",
+					"host": [
+						"{{URL_DOMAIN}}"
+					],
+					"path": [
+						"user_information"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cover_photo PUT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_user",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "user_cover_photo",
+							"type": "file",
+							"src": "/C:/Users/Ryzen/OneDrive/Imágenes/Hearthstone Screenshot 04-24-22 22.34.30.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL_DOMAIN}}/cover_photo",
+					"host": [
+						"{{URL_DOMAIN}}"
+					],
+					"path": [
+						"cover_photo"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

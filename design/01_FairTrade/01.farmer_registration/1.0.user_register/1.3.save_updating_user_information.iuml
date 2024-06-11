@@ -1,0 +1,35 @@
+@startuml
+
+'Cargar user_information'
+    group #F4A020 1.3 Save and Updating user_information
+        hnote over Farmer
+            Body : {
+            id_user,
+            id_type_of_information = 1, (user_brief_vision)
+            user_personal_description_text }
+        end note
+        Farmer -> BackEnd: POST, PUT user_information(Body)
+
+        BackEnd -> DB: Insert user_information in user_information_table
+
+        hnote over BackEnd
+            Depending if the data are correct the response will be:
+            201 Created (id_user_information)
+            400 Bad Request (missing data)
+            500 Internal Server Error (server error)
+
+            if the message is 201 Created the response is:
+            Body : { message,
+            user_informationSaved: {
+            id_user_information,
+            id_user,
+            id_type_of_information,
+            user_personal_description_text } }
+
+        endnote
+
+        BackEnd -> Farmer: HTTP 201 Created (Body)
+
+    end group 
+
+@enduml

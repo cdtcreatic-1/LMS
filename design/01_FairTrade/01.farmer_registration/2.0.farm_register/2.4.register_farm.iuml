@@ -1,0 +1,45 @@
+@startuml
+
+'Notas'
+group #F4A020 2.4 Register Farm
+    hnote over Farmer
+        Body : {
+            id_user,
+            farm_name,
+            farm_number_lots,
+            farm_longitude,
+            farm_latitude,
+            id_village 
+        }
+        farm_number_lots must be greather than or equal to 1
+        If farm_latitude and farm_longitude are null, then id_village must not be null.
+        If id_village is null, then farm_latitude and farm_longitude must not be null.
+    end note
+
+    Farmer -> BackEnd: POST, PUT register_farm(Body)
+
+    BackEnd -> DB: Insert farm in farms_table
+
+    hnote over BackEnd
+        Depending if the data are correct the response will be:
+        201 Created (id_farm)
+        400 Bad Request (missing data)
+        500 Internal Server Error (server error)
+
+        if the message is 201 Created the response is:
+        Body : { message,
+        farmSaved: {
+        id_farm
+        id_user
+        farm_name,
+        farm_number_lots,
+        farm_longitude,
+        farm_latitude,
+        id_village } }
+
+    endnote
+
+    BackEnd -> Farmer: HTTP 201 Created (Body)
+
+end group
+@enduml

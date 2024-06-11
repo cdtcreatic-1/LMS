@@ -1,0 +1,36 @@
+@startuml
+
+    group #99FF99 5.3.1 GET lots by user
+
+        Businessman -> BackEnd: GET get_lots_by_user/:id_user
+
+
+
+        BackEnd -> DB: Select lots by user
+
+        hnote over BackEnd
+            Depending if the data are correct the response will be:
+            200 OK (get_lots_by_user)
+            409 Conflict (user_email or user_username already exists)
+            400 Bad Request (missing data)
+            500 Internal Server Error (server error)
+        endnote
+
+
+        BackEnd -> Businessman: HTTP 200 OK (get_lots_by_user)
+
+        note over Businessman
+        Body {
+            id_lot,
+            lot_number,
+            profile_name,
+            score,
+            lot_photo,
+            price_per_kilo
+        }
+
+        endnote
+    
+    end group 
+
+@enduml

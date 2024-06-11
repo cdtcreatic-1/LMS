@@ -1,0 +1,69 @@
+@startuml
+
+    'Registro en la plataforma'
+    group #F4A020 1.1 Registro a plataforma 
+        note over Farmer
+        Body {
+            user_name,
+            user_phone,
+            user_email,
+            user_gender
+            user_username,
+            user_password,
+            user_confirm_password,
+            user_profile_photo,
+            id_type_document,
+            number_document,
+            postal_code = 0,
+            id_state = 784,
+            id_role = 1 (farmer)
+        }
+
+            user_email and user_username must be unique.
+            postal_code and id_state are not required for farmer register.
+        endnote
+        Farmer -> BackEnd: POST, PUT register(Body) {also for GET the body}
+
+
+
+        BackEnd -> DB: Insert user in users_table
+
+        hnote over BackEnd
+            Depending if the data are correct the response will be:
+            201 Created (id_user, token, fex_version)
+            409 Conflict (user_email or user_username already exists)
+            400 Bad Request (missing data)
+            500 Internal Server Error (server error)
+        endnote
+
+
+        BackEnd -> Farmer: HTTP 201 Created (id_user, token, fex_version)
+
+        /'Inicio de sesion'/
+
+        hnote over Farmer
+            Body {
+            user_email,
+            password }
+        endnote
+        Farmer -> BackEnd: POST login(Body)
+
+
+        BackEnd -> DB: Select user from user_table where user_email = Body.user_email
+
+        hnote over BackEnd
+            Depending if the data are correct the response will be:
+            200 OK (id_user, token, fex_version)
+            404 Not Found (user_email not found)
+            400 Bad Request (missing data)
+            500 Internal Server Error (server error)
+        endnote
+
+        BackEnd -> Farmer: HTTP 200 OK (id_user, user_email, user_phone, user_token )
+
+
+    
+    end group 
+    ' Final de registro de usuario'
+
+@enduml

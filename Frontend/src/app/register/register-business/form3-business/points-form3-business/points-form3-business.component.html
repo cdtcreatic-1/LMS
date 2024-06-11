@@ -1,0 +1,7 @@
+<div class="container-principal-pointers">
+  <div
+    *ngFor="let item of pointers"
+    class="container-pointer"
+    [ngClass]="{ 'container-without-backgruond': item.isCheked }"
+  ></div>
+</div>

@@ -1,0 +1,30 @@
+version: '3'
+services:
+  db_test_clone:
+    build: .
+    container_name: green_trade_db_test_clone
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: database
+    volumes:
+      - p2dbdata_test_clone:/var/lib/postgresql/data
+    
+    networks:
+      - platform_network_test_clone
+
+    ports:
+      - "5432:5432" #Temporal for debugging
+
+  python_service:
+    build: ./python_service 
+    container_name: green_trade_python_service_test_clone
+    networks:
+      - platform_network_test_clone
+
+volumes:
+  p2dbdata_test_clone:
+
+networks:
+  platform_network_test_clone:
+    driver: bridge

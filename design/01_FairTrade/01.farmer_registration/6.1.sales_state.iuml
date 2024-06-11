@@ -1,0 +1,33 @@
+@startuml
+
+group #99FF99 6.1 Get Famer Notifications
+
+    Farmer -> Backend: GET sales_states_table/:
+
+    Backend -> DB: SELECT * FROM needed_tables
+
+    DB -> Backend: Return all needed sales states information
+
+    hnote over Backend
+        Depending if the data are correct the response will be:
+        200 OK (id_lot, lot_photo)
+        404 Not Found (lot photo not found)
+        500 Internal Server Error (server error)
+    endnote
+
+    note over Farmer
+        Response {
+            sale_type,
+            currency_type,
+            offer_time,
+            businessman_price_lot,
+            offer_status
+        }
+        .
+        .
+        .
+    endnote
+
+end group
+
+@enduml

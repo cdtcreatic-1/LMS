@@ -1,0 +1,33 @@
+{
+    "private": true,
+    "name": "Fair Exchange Backend",
+    "version": "1.0.0",
+    "description": "Backend for Fair Exchange",
+    "main": "index.js",
+    "dependencies": {
+        "@azure/identity": "^2.0.4",
+        "@microsoft/microsoft-graph-client": "^3.0.2",
+        "@pdftron/pdfnet-node": "10.4.0",
+        "axios": "^1.6.7",
+        "cors": "^2.8.5",
+        "express": "^4.18.2",
+        "express-request-id": "1.4.0",
+        "gm": "1.25.0",
+        "isomorphic-fetch": "^3.0.0",
+        "morgan": "^1.10.0",
+        "multer": "^1.4.5-lts.1",
+        "node-cron": "^3.0.3",
+        "pg": "^8.10.0",
+        "pm2": "^5.3.1",
+        "readline-sync": "^1.4.10",
+        "sequelize": "^6.31.0",
+        "swagger-ui-express": "^4.6.2",
+        "through2": "^4.0.2",
+        "uuid": "^9.0.1"
+    },
+    "devDependencies": {
+        "jest": "^29.5.0",
+        "mocha": "^10.2.0",
+        "nodemon": "^3.0.1"
+    }
+}

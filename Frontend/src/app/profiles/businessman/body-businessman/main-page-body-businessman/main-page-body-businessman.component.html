@@ -1,0 +1,64 @@
+<!-- Profile -->
+<app-our-farmers-businessman
+  *ngIf="actualId === 1"
+></app-our-farmers-businessman>
+
+<app-details-our-farmers-businessman
+  *ngIf="actualId === 2"
+></app-details-our-farmers-businessman>
+
+<!-- Acordion -->
+
+<!-- <app-add-profile-businessman
+  *ngIf="actualId === 3"
+></app-add-profile-businessman> -->
+<app-documents-businessman *ngIf="actualId === 4"></app-documents-businessman>
+<app-edit-profile-businessman
+  *ngIf="actualId === 5"
+></app-edit-profile-businessman>
+
+<!-- <div *ngIf="actualId === 6">
+  <div style="height: 85vh">
+    <app-change-password-profile [rol]="2"></app-change-password-profile>
+  </div>
+</div> -->
+
+<div *ngIf="actualId === 6">
+  <app-update-password [rol]="2"></app-update-password>
+</div>
+
+<!-- Notification -->
+
+<app-main-page-notification-businessman
+  *ngIf="actualId === 7"
+></app-main-page-notification-businessman>
+
+<!-- Car shop -->
+
+<app-car-shop-business *ngIf="actualId === 8"></app-car-shop-business>
+<app-send-service-car-shop-business
+  *ngIf="actualId === 9"
+></app-send-service-car-shop-business>
+<app-information-send *ngIf="actualId === 10"></app-information-send>
+<app-payment-service-car-shop-business
+  *ngIf="actualId === 11"
+></app-payment-service-car-shop-business>
+
+<!-- Shopping state -->
+
+<app-state-sent-businessman
+  *ngIf="actualId === 12"
+></app-state-sent-businessman>
+
+<!-- Traiding Farmers -->
+
+<!-- <app-trading-farmers *ngIf="actualId === 13"></app-trading-farmers> -->
+<div class="container-farmers-trends" *ngIf="actualId === 13">
+  <section style="margin-top: 10vw">
+    <app-trends-farmers [width]="true"></app-trends-farmers>
+  </section>
+</div>
+
+<app-response-search-products
+  *ngIf="actualId === 14"
+></app-response-search-products>

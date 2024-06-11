@@ -1,0 +1,164 @@
+.container-principal-details-lots {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+
+.container-no-result {
+  padding: 3%;
+}
+
+/* Details */
+
+.container-body {
+  display: flex;
+  justify-content: center;
+  height: 82vh;
+  width: 82%;
+  margin-left: 10%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow-y: auto;
+  padding-inline: 1%;
+  margin-top: 2vh;
+  background-color: #ffffff;
+}
+
+.container-card {
+  width: 96%;
+  height: max-content;
+  background: #ffffff;
+  box-shadow: 3px 4px 13px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #2f0084;
+  margin-bottom: 2vh;
+  padding-bottom: 1.5vh;
+}
+
+.container-title-lot {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.container-image-lote {
+  width: 100%;
+  height: 30vh;
+}
+
+.container-image-card-shop:active {
+  opacity: 0.5;
+}
+
+.image-style {
+  border-radius: 9px;
+}
+
+.shoping-card {
+  margin-top: -4vh;
+  height: 8vh;
+  width: 100%;
+  margin-bottom: 1vw;
+}
+
+.container-icons-shoping-cart {
+  width: 97%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.container-prices {
+  display: flex;
+  align-items: center;
+  margin-top: -3vh;
+  margin-left: 5%;
+}
+
+.text-price-old-price {
+  margin-left: 0.5vw;
+  text-decoration: line-through;
+  color: #bebebe;
+}
+
+.container-line-price {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-left: 0.5vw;
+  margin-bottom: 5px;
+}
+
+.container-line {
+  position: absolute;
+}
+
+.container-price-false {
+  position: absolute;
+  font-size: 1.1rem;
+  color: #bebebe;
+}
+
+.container-start-number-name {
+  margin-left: 5%;
+  display: flex;
+}
+
+.container-start-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28%;
+  height: 1.7rem;
+  background: #ffcc00;
+  background-color: transparent;
+  border-radius: 15px;
+}
+
+.container-start {
+  height: 100%;
+  width: 30%;
+}
+
+.container-number {
+  margin-top: 2px;
+  height: 100%;
+  margin-left: 6px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.container-name-profile-taza {
+  width: 60%;
+  margin-left: 10%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #2f0084;
+}
+
+.container-name-taza {
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px solid #bebebe;
+  font-size: 1vw;
+}
+
+.container-sub-title-taza {
+  margin-left: 45%;
+  border: none;
+  color: #686868;
+  font-size: 0.7rem;
+}
+
+.container-buttons {
+  width: 90%;
+  height: 2.5vw;
+  margin-left: 5%;
+  margin-top: 1vw;
+}

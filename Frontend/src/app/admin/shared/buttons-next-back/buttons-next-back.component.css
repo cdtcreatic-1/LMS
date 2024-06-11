@@ -1,0 +1,18 @@
+.buttons {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding-inline: 30%;
+}
+
+@media (min-width: 767px) {
+  .buttons {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .buttons {
+    justify-items: center;
+  }
+}

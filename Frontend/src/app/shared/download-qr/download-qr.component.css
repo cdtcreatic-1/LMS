@@ -1,0 +1,50 @@
+.container-principal-modal-qr {
+  width: 30vw;
+  height: 90vh;
+}
+
+.container-QR {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  padding-top: 2%;
+}
+
+.container-description-qr {
+  margin-top: 0%;
+  margin-bottom: 5%;
+  width: 80%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.1vw;
+  color: #2f0084;
+  text-align: left;
+}
+
+.container-button {
+  width: 50%;
+  height: 5vh;
+  margin-top: 3%;
+  outline: none;
+  font-size: 2vw;
+  font-weight: 700;
+  border: none;
+}
+
+.container-button:active {
+  outline: none;
+  border: none;
+}
+
+.container-button:focus {
+  outline: none;
+  border: none;
+}
+
+.a-link {
+  text-decoration: none;
+  border: none;
+  outline: none;
+}

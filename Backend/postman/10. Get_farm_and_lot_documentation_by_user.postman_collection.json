@@ -1,0 +1,35 @@
+{
+	"info": {
+		"_postman_id": "38a2ad53-4651-4712-ba37-a4930a516288",
+		"name": "10. Get_farm_and_lot_documentation_by_user",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29027766",
+		"_collection_link": "https://planetary-firefly-287054.postman.co/workspace/Plat-NovaPro~ef14d592-9b29-43bc-9b3e-9f16fea35acf/collection/29027766-38a2ad53-4651-4712-ba37-a4930a516288?action=share&source=collection_link&creator=29027766"
+	},
+	"item": [
+		{
+			"name": "get_documentation_by_id_user GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_DOMAIN}}/get_documentation_by_id_user/:id_user",
+					"host": [
+						"{{URL_DOMAIN}}"
+					],
+					"path": [
+						"get_documentation_by_id_user",
+						":id_user"
+					],
+					"variable": [
+						{
+							"key": "id_user",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

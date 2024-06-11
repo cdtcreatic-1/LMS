@@ -1,0 +1,19 @@
+<main class="container-principal-modal-learning">
+  <section class="container-section-white">
+    <div class="container-logo">
+      <img
+        src="../../../../../assets/logo_color.webp"
+        alt=""
+        style="max-width: 100%; height: auto"
+      />
+    </div>
+    <app-instruction-learning *ngIf="actualId === 1"></app-instruction-learning>
+    <app-multi-form-learning
+      *ngIf="actualId >= 2 || actualId <= 11"
+      [dataStep]="dataStep[actualId - 2]"
+      [actualStep]="actualId"
+      [numberSteps]="12"
+    ></app-multi-form-learning>
+    <app-finish-learning *ngIf="actualId === 12"></app-finish-learning>
+  </section>
+</main>

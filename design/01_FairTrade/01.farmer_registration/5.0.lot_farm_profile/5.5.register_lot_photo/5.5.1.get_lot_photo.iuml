@@ -1,0 +1,28 @@
+@startuml
+
+group #99FF99 5.5.1 Get lot photo 
+
+    Farmer -> BackEnd: GET lot_photo/:id_lot
+
+    BackEnd -> DB: SELECT id_lot, lot_photo FROM lot_photo WHERE id_lot = :id_lot
+    DB -> BackEnd: Return lot photo
+
+    hnote over BackEnd
+        Depending if the data are correct the response will be:
+        200 OK (id_lot, lot_photo)
+        404 Not Found (lot photo not found)
+        500 Internal Server Error (server error)
+    endnote
+
+    BackEnd -> Farmer: HTTP 200 OK (lot photo data)
+
+    note over Farmer
+        Response {
+            id_lot,
+            lot_photo
+        }
+    endnote
+
+end group
+
+@enduml

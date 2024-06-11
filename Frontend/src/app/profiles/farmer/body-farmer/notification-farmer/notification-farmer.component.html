@@ -1,0 +1,85 @@
+<div class="container-body" align="center" *ngIf="dataNotification.length > 0">
+  <div class="container-details" *ngFor="let item of dataNotification">
+    <div class="container-text-details">
+      Tienes una oferta de compra para ti
+    </div>
+
+    <div class="container-photo-description" align="start">
+      <div style="width: 15%">
+        <div class="container-photo">
+          <img
+            *ngIf="item.Buyer.user_profile_photo"
+            src="{{ item.Buyer.user_profile_photo }}"
+            alt="Photo Profile"
+            width="100%"
+            height="100%"
+            style="border-radius: 100%; object-fit: cover"
+          />
+          <img
+            *ngIf="!item.Buyer.user_profile_photo"
+            src="../../../../../assets/icons/icon_user.webp"
+            alt="Photo Profile"
+            width="100%"
+            height="100%"
+            style="border-radius: 100%; object-fit: cover"
+          />
+        </div>
+      </div>
+      <div class="container-description">
+        <div class="container-text-title-name">
+          {{ item.Buyer.user_name }}
+        </div>
+        <div class="container-text-subtitle-name">
+          Tienes una oferta de compra para ti
+        </div>
+        <div
+          class="container-text-subtitle-name"
+          style="margin-top: 1vw; font-weight: 700"
+        >
+          Tipo de oferta, café {{ item.Lot.CoffeeVariation.variety_name }}
+        </div>
+
+        <div class="container-rows-details">
+          <div style="width: 45%">
+            <div class="input-text-details">
+              {{ item.Lot.CoffeeProfile.profile_name }}
+            </div>
+            <div class="container-sub-input">Perfil de taza</div>
+          </div>
+
+          <div style="width: 45%; margin-left: 10%">
+            <div class="input-text-details">
+              {{ item.Lot.CoffeeVariation.variety_name }}
+            </div>
+            <div class="container-sub-input">Variedad de café</div>
+          </div>
+
+          <div style="width: 45%; margin-left: 10%">
+            <div class="input-text-details">{{ item.purchase_quantity }}</div>
+            <div class="container-sub-input">Cantidad (Kg)</div>
+          </div>
+        </div>
+
+        <div class="container-buttons" align="center">
+          <button
+            class="btn"
+            style="border: 1px solid #2f0084; background-color: transparent"
+            (click)="cancel(item.id_purchase)"
+          >
+            Rechazar
+          </button>
+          <button class="btn" (click)="accept(item.id_purchase)">
+            Aceptar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="container-text-no-notification"
+  *ngIf="dataNotification.length === 0"
+>
+  No tienes notificaciones
+</div>

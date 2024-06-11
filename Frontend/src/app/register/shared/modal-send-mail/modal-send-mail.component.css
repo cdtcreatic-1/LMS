@@ -1,0 +1,39 @@
+.container-modal-send-mail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Lato;
+  font-weight: 400;
+  color: #2f0084;
+  width: 30vw;
+  padding-top: 2%;
+}
+
+.conatainer-description-modal {
+  text-align: center;
+  padding: 5%;
+}
+
+strong {
+  font-weight: 800;
+}
+
+.container-section-buttton {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-bottom: 4%;
+  align-items: center;
+}
+
+.container-icon {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1%;
+}
+
+.icon-close {
+  color: #2f0084;
+}

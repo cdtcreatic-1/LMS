@@ -1,0 +1,253 @@
+.container-body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2%;
+}
+
+/* Botton add and delete */
+
+.container-icons-add-notification {
+  width: 10%;
+  height: 62vh;
+}
+
+.container-add-farm {
+  height: 45%;
+  padding-top: 2vw;
+}
+
+.container-icon-back {
+  height: 10%;
+  width: 70%;
+  margin-top: -2vw;
+}
+
+.container-icon-back :active {
+  opacity: 0.5;
+}
+
+.container-delete-farm {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 45%;
+  padding-bottom: 2vw;
+}
+
+.container-icon-text {
+  width: 85%;
+  cursor: pointer;
+}
+
+.container-icon-text-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.container-icon-text:active {
+  opacity: 0.5;
+}
+
+.container-icon {
+  width: 40%;
+}
+
+.container-text {
+  margin-top: 0.5vw;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.1rem;
+  color: #686868;
+}
+
+/* Details products */
+
+.container-principal-namefarmer-lots {
+  width: 90%;
+}
+
+.container-farm-title {
+  background-color: #00de97;
+  padding-inline: 1vw;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1.3vw;
+}
+
+.container-principal-details {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.container-details {
+  border-radius: 8px;
+  width: 98%;
+  height: min-content;
+}
+
+.container-grid-scroll-details {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.container-text-details {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #2f0084;
+}
+
+.container-rows-details {
+  display: flex;
+  margin-top: 1.5vw;
+}
+
+.input-text-details {
+  width: 100%;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #2f0084;
+  border-bottom: 1px solid #bebebe;
+}
+
+.container-sub-input {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #686868;
+}
+
+.container-icons-add-notification {
+  width: 15%;
+  margin-top: 4vh;
+}
+
+.container-icon-text {
+  width: 85%;
+  cursor: pointer;
+  margin-bottom: 1.5vw;
+}
+
+.container-icon {
+  width: 20%;
+}
+
+.container-text {
+  margin-top: 0.5vw;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.1rem;
+  color: #686868;
+}
+
+.container-list-products {
+  width: 100%;
+  height: 54vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.container-inter-list-products {
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  width: 95%;
+  height: max-content;
+  margin-top: 1.5%;
+  margin-bottom: 1%;
+}
+
+.container-inter-list-products-2 {
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  width: 50%;
+  margin-top: 1.5%;
+  padding-bottom: 1vw;
+}
+
+.container-image-input {
+  margin-top: 1vw;
+  display: flex;
+  width: 100%;
+  margin-left: 5%;
+}
+
+.container-image-input-2 {
+  margin-top: 1vw;
+  display: flex;
+  width: 100%;
+  margin-left: 5%;
+}
+
+.container-image {
+  width: 45%;
+  height: 36vh;
+}
+
+.container-name-lote {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #2f0084;
+}
+
+.container-no-image {
+  height: 70%;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+}
+
+.container-input {
+  width: 50%;
+  margin-top: 5%;
+  padding-inline: 1vw;
+}
+
+.container-inter-input {
+  margin-bottom: 0.3vw;
+}
+
+.container-inter-input2 {
+  margin-bottom: 1.5vw;
+}
+
+.input-text-item {
+  width: 100%;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #2f0084;
+  border-bottom: 1px solid #bebebe;
+}
+
+.container-sub-item {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.67rem;
+  color: #686868;
+}
+
+.container-btn-trazabilidad {
+  width: 100%;
+  margin-top: 3%;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.container-btn-trazabilidad-no-opacity {
+  width: 100%;
+  margin-top: 5%;
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}

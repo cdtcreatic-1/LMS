@@ -1,0 +1,40 @@
+@startuml
+
+group #F4A020 5.4.0 Register/Update lot Certifications 
+
+    note over Farmer
+        Body {
+            id_lot,
+            product_sc_certificate,
+            product_taster_certificate,
+            contact_qgrader
+        }
+    endnote
+
+    Farmer -> BackEnd: POST/PUT lot_certifications(Body)
+
+    BackEnd -> DB: INSERT/UPDATE into lot_certifications
+
+    DB -> BackEnd: Confirmation of insertion
+
+    hnote over BackEnd
+        Depending if the data are correct the response will be:
+        201 Created (id_lot, product_sc_certificate, product_taster_certificate, contact_qgrader)
+        409 Conflict (farm data already exists)
+        400 Bad Request (missing data)
+        500 Internal Server Error (server error)
+    endnote
+
+    BackEnd -> Farmer: HTTP 201 Created (farm certification information created)
+
+    note over Farmer
+        Response {
+            id_lot,
+            product_sc_certificate,
+            product_taster_certificate,
+            contact_qgrader
+        }
+    endnote
+end group
+
+@enduml

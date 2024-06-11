@@ -1,0 +1,10 @@
+@startuml
+
+'Lot Certification'
+
+    group 5.4 Lot Certification Register
+        !include 5.4.register_lot_certification/5.4.0.register_update_lot_certification.iuml
+        !include 5.4.register_lot_certification/5.4.1.get_lot_certification.iuml
+    end group 
+
+@enduml

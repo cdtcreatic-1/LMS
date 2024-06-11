@@ -1,0 +1,51 @@
+<div style="position: relative">
+  <div
+    class="container-principal-history-conections"
+    style="position: absolute"
+  >
+    <div class="container-history-conections">
+      <div class="container-header">
+        <div class="container-header-text">Producto</div>
+        <div class="container-header-text">Cantidad</div>
+        <div class="container-header-text">Precio unitario</div>
+        <div class="container-header-text">Total de la venta</div>
+        <div class="container-header-text">Fecha de la venta</div>
+        <div class="container-header-text">Cliente</div>
+        <div class="container-header-text">Estado de la venta</div>
+        <div class="container-header-text">Generar código QR</div>
+      </div>
+
+      <div *ngFor="let item of dataTableStateSell; let i = index">
+        <div
+          class="container-body"
+          [ngClass]="{
+            'container-body-impar': (i + 1) % 2 !== 0,
+            'container-body-par': (i + 1) % 2 === 0
+          }"
+        >
+          <div class="container-body-table">{{ item.tipo | titlecase }}</div>
+          <div class="container-body-table">{{ item.cantidad }}</div>
+          <div class="container-body-table">{{ item.precio | number }}</div>
+          <div class="container-body-table">
+            {{ item.precio * item.cantidad | number }}
+          </div>
+          <div class="container-body-table">{{ item.fecha }}</div>
+          <div class="container-body-table">
+            {{ item.vendedor.slice(0, 12) }}
+          </div>
+          <div class="container-body-table">{{ item.estado }}</div>
+          <div class="container-body-table">
+            <div class="container-image-qr" *ngIf="item.estado === 'Aceptada'">
+              <img
+                src="../../../../../../assets/Qr.webp"
+                width="100%"
+                style="cursor: pointer"
+                (click)="openModalQr(item.id_purchase)"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

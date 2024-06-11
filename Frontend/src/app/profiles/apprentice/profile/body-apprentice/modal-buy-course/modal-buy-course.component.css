@@ -1,0 +1,194 @@
+.container-principal-modal {
+  display: grid;
+  align-items: center;
+  width: 60vw;
+  height: max-content;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  overflow-y: scroll;
+  overflow-x: hidden;
+  column-gap: 10px;
+}
+
+/* Payment method */
+
+.methos-payment {
+  width: 100%;
+  padding-left: 15%;
+  justify-content: center;
+}
+
+.text-title {
+  font-size: clamp(1rem, 20px, 2rem);
+  margin-bottom: 5%;
+  font-weight: 700;
+}
+
+.container-icon-chevron-method {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  padding: 2%;
+  margin-bottom: 3%;
+}
+
+.img-methods-payment {
+  width: 90%;
+}
+
+.container-test-price-value {
+  display: flex;
+  font-size: 16px;
+  margin-top: 5%;
+}
+
+.container-text-price {
+  width: 40%;
+  font-weight: 700;
+}
+
+.container-price {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 60%;
+}
+
+.price-real-value {
+  font-weight: 700;
+  color: #00de97;
+}
+
+.price-old-value {
+  color: #a1a1a1;
+  text-decoration: line-through;
+  margin-left: 5%;
+  font-size: 12px;
+}
+
+/* Card presentation */
+
+.card-information-course {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5%;
+  width: 100%;
+}
+
+.container-card {
+  height: max-content;
+  width: 70%;
+  margin-bottom: 10%;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px -7px 23px 0px rgba(0, 0, 0, 0.25);
+  padding-bottom: 3%;
+}
+
+.container-image-start-play {
+  position: relative;
+  height: 14vw;
+  width: 100%;
+}
+
+.container-image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.container-start {
+  position: absolute;
+  height: 100%;
+  padding: 3%;
+  z-index: 2;
+}
+
+.container-start-number {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 3.5rem;
+  height: 1.4rem;
+  background: #ffcc00;
+  border-radius: 10px;
+  color: #ffffff;
+}
+
+.container-number {
+  font-weight: 600;
+  margin-left: -10%;
+  font-size: 12px;
+}
+
+.container-image-start {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5%;
+  margin-bottom: 1px;
+}
+
+.container-start {
+  height: 100%;
+  width: 30%;
+}
+
+/* Title course */
+
+.container-principal-description-course {
+  width: 100%;
+  height: 50%;
+  padding-inline: 7%;
+  color: #2f0084;
+}
+
+.container-title-course {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-top: 2%;
+}
+
+/* Price */
+
+.container-principal-price {
+  display: flex;
+  align-items: center;
+  display: flex;
+  color: #00de97;
+}
+
+.container-discount {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #a1a1a1;
+  margin-left: 10px;
+  text-decoration: line-through;
+}
+
+.container-description-course {
+  font-size: 0.5rem;
+  color: #a1a1a1;
+  font-weight: 300;
+}
+
+@media only screen and (max-width: 1024px) {
+  .container-principal-modal {
+    width: 75vw;
+  }
+}
+
+@media only screen and (max-width: 670px) {
+  .container-image-start-play {
+    height: 30vw;
+  }
+
+  .methos-payment {
+    margin-top: 5%;
+    padding-inline: 5%;
+  }
+}

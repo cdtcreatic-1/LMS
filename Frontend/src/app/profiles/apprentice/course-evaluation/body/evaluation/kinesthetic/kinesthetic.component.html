@@ -1,0 +1,69 @@
+<div *ngIf="questionSelected">
+  <section class="title-icon">
+    <h1>{{ questionSelected.question_content }}</h1>
+    <div
+      class="container-icon"
+      (click)="handleReadQuestion(questionSelected.question_content)"
+    >
+      <ion-icon name="volume-medium-outline" class="icon"></ion-icon>
+    </div>
+  </section>
+
+  <section class="container-body">
+    <div class="container-ckeck">
+      <div class="container-ckeck-true">
+        <div class="box-true">
+          <ion-icon name="checkmark-outline" class="icon-white"></ion-icon>
+        </div>
+        <p>Verdadero</p>
+      </div>
+
+      <div class="container-ckeck-true">
+        <div class="box-true box-false">
+          <ion-icon name="close-outline" class="icon-white"></ion-icon>
+        </div>
+        <p>False</p>
+      </div>
+    </div>
+
+    <div
+      class="container-letter-question"
+      *ngFor="let answer of questionSelected.SubmoduleAnswers; let i = index"
+    >
+      <div class="container-ckeck">
+        <div class="container-ckeck-true">
+          <div
+            class="box"
+            [ngClass]="{ 'box-true': answer.isSelected }"
+            (click)="handleClickSelecAnswer(answer.id_answer)"
+          >
+            <ion-icon name="checkmark-outline" class="icon-white"></ion-icon>
+          </div>
+        </div>
+
+        <div class="container-ckeck-true">
+          <div
+            class="box"
+            [ngClass]="{ 'box-false': answer.isSelected_false }"
+            (click)="handleClickSelecAnswerFalse(answer.id_answer)"
+          >
+            <ion-icon name="close-outline" class="icon-white"></ion-icon>
+          </div>
+        </div>
+      </div>
+
+      <div class="response">{{ answer.answers_content }}</div>
+    </div>
+  </section>
+
+  <div class="container-buttons">
+    <button class="fcdt-btn-white-p2" (click)="handleBack()">Atrás</button>
+    <button class="fcdt-btn-p2" (click)="handleSubmit()">Siguiente</button>
+  </div>
+
+  <app-by-steps
+    [numberByStep]="dataQuestion.length"
+    [actualId]="1"
+    [showNumber]="true"
+  ></app-by-steps>
+</div>

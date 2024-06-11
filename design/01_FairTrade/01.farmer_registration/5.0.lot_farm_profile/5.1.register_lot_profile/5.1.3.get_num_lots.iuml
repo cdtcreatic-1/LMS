@@ -1,0 +1,23 @@
+@startuml
+
+group #99FF99 5.1.3 get num_lots
+
+    Farmer -> BackEnd: GET get_num_lots/:id_farm
+    BackEnd -> DB: get SELECT lot_number FROM lot_table
+    DB -> BackEnd: Retrieve all lots from the farm
+
+    BackEnd -> Farmer: HTTP 200 OK (get_num_lots)
+
+    note over Farmer
+        "lots": [
+            "Lote 1",
+            "Lote 2",
+            .
+            .
+            .
+        ]
+    endnote
+
+end group
+
+@enduml 

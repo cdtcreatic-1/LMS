@@ -1,0 +1,55 @@
+<div class="container-principal" *ngIf="dataUser">
+  <div class="container-search">
+    <div class="container-input-search">
+      <div class="container-icons-filter">
+        <ion-icon name="search-outline" class="ion-icon-blue"></ion-icon>
+      </div>
+      <div class="container-form-filter">
+        ¿Que tipo de café especial buscas?
+      </div>
+      <div class="container-icons-filter" (click)="handleShowModalPrice()">
+        <ion-icon name="chevron-down-outline" class="ion-icon-blue"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <div class="container-icon-photo">
+    <div class="container-photo-text">
+      <div class="container-text">
+        <span>{{ dataUser.user_username | uppercase }} </span>
+        <!-- <span>&nbsp;({{ dataUser.user_country }})</span> -->
+      </div>
+
+      <div class="container-photo" *ngIf="dataUser.user_profile_photo">
+        <div class="mx-3" style="width: 5vw; height: 5vw">
+          <img
+            src="{{ dataUser.user_profile_photo }}"
+            alt=""
+            style="
+              border: solid 1px rgba(69, 17, 0, 0.2);
+              object-fit: cover;
+              width: 100%;
+              height: 100%;
+              border-radius: 100%;
+            "
+          />
+        </div>
+      </div>
+
+      <div class="container-photo" *ngIf="!dataUser.user_profile_photo">
+        <div class="mx-3" style="width: 5vw; height: 5vw">
+          <img
+            src="../../../../assets/icons/icon_user.webp"
+            alt=""
+            style="
+              border: solid 1px rgba(69, 17, 0, 0.2);
+              object-fit: cover;
+              width: 100%;
+              height: 100%;
+              border-radius: 100%;
+            "
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

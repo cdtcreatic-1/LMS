@@ -1,0 +1,49 @@
+<main class="container-principal-instruction">
+  <section class="container-section-grid-80">
+    <section>
+      <div>Instrucciones:</div>
+      <div class="container-description">
+        Este cuestionario ha sido diseñado para ayudarnos a comprender mejor tu
+        estilo de aprendizaje único. Responder estas preguntas te permitirá
+        identificar las preferencias y enfoques que mejor se adaptan a tu forma
+        de aprender.
+      </div>
+    </section>
+    <section>
+      <div>Consejos para responder:</div>
+      <div class="container-description">
+        <div>
+          1. Tómate el tiempo necesario para reflexionar sobre cada pregunta.
+        </div>
+        <div>
+          2. Selecciona la opción que mejor refleje tu preferencia o
+          experiencia.
+        </div>
+        <div>
+          3. No hay respuestas correctas o incorrectas, ¡solo queremos conocerte
+          mejor!
+        </div>
+      </div>
+    </section>
+  </section>
+  <section class="container-buttons-number-step" align="center">
+    <section class="container-button">
+      <div class="constainer-width-button container-button-disabled">
+        <app-global-buttons
+          [nameButton]="'Atrás'"
+          [backgroud]="'#fff'"
+          [borderColor]="'#2F0084'"
+          [height]="'1.7rem'"
+        ></app-global-buttons>
+      </div>
+
+      <div class="constainer-width-button" (click)="handleNext()">
+        <app-global-buttons
+          [nameButton]="'Siguiente'"
+          [height]="'1.7rem'"
+        ></app-global-buttons>
+      </div>
+    </section>
+    <section class="container-steps">1 de 12</section>
+  </section>
+</main>

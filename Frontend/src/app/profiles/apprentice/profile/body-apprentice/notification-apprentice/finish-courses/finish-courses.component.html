@@ -1,0 +1,52 @@
+<div class="container-principal-cards" align="center">
+  <div class="container-card" *ngFor="let course of dataCourse">
+    <div class="container-image-start-play">
+      <div class="container-image">
+        <img
+          src="{{ course.course_photo }}"
+          alt="courses"
+          height="100%"
+          width="100%"
+          class="fcdt-img"
+          style="border-radius: 8px"
+        />
+      </div>
+
+      <div class="container-principal-play">
+        <div class="container-image-play">
+          <img
+            src="../../../../assets/icons/icon_play.webp"
+            alt=""
+            height="100%"
+            width="100%"
+            class="fcdt-img"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="container-principal-description-course">
+      <div class="container-title-course">
+        <div class="fcdt-title-responsive" title="   {{ course.course_title }}">
+          {{ course.course_title }}
+        </div>
+      </div>
+
+      <div class="container-title-finish">
+        <p>Finalizado</p>
+        <span> / 100%</span>
+      </div>
+
+      <div class="container-principal-card-buy">
+        <div class="container-button-buy" (click)="detailCourse(course)">
+          <app-global-buttons
+            [nameButton]="'Ver curso'"
+            [color]="'#ffffff'"
+            [backgroud]="'#2F0084'"
+            [height]="'3vw'"
+            [width]="'90%'"
+          ></app-global-buttons>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

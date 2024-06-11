@@ -1,0 +1,139 @@
+<div class="container-send-services">
+  <app-global-titles
+    [titleName]="'Selecciona medio de pago'"
+  ></app-global-titles>
+  <div style="margin-top: 1vw">
+    <app-global-subtitles
+      [nameSubTitle]="
+        'Aquí puedes elegir la mejor opción de envío que se adapte a tus necesidades. ¿Listo para comenzar? ¡Vamos allá!'
+      "
+    ></app-global-subtitles>
+  </div>
+
+  <div class="container-average-send">
+    <div
+      class="container-inter-average-send"
+      (click)="changeCardSelected(1)"
+      [ngStyle]="{
+        border: cardVisa ? '1px solid #00DE97' : '1px solid #a1a1a1',
+        color: cardVisa ? '#00DE97' : '#a1a1a1',
+        background: cardVisa ? 'rgba(0, 222, 151, 0.1)' : 'white'
+      }"
+    >
+      <div
+        class="container-circle-select"
+        [ngStyle]="{
+          border: cardVisa ? '1px solid #00DE97' : '1px solid #a1a1a1'
+        }"
+      >
+        <div
+          class="container-inter-circle-select"
+          [ngStyle]="{ background: cardVisa ? '#00DE97' : 'none' }"
+        ></div>
+      </div>
+
+      <div class="container-description">
+        <div style="display: flex">
+          <strong style="margin-right: 1vw">Credit card</strong>
+          <img
+            src="../../../../../../assets/icons/icon-mastercard.webp"
+            alt="icon"
+            height="100%"
+          />
+          <!-- <img
+            src="../../../../../../assets/icons/icon-mastercard.we"
+            alt="icon"
+            height="100%"
+          /> -->
+        </div>
+        <div style="font-size: 0.8rem; color: #a1a1a1">
+          Puedes usar todas las tarjetas de credito, Aceptamos Visa, Mastercar,
+          etc.
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="container-inter-average-send"
+      (click)="changeCardSelected(2)"
+      [ngStyle]="{
+        border: cardPaypal ? '1px solid #00DE97' : '1px solid #a1a1a1',
+        color: cardPaypal ? '#00DE97' : '#a1a1a1',
+        background: cardPaypal ? 'rgba(0, 222, 151, 0.1)' : 'white'
+      }"
+      style="margin-left: 4%"
+    >
+      <div
+        class="container-circle-select"
+        [ngStyle]="{
+          border: cardPaypal ? '1px solid #00DE97' : '1px solid #a1a1a1'
+        }"
+      >
+        <div
+          class="container-inter-circle-select"
+          [ngStyle]="{ background: cardPaypal ? '#00DE97' : 'none' }"
+        ></div>
+      </div>
+
+      <div class="container-description">
+        <div style="display: flex">
+          <img
+            src="../../../../../../assets/icons/icon-paypal.webp"
+            alt="icon"
+            height="100%"
+            style="margin-top: -4%"
+          />
+        </div>
+        <div style="font-size: 0.8rem; color: #a1a1a1">
+          Puedes usar todas las tarjetas de credito, Aceptamos Visa, Mastercar,
+          etc.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; margin-top: 1vw">
+    <div class="container-name-number-card">
+      <input type="text" class="input-payment" />
+      <div>Nombre de la tarjeta</div>
+    </div>
+    <div class="container-name-number-card" style="margin-left: 3.5%">
+      <input type="text" class="input-payment" />
+      <div>Número de la tarjeta</div>
+    </div>
+  </div>
+
+  <div style="display: flex; margin-top: 2vw; width: 80%">
+    <div class="container-data-card">
+      <input type="text" class="input-payment" />
+      <div>Mes</div>
+    </div>
+
+    <div class="container-data-card" style="margin-left: 3.5%">
+      <input type="text" class="input-payment" />
+      <div>Año</div>
+    </div>
+
+    <div class="container-data-card" style="margin-left: 3.5%">
+      <input type="text" class="input-payment" />
+      <div>CVV</div>
+    </div>
+  </div>
+
+  <div class="container-button">
+    <div class="container-inter-buton">
+      <app-global-buttons
+        (click)="cancel()"
+        [nameButton]="'Cancelar'"
+        [backgroud]="'white'"
+        [borderColor]="'#2F0084'"
+      ></app-global-buttons>
+    </div>
+    <div class="container-inter-buton">
+      <app-global-buttons
+        (click)="buyProduct()"
+        [nameButton]="'Continua con el pago'"
+      ></app-global-buttons>
+    </div>
+  </div>
+</div>

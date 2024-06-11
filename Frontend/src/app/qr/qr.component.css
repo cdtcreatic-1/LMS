@@ -1,0 +1,1173 @@
+/* 
+WebPortrait (min-width: 840px) and (orientation: portrait) 
+Tablet (min-width: 600px) and (max-width: 839.98px) and (orientation: portrait),
+(min-width: 960px) and (max-width: 1279.98px) and (orientation: landscape) 
+TabletPortrait (min-width: 600px) and (max-width: 839.98px) and (orientation: portrait) 
+TabletLandscape (min-width: 960px) and (max-width: 1279.98px) and (orientation: landscape) 
+Handset (max-width: 599.98px) and (orientation: portrait),
+(max-width: 959.98px) and (orientation: landscape) 
+HandsetLandscape (max-width: 959.98px) and (orientation: landscape) 
+HandsetPortrait (max-width: 599.98px) and (orientation: portrait) 
+XSmall (max-width: 599.98px) 
+Small (min-width: 600px) and (max-width: 959.98px) 
+Medium (min-width: 960px) and (max-width: 1279.98px) 
+Large (min-width: 1280px) and (max-width: 1919.98px) 
+XLarge (min-width: 1920px) 
+*/
+.container-navbar-responsive {
+  display: none;
+}
+
+.container-home {
+  height: 65vw;
+  width: 100%;
+}
+
+.container-image-home1 {
+  width: 100%;
+}
+
+.container-buttons {
+  position: absolute;
+  top: 2vw;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.bnt-singn-in {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  gap: 10px;
+  width: 10%;
+  height: 2rem;
+  left: 572px;
+  top: 556px;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  margin-right: 1%;
+  background-color: rgba(69, 17, 0, 0.4);
+  color: #ffffff;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.bnt-singn-in:active {
+  background-color: rgba(202, 202, 202, 0.2);
+}
+
+.bnt-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  gap: 10px;
+  width: 10%;
+  height: 2rem;
+  border: none;
+  border-radius: 6px;
+  color: #2f0084;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 14px;
+  background: #00de97;
+  margin-right: 1%;
+  opacity: 0.5;
+}
+
+.bnt-login:active {
+  background-color: rgba(241, 206, 206, 0.9);
+}
+
+.carousel-caption {
+  width: 100%;
+  height: 41vw;
+  margin-left: -15%;
+}
+
+.container-text-logo-carousel {
+  width: 100%;
+  margin-left: 0%;
+  margin-top: 0%;
+}
+
+.logo-card {
+  width: 30%;
+  margin-top: 1%;
+  margin-left: -52%;
+}
+
+.text-bienvenidos {
+  width: 60vw;
+  margin-top: 1vw;
+  margin-bottom: 13%;
+  margin-left: 9%;
+  text-align: left;
+  line-height: 3.7vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.8rem;
+  color: #ffffff;
+}
+
+.text-bienvenidos2 {
+  width: 65vw;
+  margin-top: 1vw;
+  margin-bottom: 13%;
+  margin-left: 9%;
+  text-align: start;
+  line-height: 3.7vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.8rem;
+  color: #ffffff;
+  text-shadow: 0px 0px 13px rgba(0, 0, 0, 0.8);
+}
+
+.text-bienvenidos3 {
+  width: 70vw;
+  margin-top: 1vw;
+  margin-bottom: 13%;
+  margin-left: 9%;
+  text-align: left;
+  line-height: 3.7vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.8rem;
+  color: #ffffff;
+}
+
+.carousel-indicators {
+  margin-bottom: 10vw;
+}
+
+.carousel-indicators button {
+  width: 1vw;
+  height: 1vw;
+  margin-right: 1vw;
+  border-radius: 99%;
+}
+
+/* Container card Trend */
+
+.container-box-trend {
+  position: relative;
+  margin-top: -10vw;
+  padding-block: 5vh;
+  width: 95%;
+  margin-left: 2.5%;
+  height: auto;
+  background: #ffffff;
+  box-shadow: 11px 11px 31px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  z-index: 1;
+}
+
+.container-inter-card-trend {
+  width: 80%;
+  height: auto;
+  left: 136px;
+  top: 873px;
+  background: #ffffff;
+  border: 2px solid #d9d9d9;
+  border-radius: 24.9086px;
+  margin-top: 2vw;
+}
+
+.container-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-block: 2rem;
+  width: 100%;
+  height: 2rem;
+  left: 583px;
+  top: 926px;
+  background: #00de97;
+}
+
+.container-text-title-card {
+  width: auto;
+  padding-inline: 1.5rem;
+  height: 100%;
+  font-size: 2rem;
+  text-align: center;
+  color: #2f0084;
+  background: #ffffff;
+}
+
+.container-cards-caficultor-trend {
+  display: flex;
+}
+
+.container-card-caficultor {
+  width: 33.3%;
+}
+
+.container-profile-trend {
+  display: flex;
+  height: 10vw;
+  width: 70%;
+  border-right: 2px solid #e1e0e0;
+}
+
+.container-image-caficultor {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.container-image-circle {
+  width: 7vw;
+  height: 7vw;
+}
+
+.container-image-circle img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.container-trend {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.container-inter-trend {
+  width: 80%;
+  height: 100%;
+}
+
+.container-percentage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2rem;
+  text-align: center;
+  color: #434343;
+  height: 80%;
+}
+
+.container-inter-percentage {
+  width: 100%;
+  background: #f8bfbf;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.container-type-coffee {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 20%;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: #f8bfbf;
+}
+
+.text-type-coffe {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #434343;
+}
+
+.container-name-caficultor {
+  width: 70%;
+  padding-block: 0.5vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.7rem;
+  text-align: center;
+  color: #2f0084;
+  border-right: 2px solid #e1e0e0;
+}
+
+.container-rating-caficultor {
+  width: 50%;
+}
+
+.container-farm-name {
+  width: 70%;
+  padding-block: 0.5vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: #2f0084;
+}
+
+/* Card2 inter Trend */
+
+.container-col-table {
+  width: 20%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+  text-align: center;
+  color: #434343;
+}
+
+.container-col-table-text {
+  width: 20%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #2f0084;
+}
+
+.container-position {
+  display: flex;
+  justify-content: center;
+  height: 1.5rem;
+}
+
+.container-image-up-down {
+  width: 10%;
+  margin-right: 10px;
+}
+
+/* Container Home 2 */
+
+.container-home2 {
+  height: 65vw;
+  width: 100%;
+  margin-top: -10vw;
+}
+
+.container-image-home2 {
+  position: absolute;
+  height: auto;
+  width: 100%;
+}
+
+.container-text-home2 {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  height: 10rem;
+  padding-inline: 2rem;
+  background: #ffffff;
+  border-radius: 2rem;
+  text-align: center;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #686868;
+  margin-left: 25%;
+  margin-top: 40%;
+}
+
+/* Container profile */
+
+.container-box-profile {
+  position: relative;
+  margin-top: -5vw;
+  padding-block: 2vw;
+  width: 95%;
+  margin-left: 2.5%;
+  height: auto;
+  background: #ffffff;
+  box-shadow: 11px 11px 31px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+}
+
+.container-nuestros-perfiles {
+  margin-bottom: 2.5vw;
+  width: 80%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3rem;
+  color: #2f0084;
+}
+
+.container-cards-perfiles {
+  display: flex;
+  width: 100%;
+}
+
+.card-perfil {
+  width: 33%;
+}
+
+.card-perfil-1 {
+  width: 33%;
+}
+
+.container-image-profile {
+  width: 70%;
+}
+
+.container-image-profile-1 {
+  width: 70%;
+}
+
+.text-profiles {
+  width: 70%;
+  margin-top: 10px;
+  text-align: start;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #2f0084;
+}
+
+.text-profiles-1 {
+  width: 70%;
+  margin-top: 10px;
+  text-align: start;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #2f0084;
+}
+
+.container-preparation-dates {
+  background: #2f0084;
+  margin-top: -6vw;
+}
+
+/* como preparo */
+
+.container-como-preparo {
+  padding-inline: 5%;
+  width: 100%;
+  padding-top: 9vw;
+  padding-bottom: 2vw;
+}
+
+.container-text-como-preparo {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 2.5vw;
+}
+
+.container-subtitle-como-preparo {
+  width: 100%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.2rem;
+  text-align: left;
+  color: #ffffff;
+  margin-bottom: 1vw;
+}
+
+/* video youtube */
+
+.container-car {
+  display: flex;
+  margin-top: 3%;
+}
+
+.container-left-rigth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4%;
+  padding-inline: 1.1%;
+  z-index: 2;
+}
+
+.container-principal-cards {
+  width: 96%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  height: 45vh;
+  overflow-y: hidden;
+}
+
+.container-card-videos {
+  height: 100%;
+  width: max-content;
+  margin-inline: 1%;
+}
+
+/*  */
+
+.container-cards-como-preparo {
+  display: grid;
+  overflow-x: auto;
+  width: 100%;
+  height: 40rem;
+}
+
+.container-image-como-preparo {
+  width: 100%;
+  height: 84%;
+  margin-top: 1.5%;
+}
+
+.container-text-card-como-preparo {
+  display: flex;
+  justify-content: center;
+  height: max-content;
+  margin-top: 5px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #2f0084;
+}
+
+.container-dates {
+  padding-inline: 5%;
+  width: 50%;
+  padding-top: 7vw;
+  padding-bottom: 2vw;
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .principal-home {
+    all: unset;
+    padding: 0%;
+    margin: 0%;
+  }
+
+  .container-navbar-responsive {
+    width: 100%;
+    height: 15vw;
+    display: flex;
+  }
+
+  .container-buttons {
+    display: none;
+  }
+
+  .container-logo-responsive {
+    width: 50%;
+    padding: 4.5%;
+  }
+
+  .container-btn-inicioSesion {
+    width: 50%;
+    margin: auto;
+    margin-top: 6%;
+    padding-left: 5%;
+  }
+
+  .bnt-login {
+    width: 90%;
+    margin: center;
+    height: 4rem;
+    font-size: 4vw;
+  }
+
+  .container-home {
+    height: 55vw;
+    width: 100%;
+    background: #ffffff;
+    padding-block: 5vh;
+  }
+
+  .carousel-indicators {
+    margin-bottom: 1%;
+  }
+
+  .carousel-indicators button {
+    width: 2vw;
+    height: 2vw;
+  }
+
+  .logo-card {
+    display: none;
+  }
+
+  .text-bienvenidos {
+    width: 70vw;
+    margin-top: 9.8vw;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 2rem;
+  }
+
+  .text-bienvenidos2 {
+    width: 74vw;
+    margin-top: 9.8vw;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 2rem;
+  }
+
+  .text-bienvenidos3 {
+    width: 73vw;
+    margin-top: 9.8vw;
+    margin-bottom: 13%;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 2rem;
+  }
+
+  .container-box-trend {
+    width: 95%;
+    margin-top: 20vw;
+    padding-block: 0vh;
+  }
+
+  .container-nuestros-perfiles {
+    margin-top: -3vw;
+  }
+
+  .container-inter-card-trend {
+    width: 100%;
+    margin-left: 0%;
+    box-shadow: 11px 11px 31px rgba(0, 0, 0, 0.25);
+    border-top-right-radius: 25px;
+  }
+
+  .container-text-title-card {
+    height: 5vw;
+    margin-left: 22%;
+    padding: 0% 4% 5% 4%;
+  }
+
+  .container-cards-caficultor-trend {
+    flex-direction: column;
+    box-shadow: 11px 11px 31px rgba(0, 0, 0, 0.25);
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
+
+  .container-profile-trend {
+    width: 50%;
+    height: 100%;
+  }
+
+  .container-image-circle {
+    width: 50vw;
+    height: 20vw;
+  }
+
+  .container-image-circle img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+  }
+
+  .container-name-rating-caficultor {
+    width: 50%;
+  }
+
+  .container-name-caficultor {
+    width: 90%;
+    margin-top: 15%;
+    border-right: none;
+  }
+
+  .container-farm-name {
+    width: 90%;
+  }
+
+  .container-perfiles {
+    height: 100%;
+    box-shadow: 11px 11px 31px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    border: solid 1px #e1e0e0;
+  }
+
+  .container-nuestros-perfiles {
+    padding-top: 1vw;
+    margin-bottom: 3.5vw;
+    width: 80%;
+  }
+
+  .container-cards-perfiles {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .card-perfil-1 {
+    width: 100%;
+    display: flex;
+    margin-bottom: 4vw;
+  }
+
+  .container-image-profile-1 {
+    width: 40%;
+  }
+
+  .container-image-profile-1 img {
+    width: 100%;
+    height: 90%;
+    margin-top: 6%;
+    border-radius: 25px;
+  }
+
+  .text-profiles-1 {
+    padding: 3vw;
+    font-size: 2.9vw;
+    text-align: justify;
+  }
+
+  .text-profiles-1 div h4 {
+    font-size: 4.5vw;
+  }
+
+  .card-perfil {
+    width: 100%;
+    display: flex;
+    margin-bottom: 4vw;
+  }
+
+  .container-image-profile {
+    width: 40%;
+    margin-left: 60%;
+  }
+
+  .container-image-profile img {
+    width: 100%;
+    height: 80%;
+    margin-top: 10%;
+    border-radius: 25px;
+  }
+
+  .text-profiles {
+    width: 54%;
+    font-size: 2.8vw;
+    margin-left: -98%;
+    text-align: justify;
+  }
+
+  .text-profiles div h4 {
+    font-size: 4.5vw;
+  }
+
+  .container-preparation-dates {
+    width: 95%;
+    height: 310vw;
+    flex-direction: column;
+    margin-top: 0vw;
+    margin-left: 2.5vw;
+    margin-bottom: 4vw !important;
+    box-shadow: 11px 11px 31px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+  }
+
+  .container-dates {
+    width: 95%;
+    position: absolute;
+  }
+
+  .container-como-preparo {
+    width: 100%;
+    height: 165vw;
+    margin-top: 150%;
+  }
+
+  .container-text-como-preparo {
+    text-align: center;
+    margin-top: -10vw;
+    font-size: 6vw;
+  }
+
+  .container-subtitle-como-preparo {
+    font-size: 4.1vw;
+    margin-bottom: 10vw;
+    text-align: center;
+  }
+
+  .container-cards-como-preparo {
+    height: 100vw;
+    margin-left: 2.5%;
+  }
+}
+@media only screen and (max-width: 412px) and (orientation: portrait) {
+  .principal-home {
+    all: unset;
+    padding: 0%;
+    margin: 0%;
+  }
+
+  .container-navbar-responsive {
+    width: 100%;
+    height: 15vw;
+    display: flex;
+  }
+
+  .container-logo-responsive {
+    height: 15vw;
+    padding: 1.5% 4.5%;
+    margin-top: 5%;
+  }
+
+  .container-logo-responsive img {
+    width: 100%;
+  }
+
+  .container-btn-inicioSesion {
+    height: 15vw;
+    margin-top: 5%;
+  }
+
+  .bnt-login {
+    width: 90%;
+    margin: center;
+    margin-top: 3.5%;
+    height: 2.5rem;
+    font-size: 5vw;
+  }
+
+  .container-home {
+    height: 55vw;
+    width: 100%;
+    background: #ffffff;
+    padding-block: 5vh;
+  }
+
+  .carousel-indicators {
+    margin-bottom: 1%;
+  }
+
+  .carousel-indicators button {
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+
+  .logo-card {
+    display: none;
+  }
+
+  .text-bienvenidos {
+    width: 70vw;
+    margin-top: 9.8vw;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 1rem;
+  }
+
+  .text-bienvenidos2 {
+    width: 74vw;
+    margin-top: 9.8vw;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 1rem;
+  }
+
+  .text-bienvenidos3 {
+    width: 73vw;
+    margin-top: 9.8vw;
+    margin-bottom: 13%;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 1rem;
+  }
+
+  .container-box-trend {
+    width: 95%;
+    margin-top: 25vw;
+    padding-block: 0vh;
+  }
+
+  .container-nuestros-perfiles {
+    margin-top: -3vw;
+    font-size: 7vw;
+  }
+
+  .container-inter-card-trend {
+    width: 100%;
+    margin-top: -5vw;
+  }
+
+  .container-text-title-card {
+    height: 9vw;
+    margin-left: 14%;
+    font-size: 5.5vw;
+  }
+
+  .container-card-caficultor {
+    width: 90%;
+    height: 40vw;
+    padding-bottom: 3%;
+  }
+
+  .container-profile-trend {
+    width: 50%;
+    height: 100%;
+  }
+
+  .container-image-circle {
+    margin-top: 7%;
+    width: 50vw;
+    height: 20vw;
+  }
+
+  .container-inter-percentage span {
+    font-size: 5.7vw;
+  }
+
+  .text-type-coffe {
+    font-size: 4.2vw;
+  }
+
+  .container-name-caficultor {
+    font-size: 6vw;
+  }
+
+  .container-farm-name {
+    font-size: 5.7vw;
+  }
+
+  .container-image-profile-1 img {
+    height: 80%;
+    margin-top: 25%;
+  }
+
+  .text-profiles-1 {
+    font-size: 3.5vw;
+  }
+
+  .text-profiles-1 div h4 {
+    font-size: 5.5vw;
+  }
+
+  .container-image-profile img {
+    height: 85%;
+    margin-top: 20%;
+  }
+
+  .text-profiles {
+    font-size: 3.5vw;
+  }
+
+  .text-profiles div h4 {
+    font-size: 5.5vw;
+  }
+
+  .container-preparation-dates {
+    height: 350vw;
+  }
+
+  .container-como-preparo {
+    height: 190vw;
+  }
+
+  .container-text-como-preparo {
+    font-size: 7vw;
+    margin-top: 7vw;
+  }
+
+  .container-subtitle-como-preparo {
+    font-size: 5vw;
+  }
+
+  .container-cards-como-preparo {
+    height: 100vw;
+    margin-left: 2.5%;
+  }
+}
+@media only screen and (max-width: 396px) and (orientation: portrait) {
+  .principal-home {
+    all: unset;
+    padding: 0%;
+    margin: 0%;
+  }
+
+  .container-navbar-responsive {
+    width: 100%;
+    height: 15vw;
+    display: flex;
+  }
+
+  .container-logo-responsive {
+    height: 15vw;
+    padding: 1.5% 4.5%;
+    margin-top: 5%;
+  }
+
+  .container-logo-responsive img {
+    width: 100%;
+  }
+
+  .container-btn-inicioSesion {
+    height: 15vw;
+    margin-top: 5%;
+  }
+
+  .bnt-login {
+    width: 90%;
+    margin: center;
+    margin-top: 3.5%;
+    height: 2.5rem;
+    font-size: 5vw;
+  }
+
+  .container-home {
+    height: 55vw;
+    width: 100%;
+    background: #ffffff;
+    padding-block: 5vh;
+  }
+
+  .carousel-indicators {
+    margin-bottom: 1%;
+  }
+
+  .carousel-indicators button {
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+
+  .logo-card {
+    display: none;
+  }
+
+  .text-bienvenidos {
+    width: 70vw;
+    margin-top: 9.8vw;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 1rem;
+  }
+
+  .text-bienvenidos2 {
+    width: 74vw;
+    margin-top: 9.8vw;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 1rem;
+  }
+
+  .text-bienvenidos3 {
+    width: 73vw;
+    margin-top: 9.8vw;
+    margin-bottom: 13%;
+    margin-left: 5%;
+    line-height: 5.7vw;
+    font-size: 1rem;
+  }
+
+  .container-box-trend {
+    width: 95%;
+    margin-top: 25vw;
+    padding-block: 0vh;
+  }
+
+  .container-nuestros-perfiles {
+    margin-top: -3vw;
+    font-size: 7vw;
+  }
+
+  .container-inter-card-trend {
+    width: 100%;
+    margin-top: -5vw;
+  }
+
+  .container-text-title-card {
+    height: 9vw;
+    margin-left: 14%;
+    font-size: 5.5vw;
+  }
+
+  .container-card-caficultor {
+    width: 90%;
+    height: 40vw;
+    padding-bottom: 3%;
+  }
+
+  .container-profile-trend {
+    width: 50%;
+    height: 100%;
+  }
+
+  .container-image-circle {
+    margin-top: 7%;
+    width: 50vw;
+    height: 20vw;
+  }
+
+  .container-inter-percentage span {
+    font-size: 5.7vw;
+  }
+
+  .text-type-coffe {
+    font-size: 4.2vw;
+  }
+
+  .container-name-caficultor {
+    font-size: 6vw;
+  }
+
+  .container-farm-name {
+    font-size: 5.7vw;
+  }
+
+  .container-image-profile-1 img {
+    height: 80%;
+    margin-top: 25%;
+  }
+
+  .text-profiles-1 {
+    font-size: 3.5vw;
+  }
+
+  .text-profiles-1 div h4 {
+    font-size: 5.5vw;
+  }
+
+  .container-image-profile img {
+    height: 85%;
+    margin-top: 20%;
+  }
+
+  .text-profiles {
+    font-size: 3.5vw;
+  }
+
+  .text-profiles div h4 {
+    font-size: 5.5vw;
+  }
+
+  .container-preparation-dates {
+    height: 350vw;
+  }
+
+  .container-como-preparo {
+    height: 190vw;
+  }
+
+  .container-text-como-preparo {
+    font-size: 7vw;
+    margin-top: 7vw;
+  }
+
+  .container-subtitle-como-preparo {
+    font-size: 5vw;
+  }
+
+  .container-cards-como-preparo {
+    height: 100vw;
+    margin-left: 2.5%;
+  }
+}

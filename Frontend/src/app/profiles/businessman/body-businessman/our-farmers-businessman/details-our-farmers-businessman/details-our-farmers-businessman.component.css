@@ -1,0 +1,368 @@
+.container-principal-details-lots {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+
+.container-profile-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-block: 0.5vw;
+}
+
+.container-image-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 100%;
+  margin-left: 3vw;
+  height: 20vh;
+  width: 20vh;
+}
+
+.container-profile-name {
+  width: auto;
+  margin-left: 1vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.2vw;
+  color: #2f0084;
+}
+
+.container-text-message {
+  margin-top: 1vw;
+  width: 55%;
+  margin-left: 5%;
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #6f1d1b;
+}
+
+/* Details */
+
+.container-body {
+  display: flex;
+  justify-content: center;
+  height: 60vh;
+  width: 82%;
+  margin-left: 10%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow-y: auto;
+  padding-inline: 1%;
+  margin-top: 2vh;
+  background-color: #ffffff;
+}
+
+.container-card {
+  width: 96%;
+  height: max-content;
+  background: #ffffff;
+  box-shadow: 3px 4px 13px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #2f0084;
+  margin-bottom: 2vh;
+  padding-bottom: 1.5vh;
+}
+
+.container-title-lot {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.container-image-lote {
+  width: 100%;
+  height: 30vh;
+}
+
+.container-image-card-shop:active {
+  opacity: 0.5;
+}
+
+.image-style {
+  border-radius: 9px;
+}
+
+.shoping-card {
+  margin-top: -4vh;
+  height: 8vh;
+  width: 100%;
+  margin-bottom: 1vw;
+}
+
+.container-icons-shoping-cart {
+  width: 97%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.container-prices {
+  display: flex;
+  align-items: center;
+  margin-top: -3vh;
+  margin-left: 5%;
+}
+
+.text-price-old-price {
+  margin-left: 0.5vw;
+  text-decoration: line-through;
+  color: #BEBEBE;
+}
+
+.container-line-price {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-left: 0.5vw;
+  margin-bottom: 5px;
+}
+
+.container-line {
+  position: absolute;
+}
+
+.container-price-false {
+  position: absolute;
+  font-size: 1.1rem;
+  color: #bebebe;
+}
+
+
+
+.container-start-number-name {
+  margin-left: 5%;
+  display: flex;
+}
+
+.container-start-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28%;
+  height: 1.7rem;
+  background: #ffcc00;
+  background: none;
+  border-radius: 15px;
+}
+
+.container-start {
+  height: 100%;
+  width: 30%;
+}
+
+.container-number {
+  margin-top: 2px;
+  height: 100%;
+  margin-left: 6px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.container-name-profile-taza {
+  width: 60%;
+  margin-left: 10%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #2f0084;
+}
+
+.container-name-taza {
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px solid #bebebe;
+  font-size: 1vw;
+}
+
+.container-sub-title-taza {
+  margin-left: 45%;
+  border: none;
+  color: #686868;
+  font-size: 0.7rem;
+}
+
+.container-buttons {
+  width: 90%;
+  height: 2.5vw;
+  margin-left: 5%;
+  margin-top: 1vw;
+}
+
+/* .container-text-details {
+  height: 2vw;
+  padding-top: 1.3px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #fff;
+  padding-inline: 2vw;
+  background-color: #00de97;
+}
+
+.container-rows-details {
+  display: flex;
+  padding-inline: 2vw;
+  margin-block: 2vw;
+}
+
+.input-text-details {
+  width: 100%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #2F0084;
+  border-bottom: 1px solid #bebebe;
+}
+
+.container-sub-input {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #686868;
+} */
+
+/* List items */
+/* 
+.container-body-list {
+  width: 100%;
+  border: 1px solid #bebebe;
+  border-top: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.container-inter-list-products {
+  width: auto;
+}
+
+.container-image-input {
+  margin-top: 1vw;
+  display: flex;
+  width: 100%;
+  margin-left: 5%;
+}
+
+.container-image {
+  width: 30%;
+  height: 100%;
+}
+
+.container-name-lote {
+  margin-top: 0.2vw;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #2F0084;
+}
+
+.container-input {
+  width: 60%;
+  margin-top: 3vw;
+  padding-inline: 1vw;
+}
+
+.container-inter-input {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1vw;
+}
+
+.input-text-item {
+  width: 100%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #2F0084;
+  border-bottom: 1px solid #bebebe;
+}
+
+.container-sub-item {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.67rem;
+  color: #686868;
+}
+
+.container-trazabbilidad {
+  display: flex;
+  align-items: center;
+  padding-inline: 1vw;
+  width: 92%;
+  height: 2.5vw;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #bebebe;
+  margin-top: 0.5vw;
+  margin-left: 5%;
+}
+
+.container-value-buy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin-block: 1vw;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: qrem;
+  color: #2F0084;
+}
+
+.container-button {
+  width: 100%;
+}
+
+.container-buttons {
+  display: flex;
+}
+
+.container-carrito {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 0.5vw;
+  background-color: transparent;
+  border: 1px solid #2F0084;
+  border-radius: 5px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #2F0084;
+  height: 1.7rem;
+  margin-right: 1vw;
+}
+
+.container-carrito:active {
+  background-color: #b7b6b6;
+} */

@@ -1,0 +1,54 @@
+.crud-create {
+  display: grid;
+  grid-area: aside;
+  align-content: center;
+  text-align: center;
+  padding: 15px;
+  width: 85px;
+  height: 78px;
+  border-radius: 5px;
+}
+.material-symbols-outlined.add-img {
+  color: #bebebe;
+}
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 40;
+  color: #00de97;
+}
+
+.crud-create.add-img {
+  width: 209px;
+  height: 169px;
+  border: 1px solid #bebebe;
+}
+.crud-create.add-img p {
+  color: #bebebe;
+  font-family: "lato";
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+p {
+  font-family: "lato";
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #686868;
+}
+
+.crud-create.right {
+  grid-template-columns: 1fr 12fr;
+  grid-template-rows: 1fr;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+  height: 0;
+}
+
+.crud-create.right p {
+  width: 100%;
+  text-align: start;
+}

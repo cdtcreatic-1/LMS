@@ -1,0 +1,30 @@
+@startuml
+group #99FF99 4.2 get Farms by User 
+
+Farmer -> BackEnd: GET get_farms_by_user/:id_user
+
+BackEnd -> DB: SELECT farm_name, altitude, \n state_name, citie_name, village_name, \n climate, temperature, num_lots \nFROM farms_table, farms_additional_info \nWHERE id_user = :id_user
+DB -> BackEnd: Return farm information by user
+    note over BackEnd
+        Body {
+            {
+                farm_name
+                altitude, 
+                state_name, 
+                citie_name, 
+                village_name,
+                climate,
+                temperature,
+                num_lots
+            },
+            .
+            .
+            .
+        }
+    endnote
+
+BackEnd -> Farmer: HTTP 200 OK (cup farm information by user)
+
+end group
+
+@enduml

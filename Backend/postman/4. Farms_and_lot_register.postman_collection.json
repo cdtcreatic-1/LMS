@@ -1,0 +1,672 @@
+{
+	"info": {
+		"_postman_id": "f1b3a146-25a9-4900-a5ac-f6dc5ce6b360",
+		"name": "4. Farms_and_lot_register",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29027766",
+		"_collection_link": "https://planetary-firefly-287054.postman.co/workspace/Plat-NovaPro~ef14d592-9b29-43bc-9b3e-9f16fea35acf/collection/29027766-f1b3a146-25a9-4900-a5ac-f6dc5ce6b360?action=share&source=collection_link&creator=29027766"
+	},
+	"item": [
+		{
+			"name": "4.1 Farmer_profile",
+			"item": [
+				{
+					"name": "farmer_profile GET",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_DOMAIN}}/farmer_profile/:id_user",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"farmer_profile",
+								":id_user"
+							],
+							"variable": [
+								{
+									"key": "id_user",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_farms_by_user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_DOMAIN}}/get_farms_by_user/:id_user",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"get_farms_by_user",
+								":id_user"
+							],
+							"variable": [
+								{
+									"key": "id_user",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4.2 Register_lots",
+			"item": [
+				{
+					"name": "get_coffee_variety",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_DOMAIN}}/get_coffee_variety",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"get_coffee_variety"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_coffee_roasting",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_DOMAIN}}/get_coffee_roasting",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"get_coffee_roasting"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_num_lots",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_DOMAIN}}/get_num_lots/:id_farm",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"get_num_lots",
+								":id_farm"
+							],
+							"variable": [
+								{
+									"key": "id_farm",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_coffee_profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_DOMAIN}}/get_coffee_profile",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"get_coffee_profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register_lots POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_farm",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "lot_number",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "id_variety",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "id_profile",
+									"value": "11",
+									"type": "text"
+								},
+								{
+									"key": "id_roast",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/register_lots",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"register_lots"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4.3 lot_quantity",
+			"item": [
+				{
+					"name": "get_association",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_DOMAIN}}/get_association",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"get_association"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lot_quantity POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_lot\": 1,\r\n    \"total_quantity\": 5000,\r\n    \"samples_quantity\": 50,\r\n    \"id_association\": 1,\r\n    \"price_per_kilo\": 12.34\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/lot_quantity",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"lot_quantity"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4.4 lot_summary",
+			"item": [
+				{
+					"name": "lot_summary POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_lot\": 1,\r\n  \"germination_summary\": \"La germinación fue suave, tardó 3 días.\",\r\n  \"sown_summary\": \"Sembrado en un terreno de 1 acre, se utilizó suelo de alta calidad.\",\r\n  \"harvest_summary\": \"Cosechado a los 3 meses, buen rendimiento.\",\r\n  \"drying_summary\": \"Secado durante 2 semanas con mínima humedad.\",\r\n  \"roasting_summary\": \"Asado durante 30 minutos, nivel de tueste medio alcanzado.\",\r\n  \"packaging_summary\": \"Empaquetado en bolsas ecológicas.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/lot_summary",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"lot_summary"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4.5 lot_certifications",
+			"item": [
+				{
+					"name": "lot_certifications POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_lot",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "product_sc_certificate",
+									"type": "file",
+									"src": "/C:/Users/Ryzen/OneDrive/Imágenes/Hearthstone Screenshot 04-24-22 22.34.30.png"
+								},
+								{
+									"key": "product_taster_certificate",
+									"type": "file",
+									"src": "/C:/Users/Ryzen/OneDrive/Imágenes/Hearthstone Screenshot 04-24-22 22.34.30.png"
+								},
+								{
+									"key": "contact_qgrader",
+									"value": "true",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/lot_certifications",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"lot_certifications"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4.6 lot_photo",
+			"item": [
+				{
+					"name": "lot_photo POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_lot",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "lot_photo",
+									"type": "file",
+									"src": "Hearthstone Screenshot 04-24-22 22.34.30.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/lot_photo",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"lot_photo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4.7 get_lot_info",
+			"item": [
+				{
+					"name": "get_lot_info",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_DOMAIN}}/get_lot_info/:id_farm",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"get_lot_info",
+								":id_farm"
+							],
+							"variable": [
+								{
+									"key": "id_farm",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "score_lots POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id_lot\": 1,\n    \"id_user\": 1,\n    \"score\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/score_lots",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"score_lots"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "score_lots PUT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id_lot\": 1,\n    \"id_user\": 1,\n    \"score\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_DOMAIN}}/score_lots",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"score_lots"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4.8 get_lot_summary",
+			"item": [
+				{
+					"name": "lot_summary Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_DOMAIN}}/lot_summary/:id_lot_summary",
+							"host": [
+								"{{URL_DOMAIN}}"
+							],
+							"path": [
+								"lot_summary",
+								":id_lot_summary"
+							],
+							"variable": [
+								{
+									"key": "id_lot_summary",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

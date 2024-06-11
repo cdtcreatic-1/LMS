@@ -1,0 +1,60 @@
+{
+  "intents": [
+    {
+      "tag": "what_is_coughing",
+      "patterns": [
+        "Qué es tostion"
+      ],
+      "responses": [
+        "La tostión es el proceso mediante el cual los granos de café verde se transforman en granos de café tostado, listos para ser molidos y preparados para consumir. Durante la tostión, los granos de café experimentan cambios físicos y químicos que afectan su color, aroma, sabor y otras características sensoriales. La tostión implica someter los granos de café verde a altas temperaturas en un ambiente controlado. Durante este proceso, ocurren varios cambios importantes: perdida de humedad, expansión y desarrollo de sabor, desarrollo de sabores y aromas, y degradación de la cafeina."
+      ]
+    },
+    {
+      "tag": "coughing_importance",
+      "patterns": [
+        "Cuál es la importancia de la tostión"
+      ],
+      "responses": [
+        "La tostión es un proceso fundamental para lograr un café de calidad ya que permite crear perfiles únicos; siendo la temperatura y el tiempo las variables más importantes para definir la curva de tostión."
+      ]
+    },
+    {
+      "tag": "coughing_stages",
+      "patterns": [
+        "Cuáles son las etapas en el proceso de tostión"
+      ],
+      "responses": [
+        "El proceso de tostión se divide en diferentes etapas, cada una genera diferentes cambios físicos y químicos en los granos de café. Las más comunes son: 1. Secado (precalentamiento) donde los granos de café verde se calientan para reducir la humedad superficial, esta etapa evita la condensación de vapor de agua durante el proceso de tostión principal, es importante mencionar que durante este proceso al grano solo le queda un 2.5% de humedad y en este tiempo se empieza a desarrollar la acidez y el cuerpo; 2. Reacción de Maillard, en la que la temperatura está sobre los 150°C, es cuando el café empieza a cambiar su color e inicia el proceso de degradación de Strecker donde se empiezan a crear los gases responsables del sabor y el aroma; 3. Desarrollo, en esta fase inicia el primer crack (ruido que hace el café al crepitar), esto ocurre cuando los granos se dilatan y abren debido al calor y la presión, liberando el vapor y el dióxido de carbono atrapados en su interior, posteriormente, al rededor de los 190°C se produce el segundo crack en el que se terminan de desarrollar los aromas y gases, además de que se comienza a volver amargo y ahumado; a partir de esta etapa, se pierden las características reconocibles del origen y acidez; finalmente, se debe detener el proceso de tostión con un sistema de enfriamiento. "
+      ]
+    },
+    {
+      "tag": "roasting_equipment",
+      "patterns": [
+        "Qué equipos se utilizan en el proceso de tostión"
+      ],
+      "responses": [
+        "En una tostadora de café se utilizan diferentes equipos, entre los más comunes están: tostadora; balanza para pesar el café; sistema de control de temperatura dentro de la tostadora; sistema de ventilación para controlar el flujo de aire dentro de la tostadora y eliminar gases, y humos generados durante la tostión; y sistema de enfriamiento para detener el proceso de tostión."
+      ]
+    },
+    {
+      "tag": "roasting_variables",
+      "patterns": [
+        "Qué variables afectan el proceso de tostión",
+        "variables importantes"
+      ],
+      "responses": [
+        "Las variables más importantes en el processo de tostión son el tiempo, la temperatura, el flujo de aire, agitación o movimiento de los granos y perfil de tostión"
+      ]
+    },
+    {
+      "tag": "chouging_profile",
+      "patterns": [
+        "Cómo se define el perfil de tostión",
+        "Qué es el perfil de tostión"
+      ],
+      "responses": [
+        "El perfil de tostión es un conjunto detallado de parámetros que describe cómo se lleva a cabo el proceso de tostión del café a lo largo del tiempo y la temperatura. Es esencialmente un plan que especifica cómo se ajustarán la temperatura y el tiempo durante el proceso de tostión para lograr un resultado específico en términos de sabor, aroma y otros atributos del café tostado. El perfil de tostión describe la curva de tostión."
+      ]
+    }
+  ]
+}

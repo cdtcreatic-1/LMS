@@ -1,0 +1,8 @@
+@startuml
+
+title Plataforma 2 Proceso de registro de usuario (caficultor) [03/07/2023]
+!include ../common/definitions.iuml
+!include ./01.registration/registration_main_group.iuml
+
+
+@enduml

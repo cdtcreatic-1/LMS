@@ -1,0 +1,29 @@
+@startuml
+
+group #99FF99 5.2.1 Get association
+
+    Farmer -> BackEnd: GET get_association
+
+    BackEnd -> DB: SELECT id_association, association_name, association_situation \nFROM associations_table
+    DB -> BackEnd: Return association_data
+
+    hnote over BackEnd
+        Depending if the data are correct the response will be:
+        200 OK (id_association, association_name, association_situation)
+        404 Not Found (association not found)
+        500 Internal Server Error (server error)
+    endnote
+
+    BackEnd -> Farmer: HTTP 200 OK (association data)
+
+    note over Farmer
+        Body {
+            id_association,
+            association_name,
+            association_situation
+        }
+    endnote
+
+end group
+
+@enduml

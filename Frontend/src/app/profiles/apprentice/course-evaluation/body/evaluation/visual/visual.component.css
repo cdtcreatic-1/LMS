@@ -1,0 +1,122 @@
+.title-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.container-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.3);
+  padding-inline: 5px;
+  border-radius: 5px;
+}
+
+.icon {
+  color: #00de97;
+  font-size: 40px;
+}
+
+.disabled-icon {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Sectiop list questions, arrows and answers */
+
+.container-list-option-answers {
+  display: flex;
+  padding-top: 1%;
+  width: 100%;
+  font-size: 18px;
+  height: 40vh;
+}
+
+.box {
+  width: 40%;
+  box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.3);
+}
+
+.container-box-inter {
+  overflow-y: auto;
+  height: 80%;
+  margin-block: 3%;
+}
+
+.title-box {
+  color: #fff;
+  background-color: #00de97;
+  padding: 2px 20px;
+  font-weight: 400;
+}
+
+.input {
+  height: 20px;
+  width: 20px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #bebebe;
+}
+
+.input:active {
+  opacity: 0.5;
+}
+
+.input-selected {
+  background-color: #00de97;
+  border: none;
+}
+
+.container-check-text {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  margin-inline: 10%;
+  gap: 10px;
+  color: #666666;
+  margin-bottom: 10px;
+
+  & span {
+    width: 90%;
+    padding: 0;
+    margin: 0;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Arrows */
+
+.arrows {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+  gap: 50px;
+}
+
+ion-icon {
+  font-size: 40px;
+  color: #2f0084;
+}
+
+/* Buttons next back */
+
+.container-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-inline: 30%;
+  gap: 1vw;
+  margin-block: 3%;
+}

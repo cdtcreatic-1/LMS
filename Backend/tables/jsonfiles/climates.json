@@ -1,0 +1,1 @@
+[{"Restrictions": "PK", "variable_name": "id_climate", "type_data": "SMALLINT", "references": null}, {"Restrictions": "NN U", "variable_name": "climate_name", "type_data": "VARCHAR(45)", "references": null}]

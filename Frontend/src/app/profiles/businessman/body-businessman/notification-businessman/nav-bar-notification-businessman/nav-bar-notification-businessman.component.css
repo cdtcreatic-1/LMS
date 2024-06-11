@@ -1,0 +1,37 @@
+.container-navbar {
+  margin-inline: 1vw;
+  width: 98.5%;
+  margin-top: 2vw;
+}
+
+.container-btns {
+  width: 80%;
+  display: flex;
+  margin-left: 15%;
+}
+
+.btn-nav-bar-farmer {
+  width: auto;
+  border: none;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  color: #686868;
+  background-color: transparent;
+  margin-left: 1vw;
+}
+
+.border-button-btn {
+  border-bottom: 3px solid #2F0084;
+}
+
+.btn-nav-bar-farmer:active {
+  color: rgba(104, 104, 104, 0.5);
+}
+
+.line-btns {
+  margin-top: -2px;
+  height: 2px;
+  background-color: rgba(190, 190, 190, 0.3);
+}

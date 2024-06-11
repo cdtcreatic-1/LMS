@@ -1,0 +1,45 @@
+.fcdt-container-principal {
+  background-color: #fff;
+  align-items: center;
+  align-content: center;
+  font-weight: 600;
+  color: #2f0084;
+}
+
+.icon-modal {
+  font-size: 4vw;
+}
+
+.fcdt-container-icon {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 40%;
+  margin-top: 2%;
+}
+
+.fcdt-description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2%;
+  height: 50%;
+  width: 90%;
+  margin-top: 5%;
+  text-align: center;
+  font-size: 1.5vw;
+}
+.fcdt-body-composiite {
+  width: 80%;
+}
+
+.button-login {
+  background-color: #00de97;
+  width: 50%;
+  height: 2.5vw;
+  border: none;
+  border-radius: 5px;
+  margin-block: 5%;
+  color: #2f0084;
+  outline: none;
+}

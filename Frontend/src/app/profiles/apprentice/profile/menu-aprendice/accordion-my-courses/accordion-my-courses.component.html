@@ -1,0 +1,23 @@
+<div class="container-accordion">
+  <div
+    class="container-text-items-menu"
+    (click)="setBodyFarmer(1)"
+    [ngClass]="{ 'subrayar-item-menu': actualId === 4 }"
+  >
+    Cursos recomendados
+  </div>
+  <div
+    class="container-text-items-menu"
+    (click)="setBodyFarmer(2)"
+    [ngClass]="{ 'subrayar-item-menu': actualId === 5 }"
+  >
+    Mis cursos
+  </div>
+  <div
+    class="container-text-items-menu"
+    (click)="setBodyFarmer(3)"
+    [ngClass]="{ 'subrayar-item-menu': actualId ===  6}"
+  >
+    Todos los cursos
+  </div>
+</div>

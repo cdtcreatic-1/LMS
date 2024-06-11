@@ -1,0 +1,33 @@
+<app-loading [isLoading]="isLoading"></app-loading>
+
+<section style="position: relative">
+  <app-main-page-type-learning
+    *ngIf="isModalTypeLearning"
+  ></app-main-page-type-learning>
+
+  <app-main-page-modal-skills
+    *ngIf="isModalSkills"
+  ></app-main-page-modal-skills>
+
+  <div
+    [ngClass]="{
+      'container-main-page-apprentice': actualId === 1,
+      'container-main-page-apprentice-image': actualId === 2 || actualId === 3,
+      'fcdt-disable-screen': isLoading
+    }"
+    style="display: flex"
+  >
+    <app-floting-alert
+      *ngIf="isErrorAlert"
+      [message]="message"
+    ></app-floting-alert>
+
+    <div class="container-menu">
+      <app-main-page-menu-apprentice></app-main-page-menu-apprentice>
+    </div>
+    <div class="container-header-body">
+      <app-main-page-header-apprentice></app-main-page-header-apprentice>
+      <app-main-page-body-apprentice></app-main-page-body-apprentice>
+    </div>
+  </div>
+</section>

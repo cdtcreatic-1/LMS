@@ -1,0 +1,67 @@
+{
+  "intents": [
+    {
+      "tag": "what_is_tasting",
+      "patterns": [
+        "que es la catacion"
+      ],
+      "responses": [
+        "La catación es un proceso sistemático de evaluación sensorial utilizado para analizar las características organolépticas de una sustancia, como el café, el vino o el té. En el contexto del café, la catación implica analizar y describir las características de aroma, sabor, cuerpo y acidez de una muestra de café mediante la observación visual, la inhalación del aroma y la degustación."
+      ]
+    },
+    {
+      "tag": "tasting_importance",
+      "patterns": [
+        "cual es la importancia de la catacion"
+      ],
+      "responses": [
+        "La catación es esencial para garantizar la calidad, mejorar el proceso de producción, obtener una diferenciación en el mercado y tomar decisiones informadas en la industria del café. Es una herramienta invaluable para todos los involucrados en la producción, tostado, comercialización y consumo de café de calidad. "
+      ]
+    },
+    {
+      "tag": "factors_affecting_taste",
+      "patterns": [
+        "que factores afectan el sabor"
+      ],
+      "responses": [
+        "El sabor es el reflejo del buen o mal proceso llevado a cabo desde la siembra hasta la tostión y preparación del café; este es influido por: 1. La variedad del café (Arabica, Robusta o sus derivadas), tiene un impacto significativo en el sabor. Cada variedad tiene sus propias características de sabor distintivas, que pueden variar desde notas frutales y florales hasta sabores más terrosos y robustos; 2. El lugar donde se cultiva el café, conocido como origen, influye en su perfil de sabor ya que varían factores como el clima, la altitud, el suelo y las condiciones de crecimiento y de esta forma afectan la calidad y las características del café. Por ejemplo, los cafés de América Central tienden a tener sabores más brillantes y cítricos, mientras que los cafés africanos suelen ser más afrutados y florales. 3. La altitud a la que se cultiva el café también es un factor importante, entre mayor altitud se tiende a tener sabores más complejos y ácidos debido a las condiciones de crecimiento más exigentes y la maduración más lenta de los granos. 4. Proceso de procesamiento: El proceso de procesamiento del café, que puede ser lavado, natural o honey, afecta el perfil de sabor final. Cada método de procesamiento aporta diferentes características al café, como la limpieza y la claridad en los cafés lavados, o la dulzura y la frutosidad en los cafés naturales; 5. Tostado: El grado de tostado del café influye en su sabor, aroma y cuerpo. Un tostado más ligero resalta las notas ácidas y florales del café, mientras que un tostado más oscuro desarrolla sabores más amargos, pero puede ocultar algunas de las notas más sutiles. 6. La frescura del café es importante porque el café recién tostado y molido tiende a tener sabores más vibrantes y aromas más pronunciados que el café que ha estado almacenado durante períodos prolongados. 7. El tamaño de molienda y el método de preparación del café afectan su sabor, una molienda incorrecta o un método de preparación inadecuado pueden resultar en un café subdesarrollado o sobreextraído. 8. La calidad del agua utilizada para preparar el café también puede influir en su sabor, debe ser limpia y de buena calidad para que los sabores del café se expresen completamente, mientras que el agua con altos niveles de cloro o minerales puede afectar negativamente su sabor."
+      ]
+    },
+    {
+      "tag": "tasting_techniques",
+      "patterns": [
+        "que tecnicas de catacion existen"
+      ],
+      "responses": [
+        "Para realizar los análisis sensoriales se pueden seguir las Normas UNE. Actualmente existen aproximadamente 18 relativas al análisis sensorial, que se refieren a terminología, salón de catas, utensilios, selección y formación de jueces, metodología, pruebas y aplicación de métodos estadísticos que dan validez científica a los resultados."
+      ]
+    },
+    {
+      "tag": "tasting_steps",
+      "patterns": [
+        "que pasos catacion"
+      ],
+      "responses": [
+        "Los pasos que envuelven el proceso de catación son: 1. Preparación del espacio y materiales; 2. Selección de los cafés a catar; 3. Molienda de café; 4. Preparación del café; 5. Evaluación visual; 6. Evaluación aromática; 7. Evaluación gustativa; 8. Toma de notas y registro de puntuaciones; 9. Comparación y análisis; 10. Conclusiones y retroalimentación"
+      ]
+    },
+    {
+      "tag": "tasting_preparation",
+      "patterns": [
+        "como preparo la catacion"
+      ],
+      "responses": [
+        "Para preparar el proceso de catación es importante: 1. Establecer los objetivos de una forma clara y concisa; 2. Determina el formato que seguirás en el proceso junto con las pautas que seguirás en la catación que describan los pasos a seguir para evaluar visualmente, aromáticamente y gustativamente las muestras de café. 3. Prepara los materiales como tazas de catación, cucharas de catación, agua mineral a temperatura ambiente, vasos de enjuague, papel y bolígrafos para tomar notas, y si es necesario, muestras de café envasadas individualmente; 4. Realiza la catación según lo planeado."
+      ]
+    },
+    {
+      "tag": "tasting_goals",
+      "patterns": [
+        "cuales son los objetivos de la catación"
+      ],
+      "responses": [
+        "Algunos de los objetivos principales de la catación de café incluyen. 1. Evaluar la calidad: Determinar la calidad del café mediante la identificación de características deseables, como la frescura, la complejidad aromática y el equilibrio de sabores; 2. Identificar defectos: Detectar posibles defectos o imperfecciones en el café, como sabores rancios, fermentados o quemados, que puedan afectar negativamente la experiencia de catación; 3. Comparar y diferenciar: Comparar diferentes muestras de café para identificar similitudes y diferencias en cuanto a origen, variedad, procesamiento, perfil de sabor, entre otros aspectos; 4. Tomar decisiones de compra: Ayudar a los tostadores, compradores y consumidores a tomar decisiones informadas sobre la compra y el consumo de café, seleccionando los cafés que mejor se adapten a sus preferencias y necesidades."
+      ]
+    }
+  ]
+}

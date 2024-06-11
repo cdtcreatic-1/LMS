@@ -1,0 +1,151 @@
+<div class="container-form3">
+  <div class="container-principal-form3">
+    <form [formGroup]="formReview" style="height: 100%">
+      <div class="container-inter-form3">
+        <div>
+          <div class="container-text-historia">
+            Escribe brevemente la historia de la germinación, el sembrado,
+            recolección manual, el secado, el tostado y empaquetado.
+          </div>
+          <div class="container-text-area-inter-review">
+            <div class="container-inter-text-areas">
+              <textarea
+                formControlName="histoyGermination"
+                placeholder="Proceso de germinación (500 caracteres máximo)"
+                class="textarea-text"
+                [ngClass]="{
+                  'textarea-text-error': validatorFields('histoyGermination')
+                }"
+                required
+                minlength="20"
+                maxlength="500"
+                pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ,\s]*$"
+                [matTooltip]="
+                  validatorFields('histoyGermination')
+                    ? 'Se pueden usar letras, puntos, comas o números. Los caracteres especiales no están permitidos.'
+                    : ''
+                "
+                [matTooltipClass]="'myTooltip'"
+              ></textarea>
+            </div>
+            <div class="container-inter-text-areas">
+              <textarea
+                formControlName="histoySecado"
+                placeholder="Como realiza el secado (parabólico o silo) (500 caracteres máximo)"
+                class="textarea-text"
+                [ngClass]="{
+                  'textarea-text-error': validatorFields('histoySecado')
+                }"
+                required
+                minlength="20"
+                maxlength="500"
+                pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ,\s]*$"
+                [matTooltip]="
+                  validatorFields('histoySecado')
+                    ? 'Se pueden usar letras, puntos, comas o números. Los caracteres especiales no están permitidos.'
+                    : ''
+                "
+                [matTooltipClass]="'myTooltip'"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="container-text-area-inter-review">
+            <div class="container-inter-text-areas">
+              <textarea
+                formControlName="histoySembrado"
+                placeholder="Proceso de siembra (alguna técnica ejemplo curvas a nivel) (500 caracteres máximo)"
+                class="textarea-text"
+                [ngClass]="{
+                  'textarea-text-error': validatorFields('histoySembrado')
+                }"
+                required
+                minlength="20"
+                maxlength="500"
+                pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ,\s]*$"
+                [matTooltip]="
+                  validatorFields('histoySembrado')
+                    ? 'Se pueden usar letras, puntos, comas o números. Los caracteres especiales no están permitidos.'
+                    : ''
+                "
+                [matTooltipClass]="'myTooltip'"
+              ></textarea>
+            </div>
+            <div class="container-inter-text-areas">
+              <textarea
+                formControlName="historyTostado"
+                placeholder="Proceso de tostado que emplea molienda u otras técnicas. (500 caracteres máximo)"
+                class="textarea-text"
+                [ngClass]="{
+                  'textarea-text-error': validatorFields('historyTostado')
+                }"
+                required
+                minlength="20"
+                maxlength="500"
+                pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ,\s]*$"
+                [matTooltip]="
+                  validatorFields('historyTostado')
+                    ? 'Se pueden usar letras, puntos, comas o números. Los caracteres especiales no están permitidos.'
+                    : ''
+                "
+                [matTooltipClass]="'myTooltip'"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="container-text-area-inter-review">
+            <div class="container-inter-text-areas">
+              <textarea
+                formControlName="historyRecoleccion"
+                placeholder="Proceso de recolección (manual o mecanizada) (jornales o mano de obra familiar o minga) (500 caracteres máximo)"
+                class="textarea-text"
+                [ngClass]="{
+                  'textarea-text-error': validatorFields('historyRecoleccion')
+                }"
+                required
+                minlength="20"
+                maxlength="500"
+                pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ,\s]*$"
+                [matTooltip]="
+                  validatorFields('historyRecoleccion')
+                    ? 'Se pueden usar letras, puntos, comas o números. Los caracteres especiales no están permitidos.'
+                    : ''
+                "
+                [matTooltipClass]="'myTooltip'"
+              ></textarea>
+            </div>
+            <div class="container-inter-text-areas">
+              <textarea
+                formControlName="histoyEmpaquetado"
+                placeholder="Proceso de empaque(500 caracteres máximo)"
+                class="textarea-text"
+                [ngClass]="{
+                  'textarea-text-error': validatorFields('histoyEmpaquetado')
+                }"
+                required
+                minlength="20"
+                maxlength="500"
+                pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ,\s]*$"
+                [matTooltip]="
+                  validatorFields('histoyEmpaquetado')
+                    ? 'Se pueden usar letras, puntos, comas o números. Los caracteres especiales no están permitidos.'
+                    : ''
+                "
+                [matTooltipClass]="'myTooltip'"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-buttons-form3" align="center">
+        <button class="btn-form3" (click)="comeBack()" type="button">
+          Atrás
+        </button>
+        <button class="btn-form3" (click)="next()" type="submit">
+          Siguiente
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

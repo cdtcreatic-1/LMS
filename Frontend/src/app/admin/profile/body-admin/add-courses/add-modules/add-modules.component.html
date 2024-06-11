@@ -1,0 +1,38 @@
+<section>
+  <div class="item-list">
+    <h1 class="title">Fair Trade</h1>
+    <div class="icon" [routerLink]="['../add-module-details/0']">
+      <app-add-icon-message [title]="'Añadir módulos'"></app-add-icon-message>
+    </div>
+    <ul class="list">
+      <li class="item" *ngFor="let module of dataModules; let i = index">
+        <div class="tittle">
+          <strong title="{{ module.module_title }}">{{
+            module.module_title.slice(0, 20)
+          }}</strong>
+        </div>
+        <div
+          class="info"
+          [routerLink]="['../add-submodules', module.id_module]"
+        >
+          <strong>Submódulo</strong>
+        </div>
+        <div class="crud">
+          <span [routerLink]="['../add-module-details', module.id_module]"
+            >Editar</span
+          >
+          <span>Eliminar</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container-buttons">
+    <button class="fcdt-btn-white-p2" [routerLink]="['../add-objetives']">
+      Atrás
+    </button>
+    <button class="fcdt-btn-p2" [routerLink]="['../add-module-details/0']">
+      Siguiente
+    </button>
+  </div>
+</section>

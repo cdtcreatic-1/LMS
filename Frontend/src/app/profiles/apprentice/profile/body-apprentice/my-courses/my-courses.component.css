@@ -1,0 +1,153 @@
+.container-principal-my-curses {
+  height: 80%;
+  width: 80%;
+  margin-inline: 10%;
+}
+
+/* Title all courses */
+
+.container-title-filter {
+  display: flex;
+  align-items: flex-start;
+  color: #2f0084;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 800;
+  height: 15%;
+  font-size: 2.2vw;
+}
+
+.container-title {
+  height: 100%;
+  font-size: 2.2vw;
+}
+
+.container-icon {
+  height: 50%;
+  margin-left: 2vw;
+}
+
+/* Courses */
+
+.container-courses {
+  width: 100%;
+  padding-right: 20%;
+  height: 68vh;
+  overflow-y: auto;
+}
+
+.container-inter-courses {
+  width: 100%;
+}
+
+.title-courses {
+  display: flex;
+  justify-content: flex-end;
+  height: 10%;
+  width: 75%;
+  margin-left: 25%;
+  color: #2f0084;
+  font-size: 1.7vw;
+  font-weight: 300;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #00de97;
+}
+
+.container-cards-courses {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 30vh;
+}
+
+.container-card {
+  display: flex;
+  width: 75%;
+  height: 90%;
+  border-radius: 16.199px;
+  background: #fff;
+  box-shadow: 0px -14.17438px 46.57295px 0px rgba(0, 0, 0, 0.25);
+}
+
+.container-image-start-play {
+  position: relative;
+  height: 100%;
+  width: 45%;
+  padding: 3%;
+}
+
+.container-image {
+  position: absolute;
+  height: 80%;
+  width: 80%;
+}
+
+.container-principal-play {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+  z-index: 1;
+}
+
+.container-image-play {
+  width: 30%;
+  cursor: default;
+}
+
+.container-image-play:active {
+  opacity: 0.5;
+}
+
+/* Title course */
+
+.container-description-price {
+  width: 55%;
+  height: 100%;
+  padding-inline: 3%;
+  color: #2f0084;
+}
+
+.container-title-course {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  height: 40%;
+  margin-top: 10%;
+  font-weight: 400;
+  font-size: 1.8vw;
+  line-height: 100%;
+  cursor: pointer;
+}
+
+.container-title-course:active {
+  opacity: 0.5;
+  text-decoration: solid;
+}
+
+/* Price */
+
+.container-principal-price {
+  display: flex;
+  align-items: center;
+  font-family: Lato;
+  display: flex;
+  color: #00de97;
+  height: 20%;
+  margin-top: 3%;
+}
+
+.container-price {
+  font-size: 1.8vw;
+  font-weight: 800;
+}
+
+.container-discount {
+  font-size: 1.2vw;
+  font-weight: 400;
+  color: #a1a1a1;
+  margin-left: 10px;
+  text-decoration: line-through;
+}

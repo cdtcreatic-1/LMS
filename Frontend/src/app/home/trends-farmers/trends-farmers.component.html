@@ -1,0 +1,64 @@
+<div
+  class="container-box-trend"
+  [ngClass]="{ 'container-shadown': shadown }"
+  align="center"
+>
+  <div class="container-nuestros-perfiles">Caficultores en tendencias</div>
+  <div class="container-description-trends">
+    Reconocemos el esfuerzo , la calidad y dedicación. ¡Aquí puedes estar tú!
+  </div>
+  <div
+    class="container-inter-card-trend"
+    [ngClass]="{ 'container-width-card': width }"
+  >
+    <section class="container-sections" *ngFor="let item of dataTrend">
+      <section class="container-section-image-starts">
+        <div class="container-image-name">
+          <div class="container-image-farmer">
+            <img
+              src="{{ item.user_profile_photo }}"
+              class="img-border"
+              alt=""
+            />
+          </div>
+          <div class="container-name-kilos-sell">
+            <div>{{ item.user_name }}</div>
+            <div class="total-kiles-sell">
+              {{ item.total_purchase_quantity }} Kilos vendidos
+            </div>
+          </div>
+        </div>
+        <div class="container-starts">
+          <!-- <app-starts [numberStart]="3"></app-starts> -->
+        </div>
+      </section>
+      <section class="container-section-products">
+        <div
+          class="container-image-description-kiles"
+          *ngFor="let product of item.lots"
+          [ngStyle]="product.newBackgroud"
+        >
+          <div class="container-image-products">
+            <img
+              src="{{ product.lot_photo }}"
+              alt=""
+              width="100%"
+              height="100%"
+              class="image-product"
+            />
+          </div>
+          <div class="container-description-products">
+            <strong>V4p15t2</strong>
+            <div>Variedad: {{ product.variety_name }}</div>
+            <div>Perfil de taza: {{ product.profile_name }}</div>
+            <div>Tostión: {{ product.roasting_name }}</div>
+          </div>
+
+          <div class="container-circle-products">
+            {{ product.sales_quantity }} Kg vendidos
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+</div>

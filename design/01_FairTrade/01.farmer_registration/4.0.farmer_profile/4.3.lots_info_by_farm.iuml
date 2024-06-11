@@ -1,0 +1,16 @@
+@startuml
+
+'Lot Info'
+
+group 4.3 Lot Info
+
+    !include 4.3.0.get_lots_info_by_farm.iuml
+    !include 4.3.1.score_lots.iuml
+    !include 4.3.2.get_score.iuml
+    !include 4.3.3.get_lot_photo.iuml
+    !include 4.3.4.get_farm_summary.iuml
+    !include 4.3.5.delete_lot_by_id_lot.iuml
+
+end group
+
+@enduml

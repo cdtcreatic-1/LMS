@@ -1,0 +1,3 @@
+Restrictions,variable_name,type_data,references
+PK,id_county,SMALLINT,
+"NN U",country_name,VARCHAR(45),

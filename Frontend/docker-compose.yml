@@ -1,0 +1,12 @@
+version: '1'
+services:
+  web: 
+    build: .
+    volumes:
+      - .:/fairExchangeContainer:cached
+    ports:
+      - "4200:4200"
+    image: fairexchangeimage:app
+    container_name: fairExchangeContainer
+    command: "npm start"
+

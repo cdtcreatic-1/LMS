@@ -1,0 +1,9 @@
+@startuml
+
+
+group User Register
+    !include ./../01.farmer_registration/1.0.user_register.iuml
+
+end group
+
+@enduml

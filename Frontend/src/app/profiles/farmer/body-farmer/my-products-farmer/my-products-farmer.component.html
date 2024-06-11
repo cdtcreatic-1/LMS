@@ -1,0 +1,214 @@
+<div class="container-body">
+  <div class="container-icons-add-notification" align="center">
+    <div class="container-icon-back" (click)="onClickBack()">
+      <img
+        src="../../../../../../assets/icons/icon_back.webp"
+        alt="Agregar"
+        width="100%"
+      />
+    </div>
+
+    <div class="container-add-farm">
+      <div class="container-icon-text" (click)="onClickAddProduct()">
+        <div class="container-icon">
+          <img
+            src="../../../../../assets/icons/icon_add.webp"
+            alt="Agregar"
+            width="100%"
+            height="100%"
+          />
+        </div>
+        <div class="container-text">Agregar producto</div>
+      </div>
+    </div>
+    <div class="container-delete-farm">
+      <div
+        class="container-icon-text"
+        [ngClass]="{
+          'container-icon-text-disabled': dataLots.length === 0
+        }"
+        (click)="onClickDeleteFarm()"
+      >
+        <div class="container-icon">
+          <img
+            src="../../../../../../assets/icons/icon-delete-farm.webp"
+            alt="Agregar"
+            width="100%"
+            height="100%"
+          />
+        </div>
+        <div class="container-text">Eliminar producto</div>
+      </div>
+    </div>
+  </div>
+  <div class="container-principal-namefarmer-lots">
+    <div class="container-farm-title">Finca {{ nameFarm }}</div>
+    <div class="container-principal-details">
+      <div class="container-details">
+        <div *ngIf="dataLots.length > 0" class="container-grid-scroll-details">
+          <div
+            *ngFor="let item of dataLots"
+            class="container-inter-list-products animate__animated animate__zoomIn"
+          >
+            <div style="margin-bottom: 2vw">
+              <div class="container-image-input">
+                <div class="container-image">
+                  <div class="container-name-lote">
+                    Lote<span>&nbsp;</span>{{ item.id_lot }}
+                  </div>
+                  <div style="margin-top: 5px">
+                    <!-- <app-starts [numberStart]="3"></app-starts> -->
+                  </div>
+                  <div style="height: 80%">
+                    <img
+                      *ngIf="item.LotPhoto"
+                      src="{{ item.LotPhoto.lot_photo }}"
+                      alt="Image"
+                      style="border-radius: 10px"
+                    />
+                    <img
+                      *ngIf="!item.LotPhoto"
+                      src="../../../../../../assets/lote2.webp"
+                      alt="Foto de perfíl"
+                      width="95%"
+                      height="95%"
+                      style="border-radius: 10px"
+                    />
+                    <div class="container-btn-trazabilidad-no-opacity">
+                      <button
+                        class="fcdt-btn-p2"
+                        (click)="onClickTraceability(item)"
+                      >
+                        Trazabilidad
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="container-input">
+                  <div class="container-inter-input">
+                    <div class="input-text-item">
+                      {{ item.CoffeeProfile.profile_name }}
+                    </div>
+                    <div class="container-sub-item">Perfil de taza</div>
+                  </div>
+
+                  <div class="container-inter-input">
+                    <div class="input-text-item">
+                      {{ item.CoffeeVariation.variety_name }}
+                    </div>
+                    <div class="container-sub-item">Variedad de café</div>
+                  </div>
+
+                  <div class="container-inter-input">
+                    <div class="input-text-item">
+                      <span *ngIf="item.LotQuantity?.Association">{{
+                        item.LotQuantity.Association.association_name.slice(
+                          0,
+                          20
+                        )
+                      }}</span>
+
+                      <span *ngIf="!item.LotQuantity?.Association"
+                        >Sin definir</span
+                      >
+                    </div>
+                    <div class="container-sub-item">Asociación o programa</div>
+                  </div>
+
+                  <div class="container-inter-input">
+                    <div class="input-text-item">
+                      <span *ngIf="item.LotQuantity">
+                        {{ item.LotQuantity.total_quantity }}
+                      </span>
+                      <span *ngIf="!item.LotQuantity"> Sin definir </span>
+                    </div>
+                    <div class="container-sub-item">Total de kilos</div>
+                  </div>
+
+                  <div class="container-inter-input">
+                    <div class="input-text-item">
+                      <span *ngIf="item.LotQuantity">
+                        {{ item.LotQuantity.samples_quantity }}
+                      </span>
+                      <span *ngIf="!item.LotQuantity"> Sin definir </span>
+                    </div>
+                    <div class="container-sub-item">Kilos de prueba</div>
+                  </div>
+
+                  <div class="container-inter-input">
+                    <div class="input-text-item">
+                      <span>
+                        {{ item.RoastingType.roasting_name }}
+                      </span>
+                    </div>
+                    <div class="container-sub-item">Tostión</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          *ngIf="dataLots.length === 0"
+          class="container-inter-list-products-2"
+        >
+          <div>
+            <div class="container-image-input-2">
+              <div class="container-image">
+                <div class="container-name-lote" style="color: #d9d9d9">
+                  Lote<span>&nbsp;</span>
+                </div>
+                <!-- <div style="margin-bottom: 5px">
+                  <app-starts
+                    [numberStart]="5"
+                    [background]="true"
+                    [height]="'1.7vw'"
+                    [width]="'auto'"
+                  ></app-starts>
+                </div> -->
+                <div class="container-no-image"></div>
+                <div class="container-btn-trazabilidad">
+                  <button class="fcdt-btn-p2">Trazabilidad</button>
+                </div>
+              </div>
+
+              <div class="container-input">
+                <div class="container-inter-input2">
+                  <div class="input-text-item"></div>
+                  <div class="container-sub-item">Perfil de taza</div>
+                </div>
+
+                <div class="container-inter-input2">
+                  <div class="input-text-item"></div>
+                  <div class="container-sub-item">Variedad de café</div>
+                </div>
+
+                <div class="container-inter-input2">
+                  <div class="input-text-item"></div>
+                  <div class="container-sub-item">Asociación o programa</div>
+                </div>
+
+                <div class="container-inter-input2">
+                  <div class="input-text-item"></div>
+                  <div class="container-sub-item">Total de kilos</div>
+                </div>
+
+                <div class="container-inter-input2">
+                  <div class="input-text-item"></div>
+                  <div class="container-sub-item">Kilos de prueba</div>
+                </div>
+
+                <div class="container-inter-input2">
+                  <div class="input-text-item"></div>
+                  <div class="container-sub-item">Tostión</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

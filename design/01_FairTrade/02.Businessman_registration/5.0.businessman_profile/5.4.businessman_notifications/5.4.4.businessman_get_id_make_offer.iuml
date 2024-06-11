@@ -1,0 +1,44 @@
+@startuml
+
+    group #99FF99 5.4.3 GET id_make_offer_for_farmer
+
+        Businessman -> BackEnd: GET id_make_offer_for_farmer
+
+        note over Businessman
+            Body {
+                id_offer_status
+                id_offer_types = 2 ('Venta')
+                id_user
+                id_lot
+                offer_date
+                offer_quantity
+            }
+        endnote
+
+        BackEnd -> DB: Select id_make_offer FROM make_offer_table \nWHERE Almost all fields are the same as the body, with the exception of 'id_offer_types'.
+
+        hnote over BackEnd
+            Depending if the data are correct the response will be:
+            200 OK (make_offer data)
+            409 Conflict (user_email or user_username already exists)
+            400 Bad Request (missing data)
+            500 Internal Server Error (server error)
+        endnote
+
+        BackEnd -> Businessman: HTTP 200 OK (make_offer data)
+
+        note over Businessman
+            Body {
+                id_make_offer
+                id_offer_status
+                id_offer_types
+                id_user
+                id_lot
+                offer_date
+                offer_quantity
+            }
+        endnote
+    
+    end group 
+
+@enduml

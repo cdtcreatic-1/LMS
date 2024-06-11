@@ -1,0 +1,334 @@
+form {
+  height: 100vh;
+}
+
+.container-herder-farmer-edit {
+  position: relative;
+  margin-left: 1vw;
+}
+
+/* Edit cover photo */
+
+.container-image-portada-edit {
+  position: relative;
+  z-index: 1;
+  height: 60%;
+  width: 100%;
+}
+.container-image-portada-inter {
+  position: relative;
+  height: 22.9vh;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.img-cover {
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.container-icon-camera-portada-edit {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-bottom: 50%;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.container-icon-camera-portada-edit:active {
+  opacity: 0.5;
+}
+
+.container-icon-text-portada-edit {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 25%;
+}
+
+.container-icon-portada-edit {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.container-inter-camera-text-edit-portada {
+  display: flex;
+  width: 15%;
+  height: 100%;
+}
+
+.container-icon-edit-photo-portada {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+}
+
+.container-text-edit-portada-edit {
+  width: 80%;
+  margin-top: 2%;
+  margin-left: 3%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2vw;
+  color: #ffffff;
+}
+
+.container-input-load-photo-portada {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* class input */
+
+.input-load-portada {
+  width: 100%;
+  cursor: pointer;
+  opacity: 0;
+  background-color: rebeccapurple;
+}
+
+/* Profile photo */
+
+.container-profile-photo-edit {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  height: 42%;
+  z-index: 2;
+}
+
+.container-image-profile-edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 100%;
+  margin-left: 1vw;
+  height: 140px;
+  width: 140px;
+  margin-top: -7vh;
+  padding: 5px;
+}
+
+.img-profile {
+  border-radius: 100%;
+  border: 1px solid rgba(107, 105, 105, 0.1);
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.container-icon-camera-profile-edit {
+  width: 16%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: 5%;
+  position: absolute;
+  margin-left: 0.5%;
+
+  div {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+
+    & .input-load-profile {
+      width: 100%;
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      z-index: 2;
+      cursor: pointer;
+      opacity: 0;
+    }
+  }
+}
+
+.image-icon-photo-profile {
+  position: absolute;
+  z-index: 1;
+}
+
+.container-profile-name-edit {
+  width: 30%;
+  margin-top: -4vh;
+  margin-left: 1vw;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.container-icon-text-area {
+  display: flex;
+  align-items: flex-end;
+  height: 16vh;
+  margin-left: -2%;
+}
+
+.img-area-icon {
+  margin-top: 20vw;
+  border: solid 0.3px #d3cfcf;
+  background-color: aliceblue;
+  border-radius: 4px;
+  padding: 0.2%;
+}
+
+.container-details {
+  padding-block: 2vw;
+  margin-left: 12.5%;
+  margin-top: 3%;
+  width: 75%;
+  height: 40vh;
+  border: 1px solid #bebebe;
+  border-radius: 8px;
+}
+
+.container-text-details {
+  height: 2vw;
+  padding-top: 1.3px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #fff;
+  padding-inline: 2vw;
+  background-color: #00de97;
+}
+
+.container-rows-details {
+  display: flex;
+  padding-inline: 2vw;
+  margin-top: 3vw;
+}
+
+.input-text-details {
+  width: 100%;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #2f0084;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #bebebe;
+}
+
+.container-sub-input {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #686868;
+}
+
+.container-buttons-edit {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 1.5vw;
+}
+
+.btn-edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  margin-inline: 0.5vw;
+  height: 28.61px;
+  background: #00de97;
+  border-radius: 4.40088px;
+  outline: none;
+  border: none;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  text-align: center;
+  color: #2f0084;
+}
+
+.btn-edit:active {
+  background-color: rgba(0, 222, 151, 0.5);
+}
+/* header edit farmer profile */
+
+.input-load-foto {
+  position: absolute;
+  z-index: 2;
+  width: 3%;
+  height: 4%;
+  margin-top: 2.7%;
+  margin-left: 3.5%;
+  opacity: 0;
+}
+
+.container-image-load-inter {
+  border-radius: 100%;
+  border: 1px solid rgba(107, 105, 105, 0.1);
+  width: 10vw;
+  height: 10vw;
+  margin-top: 0.5vw;
+  margin-left: 0%;
+}
+
+.container-form-image-portada {
+  height: 12vw;
+}
+
+.container-image-load-inter-portada img {
+  height: 11.5vw;
+  border-radius: 12px;
+}
+
+.container-icon-image-portada {
+  border-radius: 12px;
+}
+
+.container-icon-image-portada img {
+  height: 12.6vw;
+  border-radius: 12px;
+}
+
+.container-text-message-edit {
+  width: 50%;
+  height: 6vw;
+  border: solid 0.3px #d3cfcf;
+  outline: none;
+  margin-top: 1%;
+  border-radius: 3px;
+  resize: none;
+  padding: 0%;
+  font-family: "Lato";
+  font-size: 1vw;
+  padding: 1%;
+  color: #2f0084;
+}
+
+.container-text-message-edit::placeholder {
+  color: #686868;
+}
+
+.container-text-message-edit-error {
+  border: solid 0.3px red;
+}
+
+.container-body {
+  height: 50vh;
+  width: 98.5%;
+  margin-left: 1vw;
+}

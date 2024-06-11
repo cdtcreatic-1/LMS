@@ -1,0 +1,34 @@
+.container-principal {
+  width: 45vw;
+  max-height: 95vh;
+  font-weight: 600;
+  font-size: 1.3vw;
+  padding-block: 3%;
+  overflow-x: hidden;
+}
+
+.container-title-background {
+  background-color: #00de97;
+  padding-inline: 5%;
+  overflow-y: auto;
+  overflow-y: hidden;
+}
+
+section {
+  margin-bottom: 7px;
+  font-size: 1.2vw;
+}
+
+.container-titles-description {
+  padding-inline: 5%;
+  margin-top: 2%;
+}
+
+.title {
+  color: #00de97;
+  font-weight: 500;
+}
+
+.description {
+  font-weight: 400;
+}

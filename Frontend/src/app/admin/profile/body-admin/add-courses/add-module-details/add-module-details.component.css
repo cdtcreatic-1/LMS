@@ -1,0 +1,172 @@
+.container-principal {
+  height: 85vh;
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "tittle"
+    "containerLeft"
+    "containerRight"
+    "buttons";
+  justify-content: center;
+  gap: 15px;
+  font-family: "lato";
+  padding-inline: 5%;
+  height: 90%;
+}
+.tittle {
+  color: #2f0084;
+  grid-area: tittle;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0em;
+  text-align: left;
+  width: 100%;
+}
+
+.container-left {
+  grid-area: containerLeft;
+  width: 100%;
+  height: 70%;
+}
+
+/* .container-right,
+.buttons,
+.container {
+  width: 100%;
+  height: 100%;
+} */
+
+.container-right {
+  grid-area: containerRight;
+  margin-left: 5%;
+}
+.buttons {
+  grid-area: buttons;
+}
+
+input {
+  outline: none;
+  color: #2f0084;
+  border: none;
+  border-bottom: 1px solid #bebebe;
+}
+
+.description-course {
+  background: #d9d9d952;
+  border-radius: 4px;
+  border: none;
+  resize: none;
+}
+textarea {
+  color: #2f0084;
+  padding: 5px;
+  background: #d9d9d952;
+  width: 100%;
+  height: 85px;
+  border-radius: 4px;
+  border: none;
+  resize: none;
+}
+
+textarea::placeholder {
+  color: #cccccc;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.container-border-red {
+  border: 1px solid red;
+}
+
+textarea:focus {
+  border: none;
+  outline: none;
+}
+
+label {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #686868;
+}
+
+.description {
+  background: #d9d9d952;
+  border-radius: 4px;
+  height: 92px;
+  border: none;
+  resize: none;
+}
+
+.add-doc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  width: 372px;
+  height: 205px;
+  border: 1px solid #d9d9d9;
+  padding: 5px;
+}
+
+.input-load-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  background-color: red;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.icon-add-document-text {
+  width: 50%;
+}
+
+.container-icon {
+  position: relative;
+  width: max-content;
+}
+
+.container-icon:active {
+  opacity: 0.5;
+}
+
+/* Buttos */
+
+.container-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-inline: 25%;
+  gap: 1vw;
+}
+
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "tittle tittle"
+      "containerLeft containerRight"
+      "buttons buttons";
+  }
+  form {
+    height: 100%;
+  }
+  .description {
+    height: auto;
+  }
+}
+
+form {
+  display: grid;
+}

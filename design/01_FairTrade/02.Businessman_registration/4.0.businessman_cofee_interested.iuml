@@ -1,0 +1,6 @@
+@startuml
+    !include ../01.farmer_registration/5.0.lot_farm_profile/5.1.register_lot_profile/5.1.4.get_coffee_profile.iuml
+    !include ../01.farmer_registration/5.0.lot_farm_profile/5.1.register_lot_profile/5.1.2.get_roasting.iuml
+    !include ../01.farmer_registration/2.0.farm_register/2.1.get_data_states.iuml
+    !include ../01.farmer_registration/2.0.farm_register/2.2.get_data_cities.iuml
+@enduml
