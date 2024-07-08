@@ -27,8 +27,8 @@ export const APIKEY_RECAPCHA: string =
 // export const BASE_URL = 'http://localhost:3000/api/';
 // export const BASE_URL_FRONTEND = 'http://localhost:4200/';
 
-export const BASE_URL = 'http://93.188.162.233:3000/api/';
-export const BASE_URL_FRONTEND = 'http://93.188.162.233:4200/';
+export const BASE_URL = 'http://localhost:3000/api/';
+export const BASE_URL_FRONTEND = 'http://localhost:4200/';
 
 // export const BASE_URL = 'https://dev.creatic-ip.com/api/';
 // export const BASE_URL_FRONTEND = 'https://dev.creatic-ip.com/';

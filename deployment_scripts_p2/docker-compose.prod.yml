@@ -27,12 +27,12 @@ services:
       enviroment_deploy: production #development or production
       python_service_host: python_service
       python_service_port: 5000
-      frontend_host: http://93.188.162.233:4200/ #http://localhost:80/ #http://93.188.162.233:4200/ #https://creatictrade.com/ #frontend url http://localhost:80/
-      app_url: http://93.188.162.233:3000/api/ #http://localhost:4500/api/ #http://93.188.162.233:3000/api/ #https://creatictrade.com/api/ #bakend url http://localhost:4500/api/
+      frontend_host: http://localhost:4200/ #http://localhost:80/ #http://localhost:4200/ #https://creatictrade.com/ #frontend url http://localhost:80/
+      app_url: http://localhost:3000/api/ #http://localhost:4500/api/ #http://localhost:3000/api/ #https://creatictrade.com/api/ #bakend url http://localhost:4500/api/
       url_apify: https://apify.epayco.co
       PUBLIC_KEY: 27898648593732eddfee2eca289552ce
       PRIVATE_KEY: 7131752194c562f15d7d4527958bb493
-      url_redirect: http://93.188.162.233:4200/payment
+      url_redirect: http://localhost:4200/payment
 
     ports:
       - "3000:3000"
