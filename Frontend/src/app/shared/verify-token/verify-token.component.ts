@@ -41,13 +41,15 @@ export class VerifyTokenComponent implements OnInit {
           localStorage.setItem('@userId', res.id_user.toString());
           this.status = 2;
 
-          if (res.id_role === 1) {
-            this.router.navigate(['register/farmer/locate-farm']);
+          if (res.id_role === 3) {
+            this.router.navigate([ROUTES.USER_APPRENTICE]);}
+          /*if (res.id_role === 1) {
+            //this.router.navigate(['register/farmer/locate-farm']);
           } else if (res.id_role === 2) {
-            this.router.navigate(['register/businessman/preferences']);
+            //this.router.navigate(['register/businessman/preferences']);
           } else if (res.id_role === 3) {
             this.router.navigate([ROUTES.USER_APPRENTICE]);
-          }
+          }*/
 
           setTimeout(() => {
             window.location.reload();

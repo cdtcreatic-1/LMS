@@ -45,12 +45,12 @@
 }
 
 .container-cards-profiles {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  /*display: flex;*/
+  /*align-items: center;*/
+  /*justify-content: space-between;*/ 
   width: 80%;
   height: 75%;
-  margin-left: 7.5%;
+  margin-left: 35.5%;
 }
 
 .container-card {
@@ -97,7 +97,7 @@
   width: 100%;
   margin-top: -5vw;
   font-weight: 600;
-  text-shadow: 0px 4.507736682891846px 6.7616047859191895px rgba(0, 0, 0, 0.25);
+  /*text-shadow: 0px 4.507736682891846px 6.7616047859191895px rgba(0, 0, 0, 0.25);*/
 }
 @media only screen and (max-width: 768px) and (orientation: portrait) {
   .container-principal {

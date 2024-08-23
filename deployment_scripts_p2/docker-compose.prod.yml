@@ -1,18 +1,18 @@
 version: '3'
 services:
-  frontend:
-    build: ../Frontend
-    container_name: green_trade_frontend
-    ports:
-      - "4200:80"
-    networks:
-      - platform_network
+  # frontend:
+  #   build: ../Frontend
+  #   container_name: green_trade_frontend
+  #   ports:
+  #     - "4200:80"
+  #   networks:
+  #     - platform_network
 
-    depends_on:
-      - backend
+  #   depends_on:
+  #     - backend
 
-    environment:
-      frontend_deploy_enviroment: production
+  #   environment:
+  #     frontend_deploy_enviroment: production
 
   backend:
     build: ../Backend

@@ -140,12 +140,12 @@ export class MainPageLoginComponent implements OnDestroy {
       return;
     }
 
-    if (!this.isCheckRepapcha) {
-      this.store.dispatch(
-        setIsErrorMessage({ message: 'por favor, completa todos los campos' })
-      );
-      return;
-    }
+    // if (!this.isCheckRepapcha) {
+    //   this.store.dispatch(
+    //     setIsErrorMessage({ message: 'por favor, completa todos los campos' })
+    //   );
+    //   return;
+    // }
 
     const body = {
       email: this.formLogin.controls.email.value,

@@ -69,6 +69,178 @@
 
           <div class="container-row-input-form">
             <div class="container-input-form">
+              <select
+                class="fcdt-select-p2"
+                formControlName="typeIdentification"
+                required
+                [ngClass]="{
+                  'fcdt-color-span-form-p2':
+                    validatorFields('typeIdentification')
+                }"
+                [matTooltip]="
+                  validatorFields('typeIdentification')
+                    ? 'Seleccione una opción'
+                    : ''
+                "
+                [matTooltipClass]="'myTooltip'"
+              >
+                <option value="" disabled selected hidden>
+                  <span> Tipo de identificación </span>
+                </option>
+                <option
+                  *ngFor="let identificaction of typeIdentificaction"
+                  value="{{ identificaction.id }}"
+                >
+                  {{ identificaction.name }}
+                </option>
+              </select>
+            </div>
+            <div class="container-input-form">
+              <div>
+                <input
+                  type="tel"
+                  formControlName="identification"
+                  class="fcdt-input-p2"
+                  [ngClass]="{ 'input-disable': dataUser }"
+                  minlength="8"
+                  maxlength="11"
+                  placeholder="ID"
+                  pattern="[0-9]*"
+                  required
+                  [matTooltip]="
+                    validatorFields('identification')
+                      ? 'Usar únicamente números con una longitud mínima de 8 y máxima de 11 dígitos'
+                      : ''
+                  "
+                  [matTooltipClass]="'myTooltip'"
+                  (keydown)="handleKeyDown($event)"
+                />
+              </div>
+              <div class="container-placeholder">
+                <span
+                  [ngClass]="{
+                    'fcdt-color-span-form-p2': validatorFields('identification')
+                  }"
+                >
+                  Número de identificación
+                </span>
+              </div>
+            </div>
+            <!--<div class="container-input-form">
+              <div>
+                <input
+                  type="email"
+                  formControlName="mail"
+                  class="fcdt-input-p2"
+                  [ngClass]="{ 'input-disable': dataUser }"
+                  maxlength="50"
+                  minlength="6"
+                  required
+                  placeholder="Ej: sorvo@mail.com"
+                  pattern="^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$"
+                  [matTooltip]="
+                    validatorFields('mail')
+                      ? 'Digite una dirección de correo válida. Ej: email@ejemplo.com'
+                      : ''
+                  "
+                  [matTooltipClass]="'myTooltip'"
+                />
+              </div>
+              <div class="container-placeholder">
+                <span
+                  [ngClass]="{
+                    'fcdt-color-span-form-p2': validatorFields('mail')
+                  }"
+                >
+                  Correo electrónico</span
+                >
+              </div>
+            </div>-->
+
+            <!--<div class="container-input-form">
+              <select
+                class="fcdt-select-p2"
+                formControlName="typeIdentification"
+                required
+                [ngClass]="{
+                  'fcdt-color-span-form-p2':
+                    validatorFields('typeIdentification')
+                }"
+                [matTooltip]="
+                  validatorFields('typeIdentification')
+                    ? 'Seleccione una opción'
+                    : ''
+                "
+                [matTooltipClass]="'myTooltip'"
+              >
+                <option value="" disabled selected hidden>
+                  <span> Tipo de identificación </span>
+                </option>
+                <option
+                  *ngFor="let identificaction of typeIdentificaction"
+                  value="{{ identificaction.id }}"
+                >
+                  {{ identificaction.name }}
+                </option>
+              </select>
+            </div>-->
+          </div>
+
+          <div class="container-row-input-form">
+            <div class="container-input-form">
+              <select
+                class="fcdt-select-p2"
+                formControlName="genre"
+                required
+                [matTooltip]="
+                  validatorFields('genre') ? 'Seleccione una opción' : ''
+                "
+                [matTooltipClass]="'myTooltip'"
+                [ngClass]="{
+                  'fcdt-color-span-form-p2': validatorFields('genre')
+                }"
+              >
+                <option value="" disabled selected hidden>
+                  <span>Género</span>
+                </option>
+                <option *ngFor="let item of genre" value="{{ item.id }}">
+                  {{ item.name }}
+                </option>
+              </select>
+            </div>
+            <!--<div class="container-input-form">
+              <div>
+                <input
+                  type="tel"
+                  formControlName="phone"
+                  class="fcdt-input-p2"
+                  [ngClass]="{ 'input-disable': dataUser }"
+                  minlength="8"
+                  maxlength="15"
+                  placeholder="Teléfono"
+                  required
+                  pattern="[0-9]*"
+                  [matTooltip]="
+                    validatorFields('phone')
+                      ? 'Usar únicamente números con una longitud mínima de 8 y máxima de 10 dígitos'
+                      : ''
+                  "
+                  [matTooltipClass]="'myTooltip'"
+                  (keydown)="handleKeyDown($event)"
+                />
+              </div>
+              <div class="container-placeholder">
+                <span
+                  [ngClass]="{
+                    'fcdt-color-span-form-p2': validatorFields('phone')
+                  }"
+                >
+                  Teléfono</span
+                >
+              </div>
+            </div>-->
+
+            <div class="container-input-form">
               <div>
                 <input
                   type="email"
@@ -98,34 +270,37 @@
                 >
               </div>
             </div>
-
-            <div class="container-input-form">
-              <select
-                class="fcdt-select-p2"
-                formControlName="typeIdentification"
-                required
-                [ngClass]="{
-                  'fcdt-color-span-form-p2':
-                    validatorFields('typeIdentification')
-                }"
-                [matTooltip]="
-                  validatorFields('typeIdentification')
-                    ? 'Seleccione una opción'
-                    : ''
-                "
-                [matTooltipClass]="'myTooltip'"
-              >
-                <option value="" disabled selected hidden>
-                  <span> Tipo de identificación </span>
-                </option>
-                <option
-                  *ngFor="let identificaction of typeIdentificaction"
-                  value="{{ identificaction.id }}"
+            <!--<div class="container-input-form">
+              <div>
+                <input
+                  type="tel"
+                  formControlName="identification"
+                  class="fcdt-input-p2"
+                  [ngClass]="{ 'input-disable': dataUser }"
+                  minlength="8"
+                  maxlength="11"
+                  placeholder="ID"
+                  pattern="[0-9]*"
+                  required
+                  [matTooltip]="
+                    validatorFields('identification')
+                      ? 'Usar únicamente números con una longitud mínima de 8 y máxima de 11 dígitos'
+                      : ''
+                  "
+                  [matTooltipClass]="'myTooltip'"
+                  (keydown)="handleKeyDown($event)"
+                />
+              </div>
+              <div class="container-placeholder">
+                <span
+                  [ngClass]="{
+                    'fcdt-color-span-form-p2': validatorFields('identification')
+                  }"
                 >
-                  {{ identificaction.name }}
-                </option>
-              </select>
-            </div>
+                  Número de identificación
+                </span>
+              </div>
+            </div>-->
           </div>
 
           <div class="container-row-input-form">
@@ -138,6 +313,7 @@
                   [ngClass]="{ 'input-disable': dataUser }"
                   minlength="8"
                   maxlength="15"
+                  placeholder="Teléfono"
                   required
                   pattern="[0-9]*"
                   [matTooltip]="
@@ -160,40 +336,7 @@
               </div>
             </div>
 
-            <div class="container-input-form">
-              <div>
-                <input
-                  type="tel"
-                  formControlName="identification"
-                  class="fcdt-input-p2"
-                  [ngClass]="{ 'input-disable': dataUser }"
-                  minlength="8"
-                  maxlength="11"
-                  pattern="[0-9]*"
-                  required
-                  [matTooltip]="
-                    validatorFields('identification')
-                      ? 'Usar únicamente números con una longitud mínima de 8 y máxima de 11 dígitos'
-                      : ''
-                  "
-                  [matTooltipClass]="'myTooltip'"
-                  (keydown)="handleKeyDown($event)"
-                />
-              </div>
-              <div class="container-placeholder">
-                <span
-                  [ngClass]="{
-                    'fcdt-color-span-form-p2': validatorFields('identification')
-                  }"
-                >
-                  Número de identificación
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="container-row-input-form">
-            <div class="container-input-form">
+            <!--<div class="container-input-form">
               <select
                 class="fcdt-select-p2"
                 formControlName="genre"
@@ -213,7 +356,7 @@
                   {{ item.name }}
                 </option>
               </select>
-            </div>
+            </div>-->
 
             <div class="container-input-form"></div>
           </div>
@@ -251,7 +394,9 @@
           </div>
         </div>
       </div>
-
+      <div class="">
+        Agrega una contraseña
+      </div>
       <div class="container-row-input-form-password" [hidden]="dataUser">
         <div class="container-input-form-passwords">
           <div
