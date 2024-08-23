@@ -8,8 +8,8 @@ import { VerifyTokenComponent } from './shared/verify-token/verify-token.compone
 import { MainPageTraceabilityComponent } from './traceability/main-page-traceability/main-page-traceability.component';
 import { RecoverPasswordComponent } from './profiles/shared/recover-password/recover-password.component';
 import { QRtestComponent } from './qr/qr.component';
-import { WelcomeBusinessmanComponent } from './register/register-business/welcome-businessman/welcome-businessman.component';
-import { WelcomeFarmerComponent } from './register/register-farmer/welcome-farmer/welcome-farmer.component';
+/*import { WelcomeBusinessmanComponent } from './register/register-business/welcome-businessman/welcome-businessman.component';
+import { WelcomeFarmerComponent } from './register/register-farmer/welcome-farmer/welcome-farmer.component';*/
 import { PaymentConfirmationComponent } from './profiles/businessman/body-businessman/car-shop-business/payment-confirmation/payment-confirmation.component';
 
 export const routes: Routes = [
@@ -24,6 +24,7 @@ export const routes: Routes = [
     path: 'register/profiles',
     component: PrincipalRegisterComponent,
   },
+  /*
   {
     path: 'register/farmer',
     loadChildren: () =>
@@ -34,8 +35,8 @@ export const routes: Routes = [
   {
     path: 'welcome-farmer',
     component: WelcomeFarmerComponent,
-  },
-  {
+  },*/
+ /* {
     path: 'register/businessman',
     loadChildren: () =>
       import('./register/register-business/register-businessman.routes').then(
@@ -45,7 +46,7 @@ export const routes: Routes = [
   {
     path: 'welcome-businessman',
     component: WelcomeBusinessmanComponent,
-  },
+  },*/
   {
     path: 'register/apprentice',
     component: MainPageRegisterApprenticeComponent,

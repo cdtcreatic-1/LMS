@@ -70,7 +70,7 @@ export class FormReviewComponent implements OnDestroy {
           return;
         }
         this.grservice.getDataRegisterFarm();
-        this.router.navigate(['register/farmer/user-created']);
+        //this.router.navigate(['register/farmer/user-created']);
         // this.store.dispatch(changeCurrentWindow({ value: 14 }));
       });
 

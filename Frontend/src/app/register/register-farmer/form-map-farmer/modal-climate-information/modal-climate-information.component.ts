@@ -34,6 +34,6 @@ export class ModalClimateInformationComponent implements OnInit {
       return;
     }
 
-    this.router.navigate(['register/farmer/history-farmer']);
+    //this.router.navigate(['register/farmer/history-farmer']);
   }
 }

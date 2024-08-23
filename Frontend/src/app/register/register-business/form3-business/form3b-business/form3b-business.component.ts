@@ -70,7 +70,7 @@ export class Form3bBusinessComponent implements OnDestroy {
       .subscribe((res) => {
         this.isErrorLoadTextAudio = res;
         if (!res) return;
-        this.router.navigate(['register/businessman/farm-history/3']);
+        //this.router.navigate(['register/businessman/farm-history/3']);
       });
 
     this.suscription.add(suscruption1);

@@ -106,7 +106,7 @@ export class FormRegisterFarmerComponent implements OnInit, OnDestroy {
       .select(selectDataShared)
       .subscribe((data) => {
         if (!data.dataUserRegister) {
-          this.router.navigate(['register/farmer']);
+          //this.router.navigate(['register/farmer']);
           return;
         }
         this.actualIdRole = data.actualIdRole;
@@ -345,7 +345,7 @@ export class FormRegisterFarmerComponent implements OnInit, OnDestroy {
             );
             return;
           }
-          this.router.navigate(['register/farmer/locate-farm']);
+          //this.router.navigate(['register/farmer/locate-farm']);
         });
       });
 

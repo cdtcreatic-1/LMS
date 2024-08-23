@@ -7,13 +7,13 @@ export const ROUTES = {
   REGISTER: 'register',
   WELCOME_FARMER: 'welcome-farmer',
   WELCOME_BUSINESSMAN: 'welcome-businessman',
-  REGISTER_BUSINESSMAN: {
+  /*REGISTER_BUSINESSMAN: {
     REGISTER_BUSINESSMAN: 'register/businessman',
     CHILDRENS: {
       PREFERENCES: 'preferences',
       FARM_HISTORY: 'farm-history',
     },
-  },
+  },*/
   LOGIN: 'login',
   USER_FARMER: 'user-farmer',
   USER_BUSINESSMAN: 'user-businessman',
