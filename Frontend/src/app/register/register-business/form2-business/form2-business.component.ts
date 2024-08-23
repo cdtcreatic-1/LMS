@@ -122,7 +122,7 @@ export class Form2BusinessComponent implements OnDestroy {
       .subscribe((res: boolean) => {
         if (!res) return;
 
-        this.router.navigate(['register/businessman/farm-history/1']);
+        /*this.router.navigate(['register/businessman/farm-history/1']);*/
       });
 
     this.suscription.add(suscruption4);

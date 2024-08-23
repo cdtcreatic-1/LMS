@@ -108,7 +108,7 @@ export class Form1BusinessComponent implements OnInit {
       .select(selectDataShared)
       .subscribe((data) => {
         if (!data.dataUserRegister) {
-          this.router.navigate(['register/businessman']);
+          /*this.router.navigate(['register/businessman']);*/
           return;
         }
         this.actualIdRole = data.actualIdRole;
@@ -174,9 +174,9 @@ export class Form1BusinessComponent implements OnInit {
   }
 
   onChangeLoadImage(event: any) {
-    if (event.target.files[0].size > 1000000) {
+    if (event.target.files[0].size > 3000000) {
       this.store.dispatch(
-        setIsErrorMessage({ message: 'La imagen cargada pesa más de 1Mb' })
+        setIsErrorMessage({ message: 'La imagen cargada pesa más de 3Mb' })
       );
       return;
     }
@@ -367,7 +367,7 @@ export class Form1BusinessComponent implements OnInit {
           }
         });
 
-        this.router.navigate(['register/businessman/preferences']);
+        /*this.router.navigate(['register/businessman/preferences']);*/
       });
 
     this.suscription.push(suscruption5);

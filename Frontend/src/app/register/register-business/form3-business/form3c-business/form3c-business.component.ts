@@ -71,7 +71,7 @@ export class Form3cBusinessComponent implements OnDestroy {
       .subscribe((res) => {
         this.isErrorLoadTextAudio = res;
         if (!res) return;
-        this.router.navigate(['register/businessman/farm-history/4']);
+        //this.router.navigate(['register/businessman/farm-history/4']);
       });
 
     this.suscription.add(suscruption1);

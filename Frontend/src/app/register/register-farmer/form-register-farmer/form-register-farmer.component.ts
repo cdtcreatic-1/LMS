@@ -106,7 +106,7 @@ export class FormRegisterFarmerComponent implements OnInit, OnDestroy {
       .select(selectDataShared)
       .subscribe((data) => {
         if (!data.dataUserRegister) {
-          this.router.navigate(['register/farmer']);
+          //this.router.navigate(['register/farmer']);
           return;
         }
         this.actualIdRole = data.actualIdRole;
@@ -144,7 +144,7 @@ export class FormRegisterFarmerComponent implements OnInit, OnDestroy {
   }
 
   onChangeLoadImage(event: any) {
-    if (event.target.files[0].size < 1000000) {
+    if (event.target.files[0].size < 3000000) {
       if (
         event.target.files[0].type === 'image/png' ||
         event.target.files[0].type === 'image/jpeg'
@@ -171,7 +171,7 @@ export class FormRegisterFarmerComponent implements OnInit, OnDestroy {
       }
     } else {
       this.store.dispatch(
-        setIsErrorMessage({ message: 'La imagen cargada pesa más de 1Mb' })
+        setIsErrorMessage({ message: 'La imagen cargada pesa más de 3Mb' })
       );
     }
   }
@@ -345,7 +345,7 @@ export class FormRegisterFarmerComponent implements OnInit, OnDestroy {
             );
             return;
           }
-          this.router.navigate(['register/farmer/locate-farm']);
+          //this.router.navigate(['register/farmer/locate-farm']);
         });
       });
 
