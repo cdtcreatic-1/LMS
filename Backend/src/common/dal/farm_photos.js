@@ -1,11 +1,11 @@
-const models = require('cccommon/models/internaldb');
+/*const models = require('cccommon/models/internaldb');
 const {frontend_host, app_url} = require('cccommon/config');
 /**
  * @description Saves a farm photo to the database
  * @param {*} farmPhoto 
  * @returns 
  */
-async function saveFarmPhoto(farmPhoto)
+/*async function saveFarmPhoto(farmPhoto)
 {
     try
     {
@@ -40,7 +40,7 @@ async function saveFarmPhoto(farmPhoto)
  * @param {*} farmPhoto
  * @returns 
  */
-async function updateFarmPhoto(farmPhoto)
+/*async function updateFarmPhoto(farmPhoto)
 {
     try
     {
@@ -80,4 +80,4 @@ module.exports = {
     saveFarmPhoto,
     updateFarmPhoto,
     getFarmPhoto
-};
+};*/

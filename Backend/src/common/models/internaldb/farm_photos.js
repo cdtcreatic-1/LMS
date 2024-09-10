@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 
 
 module.exports = (sequelize, DataTypes) => {
@@ -42,4 +42,4 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     return FarmPhotos;
-};
+};*/

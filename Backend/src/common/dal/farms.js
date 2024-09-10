@@ -1,4 +1,4 @@
-const models = require('cccommon/models/internaldb');
+/*const models = require('cccommon/models/internaldb');
 
 
 // Fill in the fields for the new user in Farms using models.Farms.build
@@ -212,4 +212,4 @@ module.exports = {
     getScAndTasterCertificatesByIdFarm,
     deleteAllFarms,
     getAllFarmers
-};
+};*/

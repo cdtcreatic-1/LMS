@@ -1,4 +1,4 @@
-const models = require('cccommon/models/internaldb');
+/*const models = require('cccommon/models/internaldb');
 
 async function getUserFamerDataById(id_user) {
     try {
@@ -45,6 +45,6 @@ async function updateUserFamerDataById(userData) {
 module.exports = {
     getUserFamerDataById,
     updateUserFamerDataById
-};
+};*/
 
   
