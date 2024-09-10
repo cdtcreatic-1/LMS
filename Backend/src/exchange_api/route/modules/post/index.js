@@ -29,7 +29,7 @@ exports.handler = async (req, res) => {
     });
 
     
-    const moduleTitleRegex = /^[\wáéíóúÁÉÍÓÚüÜñÑ.,\/\-:;'"¡¿\s]{20,200}$/;
+    const moduleTitleRegex = /^[\wáéíóúÁÉÍÓÚüÜñÑ.,\/\-:;'"¡¿\s]{9,200}$/;
     if (!moduleTitleRegex.test(module_title)) {
         valErrs.push({ module_title: 'contains some special characters not allowed' });
     }
