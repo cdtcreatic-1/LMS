@@ -1,4 +1,4 @@
-/*const models = require('cccommon/models/internaldb');
+const models = require('cccommon/models/internaldb');
 
 async function saveBusinesmanCoffeeInterested(data) {
   try {
@@ -35,4 +35,4 @@ module.exports = {
   saveBusinesmanCoffeeInterested,
   updateBusinesmanCoffeeInterested,
   getBusinesmanCoffeeInterested
-};*/
+};
