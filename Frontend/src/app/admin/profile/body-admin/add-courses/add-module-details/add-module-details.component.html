@@ -1,6 +1,6 @@
 <div class="container-principal">
   <div class="container">
-    <h1 class="tittle">Fair Trade</h1>
+    <h1 class="tittle">Modulo</h1>
 
     <div class="container-left">
       <form [formGroup]="form">
@@ -13,7 +13,7 @@
           pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ.,;:_-/\s]*$"
           [matTooltip]="
             validatorFields('title')
-              ? 'Se puede usar número y letras, tildes, signos de puntuación básicos como la coma (,), el punto (.), el guion (-), el guion bajo (_), la barra (/), el punto y coma (;), el dos puntos (:), Con un mínimo de 20 y máximo de 200 caracteres'
+              ? 'Se puede usar número y letras, tildes, signos de puntuación básicos como la coma (,), el punto (.), el guion (-), el guion bajo (_), la barra (/), el punto y coma (;), el dos puntos (:), Con un mínimo de 9 y máximo de 200 caracteres'
               : ''
           "
           [matTooltipClass]="'myTooltip'"

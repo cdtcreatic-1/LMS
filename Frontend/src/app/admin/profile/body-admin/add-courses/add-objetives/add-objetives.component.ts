@@ -50,8 +50,11 @@ export class AddObjetivesComponent implements OnInit, OnDestroy {
 
   messageError: string =
     'Se puede usar número y letras, tildes, signos de puntuación básicos como la coma (,), el punto (.), el guion (-), el guion bajo (_), la barra (/), el punto y coma (;), el dos puntos (:), con un mínimo de 20 y máximo de 500 caracteres';
-
-  suscription: Subscription[] = [];
+  
+  suscription: Subscription[] = []; 
+  //Añadio Mensaje2 
+  messageError2: string = 'Se puede usar número y letras, tildes, signos de puntuación básicos como la coma (,), el punto (.), el guion (-), el guion bajo (_), la barra (/), el punto y coma (;), el dos puntos (:), con un mínimo de 12 y máximo de 500 caracteres'
+  suscription2: Subscription[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -165,7 +168,7 @@ export class AddObjetivesComponent implements OnInit, OnDestroy {
     if (this.formAdd.get('addSkill')?.invalid) {
       this.store.dispatch(
         setIsErrorMessage({
-          message: this.messageError,
+          message: this.messageError2, //se llamo mensaje2
         })
       );
       return;

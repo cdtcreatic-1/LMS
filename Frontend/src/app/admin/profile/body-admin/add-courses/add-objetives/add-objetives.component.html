@@ -1,6 +1,6 @@
 <div class="container-principal-add-objetives">
   <div class="container-title-text-area-90">
-    <h1 class="title">Fair Trade</h1>
+    <h1 class="title">Objetivos y Habilidades</h1> <!--Modifico-->
     <form [formGroup]="formAdd" class="course-manager" (ngSubmit)="(false)">
       <div class="obj-ability">
         <div class="icon-description">
@@ -82,13 +82,14 @@
               <strong>Habilidades a fortalecer</strong>
             </div>
             <div class="container-input-add-btn" *ngIf="isAddSkill">
-              <input
+              <!--Modifico mincarac--> 
+              <input 
                 type="text"
                 formControlName="addSkill"
                 placeholder="Agregar habilidad"
                 class="fcdt-input-password-all-boder input-add-objetive"
                 maxlength="500"
-                minlength="8"
+                minlength="12" 
                 required
                 pattern="^(?!.*(\d)\1{5,})[a-zA-Z0-9áéíóúÁÉÍÓÚüÜ.ñÑ.,;:_-/\s]*$"
               />
