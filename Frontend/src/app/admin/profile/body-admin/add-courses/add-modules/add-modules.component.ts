@@ -49,4 +49,9 @@ export class AddModulesComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.suscription.unsubscribe();
   }
+  deleteModule(index: number): void {
+    this.dataModules.splice(index, 1); // Elimina el módulo de la lista
+  }
 }
+
+

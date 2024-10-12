@@ -1,6 +1,6 @@
 <section>
   <div class="item-list">
-    <h1 class="title">Agregar submodulo</h1>
+    <h1 class="title">Agregar Modulo</h1>
     <div class="icon" [routerLink]="['../add-module-details/0']">
       <app-add-icon-message [title]="'Añadir módulos'"></app-add-icon-message>
     </div>
@@ -21,7 +21,9 @@
           <span [routerLink]="['../add-module-details', module.id_module]"
             >Editar</span
           >
-          <span>Eliminar</span>
+          <span class="delete-btn" (click)="deleteModule(i)">
+            Eliminar
+          </span>
         </div>
       </li>
     </ul>
