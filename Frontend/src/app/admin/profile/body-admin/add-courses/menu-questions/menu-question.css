@@ -1,0 +1,35 @@
+.item-list {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-areas: "title", "icon", "list";
+    justify-items: center;
+    font-family: "lato";
+    align-content: space-around;
+    gap: 15px;
+    height: 75vh;
+    padding-inline: 5%;
+  }
+  title {
+    grid-area: title;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 38px;
+    letter-spacing: 0em;
+    width: 100%;
+    color: #2f0084;
+  }
+
+  @media (min-width: 767px) {
+    .item-list {
+      grid-template-areas:
+        "title title"
+        "icon list"
+        "buttons-form buttons-form";
+    }
+  
+    .item {
+      width: 555px;
+      height: 47px;
+    }
+  }

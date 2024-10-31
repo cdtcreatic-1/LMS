@@ -18,12 +18,13 @@
         </div>
         <div
           class="info"
+          
           [routerLink]="[
-            '../../add-evaluation-details',
+            '../../menu-question',
             idModule,
             submodule.id_submodule
           ]"
-        >
+        ><!--add-evaluation-details to menu-question-->
           <strong>Evaluación</strong>
         </div>
         <div class="crud">
@@ -35,7 +36,9 @@
             ]"
             >Editar</span
           >
-          <span>Eliminar</span>
+          <span class="delete-btn" (click)="deleteSubModule(i, submodule.id_submodule)"> <!--Cambio en el event click-->
+            Eliminar
+          </span>
         </div>
       </li>
     </ul>

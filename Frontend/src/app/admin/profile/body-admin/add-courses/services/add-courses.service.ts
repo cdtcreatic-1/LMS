@@ -38,6 +38,8 @@ export class AddCoursesService {
   private _isErrorAddSubModulePOST$ = new Subject<number>();
   private _dataQuestionAnswers$ = new Subject<ResponseGetQuestionAnswers>();
 
+  private _Submodule$ = new Subject<boolean>();//Esto lo creamos 
+
   constructor(private http: HttpClient, private store: Store<AppState>) {}
 
   // Get all courses
@@ -240,6 +242,33 @@ export class AddCoursesService {
       });
     return this._isErrorAddCourse$.asObservable();
   }
+
+  deleteSubmodulo(idSubmodule: number): Observable<boolean> {
+    this.store.dispatch(setIsLoading({ value: true }));
+    const token = localStorage.getItem('@access_token')!;
+    const myHeaders: HttpHeaders = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+    this.http
+      .delete(BASE_URL + 'submodules/' + `${idSubmodule}`, {
+        headers: myHeaders,
+      })
+      .subscribe({
+        next: (response) => {
+          this._Submodule$.next(true);
+          this.store.dispatch(setIsLoading({ value: false }));
+        },
+        error: (error) => {
+          this._Submodule$.next(false);
+          this.store.dispatch(setIsLoading({ value: false }));
+          this.store.dispatch(
+            setIsErrorMessage({ message: JSON.stringify(error.msg) })
+          );
+        },
+      });
+    return this._Submodule$.asObservable();
+  }
+
 
   //////////////////////// CRUD add Skills///////////////////
 
