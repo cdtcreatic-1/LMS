@@ -9,52 +9,64 @@
     </div>
   </section>
 
-  <section class="container-body">
-    <div class="container-ckeck">
-      <div class="container-ckeck-true">
-        <div class="box-true">
-          <ion-icon name="checkmark-outline" class="icon-white"></ion-icon>
+  <section class="container-list-option-answers">
+    <!-- Lista de opciones (izquierda) -->
+    <section class="box" data-drop-area="left" (dragover)="onDragOver($event)" (drop)="onDrop($event, 'left')">
+      <div class="title-box">Lista de opciones</div>
+      <section class="container-box-inter">
+        <div
+          class="container-check-text"
+          *ngFor="let answer of questionSelected.SubmoduleAnswers"
+          [attr.data-id]="answer.id_answer"
+          draggable="true"
+          (dragstart)="onDragStart($event, answer)"
+          (dragend)="onDragEnd($event)"
+        >
+          <span>{{ answer.answers_content }}</span>
         </div>
-        <p>Verdadero</p>
-      </div>
+      </section>
+    </section>
+    
 
-      <div class="container-ckeck-true">
-        <div class="box-true box-false">
-          <ion-icon name="close-outline" class="icon-white"></ion-icon>
+    <section class="arrows">
+      
+      
+      <!--<ion-icon
+        name="chevron-forward-circle-outline"
+        [ngClass]="{
+          'disabled-icon': questionSelected.SubmoduleAnswers.length === 0
+        }"
+        (click)="handlePassAnswers()"
+      ></ion-icon>
+      <ion-icon
+        name="chevron-back-circle-outline"
+        [ngClass]="{
+          'disabled-icon': dataAnswers.length === 0
+        }"
+        (click)="handleBackAnswers()"
+      ></ion-icon>-->
+    </section>
+
+    <!-- Lista de palabras correctas (derecha) -->
+    <section class="box" data-drop-area="right" (dragover)="onDragOver($event)" (drop)="onDrop($event, 'right')">
+      <div class="title-box">Lista de respuestas correctas</div>
+      <section class="container-box-inter">
+        <div
+          *ngFor="let answer of dataAnswers"
+          class="container-check-text"
+          [attr.data-id]="answer.id_answer"
+          draggable="true"
+          (dragstart)="onDragStart($event, answer)"
+          (dragend)="onDragEnd($event)"
+        >
+          <span>{{ answer.answers_content }}</span>
         </div>
-        <p>False</p>
-      </div>
-    </div>
-
-    <div
-      class="container-letter-question"
-      *ngFor="let answer of questionSelected.SubmoduleAnswers; let i = index"
-    >
-      <div class="container-ckeck">
-        <div class="container-ckeck-true">
-          <div
-            class="box"
-            [ngClass]="{ 'box-true': answer.isSelected }"
-            (click)="handleClickSelecAnswer(answer.id_answer)"
-          >
-            <ion-icon name="checkmark-outline" class="icon-white"></ion-icon>
-          </div>
-        </div>
-
-        <div class="container-ckeck-true">
-          <div
-            class="box"
-            [ngClass]="{ 'box-false': answer.isSelected_false }"
-            (click)="handleClickSelecAnswerFalse(answer.id_answer)"
-          >
-            <ion-icon name="close-outline" class="icon-white"></ion-icon>
-          </div>
-        </div>
-      </div>
-
-      <div class="response">{{ answer.answers_content }}</div>
-    </div>
-  </section>
+      </section>
+    </section> <!-- Cierre de la sección de la lista de palabras correctas -->
+  </section> <!-- Cierre de la sección principal de opciones y respuestas -->
+  <div class="clue">
+    <h1>Arrastra tu respuesta y colócala en el área designada a la derecha, llamada "Lista de respuestas correctas"</h1>
+  </div>
 
   <div class="container-buttons">
     <button class="fcdt-btn-white-p2" (click)="handleBack()">Atrás</button>

@@ -28,7 +28,7 @@ import { SendAnswersComponent } from '../send-answers/send-answers.component';
   ],
 })
 export class MainPageEvaluationComponent implements OnInit, OnDestroy {
-  typeLearning: number = 3;
+  typeLearning: number = 1;/*Con este se cambia el tipo de aprendizaje*/ 
   idEvaluationQuestion: number = 1;
   idSubmodule: number;
 
@@ -75,5 +75,5 @@ export class MainPageEvaluationComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.suscription.unsubscribe();
-  }
+  }
 }

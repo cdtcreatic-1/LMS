@@ -203,5 +203,5 @@ export class VisualComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.suscription.unsubscribe();
-  }
+  }
 }

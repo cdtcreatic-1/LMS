@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { SubmoduleAnswer, SubmoduleQuestion } from '../../../interfaces';
 import { Subscription } from 'rxjs';
@@ -14,6 +14,7 @@ import {
   setchangeIdQuestion,
 } from 'src/app/store/actions/user-menu-apprentice.action';
 
+
 @Component({
   selector: 'app-kinesthetic',
   templateUrl: './kinesthetic.component.html',
@@ -21,10 +22,72 @@ import {
   standalone: true,
   imports: [NgIf, NgFor, NgClass, IonicModule, ByStepsComponent],
 })
-export class KinestheticComponent implements OnInit {
+export class KinestheticComponent implements OnInit, OnDestroy {
   dataQuestion: SubmoduleQuestion[] = [];
   questionSelected: SubmoduleQuestion;
   dataAnswers: SubmoduleAnswer[] = [];
+
+  draggedAnswer: any;
+
+  // Método para iniciar el arrastre
+  onDragStart(event: DragEvent, answer: any) {
+    this.draggedAnswer = answer;
+    event.dataTransfer?.setData('text', answer.id_answer.toString());
+    setTimeout(() => {
+      (event.target as HTMLElement).classList.add('dragging');
+    }, 0);
+  }
+
+  // Método para permitir el área de soltado
+  onDragOver(event: DragEvent) {
+    event.preventDefault();
+  }
+
+  // Método para soltar y validar la respuesta si es en el área de palabras correctas
+  onDrop(event: DragEvent, dropArea: 'left' | 'right') {
+    event.preventDefault();
+    const answerId = event.dataTransfer?.getData('text');
+
+    if (answerId) {
+      const answerToMove = this.questionSelected.SubmoduleAnswers.find(
+        (answer) => answer.id_answer === Number(answerId)
+      );
+
+      if (dropArea === 'right' && answerToMove) {
+        const isCorrect = this.isCorrectAnswer(answerId);
+
+        if (isCorrect) {
+          this.dataAnswers.push({
+            ...answerToMove,
+            isSelected: false,
+          });
+          this.questionSelected.SubmoduleAnswers = this.questionSelected.SubmoduleAnswers.filter(
+            (answer) => answer.id_answer !== answerToMove.id_answer
+          );
+          alert('¡Respuesta correcta!');
+        } else {
+          alert('Respuesta incorrecta. Inténtalo de nuevo.');
+        }
+      }
+      if (dropArea === 'left' && answerToMove) {
+        // Mover de regreso al área de opciones
+        this.dataAnswers = this.dataAnswers.filter(
+          (answer) => answer.id_answer != answerToMove.id_answer
+        );
+      }
+    }
+
+    this.draggedAnswer = null; // Reiniciar la variable arrastrada
+  }
+  onDragEnd(event: DragEvent) {
+    const target = event.target as HTMLElement;
+    target.classList.remove('dragging'); // Eliminar la clase de arrastre al finalizar
+  }
+
+  // Validar si la respuesta es correcta
+  isCorrectAnswer(answerId: string | null): boolean {
+    return answerId === '1';
+  }
 
   actualId: number = 1;
   maxLengthQuestion: number = 1;
@@ -132,5 +195,8 @@ export class KinestheticComponent implements OnInit {
     }
 
     this.handleSelectQuestion();
+  }
+  ngOnDestroy(): void {
+    this.suscription.unsubscribe();
   }
 }
