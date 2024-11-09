@@ -107,7 +107,7 @@ export class VisualComponent implements OnInit, OnDestroy {
     };
   }
 
-  handlePassAnswers() {
+  handlePassAnswers() {/**aqui se puede hacer el cambio */
     const answersTrue = this.questionSelected.SubmoduleAnswers.filter(
       (answer) => answer.isSelected
     );
@@ -115,7 +115,7 @@ export class VisualComponent implements OnInit, OnDestroy {
     if (answersTrue.length === 0) {
       this.store.dispatch(
         setIsErrorMessage({
-          message: 'Por favor, seleccione almenos una respuesta',
+          message: 'Por favor, seleccione al menos una respuesta',
         })
       );
       return;
@@ -154,7 +154,7 @@ export class VisualComponent implements OnInit, OnDestroy {
     if (answersTrue.length === 0) {
       this.store.dispatch(
         setIsErrorMessage({
-          message: 'Por favor, seleccione almenos una respuesta',
+          message: 'Por favor, seleccione al menos una respuesta',
         })
       );
       return;

@@ -19,6 +19,8 @@
           *ngFor="let answer of questionSelected.SubmoduleAnswers"
           [attr.data-id]="answer.id_answer"
           draggable="true"
+          (click)="handleClickSelecAnswer(answer.id_answer)"
+          [ngClass]="{ 'input-selected': answer.isSelected }"
           (dragstart)="onDragStart($event, answer)"
           (dragend)="onDragEnd($event)"
         >
@@ -26,7 +28,6 @@
         </div>
       </section>
     </section>
-    
 
     <section class="arrows">
       
@@ -47,7 +48,7 @@
       ></ion-icon>-->
     </section>
 
-    <!-- Lista de palabras correctas (derecha) -->
+    <!-- Lista de respuestas correctas (derecha) -->
     <section class="box" data-drop-area="right" (dragover)="onDragOver($event)" (drop)="onDrop($event, 'right')">
       <div class="title-box">Lista de respuestas correctas</div>
       <section class="container-box-inter">
@@ -55,6 +56,8 @@
           *ngFor="let answer of dataAnswers"
           class="container-check-text"
           [attr.data-id]="answer.id_answer"
+          (click)="handleClickSelecAnswer(answer.id_answer)"
+          [ngClass]="{ 'input-selected': answer.isSelected }"
           draggable="true"
           (dragstart)="onDragStart($event, answer)"
           (dragend)="onDragEnd($event)"
@@ -62,8 +65,9 @@
           <span>{{ answer.answers_content }}</span>
         </div>
       </section>
-    </section> <!-- Cierre de la sección de la lista de palabras correctas -->
-  </section> <!-- Cierre de la sección principal de opciones y respuestas -->
+    </section>
+  </section>
+
   <div class="clue">
     <h1>Arrastra tu respuesta y colócala en el área designada a la derecha, llamada "Lista de respuestas correctas"</h1>
   </div>

@@ -47,36 +47,21 @@ export class KinestheticComponent implements OnInit, OnDestroy {
   onDrop(event: DragEvent, dropArea: 'left' | 'right') {
     event.preventDefault();
     const answerId = event.dataTransfer?.getData('text');
-
+  
     if (answerId) {
       const answerToMove = this.questionSelected.SubmoduleAnswers.find(
         (answer) => answer.id_answer === Number(answerId)
       );
-
+  
       if (dropArea === 'right' && answerToMove) {
-        const isCorrect = this.isCorrectAnswer(answerId);
-
-        if (isCorrect) {
-          this.dataAnswers.push({
-            ...answerToMove,
-            isSelected: false,
-          });
-          this.questionSelected.SubmoduleAnswers = this.questionSelected.SubmoduleAnswers.filter(
-            (answer) => answer.id_answer !== answerToMove.id_answer
-          );
-          alert('¡Respuesta correcta!');
-        } else {
-          alert('Respuesta incorrecta. Inténtalo de nuevo.');
-        }
-      }
-      if (dropArea === 'left' && answerToMove) {
-        // Mover de regreso al área de opciones
-        this.dataAnswers = this.dataAnswers.filter(
-          (answer) => answer.id_answer != answerToMove.id_answer
-        );
+        //  handlePassAnswers para validar y pasar las respuestas seleccionadas a la lista de respuestas correctas
+        this.handlePassAnswers();
+      } else if (dropArea === 'left' && answerToMove) {
+        //  handleBackAnswers para regresar las respuestas seleccionadas a la lista de opciones
+        this.handleBackAnswers();
       }
     }
-
+    
     this.draggedAnswer = null; // Reiniciar la variable arrastrada
   }
   onDragEnd(event: DragEvent) {
@@ -84,10 +69,8 @@ export class KinestheticComponent implements OnInit, OnDestroy {
     target.classList.remove('dragging'); // Eliminar la clase de arrastre al finalizar
   }
 
-  // Validar si la respuesta es correcta
-  isCorrectAnswer(answerId: string | null): boolean {
-    return answerId === '1';
-  }
+   // Validar si la respuesta es correcta
+  
 
   actualId: number = 1;
   maxLengthQuestion: number = 1;
@@ -123,7 +106,58 @@ export class KinestheticComponent implements OnInit, OnDestroy {
     this.questionSelected = this.dataQuestion[this.actualId - 1];
   }
 
-  handleClickSelecAnswer(idAnswer: number) {
+  handlePassAnswers() {/**aqui se puede hacer el cambio */
+    const answersTrue = this.questionSelected.SubmoduleAnswers.filter(
+      (answer) => answer.isSelected
+    );
+
+    if (answersTrue.length === 0) {
+      this.store.dispatch(
+        setIsErrorMessage({
+          message: 'Por favor, seleccione al menos una respuesta',
+        })
+      );
+      return;
+    }
+
+    answersTrue.forEach((answers) => {
+      this.questionSelected = {
+        ...this.questionSelected,
+        SubmoduleAnswers: this.questionSelected.SubmoduleAnswers.filter(
+          (item) => item.id_answer !== answers.id_answer
+        ),
+      };
+
+      this.dataAnswers.push({
+        ...answers,
+        isSelected: false,
+      });
+    });
+  }
+  handleBackAnswers() {
+    const answersTrue = this.dataAnswers.filter((answer) => answer.isSelected);
+
+    if (answersTrue.length === 0) {
+      this.store.dispatch(
+        setIsErrorMessage({
+          message: 'Por favor, seleccione al menos una respuesta',
+        })
+      );
+      return;
+    }
+
+    answersTrue.map((answers) => {
+      this.dataAnswers = this.dataAnswers.filter(
+        (item) => item.id_answer !== answers.id_answer
+      );
+      this.questionSelected.SubmoduleAnswers.push({
+        ...answers,
+        isSelected: false,
+      });
+    });
+  }
+
+  handleClickSelecAnswer(idAnswer: number) {/* pasarlo como metodo a la verificacion de arriba*/ 
     const newDataAnswers = this.questionSelected.SubmoduleAnswers.map(
       (answer) => {
         if (answer.id_answer === idAnswer) {
