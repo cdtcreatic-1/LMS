@@ -54,22 +54,22 @@ export class KinestheticComponent implements OnInit, OnDestroy {
       );
   
       if (dropArea === 'right' && answerToMove) {
-        //  handlePassAnswers para validar y pasar las respuestas seleccionadas a la lista de respuestas correctas
+        //  handlePassAnswers valida y pasa las respuestas seleccionadas a la lista de respuestas correctas
         this.handlePassAnswers();
       } else if (dropArea === 'left' && answerToMove) {
-        //  handleBackAnswers para regresar las respuestas seleccionadas a la lista de opciones
+        //  handleBackAnswers para regresa las respuestas seleccionadas a la lista de opciones
         this.handleBackAnswers();
       }
     }
     
-    this.draggedAnswer = null; // Reiniciar la variable arrastrada
+    this.draggedAnswer = null; // Reinicia la variable arrastrada
   }
   onDragEnd(event: DragEvent) {
     const target = event.target as HTMLElement;
-    target.classList.remove('dragging'); // Eliminar la clase de arrastre al finalizar
+    target.classList.remove('dragging'); // Elimina la clase de arrastre al finalizar
   }
-
-   // Validar si la respuesta es correcta
+  
+   
   
 
   actualId: number = 1;
