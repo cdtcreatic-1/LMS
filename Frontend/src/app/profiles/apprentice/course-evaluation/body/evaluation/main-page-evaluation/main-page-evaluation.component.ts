@@ -28,7 +28,7 @@ import { SendAnswersComponent } from '../send-answers/send-answers.component';
   ],
 })
 export class MainPageEvaluationComponent implements OnInit, OnDestroy {
-  typeLearning: number = 1;/*Con este se cambia el tipo de aprendizaje*/ 
+  typeLearning: number = 3;/*Con este se cambia el tipo de aprendizaje*/ 
   idEvaluationQuestion: number = 3;
   idSubmodule: number;
 

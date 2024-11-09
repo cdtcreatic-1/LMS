@@ -205,11 +205,7 @@ export class KinestheticComponent implements OnInit, OnDestroy {
   }
 
   handleSubmit() {
-    const AnswersTrue = this.questionSelected.SubmoduleAnswers.filter(
-      (res) => res.isSelected
-    );
-
-    if (AnswersTrue.length === 0) {
+    if (this.dataAnswers.length === 0) {
       this.store.dispatch(
         setIsErrorMessage({
           message: 'Por favor, selecciones la(s) respuesta(s) correcta',
@@ -218,7 +214,7 @@ export class KinestheticComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.store.dispatch(setSaveAnswersSubmodule({ data: AnswersTrue }));
+    this.store.dispatch(setSaveAnswersSubmodule({ data: this.dataAnswers }));
 
     this.dataAnswers = [];
     this.actualId += 1;
@@ -230,6 +226,7 @@ export class KinestheticComponent implements OnInit, OnDestroy {
 
     this.handleSelectQuestion();
   }
+
   ngOnDestroy(): void {
     this.suscription.unsubscribe();
   }
