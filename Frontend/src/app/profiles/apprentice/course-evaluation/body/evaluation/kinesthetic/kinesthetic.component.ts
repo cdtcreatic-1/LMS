@@ -9,6 +9,8 @@ import { AppState } from 'src/app/store/app.state';
 import { ByStepsComponent } from 'src/app/shared/by-steps/by-steps.component';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { setIsErrorMessage } from 'src/app/store/actions/error-message.actions';
+
+
 import {
   setSaveAnswersSubmodule,
   setchangeIdQuestion,
@@ -26,7 +28,7 @@ export class KinestheticComponent implements OnInit, OnDestroy {
   dataQuestion: SubmoduleQuestion[] = [];
   questionSelected: SubmoduleQuestion;
   dataAnswers: SubmoduleAnswer[] = [];
-
+  
   draggedAnswer: any;
 
   // Método para iniciar el arrastre
@@ -44,26 +46,23 @@ export class KinestheticComponent implements OnInit, OnDestroy {
   }
 
   // Método para soltar y validar la respuesta si es en el área de palabras correctas
-  onDrop(event: DragEvent, dropArea: 'left' | 'right') {
+ 
+
+onDrop(event: DragEvent, dropArea: 'right' | 'left') {
     event.preventDefault();
     const answerId = event.dataTransfer?.getData('text');
-  
+
     if (answerId) {
-      const answerToMove = this.questionSelected.SubmoduleAnswers.find(
-        (answer) => answer.id_answer === Number(answerId)
-      );
-  
-      if (dropArea === 'right' && answerToMove) {
-        //  handlePassAnswers valida y pasa las respuestas seleccionadas a la lista de respuestas correctas
-        this.handlePassAnswers();
-      } else if (dropArea === 'left' && answerToMove) {
-        //  handleBackAnswers para regresa las respuestas seleccionadas a la lista de opciones
-        this.handleBackAnswers();
-      }
+       
+        if (dropArea === 'right') {
+            this.handlePassAnswers();
+        } else if (dropArea === 'left') {
+            this.handleBackAnswers();
+            
+        }
     }
-    
-    this.draggedAnswer = null; // Reinicia la variable arrastrada
-  }
+    this.draggedAnswer = null;
+}
   onDragEnd(event: DragEvent) {
     const target = event.target as HTMLElement;
     target.classList.remove('dragging'); // Elimina la clase de arrastre al finalizar
@@ -106,6 +105,20 @@ export class KinestheticComponent implements OnInit, OnDestroy {
     this.questionSelected = this.dataQuestion[this.actualId - 1];
   }
 
+  handleClickSelectQuestion(idAnswer: number) {
+    const newDataAnswers = this.questionSelected.SubmoduleAnswers.map(
+      (answer) => {
+        if (answer.id_answer === idAnswer) {
+          return { ...answer, isSelected: !answer.isSelected };
+        }
+        return { ...answer };
+      }
+    );
+    this.questionSelected = {
+      ...this.questionSelected,
+      SubmoduleAnswers: newDataAnswers,
+    };
+  }
   handlePassAnswers() {/**aqui se puede hacer el cambio */
     const answersTrue = this.questionSelected.SubmoduleAnswers.filter(
       (answer) => answer.isSelected
@@ -134,6 +147,16 @@ export class KinestheticComponent implements OnInit, OnDestroy {
       });
     });
   }
+  handleClickSelecAnswer(idAnswer: number) {/* pasarlo como metodo a la verificacion de arriba*/ 
+    const newDataAnswers = this.dataAnswers.map((answer) => {
+      if (answer.id_answer === idAnswer) {
+        return { ...answer, isSelected: !answer.isSelected };
+      }
+      return { ...answer };
+    });
+    this.dataAnswers = newDataAnswers;
+
+  }
   handleBackAnswers() {
     const answersTrue = this.dataAnswers.filter((answer) => answer.isSelected);
 
@@ -157,45 +180,9 @@ export class KinestheticComponent implements OnInit, OnDestroy {
     });
   }
 
-  handleClickSelecAnswer(idAnswer: number) {/* pasarlo como metodo a la verificacion de arriba*/ 
-    const newDataAnswers = this.questionSelected.SubmoduleAnswers.map(
-      (answer) => {
-        if (answer.id_answer === idAnswer) {
-          return {
-            ...answer,
-            isSelected: !answer.isSelected,
-            isSelected_false: false,
-          };
-        }
-        return { ...answer };
-      }
-    );
+  
 
-    this.questionSelected = {
-      ...this.questionSelected,
-      SubmoduleAnswers: newDataAnswers,
-    };
-  }
-
-  handleClickSelecAnswerFalse(idAnswer: number) {
-    const newDataAnswers = this.questionSelected.SubmoduleAnswers.map(
-      (answer) => {
-        if (answer.id_answer === idAnswer) {
-          return {
-            ...answer,
-            isSelected_false: !answer.isSelected_false,
-            isSelected: false,
-          };
-        }
-        return { ...answer };
-      }
-    );
-
-    this.questionSelected = {
-      ...this.questionSelected,
-      SubmoduleAnswers: newDataAnswers,
-    };
-  }
+  
 
   handleBack() {
     if (this.actualId === 1) return;
@@ -226,7 +213,6 @@ export class KinestheticComponent implements OnInit, OnDestroy {
 
     this.handleSelectQuestion();
   }
-
   ngOnDestroy(): void {
     this.suscription.unsubscribe();
   }

@@ -19,10 +19,10 @@
           *ngFor="let answer of questionSelected.SubmoduleAnswers"
           [attr.data-id]="answer.id_answer"
           draggable="true"
-          (click)="handleClickSelecAnswer(answer.id_answer)"
+          (click)="handleClickSelectQuestion(answer.id_answer)"
           [ngClass]="{ 'input-selected': answer.isSelected }"
           (dragstart)="onDragStart($event, answer)"
-          (dragend)="onDragEnd($event)"
+          
         >
           <span>{{ answer.answers_content }}</span>
         </div>
@@ -53,17 +53,19 @@
       <div class="title-box">Lista de respuestas correctas</div>
       <section class="container-box-inter">
         <div
-          *ngFor="let answer of dataAnswers"
           class="container-check-text"
+          *ngFor="let answer of dataAnswers"
+          
           [attr.data-id]="answer.id_answer"
+          [ngClass]="{ 'input-selected': answer.isSelected}"
           (click)="handleClickSelecAnswer(answer.id_answer)"
-          [ngClass]="{ 'input-selected': answer.isSelected }"
           draggable="true"
           (dragstart)="onDragStart($event, answer)"
-          (dragend)="onDragEnd($event)"
+          
         >
           <span>{{ answer.answers_content }}</span>
         </div>
+      
       </section>
     </section>
   </section>

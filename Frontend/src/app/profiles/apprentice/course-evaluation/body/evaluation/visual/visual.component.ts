@@ -170,7 +170,7 @@ export class VisualComponent implements OnInit, OnDestroy {
       });
     });
   }
-
+ /*quita lo documento y ve lo que pasa*/ 
   handleBack() {
     if (this.actualId === 1) return;
     this.actualId -= 1;
