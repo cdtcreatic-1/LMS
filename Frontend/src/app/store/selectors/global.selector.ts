@@ -69,6 +69,12 @@ export const selectApprentice = createSelector(
   (state: InitialStateApprentice) => state
 );
 
+export const selectDataQuestionAnswers = createSelector(
+  selectApprenticeProfile,
+  (state: InitialStateApprentice) => state.dataQuestionAnswers
+);
+
+
 const selectAdminProfile = (state: AppState) => state.admin;
 
 export const selectAdmin = createSelector(
@@ -93,3 +99,4 @@ export const selectLoading = createSelector(
   selectLoadingComponent,
   (state: InitialStateLoadinComponent) => state
 );
+

@@ -13,7 +13,7 @@
             *ngFor="let submodule of submodulesData"
             value="{{ submodule.id_submodule }}"
           >
-            <span class="fcdt-title-responsive">
+            <span class="fcdt-title-responsive"> 
               {{ submodule.submodule_title }}</span
             >
           </option>
@@ -42,7 +42,7 @@
           <div class="box box-green" *ngIf="item.validity">
             <ion-icon name="checkmark-outline" class="icon"></ion-icon>
           </div>
-
+        
           <div class="box box-blue" *ngIf="!item.validity">
             <ion-icon name="close-outline" class="icon"></ion-icon>
           </div>

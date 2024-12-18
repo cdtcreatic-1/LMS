@@ -12,6 +12,7 @@ import { DataAnswers, SubmoduleAnswer } from '../../../interfaces';
 import { Subscription } from 'rxjs';
 import { CourseEvaluationService } from '../../../services/course-evaluation.service';
 import { Router } from '@angular/router';
+import { setIsErrorMessage } from 'src/app/store/actions/error-message.actions';
 
 @Component({
   selector: 'app-send-answers',
@@ -61,7 +62,9 @@ export class SendAnswersComponent implements OnInit, OnDestroy {
     this.evaluationService
       .setSendAnswers(this.idSubmodule, body)
       .subscribe((res) => {
-        if (!res) return;
+        if (!res) return; 
+        //console.log(body);
+        this.store.dispatch(setIsErrorMessage({message: 'Respuestas con la mejor calificacion previamente obtenidas'}))
         this.store.dispatch(setResetAnswersSubmodule());
         this.router.navigate([
           `user-apprentice/course-evaluation/${this.idCourse}/results/${this.idSubmodule}`,
@@ -70,7 +73,9 @@ export class SendAnswersComponent implements OnInit, OnDestroy {
         this.store.dispatch(setChangeIdEvaluacionFlow({ id: 3 }));
         this.store.dispatch(setchangeIdQuestion({ id: 1 }));
         this.store.dispatch(setChangeIdEvaluation({ value: 1 }));
+        //console.log(this.evaluationService)
       });
+
   }
 
   ngOnDestroy(): void {}

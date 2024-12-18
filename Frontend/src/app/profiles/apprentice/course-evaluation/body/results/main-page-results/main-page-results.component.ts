@@ -22,6 +22,7 @@ export class MainPageResultsComponent implements OnInit {
   ngOnInit() {
     this.store.select(selectApprentice).subscribe((data) => {
       this.idEvaluation = data.idEvaluation;
+      
     });
   }
 }

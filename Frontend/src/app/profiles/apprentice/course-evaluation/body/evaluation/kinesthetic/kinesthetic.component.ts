@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+
 import { SubmoduleAnswer, SubmoduleQuestion } from '../../../interfaces';
 import { Subscription } from 'rxjs';
 import { selectApprentice } from 'src/app/store/selectors/global.selector';
@@ -180,7 +181,31 @@ onDrop(event: DragEvent, dropArea: 'right' | 'left') {
     });
   }
 
-  
+  handleBuildData() {
+    const suscription2 = this.store
+      .select(selectApprentice)
+     .subscribe((data) => {
+        if (data.dataAllAnswers.length > 0) {
+          this.dataAnswers = data.dataAllAnswers[this.actualId - 1];
+          const diferentes: SubmoduleAnswer[] = [];
+          this.questionSelected.SubmoduleAnswers.map((item) => {
+            const resfilter = this.dataAnswers.find(
+              (res) => res.id_answer === item.id_answer
+            );
+            if (!resfilter) {
+              diferentes.push(item);
+            }
+          });
+
+          this.questionSelected = {
+           ...this.questionSelected,
+            SubmoduleAnswers: diferentes,
+          };
+        }
+      });
+
+    this.suscription.add(suscription2);
+  }
 
   
 
@@ -188,7 +213,7 @@ onDrop(event: DragEvent, dropArea: 'right' | 'left') {
     if (this.actualId === 1) return;
     this.actualId -= 1;
     this.handleSelectQuestion();
-    // this.handleBuildData();
+     this.handleBuildData();
   }
 
   handleSubmit() {

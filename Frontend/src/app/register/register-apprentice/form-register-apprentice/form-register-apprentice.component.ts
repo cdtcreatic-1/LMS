@@ -188,7 +188,7 @@ export class FormRegisterApprenticeComponent implements OnDestroy {
 
   comeBack() {
     if (!this.dataUser) {
-      this.router.navigate([ROUTES.REGISTER + '/profiles']);
+      this.router.navigate([ROUTES.REGISTER + '/home']);
     } else {
       if (this.actualIdRole === 1) {
         this.router.navigate([ROUTES.USER_FARMER]);
