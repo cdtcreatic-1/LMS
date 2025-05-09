@@ -1,4 +1,4 @@
-/*'use strict';
+'use strict';
 
 module.exports = (sequelize, DataTypes) => {
   const BusinesmanCoffeeInterested = sequelize.define('BusinesmanCoffeeInterested', {
@@ -37,4 +37,4 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   return BusinesmanCoffeeInterested;
-};*/
+};

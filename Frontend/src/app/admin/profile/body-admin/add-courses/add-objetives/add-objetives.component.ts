@@ -165,7 +165,7 @@ export class AddObjetivesComponent implements OnInit, OnDestroy {
     if (this.formAdd.get('addSkill')?.invalid) {
       this.store.dispatch(
         setIsErrorMessage({
-          message: this.messageError,
+          message: this.messageError, //se llamo mensaje2
         })
       );
       return;

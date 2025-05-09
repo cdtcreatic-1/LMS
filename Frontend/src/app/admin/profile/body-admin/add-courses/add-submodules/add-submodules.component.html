@@ -1,6 +1,9 @@
 <section>
   <div class="item-list">
-    <h1 class="title">Fair Trade</h1>
+
+    <h1 class="title">Agregar Submodulo</h1>
+
+  
     <div
       class="icon"
       [routerLink]="['../../add-submodule-details/', idModule, 0]"
@@ -18,12 +21,13 @@
         </div>
         <div
           class="info"
+          
           [routerLink]="[
             '../../add-evaluation-details',
             idModule,
             submodule.id_submodule
           ]"
-        >
+        ><!--add-evaluation-details to menu-question-->
           <strong>Evaluación</strong>
         </div>
         <div class="crud">
@@ -35,7 +39,9 @@
             ]"
             >Editar</span
           >
-          <span>Eliminar</span>
+          <span class="delete-btn" (click)="deleteSubModule(i, submodule.id_submodule)"> <!--Cambio en el event click-->
+            Eliminar
+          </span>
         </div>
       </li>
     </ul>

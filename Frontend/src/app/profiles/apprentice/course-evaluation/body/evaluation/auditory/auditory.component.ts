@@ -89,12 +89,37 @@ export class AuditoryComponent implements OnInit {
     });
     this.dataAnswers = newDataAnswers;
   }
+  handleBuildData() {
+    const suscription2 = this.store
+      .select(selectApprentice)
+     .subscribe((data) => {
+        if (data.dataAllAnswers.length > 0) {
+          this.dataAnswers = data.dataAllAnswers[this.actualId - 1];
+          const diferentes: SubmoduleAnswer[] = [];
+          this.questionSelected.SubmoduleAnswers.map((item) => {
+            const resfilter = this.dataAnswers.find(
+              (res) => res.id_answer === item.id_answer
+            );
+            if (!resfilter) {
+              diferentes.push(item);
+            }
+          });
+
+          this.questionSelected = {
+           ...this.questionSelected,
+            SubmoduleAnswers: diferentes,
+          };
+        }
+      });
+
+    this.suscription.add(suscription2);
+  }
 
   handleBack() {
     if (this.actualId === 1) return;
     this.actualId -= 1;
     this.handleSelectQuestion();
-    // this.handleBuildData();
+     this.handleBuildData();
   }
 
   handleSubmit() {

@@ -62,33 +62,33 @@ export class VisualComponent implements OnInit, OnDestroy {
     this.questionSelected = this.dataQuestion[this.actualId - 1];
   }
 
-  // Build data
+  
 
-  // handleBuildData() {
-  //   const suscription2 = this.store
-  //     .select(selectApprentice)
-  //     .subscribe((data) => {
-  //       if (data.dataAllAnswers.length > 0) {
-  //         this.dataAnswers = data.dataAllAnswers[this.actualId - 1];
-  //         const diferentes: SubmoduleAnswer[] = [];
-  //         this.questionSelected.SubmoduleAnswers.map((item) => {
-  //           const resfilter = this.dataAnswers.find(
-  //             (res) => res.id_answer === item.id_answer
-  //           );
-  //           if (!resfilter) {
-  //             diferentes.push(item);
-  //           }
-  //         });
+   handleBuildData() {
+     const suscription2 = this.store
+       .select(selectApprentice)
+      .subscribe((data) => {
+         if (data.dataAllAnswers.length > 0) {
+           this.dataAnswers = data.dataAllAnswers[this.actualId - 1];
+           const diferentes: SubmoduleAnswer[] = [];
+           this.questionSelected.SubmoduleAnswers.map((item) => {
+             const resfilter = this.dataAnswers.find(
+               (res) => res.id_answer === item.id_answer
+             );
+             if (!resfilter) {
+               diferentes.push(item);
+             }
+           });
 
-  //         this.questionSelected = {
-  //           ...this.questionSelected,
-  //           SubmoduleAnswers: diferentes,
-  //         };
-  //       }
-  //     });
+           this.questionSelected = {
+            ...this.questionSelected,
+             SubmoduleAnswers: diferentes,
+           };
+         }
+       });
 
-  //   this.suscription.add(suscription2);
-  // }
+     this.suscription.add(suscription2);
+   }
 
   // List option
 
@@ -107,7 +107,7 @@ export class VisualComponent implements OnInit, OnDestroy {
     };
   }
 
-  handlePassAnswers() {
+  handlePassAnswers() {/**aqui se puede hacer el cambio */
     const answersTrue = this.questionSelected.SubmoduleAnswers.filter(
       (answer) => answer.isSelected
     );
@@ -115,7 +115,7 @@ export class VisualComponent implements OnInit, OnDestroy {
     if (answersTrue.length === 0) {
       this.store.dispatch(
         setIsErrorMessage({
-          message: 'Por favor, seleccione almenos una respuesta',
+          message: 'Por favor, seleccione al menos una respuesta',
         })
       );
       return;
@@ -154,7 +154,7 @@ export class VisualComponent implements OnInit, OnDestroy {
     if (answersTrue.length === 0) {
       this.store.dispatch(
         setIsErrorMessage({
-          message: 'Por favor, seleccione almenos una respuesta',
+          message: 'Por favor, seleccione al menos una respuesta',
         })
       );
       return;
@@ -170,12 +170,12 @@ export class VisualComponent implements OnInit, OnDestroy {
       });
     });
   }
-
+ /*quita lo documento y ve lo que pasa*/ 
   handleBack() {
     if (this.actualId === 1) return;
     this.actualId -= 1;
-    // this.handleSelectQuestion();
-    // this.handleBuildData();
+     this.handleSelectQuestion();
+     this.handleBuildData();
   }
 
   handleSubmit() {
@@ -203,5 +203,5 @@ export class VisualComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.suscription.unsubscribe();
-  }
+  }
 }

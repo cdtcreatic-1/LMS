@@ -9,18 +9,11 @@
   <app-global-titles [titleName]="'Agregar perfil'"></app-global-titles>
 
   <app-global-subtitles [nameSubTitle]="
-        'Crea un perfil como comprador, agricultor o aprendiz utilizando tu cuenta actual de forma rápida y segura. Al tener los tres perfiles, accederás a todas las características y herramientas de nuestra plataforma'
+        'Crea un perfil como aprendiz utilizando tu cuenta actual de forma rápida y segura. Al tener el perfil, accederás a todas las características y herramientas de nuestra plataforma'
       "></app-global-subtitles>
 
   <div class="container-principal-cards">
-    <div class="container-car" align="center">
-      <div class="container-image" [ngClass]="{ 'container-disable': !isCreatedFarmer }">
-        <img src="../../../../../assets/farmer.webp" alt="Farmer" height="100%" width="100%" />
-      </div>
-      <p class="container-add-profile" [ngClass]="{ 'container-disable': !isCreatedFarmer }">
-        Caficultor
-      </p>
-    </div>
+    
     <div class="container-car" align="center">
       <div class="container-image" [ngClass]="{ 'container-disable': !isCreatedApprentice }">
         <img src="../../../../../assets/apprendice.webp" alt="Farmer" height="100%" width="100%" />

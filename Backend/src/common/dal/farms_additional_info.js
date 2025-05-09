@@ -1,4 +1,4 @@
-/*const models = require('../models/internaldb');
+const models = require('../models/internaldb');
 
 async function createFarmAdditionalInfo(data) {
   try {
@@ -37,4 +37,4 @@ module.exports = {
     createFarmAdditionalInfo,
     updateFarmAdditionalInfo,
     getFarmAdditionalInfoById
-};*/
+};

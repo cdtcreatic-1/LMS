@@ -5,6 +5,7 @@ import { Observable, Subject } from 'rxjs';
 import { BASE_URL } from 'src/app/shared/constants';
 import { setIsLoading } from 'src/app/store/actions/loading.actions';
 import { AppState } from 'src/app/store/app.state';
+
 import {
   DataAnswers,
   DataPercentageTable,
@@ -25,11 +26,19 @@ import { setIsErrorMessage } from 'src/app/store/actions/error-message.actions';
 export class CourseEvaluationService {
   private _isSendEvaluation$ = new Subject<boolean>();
   private _questionAnswers$ = new Subject<ResponseDataQuestionAnswers>();
+  public get questionAnswers$() {
+    return this._questionAnswers$;
+  }
+  public set questionAnswers$(value) {
+    this._questionAnswers$ = value;
+  }
   private _isPercentageCourse$ = new Subject<DataPercentageTable>();
   private _isCertificateCourse$ = new Subject<any>();
+  
+  
 
   constructor(private http: HttpClient, private store: Store<AppState>) {}
-
+  
   getAllInfoCourse(idCourse: number) {
     this.store.dispatch(setIsLoading({ value: true }));
     const token = localStorage.getItem('@access_token')!;
@@ -82,12 +91,12 @@ export class CourseEvaluationService {
         },
       });
   }
-
+ 
   setSendAnswers(
     idSubmodule: number,
     answers: DataAnswers[]
   ): Observable<boolean> {
-    this.store.dispatch(setIsLoading({ value: true }));
+    this.store.dispatch(setIsLoading({ value: false }));
     const token = localStorage.getItem('@access_token')!;
     const idUser = localStorage.getItem('@userId')!;
     const myHeaders: HttpHeaders = new HttpHeaders({
@@ -100,14 +109,20 @@ export class CourseEvaluationService {
       id_submodule: idSubmodule,
       answers,
     };
-
+    console.log(body);
+   
+    
     this.http
-      .post(BASE_URL + 'consume_learner_profile_data_microservice', body, {
+      .post(BASE_URL+ 'consume_learner_profile_data_microservice', body, {
         headers: myHeaders,
       })
       .subscribe({
         next: (response) => {
           this._isSendEvaluation$.next(true);
+          
+          console.log(response);
+          
+          
           this.store.dispatch(setIsLoading({ value: false }));
         },
         error: (error) => {
@@ -120,10 +135,12 @@ export class CourseEvaluationService {
           );
         },
       });
+      
     return this._isSendEvaluation$.asObservable();
+    
   }
 
-  getQuestionsAnswersTrue(
+  getQuestionsAnswersTrue(/**AQUI conecta con table.Component */
     idSubmodule: number
   ): Observable<ResponseDataQuestionAnswers> {
     this.store.dispatch(setIsLoading({ value: true }));
@@ -134,7 +151,7 @@ export class CourseEvaluationService {
     });
 
     const body = {
-      microservice: 'get_user_answers',
+      microservice: 'get_user_answers',/**get_user_answers answer.answers_validity*/
       id_user: parseInt(idUser),
       id_submodule: idSubmodule,
     };
@@ -149,7 +166,9 @@ export class CourseEvaluationService {
       )
       .subscribe({
         next: (response) => {
+          
           this._questionAnswers$.next(response);
+          console.log(response);
           this.store.dispatch(setIsLoading({ value: false }));
         },
         error: (error) => {

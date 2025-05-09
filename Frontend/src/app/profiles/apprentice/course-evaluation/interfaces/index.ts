@@ -107,12 +107,13 @@ export interface ResponseDataQuestionAnswers {
   status: string;
   success_rate: number;
   user_answers: UserAnswer[];
+  /*SubmoduleAnswers: SubmoduleAnswer[];/*agerge*/ 
 }
 
 export interface UserAnswer {
   order: number;
   question_content: string;
-  validity: boolean;
+  validity: false;
 }
 
 // Percentage table

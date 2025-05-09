@@ -14,7 +14,9 @@
       class="container-letter-question"
       *ngFor="let answer of questionSelected.SubmoduleAnswers; let i = index"
     >
+   
       <div
+      
         class="letter"
         [ngClass]="{ 'letter-selected': answer.isSelected }"
         (click)="handleClickSelecAnswer(answer.id_answer)"

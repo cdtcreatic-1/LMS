@@ -38,7 +38,7 @@ exports.handler = async (req, res) => {
     if (!linkRegex.test(submodule_class_video)) {
         valErrs.push({ submodule_class_video: 'not url video' });
     }
-    const suBmoduleTitleRegex = /^[\wáéíóúÁÉÍÓÚüÜñÑ.,\/\-;:_\s]{20,200}$/;
+    const suBmoduleTitleRegex = /^[\wáéíóúÁÉÍÓÚüÜñÑ.,\/\-;:_\s]{12,200}$/;
     if (!suBmoduleTitleRegex.test(submodule_title)) {
         valErrs.push({ submodule_title: 'contains some special characters not allowed' });
     }

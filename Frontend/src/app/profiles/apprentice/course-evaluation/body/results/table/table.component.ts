@@ -11,6 +11,7 @@ import { setChangeIdEvaluation } from 'src/app/store/actions/user-menu-apprentic
 import { CourseEvaluationService } from '../../../services/course-evaluation.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {SubmoduleAnswer} from 'src/app/profiles/apprentice/course-evaluation/interfaces/index';
 
 @Component({
   selector: 'app-table',
@@ -29,6 +30,7 @@ export class TableComponent implements OnInit, OnDestroy {
   public options: any;
   submodulesData: Submodules[] = [];
   dataQuestionAnswers: UserAnswer[];
+  SubmoduleAnswers: SubmoduleAnswer[];
   percentageResult: number;
 
   form: FormGroup = this.fb.group({
@@ -102,7 +104,7 @@ export class TableComponent implements OnInit, OnDestroy {
           ],
           innerCircle: {
             text: 'hi',
-            color: '#fff',
+            color: '#ffff',
           },
         },
       ],

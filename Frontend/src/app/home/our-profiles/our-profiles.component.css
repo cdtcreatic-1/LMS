@@ -22,18 +22,20 @@
 .container-cards-perfiles {
   display: flex;
   width: 100%;
+  
 }
 
 .card-perfil {
-  width: 33%;
+  width: 30;
+  align-self: center;
 }
 
 .card-perfil-1 {
-  width: 33%;
+  width: 30;
 }
 
 .container-image-profile {
-  width: 70%;
+  width: 20%;
 }
 
 .container-image-profile-1 {
@@ -43,7 +45,7 @@
 .text-profiles {
   width: 70%;
   margin-top: 10px;
-  text-align: start;
+  text-align: center;
   font-family: "Lato";
   font-style: normal;
   font-weight: 400;
@@ -54,7 +56,7 @@
 .text-profiles-1 {
   width: 70%;
   margin-top: 10px;
-  text-align: start;
+  text-align: center;
   font-family: "Lato";
   font-style: normal;
   font-weight: 400;

@@ -1,4 +1,4 @@
-/*"use strict";
+"use strict";
 
 module.exports = (sequelize, DataTypes) => {
   const Farms = sequelize.define(
@@ -73,4 +73,4 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   return Farms;
-};*/
+};
